@@ -21,6 +21,8 @@ cd
 git clone --recurse-submodules git@github.com:idcrook/i-dotfiles.git .dotfiles
 cd .dotfiles
 stow -t ~ stow
+stow @macos
+stow git
 ```
 
 ### git submodules refresh

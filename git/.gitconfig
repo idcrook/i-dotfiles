@@ -2,9 +2,9 @@
 [include]
     path = ~/.config/.gitconfig.secrets
 
-[user]
-	name = Github User
-	email = github-user@users.noreply.github.com
+# [user]
+# 	name = Github User
+# 	email = github-user@users.noreply.github.com
 
 [credential]
 	helper = osxkeychain
