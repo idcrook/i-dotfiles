@@ -1,7 +1,10 @@
+# -*- conf-unix -*-
+
 # Local/private config goes in the include
 [include]
     path = ~/.config/.gitconfig.secrets
 
+# Customize these
 # [user]
 # 	name = Github User
 # 	email = github-user@users.noreply.github.com
