@@ -1,6 +1,6 @@
-**/secret/**/*.zsh
-**/secret/**/*.zshenv
-*.secret*
+**/secrets/**/*.zsh
+**/secrets/**/*.zshenv
+*.secrets*
 .DS_Store
 # /bin/
 !README.md

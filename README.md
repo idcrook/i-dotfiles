@@ -18,7 +18,14 @@ Inspired heavily by:
 
 ```shell
 cd
-git clone git@github.com:idcrook/i-dotfiles.git .dotfiles
+git clone --recurse-submodules git@github.com:idcrook/i-dotfiles.git .dotfiles
 cd .dotfiles
 stow -t ~ stow
+```
+
+### git submodules refresh
+
+
+```
+git submodule update --remote
 ```

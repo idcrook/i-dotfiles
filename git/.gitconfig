@@ -1,0 +1,67 @@
+# Local/private config goes in the include
+[include]
+    path = ~/.config/.gitconfig.secrets
+
+[user]
+	name = Github User
+	email = github-user@users.noreply.github.com
+
+[credential]
+	helper = osxkeychain
+
+[merge]
+  tool = ediff
+[mergetool "ediff"]
+  cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+
+[push]
+	default = matching
+[core]
+	excludesfile = ~/.gitignore_global
+[diff "ansible-vault"]
+    textconv = ansible-vault view
+    # Do not cache the vault contents
+    cachetextconv = false
+# [merge "ansible-vault"]
+#     name = ansible-vault merge driver
+#     driver = /usr/local/bin/ansible-vault-merge -- %O %A %B %P
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[alias]
+	co = checkout
+        finda = "!grepalias() { git config --global --get-regexp alias | grep -i \"$1\" | awk -v nr=2 '{sub(/^alias\\./,\"\")};{printf \"\\033[31m%10s\\033[1;37m\", $1};{sep=FS};{for (x=nr; x<=NF; x++) {printf \"%s%s\", sep, $x; }; print \"\\033[0;39m\"}'; }; grepalias"
+        r = remote -v
+        unstage = reset HEAD
+        uncommit = reset --soft HEAD^
+        type = cat-file -t
+        dump = cat-file -p
+        diffc = diff --cached
+        filelog = log -u
+        l = log --graph --date=short
+        changes = log --oneline --reverse
+        files = log --pretty=format:'%h %cr %cN %Cgreen%s%Creset' --name-status
+        h     = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+        short = log --pretty=format:'%h %cr %cN %Cgreen%s%Creset'
+#        bullets = log --pretty=format:' * %s %e %N'
+[color]
+	ui = true
+#[pull]
+#	rebase = true
