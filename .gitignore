@@ -1,0 +1,11 @@
+**/secret/**/*.zsh
+**/secret/**/*.zshenv
+*.secret*
+.DS_Store
+# /bin/
+!README.md
+!*example
+/Backup/
+
+# packages that should not be pushed on github (local backup only)
+projects/
