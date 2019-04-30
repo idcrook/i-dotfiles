@@ -1,0 +1,27 @@
+# -*- fish -*-
+
+
+# swiftenv
+switch (uname -s)
+    case Linux
+	if test -d $HOME/.swiftenv
+	    set --global --export SWIFTENV_ROOT "$HOME/.swiftenv"
+	    if not contains $SWIFTENV_ROOT/bin $PATH
+		set PATH $SWIFTENV_ROOT $PATH
+	    end
+	    if command -s swiftenv > /dev/null
+		status --is-interactive; and source (swiftenv init -|psub)
+	    end
+	end
+
+    case Darwin
+	# assumes installed via Homebrew
+	set --global --export SWIFTENV_ROOT /usr/local/var/swiftenv
+	# https://github.com/kylef/swiftenv/blob/master/docs/installation.md#via-a-git-clone
+	if command -s swiftenv > /dev/null
+	    status --is-interactive; and source (swiftenv init -|psub)
+	end
+
+    case '*'
+	echo "Unknown platform"
+end

@@ -1,0 +1,7 @@
+# -*- fish -*-
+
+# navigation
+alias o "cd .."
+alias oo "cd ../.."
+alias ooo "cd ../../.."
+alias oooo "cd ../../../.."
