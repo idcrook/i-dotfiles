@@ -176,6 +176,7 @@ then
 
 fi
 
+# TODO: Add BASH 4 additions
 
 # bash completion settings (actually, these are readline settings) : bind -lv
 bind "set completion-ignore-case on" # note: bind used instead of sticking these in .inputrc
@@ -189,13 +190,18 @@ bind "set show-all-if-ambiguous On" # show list automatically, without double ta
 # fi
 
 # https://github.com/b-ryan/powerline-shell
+# pip install powerline-shell
 function _update_ps1() {
     PS1=$(powerline-shell $?)
 }
 
-# need to look for this, otherwise tramp session to linux hangs
+# need to look for particular TERM before setting, otherwise Emacs TRAMP to linux hangs
 case "$TERM" in
-    xterm-color|*-256color)     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND" ;;
+    xterm-color|*-256color)
+        if builtin type -P powerline-shell &>/dev/null ; then
+            PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+        fi
+        ;;
 esac
 
 export PS2='> '    # Secondary prompt
@@ -209,8 +215,7 @@ export PS4='+'     # Prompt 4
 if [ "$(uname -s)" == 'Darwin' ]
 then
     # shellcheck source=/dev/null
-    [ "$TERM" == 'xterm-256color' ] && test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-    # echo -n ""
+    [ "$TERM" == 'xterm-256color' ] && test -e "${shell_config}/.iterm2_shell_integration.bash" && source "${shell_config}/.iterm2_shell_integration.bash"
 fi
 
 # Alias definitions. ----------------------------------------------
@@ -230,12 +235,6 @@ if [ -f ~/.bash_aliases.op-secret.sh ]; then
 fi
 
 # Editors ----------------------------------------------------------
-#export EDITOR='emacsclient --tty'
-# if [ -z "$DISPLAY" ] ; then
-#     export EDITOR='emacsclient -a vim --tty'
-# else
-#     export EDITOR='emacsclient -a vim --create-frame'
-# fi
 
 # create new frame in windowing env
 if hash vim 2&>/dev/null ; then
@@ -245,13 +244,13 @@ else
 fi
 export VISUAL=$EDITOR
 
-
+# TODO: Move to python package?
 # set up python for interactive
 if [ -f "$HOME"/.pystartup ]; then
     export PYTHONSTARTUP=$HOME/.pystartup
 fi
 
-# source local configurations
+# source local configurations if found
 if [[ -r "$shell_config/local.sh" ]]; then
     # shellcheck disable=1090
     source "$shell_config/local.sh"

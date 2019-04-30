@@ -1,0 +1,30 @@
+{
+  "segments": [
+    "virtual_env",
+    "username",
+    "hostname",
+    "ssh",
+    "cwd",
+    "git",
+    "set_term_title",
+    "read_only",
+    "exit_code",
+    "newline",
+    "root"
+  ],
+  "mode": "patched",
+  "cwd":
+  {
+    "mode": "plain",
+    "max_depth": "",
+    "full_cwd": true
+  },
+  "hostname":
+  {
+    "colorize": true
+  },
+  "vcs":
+  {
+    "show_symbol": true
+  }
+}

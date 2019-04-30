@@ -49,7 +49,8 @@ stow git
 stow bash
 stow python
 stow homedir
-...
+cd _homebrew
+# ...
 ```
 
 ## Rules
