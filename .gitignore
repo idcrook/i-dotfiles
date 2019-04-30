@@ -4,6 +4,7 @@
 .DS_Store
 # /bin/
 !README.md
+!TODO.md
 !*example
 /Backup/
 

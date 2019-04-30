@@ -2,7 +2,7 @@
 
 # Local/private config goes in the include
 [include]
-    path = ~/.config/.gitconfig.secrets
+    path = ~/.config/git/config.secrets
 
 # Customize these
 # [user]

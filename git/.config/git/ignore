@@ -1,0 +1,98 @@
+# adopted from https://raw.githubusercontent.com/andschwa/dotfiles/master/git/.config/git/ignore
+
+# Compiled source
+*.elc
+*.pyc
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+.?build/*
+
+# Packages
+*.7z
+*.jar
+*.rar
+*.zip
+*.gz
+*.bzip
+*.bz2
+*.xz
+*.lzma
+*.iso
+*.tar
+*.dmg
+*.pkg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.dvi
+
+# Emacs
+\#*#
+.#*
+.dir-locals.el
+
+# Vim
+*.swp
+tags
+.netrwhist
+view
+
+# macOS
+
+*.DS_Store
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Shell
+.ruby-version
+
+# Tags
+TAGS
+GPATH
+GRTAGS
+GTAGS
+compile_commands.json
+.cquery_cached_index/
+
+# Windows
+Desktop.ini
+*.lnk
+*.stackdump
+.vs/*
+.vscode/*
+vs-build/*
+CMakeSettings.json
