@@ -1,23 +1,15 @@
 # modpath -*- csh -*-
 #
-# $Id: modpath,v 1.11 2006/03/02 21:16:42 steved Exp $
-# $Revision: 1.11 $
-#
-# REVISIONS:
-# 04/30/03 (steved) import from fm GENenv, changed `path` to "here document"
-# 11/18/92 (KK) Adapted from EPGcad; modified for GENenv
-# 02/06/92 (CW)	Original by Craig Webber, EPG.
-#
 # NB: This script must be sourced from the shell; it is not a stand-alone
 #     command that can be executed.  If you want to use modpath within
 #     your own shell scripts, you need to have the modpath alias or
 #     mimic its behavior e.g.:
 #
 #        set modpath = ( -q -f /my/path/bin )
-#        source $EC_ENV_ROOT/bin/modpath
+#        source $HOME/.config/shell/modpath
 #        unset modpath
 #
-#     The bourne shell equivalent is available $EC_ENV_ROOT/bin/modpath.sh
+#     The bourne shell equivalent is available $HOME/.config/shell/modpath.sh
 #
 set tmpQUIET=0
 set tmpDEBUG=0
