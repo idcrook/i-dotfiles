@@ -1,10 +1,25 @@
 **Config files for `stow`<<https://www.gnu.org/software/stow/>>, the symlink farm manager.**
 
-    ├── .stow-global-ignore     Ignore files based on F-dotfiles filenaming scheme
+    ├── .stow-global-ignore     Ignore files based on i-dotfiles naming scheme
     └── .stowrc                 Set $HOME as default target dir
-    
+
 ### Install notes
 
-**Important:** it should be the first package you install as it is responsible for filtering *README* files and subpackages files trees when you stow a package.
+**Important:** This should be the first package you install as it is responsible for filtering *README*, *TODO* and subpackages files trees when you stow a package.
 
-Edit your `$HOME` path in [.stowrc](https://github.com/Kraymer/F-dotfiles/blob/master/stow/.stowrc).
+Edit your `$HOME` full path in [.stowrc](.stowrc)
+
+
+#### Install GNU Stow
+
+```shell
+# Debian / Ubuntu
+sudo apt install stow
+
+# macOS - assumes Homebrew << https://brew.sh/ >> is installed
+brew install stow
+
+# Windows MSYS2 << https://www.msys2.org >>
+pacman -S stow  # not tested
+
+```
