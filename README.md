@@ -24,7 +24,7 @@ I used to manage my macOS/Linux/msys2/WSL dotfiles in a "homedir.git" repository
 ## Install
 
 1. Assumes `stow` is installed
-   2. On macOS, additionally assumes Homebrew is installed
+     2. On macOS, additionally assumes Homebrew is installed
 1. clone the repository :
    `git clone https://github.com/idcrook/i-dotfiles.git ~/.dotfiles ; cd ~/.dotfiles`
 1. setup `stow`, *inception style* : `stow -t ~ stow` 
