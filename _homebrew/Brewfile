@@ -1,0 +1,171 @@
+tap "alexanderwillner/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/completions"
+tap "homebrew/core"
+tap "homebrew/emacs"
+tap "homebrew/services"
+tap "homebrew/versions"
+tap "kylef/formulae"
+tap "parera10/csshx"
+brew "libyaml"
+brew "openssl"
+brew "gettext", link: true
+brew "sqlite"
+brew "python"
+brew "ansible"
+brew "oniguruma"
+brew "jq"
+brew "ansiweather"
+brew "autoconf"
+brew "bash"
+brew "bash-completion@2"
+brew "brew-cask-completion"
+brew "ccat"
+brew "cmake"
+brew "coreutils"
+brew "cpanminus"
+brew "curl"
+brew "libusb"
+brew "dfu-util"
+brew "dos2unix"
+brew "editorconfig"
+brew "git"
+brew "go"
+brew "htop"
+brew "httpie"
+brew "hub"
+brew "icu4c"
+brew "libtool"
+brew "imagemagick"
+brew "inlets"
+brew "jsonnet"
+brew "keychain"
+brew "kubernetes-cli"
+brew "libconfig"
+brew "libevent"
+brew "libunistring"
+brew "libusb-compat"
+brew "mas"
+brew "python@2"
+brew "mosh"
+brew "mosquitto"
+brew "nmap"
+brew "node"
+brew "openssl@1.1"
+brew "p7zip"
+brew "postgresql@9.6"
+brew "pth"
+brew "pv"
+brew "pyenv"
+brew "ruby-build"
+brew "rbenv"
+brew "rcs"
+brew "rhash"
+brew "rsync"
+brew "shellcheck"
+brew "socat"
+brew "ssh-copy-id"
+brew "stow"
+brew "the_silver_searcher"
+brew "tmux"
+brew "tree"
+brew "unrar"
+brew "watchman"
+brew "wget"
+brew "yamllint"
+brew "yarn"
+brew "alexanderwillner/tap/things.sh"
+brew "kylef/formulae/swiftenv"
+brew "parera10/csshx/csshx"
+cask "aerial"
+cask "arduino"
+cask "balenaetcher"
+cask "blender"
+cask "dotnet-sdk"
+cask "emacs"
+cask "fluid"
+cask "font-hack-nerd-font"
+cask "font-inconsolata-nerd-font"
+cask "font-inconsolata-nerd-font-mono"
+cask "forecast"
+cask "fritzing"
+cask "gcc-arm-embedded"
+cask "grandperspective"
+cask "hammerspoon"
+cask "handbrake"
+cask "imageoptim"
+cask "inkscape"
+cask "java"
+cask "java8"
+cask "keycastr"
+cask "kid3"
+cask "meshlab"
+cask "openscad"
+cask "paparazzi"
+cask "particle-dev"
+cask "plex-media-player"
+cask "slic3r"
+cask "visual-studio-code"
+cask "vlc"
+cask "wakeonlan"
+cask "xact"
+cask "xca"
+cask "xquartz"
+mas "co.fluder.FSNotes", id: 1277179284
+mas "com.adriangranados.wifiexplorerlite", id: 1408727408
+mas "com.amazon.Kindle", id: 405399194
+mas "com.apple.dt.Xcode", id: 497799835
+mas "com.apple.garageband10", id: 682658836
+mas "com.apple.iMovieApp", id: 408981434
+mas "com.apple.iPhoto", id: 408981381
+mas "com.apple.iWork.Keynote", id: 409183694
+mas "com.apple.iWork.Numbers", id: 409203825
+mas "com.apple.iWork.Pages", id: 409201541
+mas "com.boinx.iStopMotion3.Mac", id: 546649552
+mas "com.brettterpstra.marked2", id: 890031187
+mas "com.creaceed.mas.prizmo2", id: 546392952
+mas "com.crowdcafe.windowmagnet", id: 441258766
+mas "com.culturedcode.ThingsMac", id: 904280696
+mas "com.DigiDNA.iMazingHEICConverterMac", id: 1292198261
+mas "com.edovia.screens4.mac", id: 1224268771
+mas "com.eyalw.1Keyboard", id: 766939888
+mas "com.flexibits.fantastical2.mac", id: 975937182
+mas "com.gingerlabs.NotabilityMac", id: 736189492
+mas "com.helloresolven.GIF-Brewery-3", id: 1081413713
+mas "com.hindsightlabs.paprika.mac.v3", id: 1303222628
+mas "com.if.Amphetamine", id: 937984704
+mas "com.iwaxx.LanScan", id: 472226235
+mas "com.khanov.BlockerMac", id: 1107421413
+mas "com.krill.Patterns", id: 429449079
+mas "com.logitech.lfb.Logitech-Camera-Settings", id: 638332853
+mas "com.macphun.snapheal", id: 480623975
+mas "com.manytricks.KeyCodes", id: 414568915
+mas "com.metaclassy.byword", id: 420212497
+mas "com.microsoft.rdc.macos", id: 1295203466
+mas "com.mindnode.MindNodePro", id: 402398561
+mas "com.mr-brightside.ParcelOSX", id: 639968404
+mas "com.pixelmatorteam.pixelmator", id: 407963104
+mas "com.pixelmatorteam.pixelmator.x", id: 1289583905
+mas "com.primatelabs.mas.Geekbench3", id: 686096588
+mas "com.reederapp.rkit2.mac", id: 880001334
+mas "com.rockysandstudio.Disk-Diag", id: 672206759
+mas "com.rpatechnology.mobilemouse", id: 412814284
+mas "com.ruiaureliano.Sip", id: 507257563
+mas "com.seriflabs.affinitydesigner", id: 824171161
+mas "com.seriflabs.affinityphoto", id: 824183456
+mas "com.sindresorhus.HEIC-Converter", id: 1294126402
+mas "com.sofortbildapp.Sofortbild", id: 411729406
+mas "com.SuperAppsDeveloper.Super-Image-Resizer", id: 492236133
+mas "com.supermegaultragroovy.capo3.mac", id: 696977615
+mas "com.toggl.toggldesktop.TogglDesktop", id: 957734279
+mas "com.ulyssesapp.mac", id: 1225570693
+mas "com.vidblishen.locationhelper", id: 488536386
+mas "com.webinhq.ReadKit", id: 588726889
+mas "com.workswithweb.mqttbox", id: 1165784816
+mas "desktop.WhatsApp", id: 1147396723
+mas "it.iltofa.Radio-Paradise", id: 663334697
+mas "ro.nextwave.Snappy", id: 512617038
+mas "uk.co.tla-systems.pcalc", id: 403504866
