@@ -1,7 +1,8 @@
-**OS X specific setup**
+**macOS specific setup**
 
     └── .config
-        └── .gitconfig.secrets            I use same git credentials on my macs
+        └── git
+            └── config.secrets         I use same git credentials on my macs
 
 
 This package installs configuration files, aliases, functions, etc. for an OS X environment.
