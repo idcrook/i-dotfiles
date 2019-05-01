@@ -76,9 +76,8 @@ fi
 # Set platform-specific PATH(s), enVARIABLES
 if [  "$(uname -s)" == 'Darwin' ]
 then
-    machine_name="$(uname -n)"
-    if [ -f ~/bin/macos/homebrew/"${machine_name}".secrets.HOMEBREW_GITHUB_API_TOKEN ] ; then
-        HOMEBREW_GITHUB_API_TOKEN="$(cat ~/bin/macos/homebrew/${machine_name}.secrets.HOMEBREW_GITHUB_API_TOKEN)"
+    if [ -f ~/bin/macos/homebrew/HOMEBREW_GITHUB_API_TOKEN ] ; then
+        HOMEBREW_GITHUB_API_TOKEN="$(cat ~/bin/macos/homebrew/HOMEBREW_GITHUB_API_TOKEN)"
         export HOMEBREW_GITHUB_API_TOKEN
     fi
 
