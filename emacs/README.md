@@ -3,8 +3,15 @@
 
 # Emacs .emacs.d
 
+Introduced separate [`.emacs.d`](https://github.com/idcrook/.emacs.d) repository as git submodule
 
-## Updating .emacs.d from remote master
+## Using
+
+1. Make edits in git submodule checkout, e.g. `~/.dotfiles/emacs/.emacs.d`
+1. Push any changes back to its remote
+1. When ready, can add/commit `.emacs.d` reference into `i-dotfiles`
+
+## Updating .emacs.d locally from its host repo
 
 ```
 cd ~/.dotfiles/emacs/.emacs.d
@@ -12,9 +19,9 @@ git status # should be clean
 git remote update
 git pull origin master
 # will merge in any updates
-cd ~/.dotfiles/
 
-# assuming all is well, update i-dotfiles version
+# assuming all is well, update i-dotfiles version to this version
+cd ~/.dotfiles/
 git add emacs/.emacs.d
 git commit -a -m "updated .emacs.d submodule"
 git push origin master
@@ -22,7 +29,7 @@ git push origin master
 
 
 
-#### getting .emacs.d subtree from original homedir.git
+#### Importing .emacs.d subtree from original homedir.git
 
 for reference
 
