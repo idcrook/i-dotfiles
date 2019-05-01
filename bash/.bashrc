@@ -168,6 +168,11 @@ fi
 if [ -f ~/.bash_aliases ]; then
     # shellcheck source=.bash_aliases
     source ~/.bash_aliases
+
+    if  [ -f "${shell_config}"/local.aliases.sh ]; then
+        # shellcheck source=.config/shell/local.aliases.sh
+        source "${shell_config}"/local.aliases.sh
+    fi
 fi
 
 # source bash aliases with secrets

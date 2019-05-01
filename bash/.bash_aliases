@@ -166,14 +166,7 @@ then
     alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
 fi
 
-# Utility wrappers
-alias stocks="ticker.sh  AAPL VZ T INTC BTCUSD=X"
-
 # kubernetes
-# if [[ $(uname -n) =~ ^muon ]] ; then
-#     alias kubectl="kubectl.docker"
-# fi
-
 alias kbk="kubectl"
 alias kbn="kubectl --namespace=kube-system"
 alias kbb="kubectl --namespace=metallb-system"
