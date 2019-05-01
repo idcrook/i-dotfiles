@@ -4,6 +4,18 @@
 # Emacs .emacs.d
 
 
+## Updating .emacs.d from remote master
+
+```
+cd ~/.dotfiles/emacs/.emacs.d
+git status # should be clean
+git remote update
+git pull origin master
+# will merge in any updates
+cd ~/.dotfiles/
+git add emacs/.emacs.d
+git commit -a -m "updated .emacs.d submodule"
+```
 
 
 
