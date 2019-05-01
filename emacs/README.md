@@ -38,5 +38,10 @@ git push -u origin master
 # now add to i-dotfiles (you may want https:// github URL instead)
 cd ~/.dotfiles/
 git submodule add git@github.com:idcrook/.emacs.d.git emacs/.emacs.d
+# implicitly does a 'git add .gitmodules emacs/.emacs.d'
 
+# first time, for transition
+mv ~/.emacs.d/ ~/backup/
+stow -vv emacs
+# we are live! copy secrets as necessary
 ```
