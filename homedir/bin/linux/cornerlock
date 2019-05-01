@@ -1,0 +1,18 @@
+#!/bin/bash
+if [ -z $1 ]
+then
+    delay=2
+else
+    delay=$1
+fi
+
+#sleep ${delay}; gnome-screensaver-command -l
+sleep ${delay}; gnome-screensaver-command -a
+
+# http://techgotcha.com/hot-corners-in-ubuntu/
+#  - added to gnome-session login: brightside
+#  - calls this script to lock screen
+
+# http://askubuntu.com/questions/64086/how-can-i-change-or-install-screensavers
+#  - replaced gnome-screensaver-command with xscreensaver-command
+# sudo ln -s /usr/bin/xscreensaver-command /usr/bin/gnome-screensaver-command

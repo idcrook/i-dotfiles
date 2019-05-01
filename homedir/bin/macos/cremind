@@ -1,0 +1,165 @@
+#!/usr/bin/ruby
+# CodeReminder
+# Brett Terpstra 2015
+# MIT License <http://choosealicense.com/licenses/mit/>
+# http://brettterpstra.com/projects/codereminder/
+#
+require 'optparse'
+# A CLI to add a Reminders.app reminder and/or OmniFocus task
+# so you don't forget about that repo you cloned to play with later
+#
+# Usage: cremind [-r] [-t] [-n NOTE] [path]
+#     -r, --reminder                   Create a Reminders.app reminder
+#     -t, --task                       Create an OmniFocus task
+#     -n, --note NOTE                  Add a note
+#     -h, --help                       Display this screen
+#
+
+# If an existing path is provided at the end of the command, it will be used.
+# Otherwise, it will default to the current working directory.
+
+# The title of the task or reminder will always be the basename of the path, and
+# the full path will be the first line of the attached note. If an addition (-n
+# "NOTE") flag is provided, the "NOTE" will be appended.
+
+# CONFIGURATION
+
+# Name of OmniFocus project to add tasks to
+# Project can be nested. If it doesn't exist, it will be created in the root
+of_project = "Code Reminders"
+
+# Name of Reminders.app list to use
+# If it doesn't exist, it will be created
+reminders_list = "Code Reminders"
+
+# If neither -r or -t options are provided, default to this
+# "reminder" or "task"
+default_type = "reminder"
+# END CONFIGURATION
+
+def e_as(str)
+  str.to_s.gsub(/(?=["\\])/, '\\')
+end
+
+def get_of_id(proj_name)
+  # Credit to RobTrew http://forums.omnigroup.com/showthread.php?t=15269
+  %x{osascript <<'APPLESCRIPT'
+   on run
+    tell application "OmniFocus"
+      set oDoc to front document
+      set lstAllProjects to my ProjectList(oDoc)
+      repeat with _project in lstAllProjects
+        if (name of _project as string) is "#{proj_name}" then
+          return id of _project as string
+        end if
+      end repeat
+      set newProj to make new project with properties {name:"#{proj_name}"} at end of projects
+      return id of newProj
+    end tell
+   end run
+
+   on ProjectList(oParent)
+    using terms from application "OmniFocus"
+      tell oParent
+        set lstProject to projects
+
+        set lstFolder to folders
+
+        if length of lstFolder > 0 then
+          return lstProject & my FolderProjects(lstFolder)
+        else
+          return lstProject
+        end if
+      end tell
+    end using terms from
+   end ProjectList
+
+   on FolderProjects(lstFolder)
+    set lstProject to {}
+    repeat with oFolder in lstFolder
+      set lstProject to lstProject & ProjectList(oFolder)
+    end repeat
+    return lstProject
+   end FolderProjects
+APPLESCRIPT}.strip
+end
+
+options = {}
+
+optparse = OptionParser.new do|opts|
+  opts.banner = "Usage: #{File.basename(__FILE__)} [-r] [-t] [-n NOTE] [path]"
+
+  options[:reminder] = false
+  opts.on( '-r', '--reminder', 'Create a Reminders.app reminder' ) do
+    options[:reminder] = true
+  end
+
+  options[:task] = false
+  opts.on( '-t', '--task', 'Create an OmniFocus task' ) do
+    options[:task] = true
+  end
+
+  options[:note] = ""
+  opts.on( '-n', '--note NOTE', 'Add a note' ) do |note|
+    options[:note] = note
+  end
+
+  opts.on( '-h', '--help', 'Display this screen' ) do
+    puts opts
+    exit
+  end
+
+end
+
+optparse.parse!
+
+if ARGV[0]
+  if File.exists? (File.expand_path(ARGV[0]))
+    path = File.expand_path(ARGV[0])
+  else
+    $stderr.puts "Directory not found: #{ARGV[0]}"
+  end
+end
+
+path ||= Dir.pwd
+name = File.basename(path)
+note = path
+note += "\n\n#{options[:note]}" unless options[:note] == ''
+
+unless options[:reminder] || options[:task]
+  if default_type =~ /task/i
+    options[:task] = true
+  else
+    options[:reminder] = true
+  end
+end
+
+if options[:reminder]
+  puts %x{osascript <<'APPLESCRIPT'
+    tell application "Reminders"
+    if name of lists does not contain "#{reminders_list}" then
+      set _reminders to make new list with properties {name:"#{reminders_list}"}
+    else
+      set _reminders to list "#{reminders_list}"
+    end if
+    make new reminder at end of _reminders with properties {name:"#{name}", body:"#{e_as(note).strip}"}
+    return "Added reminder to #{reminders_list}"
+  end tell
+  APPLESCRIPT}
+end
+
+if options[:task]
+  id = get_of_id(of_project)
+  if id == ''
+    $stderr.puts %Q{"#{of_project}" project not found}
+    Process.exit 1
+  end
+  props = %Q{with properties {name:"#{name}",note:"#{note.strip}"} at beginning of project id "#{id}"}
+  puts %x{osascript <<'APPLESCRIPT'
+    tell application "OmniFocus" to activate
+    tell front document of application "OmniFocus"
+      set newTask to make new task #{props}
+    end tell
+    return "Task created in #{of_project}"
+  APPLESCRIPT}.strip
+end
