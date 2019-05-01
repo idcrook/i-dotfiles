@@ -161,8 +161,8 @@ if [[  "$(uname -s)" == MINGW* ]]
 then
 
     # manually installed from # http://www.funtoo.org/Keychain
-    if [ -x ~/bin/msys2/keychain ]; then
-        keychainpath=~/bin/msys2/keychain
+    if [ -x ~/bin/windows/msys2/keychain ]; then
+        keychainpath=~/bin/windows/msys2/keychain
         eval "$($keychainpath --eval --agents ssh id_rsa)"
         unset keychainpath
     fi
@@ -173,8 +173,8 @@ then
 	#     eval "$(pyenv virtualenv-init -)"
     # fi
 
-    if [ -d  ~/bin/msys2 ] ; then
-        modpath $HOME/bin/msys2
+    if [ -d  ~/bin/windows/msys2 ] ; then
+        modpath $HOME/bin/windows/msys2
     fi
 fi
 
