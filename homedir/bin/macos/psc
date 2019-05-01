@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cmd='ps axo pid,ppid,user,command'
+
+if [ $1 ] ; then
+    $cmd | grep "$1" | grep -v "grep $1" | grep -v "bin/macos/psc"
+else
+    $cmd
+fi
