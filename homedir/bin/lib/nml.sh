@@ -1,4 +1,4 @@
-#!/bin/echo Error: sourcing -*- bash -*-
+#!/bin/echo Error: sourcing -*- sh -*-
 
 # (SUDO) nmap and lists IP => MAC addr (vendor name) for an NMAP range
 function nml() {

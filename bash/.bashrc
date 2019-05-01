@@ -74,7 +74,7 @@ shopt -s checkwinsize
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 # Only available in bash version 4
-#shopt -s globstar
+shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -91,75 +91,20 @@ if [ -f /usr/local/bin/src-hilite-lesspipe.sh ] ; then
     export LESS=' -R '
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        # shellcheck source=/dev/null
-        source /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        # shellcheck source=/dev/null
-        source /etc/bash_completion
-    fi
-fi
-
-# kubectl bash completions
-if hash kubectl 2>/dev/null; then
+# bash completions config
+# brew install bash-completion@2
+if [ -f ${shell_config}/completion.bash.inc ] ; then
     # shellcheck source=/dev/null
-    source <(kubectl completion bash)
+    source "${shell_config}"/completion.bash.inc
 fi
 
-# docker completion on macOS (once per machine) - with Homebrew bash completion installed
-####  https://docs.docker.com/docker-for-mac/#bash
-# etc=/Applications/Docker.app/Contents/Resources/etc
-# ln -s $etc/docker.bash-completion $(brew --prefix)/etc/bash_completion.d/docker
-# ln -s $etc/docker-machine.bash-completion $(brew --prefix)/etc/bash_completion.d/docker-machine
-# ln -s $etc/docker-compose.bash-completion $(brew --prefix)/etc/bash_completion.d/docker-compose
 
-# via https://github.com/cykerway/complete-alias
-# requires BASH 4
-# mkdir ~/.bash_completion.d
-# curl -o ~/.bash_completion.d/bash_complete-alias.sh  https://raw.githubusercontent.com/cykerway/complete-alias/master/completions/bash_completion.sh
-if [ -f ~/.bash_completion.d/bash_complete-alias.sh ] ; then
-    # shellcheck source=.bash_completion.d/bash_complete-alias.sh
-    source ~/.bash_completion.d/bash_complete-alias.sh
-fi
 
-# http://beets.readthedocs.io/en/v1.4.7/reference/cli.html#shell-completion
-# if hash beet 2>/dev/null; then
-#     eval "$(beet completion)"
-# fi
-# to save time:
-#     beet completion > .bash_completion.d/beet-completion.sh
-if [ -f ~/.bash_completion.d/beet-completion.sh ] ; then
-    # shellcheck source=.bash_completion.d/beet-completion.sh
-    source ~/.bash_completion.d/beet-completion.sh
-fi
 
-# Google Cloud SDK on macOS
-# brew cask info homebrew/cask/google-cloud-sdk
-if [ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ] ; then
-    if [ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc ] ; then
-        source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
-    fi
-fi
 
 # some Mac OS X specific checks
 if [  "$(uname -s)" == 'Darwin' ]
 then
-    # brew install bash-completion (BASH 3)
-    if [ -f "$(brew --prefix)"/etc/bash_completion ]; then
-        # shellcheck source=/dev/null
-        source "$(brew --prefix)"/etc/bash_completion
-    fi
-
-    # brew install bash-completion@2 (BASH 4)
-    if [ -f /usr/local/share/bash-completion/bash_completion ]; then
-        # shellcheck source=/dev/null
-        source /usr/local/share/bash-completion/bash_completion
-    fi
-
     ### http://brettterpstra.com/2014/05/10/bash-and-dash/
 
     # Open argument in Dash
@@ -175,8 +120,6 @@ then
     # function man { if [ $# -eq 1 ] ; then open x-man-page://$1 ; elif [ $# -eq 2 ] ; then open x-man-page://$1/$2 ; fi }
 
 fi
-
-# TODO: Add BASH 4 additions
 
 # bash completion settings (actually, these are readline settings) : bind -lv
 bind "set completion-ignore-case on" # note: bind used instead of sticking these in .inputrc
@@ -228,10 +171,10 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # source bash aliases with secrets
-if [ -f ~/.bash_aliases.op-secret.sh ]; then
+if [ -f ~/.bash_aliases.op-secrets.sh ]; then
     # will contain an alias like opeval="eval \$(op signin <signinaddress> <emailaddress> <secretkey>)"
     # shellcheck source=/dev/null
-    source ~/.bash_aliases.op-secret.sh
+    source ~/.bash_aliases.op-secrets.sh
 fi
 
 # Editors ----------------------------------------------------------

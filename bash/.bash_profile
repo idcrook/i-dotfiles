@@ -36,9 +36,10 @@ modpath () {
 
 modpath -q -b /usr/bin /usr/local/bin
 modpath -q -b /usr/local/bin /usr/local/sbin
-modpath -q -b /usr/local/bin $HOME/bin
+modpath -q -b /usr/local/bin "$HOME"/bin
 
 # Load in .bashrc -------------------------------------------------
+# shellcheck source=/dev/null
 source ~/.bashrc
 
 # Notes: ----------------------------------------------------------
@@ -73,7 +74,13 @@ fi
 # the default umask is set in /etc/login.defs
 #umask 022
 
-# Set platform-specific PATH(s), enVARIABLES
+# PATH config
+if [ -f ${shell_config}/path.bash.inc ] ; then
+    # shellcheck source=/dev/null
+    source "${shell_config}"/path.bash.inc
+fi
+
+# Set platform-specific enVARIABLES, PATHs
 if [  "$(uname -s)" == 'Darwin' ]
 then
     if [ -f ~/bin/macos/homebrew/HOMEBREW_GITHUB_API_TOKEN ] ; then
@@ -114,23 +121,34 @@ then
         fi
     fi
 
-    # for perlbrew -
-    if [ -f $HOME/perl5/perlbrew/etc/bashrc ] ; then
-        # shellcheck source=/dev/null
-        source $HOME/perl5/perlbrew/etc/bashrc
-    fi
-
     if [ -d  ~/bin/macos ] ; then
-        modpath $HOME/bin/macos
+        modpath "${HOME}"/bin/macos
     fi
 
-    # Google Cloud SDK on macOS
-    # brew cask info homebrew/cask/google-cloud-sdk
-    if [ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ] ; then
-        if [ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc ] ; then
-	        source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
+    ## swiftlang ############################################################
+
+    # https://github.com/kylef/swiftenv/#via-homebrew
+    # brew info kylef/formulae/swiftenv
+    if [  "$(uname -s)" == 'Darwin' ]
+    then
+        export SWIFTENV_ROOT=/usr/local/var/swiftenv
+	    if command -v swiftenv 1>/dev/null 2>&1; then
+            eval "$(swiftenv init -)"
         fi
     fi
+
+    # golang - Homebrew
+    if [ -d /usr/local/opt/go/libexec/bin ] ; then
+        modpath /usr/local/opt/go/libexec/bin
+    fi
+
+    # # https://golang.org/doc/code.html#GOPATH
+    # mkdir -p $GOPATH/src/github.com/idcrook
+    if [ -d  $HOME/.user_go ] ; then
+        export GOPATH=$HOME/.user_go
+        modpath $HOME/.user_go/bin
+    fi
+
 fi
 
 if [  "$(uname -s)" == 'Linux' ]
@@ -150,9 +168,15 @@ then
 	    eval "$(pyenv virtualenv-init -)"
     fi
 
-    if [ -d  ~/bin/linux ] ; then
-        modpath $HOME/bin/linux
+    if [ -d ~/bin/linux ] ; then
+        modpath "${HOME}"/bin/linux
     fi
+
+    # ubuntu 16.04?
+    if [ -d /usr/lib/go-1.9/bin ] ; then
+        modpath /usr/lib/go-1.9/bin
+    fi
+
 fi
 
 # MSYS2
@@ -177,57 +201,8 @@ then
     fi
 fi
 
-
-## golang ###############################################################
-
 if [ -d ~/.local/bin ] ; then
     modpath $HOME/.local/bin
-fi
-
-# ubuntu 16.04?
-if [ -d /usr/lib/go-1.9/bin ] ; then
-    modpath /usr/lib/go-1.9/bin
-fi
-
-# macOS Homebrew
-if [ -d /usr/local/opt/go/libexec/bin ] ; then
-    modpath /usr/local/opt/go/libexec/bin
-fi
-
-# # https://golang.org/doc/code.html#GOPATH
-# mkdir -p $GOPATH/src/github.com/idcrook
-if [ -d  $HOME/.user_go ] ; then
-    export GOPATH=$HOME/.user_go
-    modpath $HOME/.user_go/bin
-fi
-
-## swiftlang ############################################################
-
-
-# # swiftenv
-# if [  `uname -s` == 'Linux' ]
-# then
-#     if [ -d $HOME/projects/swift-install ] ; then
-# 	source $HOME/projects/swift-install/source-latest.sh
-#     fi
-
-#     # https://swiftenv.fuller.li/en/latest/installation.html
-#     # git clone https://github.com/kylef/swiftenv.git ~/.swiftenv
-#     if [ -d $HOME/.swiftenv ] ; then
-# 	export SWIFTENV_ROOT="$HOME/.swiftenv"
-# 	modpath $SWIFTENV_ROOT/bin
-# 	eval "$(swiftenv init -)"
-#     fi
-# fi
-
-# https://github.com/kylef/swiftenv/#via-homebrew
-# brew info kylef/formulae/swiftenv
-if [  "$(uname -s)" == 'Darwin' ]
-then
-    export SWIFTENV_ROOT=/usr/local/var/swiftenv
-	if command -v swiftenv 1>/dev/null 2>&1; then
-        eval "$(swiftenv init -)"
-    fi
 fi
 
 # perl local modules
