@@ -1,15 +1,15 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# -*- bash -*-
+# -*- sh -*-
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-    # the PATH export is a workaround to have mosh-server found
-    # (resides in /usr/local/bin/mosh-server on macOS Homebrew)
-      *) export PATH="$PATH:/usr/local/bin" && return;;
-esac
+# # If not running interactively, don't do anything
+# case $- in
+#     *i*) ;;
+#     # the PATH export is a workaround to have mosh-server found
+#     # (resides in /usr/local/bin/mosh-server on macOS Homebrew)
+#       *) export PATH="$PATH:/usr/local/bin" && return;;
+# esac
 
 # another way to test that
 # [ -z "$PS1" ] && return
