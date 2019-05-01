@@ -33,10 +33,10 @@ When needed, special install instructions are present in package `README.md` fil
 
 
 
-## My Typical Install
+## My Typical Install (on macOS)
 
-1. Assumes `stow` is installed
-
+1. First, install **Homebrew <<https://brew.sh>>**
+1. Assumes [`stow`](stow/README.md#install-gnu-stow) is installed
 
 ```shell
 cd
@@ -49,6 +49,10 @@ stow bash
 stow python
 stow homedir
 cd _homebrew
+# ...
+cd ../_pip
+# ...
+cd ../_npm
 # ...
 ```
 
