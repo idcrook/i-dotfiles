@@ -13,8 +13,11 @@ git remote update
 git pull origin master
 # will merge in any updates
 cd ~/.dotfiles/
+
+# assuming all is well, update i-dotfiles version
 git add emacs/.emacs.d
 git commit -a -m "updated .emacs.d submodule"
+git push origin master
 ```
 
 
