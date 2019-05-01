@@ -7,3 +7,4 @@
 README.*
 TODO.*
 RCS
+.*.secrets.*
