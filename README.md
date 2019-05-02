@@ -48,6 +48,7 @@ stow git
 stow bash
 stow python
 stow homedir
+stow emacs
 cd _homebrew
 # ...
 cd ../_pip
