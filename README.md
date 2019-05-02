@@ -85,7 +85,7 @@ Each secrets file should be accompanied by an *\*.example* file that is commited
 
 Keep your secrets files as short as possible to limit their influence as it complicates deployments (as they cannot be just pulled from github).
 
-See [example](https://github.com/idcrook/i-dotfiles/blob/master/%40macos/%40macbook/.config/.gitconfig.secrets.example).
+See [example](https://github.com/idcrook/i-dotfiles/blob/master/git/.config/git/config.secrets.example).
 
 ### Multi-platforms paths
 
