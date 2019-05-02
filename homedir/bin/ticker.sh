@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+# requires BASH interpreter
+
 set -e
 
 LANG=en_US.UTF-8
