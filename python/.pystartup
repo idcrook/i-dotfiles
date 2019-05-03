@@ -1,3 +1,4 @@
+# -*- python -*-
 # Add auto-completion and a stored history file of commands to your Python
 # interactive interpreter. Requires Python 2.0+, readline. Autocomplete is
 # bound to the Esc key by default (you can change it - see readline docs).
@@ -8,31 +9,61 @@
 # Note that PYTHONSTARTUP does *not* expand "~", so you have to put in the
 # full path to your home directory.
 
-import atexit
-import os
-import readline
-import rlcompleter
-# import sys
+# Updated / adapted from :
+# https://nedbatchelder.com//blog/201904/startuppy.html
+# Has to work on both 2.x and 3.x
 
-readline.parse_and_bind('tab: complete')
+# for auto-imported modules when you run python interactively, add them here
 
-# # Use Control-Space, like eclipse, for completion
-# readline.parse_and_bind("\C-Space: complete")
+# import pprint
+import sys
 
-# p = os.path.join(os.path.expanduser("~"), "lib", "python")
-# sys.path.insert(0, p)
-
-historyPath = os.path.expanduser("~/.pyhistory.py")
+# pp = pprint.pprint
 
 
-def save_history(historyPath=historyPath):
-    import readline
-    readline.write_history_file(historyPath)
+# A function for pasting code into the repl.
+def paste():
+    import textwrap
+    exec(textwrap.dedent(sys.stdin.read()), globals())
 
 
-if os.path.exists(historyPath):
-    readline.read_history_file(historyPath)
+# Readline and history support
+def hook_up_history():
+    try:
+        # Not sure why this module is missing in some places, but deal with it.
+        import readline
+    except ImportError:
+        print("No readline, use ^H")
+    else:
+        import atexit
+        import os
+        import rlcompleter
 
-atexit.register(save_history)
-del os, atexit, readline, rlcompleter, save_history, historyPath
-#del sys, p
+        history_path = os.path.expanduser("~/.pyhistory{0}.py".format(
+            sys.version_info[0]))
+
+        def save_history(history_path=history_path):
+            import readline
+            readline.write_history_file(history_path)
+
+        if os.path.exists(history_path):
+            readline.read_history_file(history_path)
+
+        atexit.register(save_history)
+
+        # include custom key bindings
+        readline.parse_and_bind('tab: complete')
+        # # Use Control-Space, like eclipse, for completion
+        # readline.parse_and_bind("\C-Space: complete")
+
+        # p = os.path.join(os.path.expanduser("~"), "lib", "python")
+        # sys.path.insert(0, p)
+
+
+# Don't do history stuff if we are IPython, it has its own thing.
+is_ipython = 'In' in globals()
+if not is_ipython:
+    hook_up_history()
+
+# Get rid of globals we don't want.
+del is_ipython, hook_up_history
