@@ -22,6 +22,7 @@ import sys
 
 
 # A function for pasting code into the repl.
+# Adapted from: https://mail.python.org/pipermail/python-list/2016-September/714384.html
 def paste():
     import textwrap
     exec(textwrap.dedent(sys.stdin.read()), globals())
