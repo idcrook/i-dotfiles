@@ -168,10 +168,15 @@ then
         unset keychainpath
     fi
 
+    # https://github.com/pyenv/pyenv
+    # git clone https://github.com/pyenv/pyenv.git ~/.pyenv
     if [ -d  ~/.pyenv/bin ] ; then
         modpath $HOME/.pyenv/bin
 	    eval "$(pyenv init -)"
+        # https://github.com/pyenv/pyenv-virtualenv
+        # git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 	    eval "$(pyenv virtualenv-init -)"
+        # git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git ~/.pyenv/plugins/pyenv-virtualenvwrapper
     fi
 
     if [ -d ~/bin/linux ] ; then
