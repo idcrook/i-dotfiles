@@ -34,12 +34,13 @@ modpath () {
     unset modpathargs
 }
 
-modpath -q -b /usr/bin /usr/local/bin
-modpath -q -b /usr/local/bin /usr/local/sbin
-modpath -q -b /usr/local/bin "$HOME"/bin
-if [ -d ~/.local/bin ] ; then
-    modpath $HOME/.local/bin
-fi
+modpath -q -b /usr/bin        /usr/local/bin
+modpath -q -b /usr/local/bin  /usr/local/sbin
+modpath -q -b /usr/local/bin  "$HOME"/bin
+
+# pip --user puts stuff in here; add to path before sourcing .bashrc
+modpath -q -b "$HOME"/bin     "$HOME"/.local/bin
+
 
 # the default umask is set in /etc/login.defs
 #umask 022

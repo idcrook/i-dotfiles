@@ -20,3 +20,12 @@ To install :
     pip3 install -r packages3.txt
 
 On Ubuntu (and possibly other platforms, depending on your config), should preface these with `sudo`
+
+### ubuntu special
+
+```shell
+pip2 install --user --requirement packages2.ubuntu18.04.server.txt
+# pip install --user powerline-shell
+# pip install --user wakatime
+pip3 install --user --requirement packages3.ubuntu18.04.server.txt
+```
