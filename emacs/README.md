@@ -5,6 +5,11 @@
 
 Introduced separate [`.emacs.d`](https://github.com/idcrook/.emacs.d) repository as git submodule
 
+## Install emacs26 on Ubuntu
+
+Refer to [@ubuntu README](../%40ubuntu/README.md#install-notes) for details on how to add repository for emacs26.
+
+
 ## Using
 
 1. Make edits in git submodule checkout, e.g. `~/.dotfiles/emacs/.emacs.d`
@@ -26,7 +31,6 @@ git add emacs/.emacs.d
 git commit -a -m "updated .emacs.d submodule"
 git push origin master
 ```
-
 
 
 #### Importing .emacs.d subtree from original homedir.git
