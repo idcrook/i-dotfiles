@@ -1,16 +1,10 @@
-apt install screen molly-guard mosh dselect rcs
-apt install git
-apt install emacs26
-apt install source-highlight
-apt install tcsh
-apt install python-pip
-apt install imagemagick-6.q16
-apt install silversearcher-ag npm
-apt install golang-go
-apt install keychain
-apt install flex
-apt install clang
-apt-get install python3-venv
-apt install python3-pip
-apt-get install --install-recommends linux-generic-hwe-18.04
-apt install stow
+sudo apt install stow
+sudo apt-get install --install-recommends linux-generic-hwe-18.04
+# bash and utils
+sudo apt install -y screen molly-guard mosh dselect rcs \
+    tcsh keychain source-highlight
+# emacs26 and some dependencies
+sudo apt install -y emacs26 imagemagick-6.q16  silversearcher-ag npm \
+    python-pip python3-pip python3-venv
+# sudo apt install -y golang-go
+# sudo apt install flex clang
