@@ -1,0 +1,15 @@
+iTunes U
+Music/iTunesData/iTunes Media/iTunes U
+.AppleDB
+.AppleDouble
+.bzvol
+.DocumentRevisions-V100*
+.dbfseventsd
+.DS_Store
+..DS_Store.*
+.fseventsd
+.Spotlight*
+.TemporaryItems
+.Trash*
+Thumbs.db
+*.m4p
