@@ -19,9 +19,12 @@ echo "$newlist"
 echo "$newlist" > npm_global_packages.list
 ```
 
+## Install
 
 To (re)install :
 
 ```shell
 [sudo] npm install --global $(cat npm_global_packages.list)
 ```
+
+ - `sudo` is required when using the apt `npm` package

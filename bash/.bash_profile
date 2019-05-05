@@ -34,9 +34,23 @@ modpath () {
     unset modpathargs
 }
 
-modpath -q -b /usr/bin /usr/local/bin
-modpath -q -b /usr/local/bin /usr/local/sbin
-modpath -q -b /usr/local/bin "$HOME"/bin
+modpath -q -b /usr/bin        /usr/local/bin
+modpath -q -b /usr/local/bin  /usr/local/sbin
+modpath -q -b /usr/local/bin  "$HOME"/bin
+
+# pip --user puts stuff in here; add to path before sourcing .bashrc
+modpath -q -b "$HOME"/bin     "$HOME"/.local/bin
+
+
+# the default umask is set in /etc/login.defs
+#umask 022
+
+# PATH config
+if [ -f ${shell_config}/path.bash.inc ] ; then
+    # shellcheck source=/dev/null
+    source "${shell_config}"/path.bash.inc
+fi
+
 
 # Load in .bashrc -------------------------------------------------
 # shellcheck source=/dev/null
@@ -71,14 +85,6 @@ then
 fi
 
 
-# the default umask is set in /etc/login.defs
-#umask 022
-
-# PATH config
-if [ -f ${shell_config}/path.bash.inc ] ; then
-    # shellcheck source=/dev/null
-    source "${shell_config}"/path.bash.inc
-fi
 
 # Set platform-specific enVARIABLES, PATHs
 if [  "$(uname -s)" == 'Darwin' ]
@@ -158,14 +164,19 @@ then
     # sudo apt install keychain
     if [ -x /usr/bin/keychain ]; then
         keychainpath=/usr/bin/keychain
-        eval "$($keychainpath --eval --agents ssh id_rsa)"
+        eval "$($keychainpath --eval --agents ssh --inherit any id_rsa)"
         unset keychainpath
     fi
 
+    # https://github.com/pyenv/pyenv
+    # git clone https://github.com/pyenv/pyenv.git ~/.pyenv
     if [ -d  ~/.pyenv/bin ] ; then
         modpath $HOME/.pyenv/bin
 	    eval "$(pyenv init -)"
+        # https://github.com/pyenv/pyenv-virtualenv
+        # git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 	    eval "$(pyenv virtualenv-init -)"
+        # git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git ~/.pyenv/plugins/pyenv-virtualenvwrapper
     fi
 
     if [ -d ~/bin/linux ] ; then
@@ -199,10 +210,6 @@ then
     if [ -d  ~/bin/windows/msys2 ] ; then
         modpath $HOME/bin/windows/msys2
     fi
-fi
-
-if [ -d ~/.local/bin ] ; then
-    modpath $HOME/.local/bin
 fi
 
 # perl local modules
