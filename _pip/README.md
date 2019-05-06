@@ -19,9 +19,11 @@ To install :
     pip2 install -r packages2.txt
     pip3 install -r packages3.txt
 
-On Ubuntu (and possibly other platforms, depending on your config), should preface these with `sudo`
+
 
 ### ubuntu special
+
+Since we are using `--user` should not need to preface with `sudo`
 
 ```shell
 pip2 install --user --requirement packages2.ubuntu18.04.server.txt

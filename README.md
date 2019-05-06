@@ -30,32 +30,8 @@ I used to manage my macOS/Linux/msys2/WSL dotfiles in a "homedir.git" repository
 1. install desired package via `stow <directory>` <sup id="a1">[1](#f1)</sup>
 
 When needed, special install instructions are present in package `README.md` file.
+Starting points: [macOS](INSTALL-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md)
 
-
-
-## My Typical Install (on macOS)
-
-1. First, install **Homebrew <<https://brew.sh>>**
-1. Assumes [`stow`](stow/README.md#install-gnu-stow) is installed
-
-```shell
-cd
-git clone --recurse-submodules git@github.com:idcrook/i-dotfiles.git .dotfiles
-cd .dotfiles
-stow -t ~ stow
-stow @macos
-stow git
-stow bash
-stow python
-stow homedir
-stow emacs
-cd _homebrew
-# ...
-cd ../_pip
-# ...
-cd ../_npm
-# ...
-```
 
 ## Rules
 

@@ -4,7 +4,7 @@
 Installation on fresh ubuntu 18.04 (server)
 
 ```
-sudo apt install stow git
+sudo apt install -y stow git
 
 git clone --recurse-submodules \
     git@github.com:idcrook/i-dotfiles.git ~/.dotfiles
