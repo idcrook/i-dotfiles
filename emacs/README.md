@@ -5,10 +5,21 @@
 
 Introduced separate [`.emacs.d`](https://github.com/idcrook/.emacs.d) repository as git submodule
 
+
 ## Install emacs26 on Ubuntu
 
 Refer to [@ubuntu README](../%40ubuntu/README.md#install-notes) for details on how to add repository for emacs26.
 
+## Install emacs27 on macOS
+
+```bash
+# rename /Applications/Emacs.app -> Emacs26.app
+brew tap daviderestivo/emacs-head
+brew install emacs-head --HEAD --with-cocoa --with-imagemagick --with-jansson
+# imagemagick@7 -> Homebrew `imagemagick`
+# jansson -> C-lang JSON parser
+ln -s /usr/local/opt/emacs-head/Emacs.app /Applications
+```
 
 ## Using
 
