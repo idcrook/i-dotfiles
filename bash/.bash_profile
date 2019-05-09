@@ -148,13 +148,6 @@ then
         modpath /usr/local/opt/go/libexec/bin
     fi
 
-    # # https://golang.org/doc/code.html#GOPATH
-    # mkdir -p $GOPATH/src/github.com/idcrook
-    if [ -d  $HOME/.user_go ] ; then
-        export GOPATH=$HOME/.user_go
-        modpath $HOME/.user_go/bin
-    fi
-
 fi
 
 if [  "$(uname -s)" == 'Linux' ]
@@ -183,9 +176,12 @@ then
         modpath "${HOME}"/bin/linux
     fi
 
-    # ubuntu 16.04?
-    if [ -d /usr/lib/go-1.9/bin ] ; then
-        modpath /usr/lib/go-1.9/bin
+    # ubuntu - sudo apt install golang-go
+    # ubuntu 18.04 - prefer v1.10
+    if [ -d /usr/lib/go-1.10/bin ] ; then
+        modpath /usr/lib/go-1.10/bin
+    elif [ -d /usr/lib/go/bin ] ; then
+        modpath /usr/lib/go/bin
     fi
 
 fi
@@ -210,6 +206,15 @@ then
     if [ -d  ~/bin/windows/msys2 ] ; then
         modpath $HOME/bin/windows/msys2
     fi
+fi
+
+# https://github.com/golang/go/wiki/SettingGOPATH - https://golang.org/doc/code.html#GOPATH
+# mkdir -p ~/go/src/github.com
+# mkdir -p ~/go/bin
+if [[ -d $(go env GOPATH) ]] ; then
+    # export GOPATH=$HOME/go
+    export GOPATH=$(go env GOPATH)
+    modpath $(go env GOPATH)/bin
 fi
 
 # perl local modules
