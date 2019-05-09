@@ -2,7 +2,7 @@ sudo apt install stow
 sudo apt-get install --install-recommends linux-generic-hwe-18.04
 # bash and utils
 sudo apt install -y screen molly-guard mosh dselect rcs \
-    tcsh keychain source-highlight jq
+    tcsh keychain source-highlight jq ack docker.io
 # emacs26 and some dependencies
 sudo apt install -y emacs26 imagemagick-6.q16  silversearcher-ag npm \
     python-pip python3-pip python3-venv fonts-powerline
