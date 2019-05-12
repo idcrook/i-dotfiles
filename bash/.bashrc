@@ -93,14 +93,10 @@ fi
 
 # bash completions config
 # brew install bash-completion@2
-if [ -f ${shell_config}/completion.bash.inc ] ; then
+if [ -f $"{shell_config}"/completion.bash.inc ] ; then
     # shellcheck source=/dev/null
     source "${shell_config}"/completion.bash.inc
 fi
-
-
-
-
 
 # some Mac OS X specific checks
 if [  "$(uname -s)" == 'Darwin' ]

@@ -14,6 +14,7 @@ stow bash
 stow python
 stow homedir
 stow emacs
+stow golang
 cd _homebrew
 # ...
 cd ../_pip
