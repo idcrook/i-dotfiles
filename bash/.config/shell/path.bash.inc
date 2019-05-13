@@ -11,4 +11,10 @@ if [ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ] ; then
 fi
 
 
+if [ -d ~/bin/linux/containers ] ; then
+    for d in $(cd ~/bin/linux/containers && ls -1d *) ; do
+        modpath ~/bin/linux/containers/${d}
+    done
+fi
+
 # TODO: add Ubuntu variants
