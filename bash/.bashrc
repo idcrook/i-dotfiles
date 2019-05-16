@@ -153,8 +153,10 @@ export PS4='+'     # Prompt 4
 # only source if we are a smarter shell (and on macOS)
 if [ "$(uname -s)" == 'Darwin' ]
 then
+    # https://www.iterm2.com/documentation-tmux-integration.html
+    export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=1
     # shellcheck source=/dev/null
-    [ "$TERM" == 'xterm-256color' ] && test -e "${shell_config}/.iterm2_shell_integration.bash" && source "${shell_config}/.iterm2_shell_integration.bash"
+    [[ "$TERM" == *-256color ]] && test -e "${shell_config}/.iterm2_shell_integration.bash" && source "${shell_config}/.iterm2_shell_integration.bash"
 fi
 
 # Alias definitions. ----------------------------------------------
