@@ -25,6 +25,12 @@ sudo stow -vv --target=/ @Apt
 sudo add-apt-repository ppa:kelleyk/emacs
 sudo apt update
 
+# for eternal terminal - https://eternalterminal.dev/download/git log -p
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository ppa:jgmath2000/et
+sudo apt-get update
+sudo apt-get install et
+
 cd ~/.dotfiles
 stow git
 # populate secrets from another host

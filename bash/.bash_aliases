@@ -10,7 +10,7 @@ then
     alias emacsclient="/usr/local/bin/emacsclient"
     alias e="emacsclient -c"
     # -t : terminal
-    alias et="emacsclient -t"
+    alias ect="emacsclient -t"
     # send client to background (do not block)
     eo() { emacsclient -c "$@" & }
     if [ -f /usr/local/bin/aws_completer ] ; then
