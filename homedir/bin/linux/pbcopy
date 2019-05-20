@@ -1,0 +1,97 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use MIME::Base64 qw(encode_base64);
+
+my $b = "\\"; # 1 backslash, not 2
+
+my $normal = sub {
+    my $base64 = shift;
+    print "\e]52;;", $base64, "\e$b";
+};
+
+my $tmux = sub {
+    my $base64 = shift;
+    print "\ePtmux;\e\e]52;;", $base64, "\e\e$b$b\e$b";
+};
+
+my $screen = sub {
+    my $base64 = shift;
+    my $len = 76;
+    my $first = 1;
+    while (1) {
+        my $chunk = substr $base64, 0, $len, "";
+        last if $chunk eq "";
+        if ($first) {
+            print "\eP\e]52;;", $chunk;
+            undef $first;
+        } else {
+            print "\e$b\eP", $chunk;
+        }
+    }
+    print "\a\e$b";
+};
+
+my $input = do { local $/; <> } || "";
+$input =~ s/\n+\z//sm;
+length $input or exit;
+
+my $print = $normal; # default
+CHOOSE: {
+    if (my $tmux_env = $ENV{TMUX}) {
+        # check tmux -CC
+        (undef, my $pid) = split /,/, $tmux_env, 3;
+        if ($pid) {
+            my $ps = `ps -p $pid -o command= 2>/dev/null` || "";
+            chomp $ps;
+            (undef, my @option) = split /\s+/, $ps;
+            if (grep { $_ eq "-CC" } @option) {
+                last CHOOSE; # use the default, i.e, normal
+            }
+        }
+        $print = $tmux;
+    } elsif ( ($ENV{TERM} || "") =~ /^screen/ ) {
+        $print = $screen;
+    }
+}
+
+$print->( encode_base64($input, "") );
+
+__END__
+
+=head1 NAME
+
+pbcopy - remote pbcopy for iTerm2
+
+=head1 SYNOPSIS
+
+    [remote] $ echo "copy to clipboard from remote!" | pbcopy
+
+    [local] $ pbpaste
+    copy to clipboard from remote!
+
+=head1 SEE ALSO
+
+=over 4
+
+=item * http://doda.b.sourceforge.jp/2011/12/15/tmux-set-clipboard/
+
+=item * http://qiita.com/kefir_/items/1f635fe66b778932e278
+
+=item * http://qiita.com/kefir_/items/515ed5264fce40dec522
+
+=item * https://chromium.googlesource.com/apps/libapps/+/HEAD/hterm/etc/osc52.vim
+
+=item * https://chromium.googlesource.com/apps/libapps/+/HEAD/hterm/etc/osc52.el
+
+=item * https://chromium.googlesource.com/apps/libapps/+/HEAD/hterm/etc/osc52.sh
+
+=item * L<https://github.com/skaji/remote-pbcopy-iterm2>
+
+=back
+
+=head1 AUTHOR
+
+Shoichi Kaji
+
+=cut
