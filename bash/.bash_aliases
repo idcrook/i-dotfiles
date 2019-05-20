@@ -10,7 +10,7 @@ then
     alias emacsclient="/usr/local/bin/emacsclient"
     alias e="emacsclient -c"
     # -t : terminal
-    alias et="emacsclient -t"
+    alias ect="emacsclient -t"
     # send client to background (do not block)
     eo() { emacsclient -c "$@" & }
     if [ -f /usr/local/bin/aws_completer ] ; then
@@ -171,6 +171,8 @@ alias kbk="kubectl"
 alias kbn="kubectl --namespace=kube-system"
 alias kbb="kubectl --namespace=metallb-system"
 alias kbi="kubectl --namespace=ingress-nginx"
+alias kbf="kubectl --namespace=openfaas"
+alias kbfn="kubectl --namespace=openfaas-fn"
 
 # breaks alias expansion # echo command before running
 #kubectl () { echo "+ kubectl $@"; command kubectl $@ ; }
@@ -180,3 +182,5 @@ complete -F _complete_alias kbk
 complete -F _complete_alias kbn
 complete -F _complete_alias kbb
 complete -F _complete_alias kbi
+complete -F _complete_alias kbf
+complete -F _complete_alias kbfn
