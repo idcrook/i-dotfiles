@@ -34,6 +34,16 @@ if [ -f ~/.bash_completion.d/bash_complete-alias.sh ] ; then
     source ~/.bash_completion.d/bash_complete-alias.sh
 fi
 
+# https://github.com/imomaliev/tmux-bash-completion
+# mkdir -p ~/.bash_completion.d
+# curl -o ~/.bash_completion.d/bash_completion_tmux.sh https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux
+if [ -f ~/.bash_completion.d/bash_completion_tmux.sh ] ; then
+    # shellcheck source=.bash_completion.d/bash_completion_tmux.sh
+    source ~/.bash_completion.d/bash_completion_tmux.sh
+fi
+
+
+
 
 # docker completion on macOS (once per machine) - with Homebrew bash completion installed
 ####  https://docs.docker.com/docker-for-mac/#bash
