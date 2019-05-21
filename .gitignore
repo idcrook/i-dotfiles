@@ -3,6 +3,7 @@
 *.secrets*
 .DS_Store
 # /bin/
+.markdown-preview.html
 !README.md
 !TODO.md
 !*example

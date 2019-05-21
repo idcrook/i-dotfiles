@@ -1,6 +1,8 @@
 **List of packages to install via `npm`, the *node.js* packaging tool.**
 
-     └── npm_global_packages.list
+```
+ └── npm_global_packages.list
+```
 
 ---
 
@@ -19,7 +21,8 @@ echo "$newlist"
 echo "$newlist" > npm_global_packages.list
 ```
 
-## Install
+Install
+-------
 
 To (re)install :
 
@@ -27,4 +30,11 @@ To (re)install :
 [sudo] npm install --global $(cat npm_global_packages.list)
 ```
 
- - `sudo` is required when using the apt `npm` package
+-	`sudo` is required when using the apt `npm` package
+
+Update / upgrade
+----------------
+
+```shell
+npm update -g
+```

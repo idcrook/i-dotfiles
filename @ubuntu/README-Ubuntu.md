@@ -1,9 +1,9 @@
-
-## Install
+Install
+-------
 
 Installation on fresh ubuntu 18.04 (server)
 
-```
+```shell
 sudo apt install -y stow git
 
 git clone --recurse-submodules \
