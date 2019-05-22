@@ -12,7 +12,7 @@ fi
 
 
 if [ -d ~/bin/linux/containers ] ; then
-    for d in $(cd ~/bin/linux/containers && ls -1d *) ; do
+    for d in $(cd ~/bin/linux/containers && ls -1d * 2> /dev/null ) ; do
         modpath ~/bin/linux/containers/${d}
     done
 fi

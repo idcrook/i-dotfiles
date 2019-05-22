@@ -91,12 +91,13 @@ if [ -f /usr/local/bin/src-hilite-lesspipe.sh ] ; then
     export LESS=' -R '
 fi
 
-# bash completions config
-# brew install bash-completion@2
-if [ -f "${shell_config}"/completion.bash.inc ] ; then
-    # shellcheck source=/dev/null
-    source "${shell_config}"/completion.bash.inc
-fi
+# bash-completion config
+# macOS: brew install bash-completion@2
+# move to ~/.bash_completion (automatically sourced)
+# if [ -f "${shell_config}"/completion.bash.inc ] ; then
+#     # shellcheck source=/dev/null
+#     source "${shell_config}"/completion.bash.inc
+# fi
 
 # some Mac OS X specific checks
 if [  "$(uname -s)" == 'Darwin' ]
