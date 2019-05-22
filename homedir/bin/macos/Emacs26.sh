@@ -4,7 +4,7 @@
 # Adapted from
 # https://stackoverflow.com/a/38276432
 
-# open --new -a /Applications/Emacs.app --args --debug-init
+# open --new -a /Applications/Emacs26.app --args --debug-init
 
 EMACSPATH=/Applications/Emacs26.app/Contents/MacOS
 
