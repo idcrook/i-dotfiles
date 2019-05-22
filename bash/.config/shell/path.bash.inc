@@ -16,5 +16,3 @@ if [ -d ~/bin/linux/containers ] ; then
         modpath ~/bin/linux/containers/${d}
     done
 fi
-
-# TODO: add Ubuntu variants

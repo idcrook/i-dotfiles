@@ -190,7 +190,6 @@ else
 fi
 export VISUAL=$EDITOR
 
-# TODO: Move to python package?
 # set up python for interactive
 if [ -f "$HOME"/.pystartup ]; then
     export PYTHONSTARTUP=$HOME/.pystartup
