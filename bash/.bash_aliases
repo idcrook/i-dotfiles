@@ -4,16 +4,19 @@
 #
 # TODO: add graceful checks and fallbacks where applicable
 
+# meta-aliases
+alias sal='echo sourcing ~/.bash_aliases ; source ~/.bash_aliases'
+alias val='vi ~/.bash_aliases; sal'
+
+
 if [ "$(uname -s)" == 'Darwin' ]
 then
     alias top='top -o cpu'
     alias cons="tail -40 -f /var/log/system.log"
-    alias dir=ls
     alias startx="open /Applications/Utilities/X11.app"
     alias emacsclient="/usr/local/bin/emacsclient"
     alias e="emacsclient -c"
-    # -t : terminal
-    alias ect="emacsclient -t"
+    alias ect="emacsclient -t"       # -t : terminal
     # send client to background (do not block)
     eo() { emacsclient -c "$@" & }
 
@@ -31,9 +34,9 @@ then
         local args=()
         for arg in "$@" ; do
             # Replace line numbers specified with <FILE>:n into the +n <FILE> emacs syntax
-            args+=(`echo $arg | sed -E 's/(.*):([0-9]+)/+\2 \1/'`)
+            args+=($(echo $arg | sed -E 's/(.*):([0-9]+)/+\2 \1/'))
         done;
-        Emacs.sh ${args[*]}
+        Emacs26.sh ${args[*]}
     }
 
 
@@ -64,7 +67,7 @@ if [ "$TERM" != "dumb" ]; then
     # (Linux)
     if [ -x /usr/bin/dircolors ]; then
         test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-        alias ls='ls --color=auto'
+        alias ls='ls -F --color=auto'
         alias dir='ls  --format=vertical'
         alias vdir='ls --format=long'
     fi
@@ -95,9 +98,6 @@ alias lla='ls -lah'
 
 # disk usage
 alias dus='du -sch * | sort -n'
-
-alias sal='echo sourcing ~/.bash_aliases ; source ~/.bash_aliases'
-alias val='vi ~/.bash_aliases; sal'
 
 # Other aliases ----------------------------------------------------
 
@@ -131,7 +131,7 @@ opp (){
 
 optp (){
     uuid="$(opm get item $1 | jq -r '.uuid')"
-    opm get totp ${uuid}
+    opm get totp "${uuid}"
 }
 
 
@@ -158,13 +158,19 @@ alias show='cat ~/.dirs'
 save (){
 	command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"$(pwd)\" >> ~/.dirs; source ~/.dirs ;
 }
-source ~/.dirs  # Initialization for the above 'save' facility: source .dirs file
-shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
+if [ -f ~/.dirs ] ; then
+    # shellcheck source=/dev/null
+    source ~/.dirs  # Initialization for the above 'save' facility
+else
+    touch ~/.dirs
+fi
+
+# set the bash option so that no '$' is required when using the above facility
+shopt -s cdable_vars
 
 # Shows most used commands, cool script I got this from: http://lifehacker.com/software/how-to/turbocharge-your-terminal-274317.php
+# shellcheck disable=2142
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
-
-
 
 # kubernetes ------------------------------------------------------------------
 alias kbk="kubectl"
