@@ -91,13 +91,15 @@ if [ -f /usr/local/bin/src-hilite-lesspipe.sh ] ; then
     export LESS=' -R '
 fi
 
-# bash-completion config
-# macOS: brew install bash-completion@2
-# move to ~/.bash_completion (automatically sourced)
-# if [ -f "${shell_config}"/completion.bash.inc ] ; then
-#     # shellcheck source=/dev/null
-#     source "${shell_config}"/completion.bash.inc
-# fi
+# bash-completion will automatically source file ~/.bash_completion
+# Ubuntu : sudo apt install bash-completion
+# macOS: brew install bash-completion@2 (BASH 4.1+)
+# the following only needed under macOS/Homebrew
+if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] ; then
+    # # If you'd like to use existing homebrew v1 completions, add the following before
+    # export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+    source "/usr/local/etc/profile.d/bash_completion.sh"
+fi
 
 # some Mac OS X specific checks
 if [  "$(uname -s)" == 'Darwin' ]
@@ -151,18 +153,18 @@ export PS4='+'     # Prompt 4
 # Have to do iTerm2 shell integration after powerline-shell as it messes with
 # prompt
 
-# only source if we are a smarter shell (and on macOS)
+# only source if we are a smarter shell (and on macOS, for now)
 if [ "$(uname -s)" == 'Darwin' ]
 then
-    # https://www.iterm2.com/documentation-tmux-integration.html
-    export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=1
+    # # https://www.iterm2.com/documentation-tmux-integration.html
+    # export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=1
+
     # shellcheck source=/dev/null
     [[ "$TERM" == *-256color ]] && test -e "${shell_config}/.iterm2_shell_integration.bash" && source "${shell_config}/.iterm2_shell_integration.bash"
 fi
 
 # Alias definitions. ----------------------------------------------
 
-#
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 if [ -f ~/.bash_aliases ]; then
     # shellcheck source=.bash_aliases

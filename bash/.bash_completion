@@ -33,6 +33,7 @@ if hash kubectl 2>/dev/null; then
     source <(kubectl completion bash)
 fi
 
+
 # via https://github.com/cykerway/complete-alias
 # requires BASH 4
 # mkdir ~/.bash_completion.d
@@ -43,6 +44,8 @@ if [ -f ~/.bash_completion.d/bash_complete-alias.sh ] ; then
     source ~/.bash_completion.d/bash_complete-alias.sh
 fi
 
+
+# tmux bash-completion not installed in ubuntu
 # https://github.com/imomaliev/tmux-bash-completion
 # mkdir -p ~/.bash_completion.d
 # curl -o ~/.bash_completion.d/bash_completion_tmux.sh https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux
@@ -50,6 +53,7 @@ if [ -f ~/.bash_completion.d/bash_completion_tmux.sh ] ; then
     # shellcheck source=.bash_completion.d/bash_completion_tmux.sh
     source ~/.bash_completion.d/bash_completion_tmux.sh
 fi
+
 
 # docker completion on macOS (once per machine) - with Homebrew bash completion installed
 ####  https://docs.docker.com/docker-for-mac/#bash
@@ -59,6 +63,7 @@ fi
 # ln -s $etc/docker-compose.bash-completion $(brew --prefix)/etc/bash_completion.d/docker-compose
 
 
+# turning off beet bash-completion
 # # http://beets.readthedocs.io/en/v1.4.7/reference/cli.html#shell-completion
 # # if hash beet 2>/dev/null; then
 # #     eval "$(beet completion)"
@@ -77,11 +82,4 @@ if [ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ] ; then
     if [ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc ] ; then
         source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
     fi
-fi
-
-# brew install bash-completion@2 (BASH 4.1+)
-if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] ; then
-    # # If you'd like to use existing homebrew v1 completions, add the following before
-    # export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-    source "/usr/local/etc/profile.d/bash_completion.sh"
 fi
