@@ -1,8 +1,11 @@
 # -*- sh -*-
 
-if [ `uname -s` == 'Darwin' ]
+# BASH aliases on macOS and Linux
+#
+# TODO: add graceful checks and fallbacks where applicable
+
+if [ "$(uname -s)" == 'Darwin' ]
 then
-    alias ls='ls -FG'
     alias top='top -o cpu'
     alias cons="tail -40 -f /var/log/system.log"
     alias dir=ls
@@ -13,12 +16,12 @@ then
     alias ect="emacsclient -t"
     # send client to background (do not block)
     eo() { emacsclient -c "$@" & }
-    if [ -f /usr/local/bin/aws_completer ] ; then
-	complete -C aws_completer aws
-    fi
 
-    if [ -x /usr/local/bin/hub ] ; then
-	alias git=hub
+    # https://hub.github.com/
+    # brew install hub
+    if [ -x /usr/local/bin/hub ]
+    then
+	    alias git=hub
     fi
 
     # USAGE
@@ -38,12 +41,6 @@ then
 
     alias mo="open -a 'Marked 2'"
 
-    # silver surfer
-    alias ipa='curl --silent checkip.dyndns.org | ag --only-matching "[0-9.]+"'
-    alias agf="ag --hidden --files-with-matches --file-search-regex"
-    alias agc="ag --color"
-
-    alias lessc="less -R"
     alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 
 else  # not Darwin/macOS
@@ -54,31 +51,40 @@ else  # not Darwin/macOS
         alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
     fi
 
-    # enable color support of ls and also add handy aliases
-    if [ "$TERM" != "dumb" ]; then
-	if [ -x /usr/bin/dircolors ] ; then
-	    eval "`dircolors -b`"
-	fi
-	alias ls='ls --color=auto'
-	alias dir='ls --color=auto --format=vertical'
-	alias vdir='ls --color=auto --format=long'
-    fi
     alias e="emacsclient -c"
-    alias grep="grep --color=auto"
 
-    alias nvms='export NVM_DIR="/home/dpc/.nvm" ; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
+    alias systail='tail -f /var/log/syslog'
+
 fi
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
+# enable color support of ls and also add handy aliases
+if [ "$TERM" != "dumb" ]; then
+
+    # (Linux)
+    if [ -x /usr/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+        alias ls='ls --color=auto'
+        alias dir='ls  --format=vertical'
+        alias vdir='ls --format=long'
+    fi
+
+    # (macOS)
+    if [ "$(uname -s)"  == 'Darwin' ] ; then
+        # gls is GNU coreutils version
+        # brew install coreutils
+        if command -v gls > /dev/null 2>&1; then
+            alias ls='gls -F --color=auto'
+        else
+            alias ls='ls -F -G'  # macOS - -G in macOS is for colors, in Linux it's no groups
+        fi
+    fi
+
+    # the command options/utilities seem to be consistent across these platforms
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias lessc="less -R"
 fi
 
 # some more ls aliases
@@ -86,15 +92,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lla='ls -lah'
-
-alias o='cd ..'
-alias oo='cd ../..'
-alias ooo='cd ../../..'
-alias oooo='cd ../../../..'
-alias vf='cd'
-
-alias pu='pushd'
-alias po='popd'
 
 # disk usage
 alias dus='du -sch * | sort -n'
@@ -108,14 +105,17 @@ alias val='vi ~/.bash_aliases; sal'
 alias g='grep -i'  # Case insensitive grep
 alias f='find . -iname'
 alias ducks='du -cksh * | sort -rn|head -11' # Lists folders and files sizes in the current folder
-alias systail='tail -f /var/log/syslog'
 alias m='more'
 alias df='df -h'
 
-alias sshj="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+alias sshj="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" # don't cache host fingerprints
 alias ssh="sshj"
 
-# 1Password
+# silver searcher (grep/ack improved)
+alias ipa='curl --silent checkip.dyndns.org | ag --only-matching "[0-9.]+"'
+alias agf="ag --hidden --files-with-matches --file-search-regex"
+
+# 1Password CLI ------------------------------------------------------------
 
 # op command wrapper to set account argument
 opm (){
@@ -136,8 +136,14 @@ optp (){
 
 
 # Navigation -------------------------------------------------------
-#alias ..='cd ..'
-#alias ...='cd .. ; cd ..'
+alias o='cd ..'
+alias oo='cd ../..'
+alias ooo='cd ../../..'
+alias oooo='cd ../../../..'
+alias vf='cd'  # common typo
+
+alias pu='pushd'
+alias po='popd'
 
 # I got the following from, and mod'd it: http://www.macosxhints.com/article.php?story=20020716005123797
 #    The following aliases (save & show) are for saving frequently used directories
@@ -150,34 +156,26 @@ fi
 
 alias show='cat ~/.dirs'
 save (){
-	command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ;
+	command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"$(pwd)\" >> ~/.dirs; source ~/.dirs ;
 }
-source ~/.dirs  # Initialization for the above 'save' facility: source the .sdirs file
+source ~/.dirs  # Initialization for the above 'save' facility: source .dirs file
 shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
-
 
 # Shows most used commands, cool script I got this from: http://lifehacker.com/software/how-to/turbocharge-your-terminal-274317.php
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
 
 
-if [  `uname -s` == 'Darwin' ]
-then
 
-    alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
-fi
-
-# kubernetes
+# kubernetes ------------------------------------------------------------------
 alias kbk="kubectl"
-alias kbn="kubectl --namespace=kube-system"
-alias kbb="kubectl --namespace=metallb-system"
-alias kbi="kubectl --namespace=ingress-nginx"
-alias kbf="kubectl --namespace=openfaas"
+alias kbn="kubectl  --namespace=kube-system"
+alias kbb="kubectl  --namespace=metallb-system"
+alias kbi="kubectl  --namespace=ingress-nginx"
+alias kbf="kubectl  --namespace=openfaas"
 alias kbfn="kubectl --namespace=openfaas-fn"
 
-# breaks alias expansion # echo command before running
-#kubectl () { echo "+ kubectl $@"; command kubectl $@ ; }
-
 # _complete_alias requires https://github.com/cykerway/complete-alias to be loaded
+# ~/.bash_completion.d/bash_complete-alias.sh loaded by ~/.bash_completion
 complete -F _complete_alias kbk
 complete -F _complete_alias kbn
 complete -F _complete_alias kbb
