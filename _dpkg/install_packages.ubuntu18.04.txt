@@ -5,7 +5,8 @@ sudo apt install -y screen molly-guard mosh dselect rcs \
     tcsh keychain source-highlight jq docker.io shellcheck
 # emacs26 and some dependencies
 sudo apt install -y emacs26 imagemagick-6.q16 ack  silversearcher-ag npm \
-    python-pip python3-pip python3-venv fonts-powerline
+    python-pip python3-pip python3-venv python-wheel python3-wheel \
+    fonts-powerline
 # golang
 sudo apt install -y golang-go
 # sudo apt install flex clang
