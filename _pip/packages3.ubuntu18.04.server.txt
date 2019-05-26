@@ -5,3 +5,4 @@ jedi
 pyflakes
 # requests
 yapf
+yamllint

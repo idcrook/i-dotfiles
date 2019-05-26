@@ -18,17 +18,22 @@ Inspired heavily by:
 Background
 ----------
 
+When needed, special install instructions are present in package `README.md` file. Starting points: [macOS](INSTALL-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md)
+
 I used to manage my macOS/Linux/msys2/WSL dotfiles in a "homedir.git" repository. This left things to be desired, and syncing multiple platforms sometimes presented unresolvable conflicts. Now I use GNU Stow and this organization.
 
 Install
 -------
 
+Starting points: [macOS](%40macos/README-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md)
+
 1.	Assumes GNU `stow` is installed
 2.	clone the repository :`git clone https://github.com/idcrook/i-dotfiles.git ~/.dotfiles ; cd ~/.dotfiles`
-3.	setup `stow`, *inception style* : `stow -t ~ stow` 
+3.	setup `stow`, *inception style* : `stow -t ~ stow`
+	-	may need to update homedir path in `~/.stowrc`
 4.	install desired package via `stow <directory>` <sup id="a1">[1](#f1)</sup>
 
-When needed, special install instructions are present in package `README.md` file. Starting points: [macOS](INSTALL-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md)
+When needed, special install instructions are present in package `README.md` file.
 
 Rules
 -----
