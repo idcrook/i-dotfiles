@@ -9,7 +9,6 @@ sudo apt install -y stow git
 git clone --recurse-submodules \
     git@github.com:idcrook/i-dotfiles.git ~/.dotfiles
 
-
 cd ~/.dotfiles
 stow -t ~ stow # bootstrap stow config at top-level
 
@@ -25,11 +24,11 @@ sudo stow -vv --target=/ @Apt
 sudo add-apt-repository ppa:kelleyk/emacs
 sudo apt update
 
-# for eternal terminal - https://eternalterminal.dev/download/git log -p
-sudo apt-get install -y software-properties-common
-sudo add-apt-repository ppa:jgmath2000/et
-sudo apt-get update
-sudo apt-get install et
+<!-- # for eternal terminal - https://eternalterminal.dev/download/git log -p -->
+<!-- sudo apt-get install -y software-properties-common -->
+<!-- sudo add-apt-repository ppa:jgmath2000/et -->
+<!-- sudo apt-get update -->
+<!-- sudo apt-get install et -->
 
 cd ~/.dotfiles
 stow git
@@ -38,14 +37,22 @@ scp ~/.config/git/config.secrets  server:.dotfiles/git/.config/git/config.secret
 scp ~/.dotfiles/homedir/.ansiweatherrc.secrets  server:.dotfiles/homedir/.ansiweatherrc.secrets
 scp ~/.dotfiles/homedir/.wakatime.cfg.secrets server:.dotfiles/homedir/.wakatime.cfg.secrets
 
-# some skeleton files will be clobbered in ~
+# some files will be replaced /taken over in ~
 mkdir -p ~/backup
 mv ~/{.bash_logout,.bashrc,.profile} ~/backup
+( cd ~ && mv .bash_aliases .bash_profile .inputrc .powerline-shell.json .bash_completion.d/ backup/ )
+stow -vv bash
 
-stow bash
+mv ~/.pystartup ~/backup/
 stow python
+
+mv .wakatime.cfg .ansiweatherrc .editorconfig .screenrc .tmux.conf backup/
 stow homedir
+
+mv ~/.emacs.d ~/backup/
 stow emacs
+
+stow -vv golang
 
 cd _dpkg
 # ...

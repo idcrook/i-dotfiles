@@ -16,3 +16,8 @@ if [ -d ~/bin/linux/containers ] ; then
         modpath ~/bin/linux/containers/${d}
     done
 fi
+
+# macOS python user libraries can be installed here
+if [[ -d ~/Library/Python/3.7/bin ]] ; then
+    modpath ~/Library/Python/3.7/bin
+fi
