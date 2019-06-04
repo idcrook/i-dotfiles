@@ -2,7 +2,12 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-## XDG config
+# XDG and systemd
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+# https://www.freedesktop.org/wiki/Software/xdg-user-dirs/
+# https://www.freedesktop.org/software/systemd/man/file-hierarchy.html
+
+## $XDG_CONFIG_HOME: $HOME/.config
 if [[ ! -x "$XDG_CONFIG_HOME" ]]; then
     shell_config="$HOME/.config/shell"
 else
@@ -13,7 +18,7 @@ if [[ ! -x "$shell_config" ]]; then
     mkdir -p "$shell_config"
 fi
 
-## XDG data
+## XDG_DATA_HOME: $HOME/.local/share
 if [[ ! -x "$XDG_DATA_HOME" ]]; then
     shell_data="$HOME/.local/share/shell"
 else
@@ -39,6 +44,7 @@ modpath -q -b /usr/local/bin  /usr/local/sbin
 modpath -q -b /usr/local/bin  "$HOME"/bin
 
 # pip --user puts stuff in here; add to path before sourcing .bashrc
+# echo $(systemd-path user-binaries)
 modpath -q -b "$HOME"/bin     "$HOME"/.local/bin
 
 
