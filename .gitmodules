@@ -1,3 +1,6 @@
 [submodule "emacs/.emacs.d"]
 	path = emacs/.emacs.d
 	url = git@github.com:idcrook/.emacs.d.git
+[submodule "zsh/.zprezto"]
+	path = zsh/.zprezto
+	url = git@github.com:idcrook/prezto.git
