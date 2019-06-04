@@ -186,7 +186,7 @@ fi
 # Editors ----------------------------------------------------------
 
 # create new frame in windowing env
-if hash vim 2&>/dev/null ; then
+if command -v vim &>/dev/null ; then
     export EDITOR='emacsclient -a vim --create-frame'
 else
     export EDITOR='emacsclient -a vi --create-frame'
