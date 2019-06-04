@@ -28,7 +28,7 @@ Install
 Starting points: [macOS](%40macos/README-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md)
 
 1.	Assumes GNU `stow` is installed
-2.	clone the repository :`git clone https://github.com/idcrook/i-dotfiles.git ~/.dotfiles ; cd ~/.dotfiles`
+2.	clone the repository :`git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git ~/.dotfiles ; cd ~/.dotfiles`
 3.	setup `stow`, *inception style* : `stow -t ~ stow`
 	-	may need to update homedir path in `~/.stowrc`
 4.	install desired package via `stow <directory>` <sup id="a1">[1](#f1)</sup>

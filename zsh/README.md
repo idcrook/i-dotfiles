@@ -53,3 +53,13 @@ add to `~/.zpreztorc`:
 ```
 zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 ```
+
+### configuration
+
+adapted from https://github.com/romkatv/powerlevel10k#configuration
+
+```
+cd ~/.dotfiles/zsh
+( cd ~/.dotfiles/zsh && curl -fsSLO https://raw.githubusercontent.com/romkatv/dotfiles-public/master/.purepower )
+echo 'source ~/.purepower' >>! .zshrc
+```
