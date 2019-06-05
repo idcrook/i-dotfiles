@@ -12,7 +12,7 @@ fi
 
 
 if [ -d ~/bin/linux/containers ] ; then
-    for d in $(cd ~/bin/linux/containers && ls -1d * 2> /dev/null ) ; do
+    for d in $(cd ~/bin/linux/containers && ls -1d  2> /dev/null ) ; do
         if [[ $d == "." ]] ; then continue ; fi ;
         modpath ~/bin/linux/containers/${d}
     done
