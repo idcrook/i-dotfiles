@@ -141,12 +141,14 @@ then
 
     # https://github.com/kylef/swiftenv/#via-homebrew
     # brew info kylef/formulae/swiftenv
-    if [  "$(uname -s)" == 'Darwin' ]
-    then
-        export SWIFTENV_ROOT=/usr/local/var/swiftenv
-	    if command -v swiftenv 1>/dev/null 2>&1; then
-            eval "$(swiftenv init -)"
-        fi
+    export SWIFTENV_ROOT=/usr/local/var/swiftenv
+	if command -v swiftenv 1>/dev/null 2>&1; then
+        eval "$(swiftenv init -)"
+    fi
+
+    # python3 - Homebrew
+    if [ -d /usr/local/opt/python/libexec/bin ] ; then
+        modpath -b /usr/local/bin /usr/local/opt/python/libexec/bin
     fi
 
     # golang - Homebrew
