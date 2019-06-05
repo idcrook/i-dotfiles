@@ -159,6 +159,7 @@ then
     # # https://www.iterm2.com/documentation-tmux-integration.html
     # export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=1
 
+    # handles xterm-256color tmux-256color
     # shellcheck source=/dev/null
     [[ "$TERM" == *-256color ]] && test -e "${shell_config}/.iterm2_shell_integration.bash" && source "${shell_config}/.iterm2_shell_integration.bash"
 fi
