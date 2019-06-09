@@ -12,6 +12,4 @@ sudo apt install -y emacs26 imagemagick-6.q16 ack  silversearcher-ag npm \
 sudo apt install -y golang-go
 # sudo apt install flex clang
 # fasd
-sudo add-apt-repository ppa:aacebedo/fasd
-sudo apt-get update
 sudo apt-get install fasd
