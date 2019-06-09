@@ -24,3 +24,7 @@ fi
 if [[ -d ~/Library/Python/3.7/bin ]] ; then
     modpath -q ~/Library/Python/3.7/bin
 fi
+
+
+# on macOS, homebrew version
+modpath -q /usr/local/opt/curl/bin
