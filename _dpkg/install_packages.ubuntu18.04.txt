@@ -13,3 +13,5 @@ sudo apt install -y golang-go
 # sudo apt install flex clang
 # fasd
 sudo apt-get install fasd
+# github hub - https://hub.github.com
+sudo snap install hub --classic
