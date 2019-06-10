@@ -55,6 +55,14 @@ if [ -f ~/.bash_completion.d/bash_completion_tmux.sh ] ; then
 fi
 
 
+# hub bash-completion not installed in ubuntu
+# https://github.com/github/hub/tree/master/etc
+if [ -f ~/.bash_completion.d/hub.bash_completion.sh ] ; then
+    # shellcheck source=.bash_completion.d/hub.bash_completion.sh
+    source ~/.bash_completion.d/hub.bash_completion.sh
+fi
+
+
 # docker completion on macOS (once per machine) - with Homebrew bash completion installed
 ####  https://docs.docker.com/docker-for-mac/#bash
 # etc=/Applications/Docker.app/Contents/Resources/etc
