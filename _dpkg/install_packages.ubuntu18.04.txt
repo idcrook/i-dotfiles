@@ -15,3 +15,5 @@ sudo apt install -y golang-go
 sudo apt-get install fasd
 # github hub - https://hub.github.com
 sudo snap install hub --classic
+# xdg-open
+ sudo apt install xdg-utils
