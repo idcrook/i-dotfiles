@@ -165,10 +165,10 @@ fi
   fi
 
   typeset -ga POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-      dir vcs)
+      virtualenv pyenv dir vcs )
 
   typeset -ga POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-      status command_execution_time background_jobs custom_rprompt context)
+      status command_execution_time background_jobs custom_rprompt context ssh)
 
   local ins=$(_pp_s '>' '❯')
   local cmd=$(_pp_s '<' '❮')
