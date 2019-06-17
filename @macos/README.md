@@ -10,5 +10,4 @@ Use subpackages for configuration specific to a mac instance.
 
 ### Subpackages
 
-- [@macbook](https://github.com/idcrook/i-dotfiles/tree/master/%40mac/%40macbook)
 - [@macmini](https://github.com/idcrook/i-dotfiles/tree/master/%40mac/%40macmini)
