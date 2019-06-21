@@ -165,7 +165,7 @@ fi
   fi
 
   typeset -ga POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-      virtualenv pyenv dir vcs )
+      dir vcs virtualenv pyenv )
 
   typeset -ga POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
       status command_execution_time background_jobs custom_rprompt context ssh)
@@ -197,6 +197,8 @@ fi
   typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?.$ok.$err) "
 
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SEGMENT_SEPARATOR=
+  # # virtualenv has no trailing separation unless this is set
+  # typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=' '
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR=' '
   typeset -g POWERLEVEL9K_WHITESPACE_BETWEEN_{LEFT,RIGHT}_SEGMENTS=
 
@@ -253,6 +255,16 @@ fi
   typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,ROOT,REMOTE_SUDO,REMOTE,SUDO}_BACKGROUND=none
   typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,REMOTE_SUDO,REMOTE,SUDO}_FOREGROUND=$(_pp_c 007 244)
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=$(_pp_c 003 011)
+
+  # Virtualenv block settings
+  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='blue' # 004
+  typeset -g POWERLEVEL9K_VIRTUALENV_BACKGROUND='darkgoldenrod' # 136
+  #typeset -g POWERLEVEL9K_PYTHON_ICON='\uE606'
+
+  # Pyenv block settings
+  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='blue' # 004
+  typeset -g POWERLEVEL9K_PYENV_BACKGROUND='gold1' # 220
+  #typeset -g POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=true
 
   unfunction _pp_c _pp_s
 } "$@"
