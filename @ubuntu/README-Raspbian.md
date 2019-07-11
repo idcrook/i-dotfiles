@@ -1,11 +1,12 @@
 Install
 -------
 
-Installation on fresh ubuntu 18.04 (server)
+Installation on Raspbian Buster (c. 07/2019)
 
 ```shell
 sudo apt install -y stow git
 
+# requires SSH public key to be installed in github account
 git clone --recurse-submodules \
     git@github.com:idcrook/i-dotfiles.git ~/.dotfiles
 
@@ -19,16 +20,6 @@ mv -i ~/.stowrc.hard  ~/.stowrc
 
 cd @ubuntu
 sudo stow -vv --target=/ @Apt
-
-# for emacs26 repo
-sudo add-apt-repository ppa:kelleyk/emacs
-sudo apt update
-
-<!-- # for eternal terminal - https://eternalterminal.dev/download/git log -p -->
-<!-- sudo apt-get install -y software-properties-common -->
-<!-- sudo add-apt-repository ppa:jgmath2000/et -->
-<!-- sudo apt-get update -->
-<!-- sudo apt-get install et -->
 
 cd ~/.dotfiles
 stow git
@@ -52,10 +43,13 @@ stow python
 mv .wakatime.cfg .ansiweatherrc .editorconfig .screenrc .tmux.conf ~/backup/
 stow homedir
 
+stow -vv zsh
+
 mv ~/.emacs.d ~/backup/
 stow emacs
 
 stow -vv golang
+# See golang/README for more
 
 cd _dpkg
 # ...
@@ -65,13 +59,13 @@ cd ../_npm
 # ...
 
 # login from a new terminal
-emacs26 -nw
+emacs
 ```
 
-## Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
+Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
+-----------------------------------------------
 
-Via  https://unix.stackexchange.com/questions/452391/execute-command-to-swap-caps-lock-and-ctrl-at-startup
-
+Via https://unix.stackexchange.com/questions/452391/execute-command-to-swap-caps-lock-and-ctrl-at-startup
 
 ```
 root@debian:/home/ja# cat /etc/default/keyboard

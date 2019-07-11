@@ -1,0 +1,9 @@
+autopep8
+black
+flake8
+jedi
+pyflakes
+# requests
+yapf
+yamllint
+wakatime

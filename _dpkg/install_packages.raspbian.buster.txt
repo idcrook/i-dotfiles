@@ -1,0 +1,41 @@
+# bash and utils
+sudo apt install -y screen molly-guard mosh dselect rcs \
+    tcsh keychain source-highlight jq shellcheck \
+    zsh colordiff
+# emacs (emacs26) and some dependencies
+sudo apt install -y emacs imagemagick-6.q16 ack  silversearcher-ag npm \
+    python-pip python3-pip python3-venv python-wheel python3-wheel \
+    fonts-powerline
+
+## npm is already the newest version (5.8.0+ds6-4).
+## npm set to manually installed.
+## python-wheel is already the newest version (0.32.3-2).
+## python-wheel set to manually installed.
+## python3-venv is already the newest version (3.7.3-1).
+## python3-venv set to manually installed.
+## python3-wheel is already the newest version (0.32.3-2).
+## python3-wheel set to manually installed.
+## python-pip is already the newest version (18.1-5+rpt1).
+## python3-pip is already the newest version (18.1-5+rpt1).
+## Suggested packages:
+##   imagemagick-doc autotrace cups-bsd | lpr | lprng enscript gimp gnuplot
+##   grads graphviz hp2xx html2ps libwmf-bin mplayer povray radiance sane-utils
+##   texlive-base-bin transfig ufraw-batch inkscape libwmf0.2-7-gtk
+
+# golang
+sudo apt install -y golang-go
+# sudo apt install flex clang
+# fasd - zsh related
+sudo apt-get install fasd
+# github hub - https://hub.github.com
+## curl --location -o ~/bin/linux/containers/hub-linux-arm-2.12.2.tgz
+hub_release_binary_url="https://github.com/github/hub/releases/download/v2.12.2/hub-linux-arm-2.12.2.tgz"
+hub_release_name=hub-linux-arm-2.12.2
+hub_release_destination="$HOME/bin/linux/containers/hub"
+mkdir "${hub_release_destination}"
+curl --location "$hub_release_binary_url" | (cd "$hub_release_destination" ; tar zxvf - "${hub_release_name}"/bin/hub )
+mv -v "$hub_release_destination"/"${hub_release_name}"/bin/hub "$hub_release_destination"
+rm -r "$hub_release_destination"/"${hub_release_name}"/
+
+# xdg-open
+ sudo apt install xdg-utils

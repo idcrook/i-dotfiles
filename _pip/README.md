@@ -32,6 +32,17 @@ pip2 install --user --requirement packages2.ubuntu18.04.server.txt
 pip3 install --user --requirement packages3.ubuntu18.04.server.txt
 ```
 
+### Raspbian buster
+
+Since we are using `--user` should not need to preface with `sudo`
+
+```shell
+pip2 install --user --requirement packages2.raspbian.buster.txt
+pip3 install --user --requirement packages3.raspbian.buster.txt
+```
+
+
+
 #### `pyenv`
 
 Via https://github.com/pyenv/pyenv/wiki/Common-build-problems
