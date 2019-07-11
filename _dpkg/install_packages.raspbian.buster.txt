@@ -5,22 +5,8 @@ sudo apt install -y screen molly-guard mosh dselect rcs \
 # emacs (emacs26) and some dependencies
 sudo apt install -y emacs imagemagick-6.q16 ack  silversearcher-ag npm \
     python-pip python3-pip python3-venv python-wheel python3-wheel \
-    fonts-powerline
-
-## npm is already the newest version (5.8.0+ds6-4).
-## npm set to manually installed.
-## python-wheel is already the newest version (0.32.3-2).
-## python-wheel set to manually installed.
-## python3-venv is already the newest version (3.7.3-1).
-## python3-venv set to manually installed.
-## python3-wheel is already the newest version (0.32.3-2).
-## python3-wheel set to manually installed.
-## python-pip is already the newest version (18.1-5+rpt1).
-## python3-pip is already the newest version (18.1-5+rpt1).
-## Suggested packages:
-##   imagemagick-doc autotrace cups-bsd | lpr | lprng enscript gimp gnuplot
-##   grads graphviz hp2xx html2ps libwmf-bin mplayer povray radiance sane-utils
-##   texlive-base-bin transfig ufraw-batch inkscape libwmf0.2-7-gtk
+    fonts-powerline fonts-inconsolata fonts-ubuntu fonts-symbola \
+    fonts-dejavu fonts-hack
 
 # golang
 sudo apt install -y golang-go

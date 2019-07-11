@@ -10,3 +10,5 @@ Using Prezto and powerlevel10k
 
 	-	https://github.com/romkatv/powerlevel10k
 	-	purepower, as adapted from https://github.com/romkatv/powerlevel10k#configuration
+
+See [README-initial-import.md](README-initial-import.md)

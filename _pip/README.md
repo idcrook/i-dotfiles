@@ -23,7 +23,7 @@ pip2 install -r packages2.txt
 pip3 install -r packages3.txt
 ```
 
-### ubuntu special
+### Ubuntu
 
 Since we are using `--user` should not need to preface with `sudo`
 
@@ -40,8 +40,6 @@ Since we are using `--user` should not need to preface with `sudo`
 pip2 install --user --requirement packages2.raspbian.buster.txt
 pip3 install --user --requirement packages3.raspbian.buster.txt
 ```
-
-
 
 #### `pyenv`
 
