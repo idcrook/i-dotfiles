@@ -58,6 +58,13 @@ else  # not Darwin/macOS
 
     alias systail='tail -f /var/log/syslog'
 
+    # https://hub.github.com/
+    # sudo apt install hub
+    if [ -x /usr/bin/hub ]
+    then
+	    alias git=hub
+    fi
+
 fi
 
 

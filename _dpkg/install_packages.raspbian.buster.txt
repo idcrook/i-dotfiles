@@ -10,18 +10,14 @@ sudo apt install -y emacs imagemagick-6.q16 ack  silversearcher-ag npm \
 
 # golang
 sudo apt install -y golang-go
-# sudo apt install flex clang
+
+# compiler tools
+#sudo apt install flex clang
+
 # fasd - zsh related
 sudo apt-get install fasd
 # github hub - https://hub.github.com
-## curl --location -o ~/bin/linux/containers/hub-linux-arm-2.12.2.tgz
-hub_release_binary_url="https://github.com/github/hub/releases/download/v2.12.2/hub-linux-arm-2.12.2.tgz"
-hub_release_name=hub-linux-arm-2.12.2
-hub_release_destination="$HOME/bin/linux/containers/hub"
-mkdir "${hub_release_destination}"
-curl --location "$hub_release_binary_url" | (cd "$hub_release_destination" ; tar zxvf - "${hub_release_name}"/bin/hub )
-mv -v "$hub_release_destination"/"${hub_release_name}"/bin/hub "$hub_release_destination"
-rm -r "$hub_release_destination"/"${hub_release_name}"/
+sudo apt-get install hub
 
 # xdg-open
  sudo apt install xdg-utils
