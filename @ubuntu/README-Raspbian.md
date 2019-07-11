@@ -35,6 +35,7 @@ exit
 mkdir -p ~/backup
 mv ~/{.bash_logout,.bashrc,.profile} ~/backup
 ( cd ~ && mv .bash_aliases .bash_profile .inputrc .powerline-shell.json .bash_completion.d/ backup/ )
+mkdir -p ~/.local/{bin,lib}
 stow -vv bash
 
 mv ~/.pystartup ~/backup/
