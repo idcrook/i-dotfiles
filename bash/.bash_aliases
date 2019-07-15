@@ -175,6 +175,17 @@ fi
 # set the bash option so that no '$' is required when using the above facility
 shopt -s cdable_vars
 
+# https://medium.com/@marko.luksa/bash-trick-repeat-last-command-until-success-750a61c43c8a
+# rpt: will re-run previous command until it succeeds
+rpt() {
+  CMD=$(fc -ln | tail -2 | head -1)
+  echo "repeating until success: $CMD"
+  until $CMD
+  do
+    sleep 1
+  done
+}
+
 # Shows most used commands, cool script I got this from: http://lifehacker.com/software/how-to/turbocharge-your-terminal-274317.php
 # shellcheck disable=2142
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
