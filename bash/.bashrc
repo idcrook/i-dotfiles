@@ -186,7 +186,36 @@ fi
 
 # Editors ----------------------------------------------------------
 
-# create new frame in windowing env
+# https://stuff-things.net/2014/12/16/working-with-emacsclient/
+# if [ -z "$SSH_CONNECTION" ]; then
+#    case $OSTYPE in
+#    darwin*)
+#        export EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+#        alias emacsclient=$EMACSCLIENT
+#        ;;
+#    *)
+#        export EMACSCLIENT=emacsclient
+#        ;;
+#    esac
+#    alias ec="$EMACSCLIENT -c -n"
+#    export EDITOR="$EMACSCLIENT -c"
+#    export ALTERNATE_EDITOR=""
+# else
+#     export EDITOR=$(type -P emacs || type -P vim || type -P vi)
+# fi
+# export VISUAL=$EDITOR
+case $OSTYPE in
+    darwin*)
+        export EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+        alias emacsclient=$EMACSCLIENT
+        ;;
+    *)
+        export EMACSCLIENT=emacsclient
+        ;;
+esac
+
+
+# Create new frame in windowing env
 if command -v vim &>/dev/null ; then
     export EDITOR='emacsclient -a vim --create-frame'
 else

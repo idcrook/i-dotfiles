@@ -39,7 +39,6 @@ then
         Emacs26.sh ${args[*]}
     }
 
-
     alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 
     alias mo="open -a 'Marked 2'"
@@ -96,6 +95,17 @@ if [ "$TERM" != "dumb" ]; then
     alias egrep='egrep --color=auto'
     alias lessc="less -R"
 fi
+
+# https://stuff-things.net/2019/09/04/updated-emacs-open-with-line-numbers/
+function ec () {
+    # Replace line numbers specified with <FILE>:n <FILE>:#Ln into the +n <FILE> emacs syntax
+    if [[ $1 =~ (.*)[:#]L?([0-9]+)$ ]]; then
+        $EMACSCLIENT -c -n "+${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}"
+    else
+        $EMACSCLIENT -c -n "$@"
+    fi
+}
+
 
 # some more ls aliases
 alias ll='ls -alF'
