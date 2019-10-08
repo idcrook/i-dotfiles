@@ -62,6 +62,7 @@ pytz
 PyYAML
 pyzmq
 qtconsole
+powerline-shell
 requests
 retrying
 semantic-version

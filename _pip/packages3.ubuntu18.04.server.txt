@@ -2,6 +2,7 @@ autopep8
 black
 flake8
 jedi
+powerline-shell
 pyflakes
 wakatime
 # requests
