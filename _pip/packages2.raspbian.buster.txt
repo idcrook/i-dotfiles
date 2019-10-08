@@ -1,1 +1,1 @@
-powerline-shell
+pip

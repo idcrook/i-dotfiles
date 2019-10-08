@@ -3,6 +3,7 @@ black
 flake8
 jedi
 pyflakes
+wakatime
 # requests
 yapf
 yamllint
