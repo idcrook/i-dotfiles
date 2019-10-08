@@ -139,7 +139,7 @@ function _update_ps1() {
 
 # need to look for particular TERM before setting, otherwise Emacs TRAMP to linux hangs
 case "$TERM" in
-    xterm-color|*-256color)
+    xterm-color|*-256color|xterm-kitty)
         if builtin type -P powerline-shell &>/dev/null ; then
             PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
         fi
