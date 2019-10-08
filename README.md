@@ -18,7 +18,7 @@ Inspired heavily by:
 Background
 ----------
 
-When needed, special install instructions are present in package `README.md` file. Starting points: [macOS](INSTALL-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md), [Raspbian buster](%40ubuntu/README-Raspian.md)
+When needed, special install instructions are present in package `README.md` file. Starting points: [macOS](%40macos/README-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md), [Raspbian buster](%40ubuntu/README-Raspian.md)
 
 I used to manage my macOS/Linux/msys2/WSL dotfiles in a "homedir.git" repository. This left things to be desired, and syncing multiple platforms sometimes presented unresolvable conflicts. Now I use GNU Stow and this organization.
 
@@ -71,7 +71,7 @@ See [example](https://github.com/idcrook/i-dotfiles/blob/master/git/.config/git/
 
 The trick is to have one package per OS, just to create each specific directories structure properly. Then create the part of the filepath that is common to the two OS in `<package>/_common`, put the files in it, symlink from the subpackages to that location.
 
-Feel confused ? Check [example](https://github.com/Kraymer/F-dotfiles/tree/master/sublime_text_3/%40linux/.config/sublime-text-3)
+Feel confused ? Check [example](https://github.com/Kraymer/F-dotfiles/tree/master/_sublime_text_3/%40linux/.config/sublime-text-3)
 
 ---
 
