@@ -6,14 +6,10 @@
     "hostname",
     "cwd",
     "git",
-  {
-    "type": "env",
-    "var": "OLDPWD"
-  },
+    "git_stash",
     "set_term_title",
     "read_only",
     "exit_code",
-    "jobs",
     "newline",
     "root"
   ],
