@@ -1,16 +1,15 @@
-
-
-
-# Emacs .emacs.d
+Emacs .emacs.d
+==============
 
 Introduced separate [`.emacs.d`](https://github.com/idcrook/.emacs.d) repository as git submodule
 
-
-## Install emacs26 on Ubuntu
+Install emacs26 on Ubuntu
+-------------------------
 
 Refer to [@ubuntu README](../%40ubuntu/README.md#install-notes) for details on how to add repository for emacs26.
 
-## Install emacs27 on macOS
+Install emacs27 on macOS
+------------------------
 
 ```bash
 # rename /Applications/Emacs.app -> Emacs26.app
@@ -21,13 +20,15 @@ brew install emacs-head --HEAD --with-cocoa --with-imagemagick --with-jansson
 ln -s /usr/local/opt/emacs-head/Emacs.app /Applications
 ```
 
-## Using
+Using
+-----
 
-1. Make edits in git submodule checkout, e.g. `~/.dotfiles/emacs/.emacs.d`
-1. Push any changes back to its remote
-1. When ready, can add/commit `.emacs.d` reference into `i-dotfiles`
+1.	Make edits in git submodule checkout, e.g. `~/.dotfiles/emacs/.emacs.d`
+2.	Push any changes back to its remote
+3.	When ready, can add/commit `.emacs.d` reference into `i-dotfiles`
 
-## Updating .emacs.d locally from its host repo
+Updating .emacs.d locally from its host repo
+--------------------------------------------
 
 ```
 cd ~/.dotfiles/emacs/.emacs.d
@@ -42,7 +43,6 @@ git add emacs/.emacs.d
 git commit -a -m "updated .emacs.d submodule"
 git push origin master
 ```
-
 
 #### Importing .emacs.d subtree from original homedir.git
 
