@@ -16,8 +16,9 @@
   "mode": "patched",
   "cwd":
   {
-    "mode": "plain",
-    "full_cwd": true
+    "full_cwd": "true",
+    "max_depth": 99,
+    "mode": "plain"
   },
   "hostname":
   {
