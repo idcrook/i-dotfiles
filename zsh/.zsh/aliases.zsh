@@ -59,11 +59,12 @@ esac
 
 # https://stuff-things.net/2019/09/04/updated-emacs-open-with-line-numbers/
 function ec () {
-    setopt local_options BASH_REMATCH
+    setopt local_options KSH_ARRAYS BASH_REMATCH
     # Replace line numbers specified with <FILE>:n <FILE>:#Ln into the +n <FILE> emacs syntax
     if [[ $1 =~ (.*)[:#]L?([0-9]+)$ ]]; then
-        $EMACSCLIENT -c -n "+${BASH_REMATCH[3]}" "${BASH_REMATCH[2]}"
-        # $EMACSCLIENT -c -n "+${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}"
+        # without KSH_ARRAYS # $EMACSCLIENT -c -n "+${BASH_REMATCH[3]}" "${BASH_REMATCH[2]}"
+        # zsh equiv without KSH_ARRAYS, BASH_REMATCH #  $EMACSCLIENT -c -n "+${match[2]}" "${match[1]}"
+        $EMACSCLIENT -c -n "+${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}"
     else
         $EMACSCLIENT -c -n "$@"
     fi
