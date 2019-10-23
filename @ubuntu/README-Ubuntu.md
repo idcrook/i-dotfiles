@@ -31,7 +31,7 @@ sudo apt update
 <!-- sudo apt-get install et -->
 
 cd ~/.dotfiles
-stow git
+stow -vv git
 
 # populate secrets from another host, in another terminal
 ssh DONOR_HOST
@@ -46,14 +46,16 @@ mv ~/{.bash_logout,.bashrc,.profile} ~/backup
 ( cd ~ && mv .bash_aliases .bash_profile .inputrc .powerline-shell.json .bash_completion.d/ backup/ )
 stow -vv bash
 
-mv ~/.pystartup ~/backup/
-stow python
+stow -vv zsh
 
-mv .wakatime.cfg .ansiweatherrc .editorconfig .screenrc .tmux.conf ~/backup/
-stow homedir
+mv ~/.pystartup ~/backup/
+stow -vv python
+
+( cd ~ && mv .wakatime.cfg .ansiweatherrc .editorconfig .screenrc .tmux.conf ~/backup/ )
+stow -vv homedir
 
 mv ~/.emacs.d ~/backup/
-stow emacs
+stow -vv emacs
 
 stow -vv golang
 

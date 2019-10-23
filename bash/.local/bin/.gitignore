@@ -1,0 +1,10 @@
+/autopep8
+/black
+/blackd
+/flake8
+/powerline-shell
+/pycodestyle
+/pyflakes
+/wakatime
+/yamllint
+/yapf

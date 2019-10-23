@@ -19,7 +19,7 @@ pip3 list --format=columns | sed '/Package/,/---------/d' | \
 To install :
 
 ```
-pip2 install -r packages2.txt
+# pip2 install -r packages2.txt
 pip3 install -r packages3.txt
 ```
 
@@ -28,16 +28,18 @@ pip3 install -r packages3.txt
 Since we are using `--user` should not need to preface with `sudo`
 
 ```shell
-pip2 install --user --requirement packages2.ubuntu18.04.server.txt
+# pip2 install --user --requirement packages2.ubuntu18.04.server.txt
 pip3 install --user --requirement packages3.ubuntu18.04.server.txt
 ```
+
+may get an error if not using an updated shell session about `~/.local/bin` not being in PATH. that should be a transient error.
 
 ### Raspbian buster
 
 Since we are using `--user` should not need to preface with `sudo`
 
 ```shell
-pip2 install --user --requirement packages2.raspbian.buster.txt
+# pip2 install --user --requirement packages2.raspbian.buster.txt
 pip3 install --user --requirement packages3.raspbian.buster.txt
 ```
 
