@@ -1,2 +1,2 @@
-Acquire::http { proxy "http://10.0.1.94:3142"; };
+Acquire::http { proxy "http://10.0.1.37:3142"; };
 #Acquire::https::proxy "DIRECT";
