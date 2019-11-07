@@ -8,6 +8,15 @@ Install emacs26 on Ubuntu
 
 Refer to [@ubuntu README](../%40ubuntu/README.md#install-notes) for details on how to add repository for emacs26.
 
+Install emacs27 (emacs-snapshot) on ubuntu
+------------------------
+
+```
+sudo add-apt-repository ppa:ubuntu-elisp/ppa
+sudo apt-get update
+sudo apt install emacs-snapshot
+```
+
 Install emacs27 on macOS
 ------------------------
 
