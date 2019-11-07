@@ -5,6 +5,10 @@
 # Authors:
 #   David Crook <david.crook@gmail.com>
 
+# meta-aliases
+alias sal='echo sourcing ~/.zsh/aliases.zsh ; source ~/.zsh/aliases.zsh'
+alias val='vi ~/.zsh/aliases.zsh; sal'
+
 
 # https://hub.github.com/
 # brew install hub || sudo snap install hub --classic
@@ -60,3 +64,10 @@ function ec () {
         $EMACSCLIENT -c -n "$@"
     fi
 }
+
+
+# Navigation -------------------------------------------------------
+alias o='cd ..'
+alias oo='cd ../..'
+alias ooo='cd ../../..'
+alias oooo='cd ../../../..'
