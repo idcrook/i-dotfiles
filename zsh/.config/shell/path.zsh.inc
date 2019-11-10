@@ -1,6 +1,6 @@
 # -*- mode: sh; eval: (sh-set-shell "zsh") -*-
 
-
+# sourced by zshenv
 
 # Google Cloud SDK on macOS
 # brew info google-cloud-sdk
