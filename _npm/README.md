@@ -24,6 +24,8 @@ echo "$newlist" > npm_global_packages.list
 Install
 -------
 
+FIXME: add nvm instructions for ubuntu
+
 To (re)install :
 
 ```shell

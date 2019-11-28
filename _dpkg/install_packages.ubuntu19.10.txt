@@ -1,0 +1,23 @@
+
+# bash zsh and utils
+sudo apt install -y screen molly-guard mosh dselect rcs \
+    tcsh keychain source-highlight jq shellcheck \
+    zsh colordiff
+
+# emacs-snapshot and some dependencies
+sudo apt remove emacs26 emacs26-common
+sudo apt install -y emacs-snapshot \
+    ack silversearcher-ag \
+    npm \
+    python3-dev python3-pip python3-venv python3-wheel \
+    fonts-powerline fonts-hack fonts-inconsolata fonts-dejavu fonts-symbola
+
+# xdg-open
+sudo apt install xdg-utils
+
+# golang
+# sudo apt install -y golang-go #
+sudo snap install go --classic
+
+# github hub - https://hub.github.com
+sudo snap install hub --classic

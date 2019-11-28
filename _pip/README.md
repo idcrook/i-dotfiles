@@ -28,8 +28,8 @@ pip3 install -r packages3.txt
 Since we are using `--user` should not need to preface with `sudo`
 
 ```shell
-# pip2 install --user --requirement packages2.ubuntu18.04.server.txt
-pip3 install --user --requirement packages3.ubuntu18.04.server.txt
+#pip3 install --user --requirement packages3.ubuntu18.04.server.txt
+pip3 install --user --requirement packages3.ubuntu19.10.txt
 ```
 
 may get an error if not using an updated shell session about `~/.local/bin` not being in PATH. that should be a transient error.
