@@ -12,10 +12,10 @@ alias val='vi ~/.zsh/aliases.zsh; sal'
 
 # https://hub.github.com/
 # brew install hub || sudo snap install hub --classic
-if [[ -x /usr/local/bin/hub || -x /snap/bin/hub ]]
+if (( $+commands[hub] ))
 then
-    # eval "$(hub alias -s)"
-	alias git=hub
+	#alias git=hub
+    eval "$(hub alias -s)"
 fi
 
 # create "global" alias

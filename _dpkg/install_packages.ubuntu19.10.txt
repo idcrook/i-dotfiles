@@ -15,9 +15,11 @@ sudo apt install -y emacs-snapshot \
 # xdg-open
 sudo apt install xdg-utils
 
+# github hub - https://hub.github.com
+sudo snap install hub --classic
+# sudo apt install hub
+
+
 # golang
 # sudo apt install -y golang-go #
 sudo snap install go --classic
-
-# github hub - https://hub.github.com
-sudo snap install hub --classic
