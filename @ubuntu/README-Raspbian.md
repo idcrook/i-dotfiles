@@ -26,9 +26,11 @@ stow git
 
 # populate secrets from another host, in another terminal
 ssh DONOR_HOST
-scp ~/.config/git/config.secrets  TARGET:.dotfiles/git/.config/git/config.secrets
-scp ~/.dotfiles/homedir/.ansiweatherrc.secrets  TARGET:.dotfiles/homedir/.ansiweatherrc.secrets
-scp ~/.dotfiles/homedir/.wakatime.cfg.secrets TARGET:.dotfiles/homedir/.wakatime.cfg.secrets
+
+export TARGET=pi@raspberrypi.local
+scp ~/.config/git/config.secrets  $TARGET:.dotfiles/git/.config/git/config.secrets
+scp ~/.dotfiles/homedir/.ansiweatherrc.secrets  $TARGET:.dotfiles/homedir/.ansiweatherrc.secrets
+scp ~/.dotfiles/homedir/.wakatime.cfg.secrets $TARGET:.dotfiles/homedir/.wakatime.cfg.secrets
 exit
 
 # some files will be replaced /taken over in ~
@@ -53,7 +55,7 @@ stow -vv golang
 # See golang/README for more
 
 cd _dpkg
-# ...
+# ... refer to README.md contained therein
 cd ../_pip
 # ...
 cd ../_npm
@@ -69,15 +71,16 @@ Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
 Via https://unix.stackexchange.com/questions/452391/execute-command-to-swap-caps-lock-and-ctrl-at-startup
 
 ```
-root@debian:/home/ja# cat /etc/default/keyboard
+root@rpi:/home/pi# cat /etc/default/keyboard
 # KEYBOARD CONFIGURATION FILE
 
 # Consult the keyboard(5) manual page.
 
-XKBMODEL="pc105"
+XKBMODEL="microsoft4000"
 XKBLAYOUT="us"
 XKBVARIANT=""
-XKBOPTIONS="ctrl:nocaps"
+#XKBOPTIONS="ctrl:nocaps"
+XKBOPTIONS="terminate:ctrl_alt_bksp,ctrl:nocaps"
 
 BACKSPACE="guess"
 ```
