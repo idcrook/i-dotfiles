@@ -19,5 +19,5 @@ sudo apt-get install fasd
 # github hub - https://hub.github.com
 sudo apt-get install hub
 
-# xdg-open
+# xdg-open for desktop environment
  sudo apt install xdg-utils
