@@ -1,7 +1,12 @@
 
 ### https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 # should only do on macOS
-set-option -g default-command "reattach-to-user-namespace -l zsh"
+# https://superuser.com/a/638247 for safe-reattach-to-user-namespace
+set-option -g default-command "safe-reattach-to-user-namespace"
+
+# https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/blob/master/Usage.md#cross-platform-conditional-usage
+# set-option -g default-command 'command -v reattach-to-user-namespace >/dev/null && exec reattach-to-user-namespace -l "$SHELL" || exec "$SHELL"'
+
 
 # Copy selection using a vi-like command; also copy it to system clipboard
 #bind -T copy-mode-vi y send-keys -X copy-pipe "pbcopy"
