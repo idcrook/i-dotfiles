@@ -1,0 +1,16 @@
+# via https://gist.github.com/suewonjp/171bc15bd81f434df3397140015c8eee#file-tmux-conf-linux
+
+# If you prefer xclip, use :
+# bind C-c run "tmux save-buffer - | xclip -i -sel clipboard"
+# bind C-v run "tmux set-buffer \"$(xclip -o -sel clipboard)\"; tmux paste-buffer"
+
+# # Copy the current buffer to system clipboard
+# bind C-c run "tmux save-buffer - | xsel --clipboard --input"
+
+# # Copy system clipboard to the current buffer and then paste the content
+# bind C-v run "xsel --clipboard --output | tmux load-buffer - && tmux paste-buffer"
+
+# # Copy selection using a vi-like command; also copy it to system clipboard
+# if-shell -b '[ `echo "$(tmux -V | grep -o "[2-9]\.[0-9]\+") >= 2.4" | bc` -eq 1 ]' \
+#     'bind -T copy-mode-vi y send-keys -X copy-pipe "cat | xsel --clipboard --input"' \
+#     'bind -t vi-copy y copy-pipe "cat | xsel --clipboard --input"'
