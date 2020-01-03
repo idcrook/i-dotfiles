@@ -28,19 +28,22 @@ sudo add-apt-repository ppa:ubuntu-elisp/ppa
 
 sudo apt update # may be implicit
 
+# some files will be replaced /taken over in ~
+mkdir -p ~/backup
+
 cd ~/.dotfiles
+mv ~/.gitignore_global ~/backup
+mv ~/.git/ ~/backup/
 stow -vv git
 
 # populate secrets from another host, in another terminal
 ssh DONOR_HOST
-TARGET=hostname
+TARGET=host.local
 scp ~/.config/git/config.secrets  $TARGET:.dotfiles/git/.config/git/config.secrets
 scp ~/.dotfiles/homedir/.ansiweatherrc.secrets  $TARGET:.dotfiles/homedir/.ansiweatherrc.secrets
 scp ~/.dotfiles/homedir/.wakatime.cfg.secrets $TARGET:.dotfiles/homedir/.wakatime.cfg.secrets
 exit
 
-# some files will be replaced /taken over in ~
-mkdir -p ~/backup
 mv ~/{.bash_logout,.bashrc,.profile} ~/backup
 ( cd ~ && mv .bash_aliases .bash_profile .inputrc .powerline-shell.json .bash_completion.d/ backup/ )
 stow -vv bash
@@ -67,12 +70,13 @@ cd ../_npm
 
 # login from a new terminal
 emacs26 -nw
+emacs-snapshot -nw
 ```
 
-## Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
+Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
+-----------------------------------------------
 
-Via  https://unix.stackexchange.com/questions/452391/execute-command-to-swap-caps-lock-and-ctrl-at-startup
-
+Via https://unix.stackexchange.com/questions/452391/execute-command-to-swap-caps-lock-and-ctrl-at-startup
 
 ```
 root@debian:/home/ja# cat /etc/default/keyboard
@@ -91,5 +95,5 @@ BACKSPACE="guess"
 Now run this command as described in man 7 keyboard:
 
 ```
-udevadm trigger --subsystem-match=input --action=change
+sudo udevadm trigger --subsystem-match=input --action=change
 ```
