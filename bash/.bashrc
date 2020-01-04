@@ -233,3 +233,10 @@ if [[ -r "$shell_config/local.sh" ]]; then
     # shellcheck disable=1090
     source "$shell_config/local.sh"
 fi
+
+# per host environment variables
+nodename=$(uname -n)
+if [[ -f "${shell_config}"/env.$nodename.sh ]] ; then
+    # shellcheck source=/dev/null
+    source "${shell_config}"/env.$nodename.sh
+fi
