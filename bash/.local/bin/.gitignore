@@ -8,3 +8,8 @@
 /wakatime
 /yamllint
 /yapf
+# following four from grip
+/flask
+/grip
+/markdown_py
+/pygmentize
