@@ -1,3 +1,4 @@
+# -*- sh -*-
 
 # bash zsh and utils
 sudo apt install -y screen molly-guard mosh dselect rcs \
@@ -15,10 +16,13 @@ sudo apt install -y emacs-snapshot \
 # xdg-open
 sudo apt install xdg-utils
 
+# other desktop utlis
+sudo apt install gnome-tweaks
+# gnome-tweaks: Windows -> Window Focus : [x] Secondary-Click
+
 # github hub - https://hub.github.com
 sudo snap install hub --classic
 # sudo apt install hub
-
 
 # golang
 # sudo apt install -y golang-go #
