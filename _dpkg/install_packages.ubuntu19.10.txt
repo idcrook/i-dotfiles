@@ -19,6 +19,8 @@ sudo apt install xdg-utils
 # other desktop utlis
 sudo apt install gnome-tweaks
 # gnome-tweaks: Windows -> Window Focus : [x] Secondary-Click
+# gnome-tweaks: Keyboard and Mouse -> Keyboard : Enable 'Emacs Input'
+# gnome-tweaks: Keyboard and Mouse -> Mouse:  Acceleration Profile [Adaptive]
 
 # github hub - https://hub.github.com
 sudo snap install hub --classic
