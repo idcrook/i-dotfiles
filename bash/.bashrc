@@ -101,6 +101,10 @@ if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] ; then
     source "/usr/local/etc/profile.d/bash_completion.sh"
 fi
 
+if [ -f $HOME/projects/vcpkg/scripts/vcpkg_completion.bash ] ; then
+    source $HOME/projects/vcpkg/scripts/vcpkg_completion.bash
+fi
+
 # some Mac OS X specific checks
 if [  "$(uname -s)" == 'Darwin' ]
 then

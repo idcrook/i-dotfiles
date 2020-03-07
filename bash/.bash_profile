@@ -238,3 +238,7 @@ if [ -d $HOME/perl5/lib/perl5 ] ; then
     # should warn that it is already in PATH
     modpath $HOME/perl5/bin
 fi
+
+# placed here by rustup
+#export PATH="$HOME/.cargo/bin:$PATH"
+modpath $HOME/.cargo/bin
