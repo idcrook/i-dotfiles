@@ -8,3 +8,5 @@ wakatime
 # requests
 yapf
 yamllint
+click
+titlecase
