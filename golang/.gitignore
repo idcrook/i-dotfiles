@@ -1,5 +1,8 @@
 /go/src/github.com/
 /go/src/golang.org/
 /go/src/gopkg.in/
+/go/src/gocloud.dev/
+/go/src/google.golang.org/
+/go/src/go.opencensus.io/
 /go/pkg/
 /go/bin/

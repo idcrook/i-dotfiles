@@ -1,3 +1,16 @@
+install recent golang
+=====================
+
+https://github.com/golang/go/wiki/Ubuntu
+
+On 18.04 LTS or 19.10 Ubuntu, as of April 2020, it is golang 1.14
+
+```
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install golang-go
+```
+
 Some utilities that can be installed from source
 ================================================
 
