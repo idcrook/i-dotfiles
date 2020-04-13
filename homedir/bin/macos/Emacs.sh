@@ -10,8 +10,14 @@ EMACSPATH=/Applications/Emacs.app/Contents/MacOS
 
 # Check if an emacs server is available
 # (by checking to see if it will evaluate a lisp statement)
+EMACSPATH_BIN="${EMACSPATH}/bin"
+if [[ ! -d "${EMACSPATH_BIN}" ]] ; then
+    if [[ -d "${EMACSPATH}/bin-x86_64-10_14" ]] ; then
+        EMACSPATH_BIN="${EMACSPATH}/bin-x86_64-10_14"
+    fi
+fi
 
-if ! (${EMACSPATH}/bin/emacsclient --eval "t"  2> /dev/null > /dev/null )
+if ! ("${EMACSPATH_BIN}"/emacsclient --eval "t"  2> /dev/null > /dev/null )
 then
     # There is no server available so,
     # Start Emacs.app detached from the terminal
@@ -26,12 +32,12 @@ else
         # There are no arguments, so
         # tell emacs to open a new window
 
-        ${EMACSPATH}/bin/emacsclient --eval "(dired \"${PWD}\")"
+        "${EMACSPATH_BIN}"/emacsclient --eval "(dired \"${PWD}\")"
     else
         # There are arguments, so
         # tell emacs to open them
 
-        ${EMACSPATH}/bin/emacsclient --no-wait --create-frame "${@}"
+        "${EMACSPATH_BIN}"/emacsclient --no-wait --create-frame "${@}"
     fi
 
     # Bring emacs to the foreground
