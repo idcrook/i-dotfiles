@@ -29,10 +29,20 @@ Since we are using `--user` should not need to preface with `sudo`
 
 ```shell
 #pip3 install --user --requirement packages3.ubuntu18.04.server.txt
-pip3 install --user --requirement packages3.ubuntu19.10.txt
+#pip3 install --user --requirement packages3.ubuntu19.10.txt
+pip3 install --user --requirement packages3.ubuntu20.04.txt
 ```
 
 may get an error if not using an updated shell session about `~/.local/bin` not being in PATH. that should be a transient error.
+
+#### pyenv
+
+works for zsh or bash
+
+```
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+```
+
 
 ### Raspbian buster
 
