@@ -208,9 +208,18 @@ fi
 #     export EDITOR=$(type -P emacs || type -P vim || type -P vi)
 # fi
 # export VISUAL=$EDITOR
+
+
 case $OSTYPE in
     darwin*)
-        export EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+        EMACSPATH=/Applications/Emacs.app/Contents/MacOS
+        EMACSPATH_BIN="${EMACSPATH}/bin"
+        if [[ ! -d "${EMACSPATH_BIN}" ]] ; then
+            if [[ -d "${EMACSPATH}/bin-x86_64-10_14" ]] ; then
+                EMACSPATH_BIN="${EMACSPATH}/bin-x86_64-10_14"
+            fi
+        fi
+        export EMACSCLIENT="${EMACSPATH_BIN}"/emacsclient
         alias emacsclient=$EMACSCLIENT
         ;;
     *)

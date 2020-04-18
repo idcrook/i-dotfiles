@@ -3,13 +3,46 @@ Emacs .emacs.d
 
 Introduced separate [`.emacs.d`](https://github.com/idcrook/.emacs.d) repository as git submodule
 
+Using
+-----
+
+1.	Make edits in git submodule checkout, e.g. `~/.dotfiles/emacs/.emacs.d`
+2.	Push any changes back to its remote
+3.	When ready, can add/commit `.emacs.d` reference into `i-dotfiles`
+
+
+emacs for macosx casks
+----------------------
+
+there is a shell wrapper `Emacs.sh`
+
+### Install emacs pre-test cask
+
+As of 18-Apr-2020 emacs27 build
+
+```bash
+brew cask install emacs-pretest
+#  /Applications/Emacs.app
+```
+
+### Install emacs cask
+
+As of 18-Apr-2020 emacs26.3 build
+
+```bash
+brew cask install emacs
+#  /Applications/Emacs.app
+```
+
+
+
 Install emacs26 on Ubuntu
 -------------------------
 
 Refer to [@ubuntu README](../%40ubuntu/README.md#install-notes) for details on how to add repository for emacs26.
 
 Install emacs27 (emacs-snapshot) on ubuntu
-------------------------
+------------------------------------------
 
 ```
 sudo add-apt-repository ppa:ubuntu-elisp/ppa
@@ -17,8 +50,8 @@ sudo apt-get update
 sudo apt install emacs-snapshot
 ```
 
-Install emacs27 on macOS
-------------------------
+Install emacs-head build on macOS
+---------------------------------
 
 ```bash
 # rename /Applications/Emacs.app -> Emacs26.app
@@ -27,14 +60,21 @@ brew install emacs-head --HEAD --with-cocoa --with-imagemagick --with-jansson
 # imagemagick@7 -> Homebrew `imagemagick`
 # jansson -> C-lang JSON parser
 ln -s /usr/local/opt/emacs-head/Emacs.app /Applications
+
+# symlink some binaries for command line
+# =======================================
+
+ls -ld /Applications/Emacs.app
+brew list emacs-head
+
+# this step probably not necessary
+rm /usr/local/opt/emacs-head/Emacs.app/Contents/MacOS/bin
+
+ln -s /usr/local/Cellar/emacs-head/HEAD-<<CHANGEME>>_1/bin/ \
+      /usr/local/opt/emacs-head/Emacs.app/Contents/MacOS/bin
+
+ls -l /usr/local/opt/emacs-head/Emacs.app/Contents/MacOS/bin/
 ```
-
-Using
------
-
-1.	Make edits in git submodule checkout, e.g. `~/.dotfiles/emacs/.emacs.d`
-2.	Push any changes back to its remote
-3.	When ready, can add/commit `.emacs.d` reference into `i-dotfiles`
 
 Updating .emacs.d locally from its host repo
 --------------------------------------------
