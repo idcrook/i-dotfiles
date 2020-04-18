@@ -1,4 +1,3 @@
-# tap "alexanderwillner/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -8,20 +7,14 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "kylef/formulae"
 tap "parera10/csshx"
-# tap "daviderestivo/emacs-head"
 brew "libyaml"
-brew "openssl"
-brew "gettext", link: true
 brew "sqlite"
-brew "python"
-# brew "ansible"
+brew "ansible"
 brew "oniguruma"
 brew "jq"
-brew "ack"
 brew "ansiweather"
 brew "autoconf"
 brew "bash"
-brew "bash-completion@2"
 brew "brew-cask-completion"
 brew "ccat"
 brew "cmake"
@@ -35,6 +28,7 @@ brew "dos2unix"
 brew "doctl"
 brew "editorconfig"
 brew "fasd"
+brew "gettext", link: true
 brew "git"
 brew "go"
 brew "htop"
@@ -43,34 +37,31 @@ brew "hub"
 brew "icu4c"
 brew "libtool"
 brew "imagemagick"
-brew "inlets"
-brew "jsonnet"
 brew "keychain"
 brew "kubernetes-cli"
-# brew "libconfig"
-# brew "libevent"
-# brew "libunistring"
-# brew "libusb-compat"
+brew "libconfig"
+brew "libusb-compat"
+brew "llvm"
 brew "mas"
-# brew "python@2"
 brew "mosh"
 brew "mosquitto"
 brew "nmap"
 brew "node"
 brew "openssl@1.1"
 brew "p7zip"
-brew "postgresql@9.6"
+brew "pstree"
 brew "pth"
 brew "pv"
 brew "pyenv"
-# brew "ruby-build"
-# brew "rbenv"
+brew "ruby-build"
+brew "rbenv"
 brew "rcs"
-brew "rhash"
+brew "reattach-to-user-namespace"
 brew "rsync"
+brew "rustup-init"
 brew "shellcheck"
 brew "socat"
-brew "ssh-copy-id"
+brew "ssh-copy-id", link: true
 brew "stow"
 brew "the_silver_searcher"
 brew "tmux"
@@ -81,100 +72,108 @@ brew "watchman"
 brew "wget"
 brew "yamllint"
 brew "yarn"
-# brew "alexanderwillner/tap/things.sh"
-# brew "daviderestivo/emacs-head/emacs-head", args: ["HEAD", "with-cocoa", "with-imagemagick", "with-jansson"]
+brew "zsh-completions"
 brew "kylef/formulae/swiftenv"
 brew "parera10/csshx/csshx"
-# cask "xquartz"
 cask "aerial"
 cask "airfoil"
-cask "soundsource"
 cask "arduino"
 cask "appzapper"
 cask "balenaetcher"
 cask "cura-lulzbot"
 cask "dotnet-sdk"
-cask "emacs"
-cask "fluid"
+cask "emacs-pretest"
+cask "font-hack-nerd-font"
+cask "font-humor-sans"
+cask "font-inconsolata-nerd-font"
+cask "font-inconsolata-nerd-font-mono"
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-powerline"
 cask "font-fira-mono-for-powerline"
 cask "font-ubuntu-mono-derivative-powerline"
 cask "font-inconsolata-for-powerline"
-cask "font-hack-nerd-font"
-cask "font-inconsolata-nerd-font"
-cask "font-inconsolata-nerd-font-mono"
-# cask "forecast"
-# cask "fritzing"
-# cask "google-chrome-beta"
+cask "fritzing"
 cask "grandperspective"
-# cask "hammerspoon"
-# cask "handbrake"
+cask "hammerspoon"
 cask "imageoptim"
-# cask "inkscape"
-# cask "java"
+cask "inkscape"
+cask "java"
+cask "java8"
 cask "keycastr"
-# cask "kid3"
+cask "mark-text"
 cask "meshlab"
+cask "middleclick"
 cask "openscad"
 cask "omnidisksweeper"
 cask "plex-media-player"
 cask "slic3r"
 cask "visual-studio-code"
 cask "vlc"
-# cask "xact"
+cask "xact"
 cask "xca"
-# mas "co.fluder.FSNotes", id: 1277179284
-# mas "com.adriangranados.wifiexplorerlite", id: 1408727408
-# mas "com.primatelabs.mas.Geekbench3", id: 686096588
-# mas "com.amazon.Kindle", id: 405399194
-# mas "com.apple.dt.Xcode", id: 497799835
-# mas "com.apple.garageband10", id: 682658836
-# mas "com.apple.iMovieApp", id: 408981434
-# mas "com.apple.iPhoto", id: 408981381
-# mas "com.apple.iWork.Keynote", id: 409183694
-# mas "com.apple.iWork.Numbers", id: 409203825
-# mas "com.apple.iWork.Pages", id: 409201541
-# mas "com.boinx.iStopMotion3.Mac", id: 546649552
-mas "Marked 2", id: 890031187
-# mas "com.creaceed.mas.prizmo2", id: 546392952
-mas "Magnet", id: 441258766
-mas "Things", id: 904280696
-# mas "com.DigiDNA.iMazingHEICConverterMac", id: 1292198261
-mas "com.edovia.screens4.mac", id: 1224268771
-mas "com.eyalw.1Keyboard", id: 766939888
-mas "com.flexibits.fantastical2.mac", id: 975937182
-# mas "com.gingerlabs.NotabilityMac", id: 736189492
-# mas "com.helloresolven.GIF-Brewery-3", id: 1081413713
-mas "com.hindsightlabs.paprika.mac.v3", id: 1303222628
-# mas "com.if.Amphetamine", id: 937984704
-# mas "com.iwaxx.LanScan", id: 472226235
-# mas "com.krill.Patterns", id: 429449079
-# mas "com.logitech.lfb.Logitech-Camera-Settings", id: 638332853
-# mas "com.macphun.snapheal", id: 480623975
-# mas "com.manytricks.KeyCodes", id: 414568915
-# mas "com.metaclassy.byword", id: 420212497
-mas "Microsoft Remote Desktop", id: 1295203466
-# mas "com.mindnode.MindNodePro", id: 402398561
-mas "com.mr-brightside.ParcelOSX", id: 639968404
-# mas "com.pixelmatorteam.pixelmator", id: 407963104
-# mas "com.pixelmatorteam.pixelmator.x", id: 1289583905
-# mas "com.reederapp.rkit2.mac", id: 880001334
-# mas "com.rockysandstudio.Disk-Diag", id: 672206759
-# mas "com.rpatechnology.mobilemouse", id: 412814284
-# mas "com.ruiaureliano.Sip", id: 507257563
-mas "com.seriflabs.affinitydesigner", id: 824171161
-mas "com.seriflabs.affinityphoto", id: 824183456
-# mas "com.sindresorhus.HEIC-Converter", id: 1294126402
-mas "com.sofortbildapp.Sofortbild", id: 411729406
-# mas "com.SuperAppsDeveloper.Super-Image-Resizer", id: 492236133
-# mas "com.supermegaultragroovy.capo3.mac", id: 696977615
-#  mas "com.toggl.toggldesktop.TogglDesktop", id: 957734279
-mas "Ulysses", id: 1225570693
-# mas "com.vidblishen.locationhelper", id: 488536386
-# mas "com.webinhq.ReadKit", id: 588726889
-# mas "com.workswithweb.mqttbox", id: 1165784816
-# mas "desktop.WhatsApp", id: 1147396723
-# mas "it.iltofa.Radio-Paradise", id: 663334697
-# mas "ro.nextwave.Snappy", id: 512617038
-mas "PCalc", id: 403504866
 mas "1Blocker", id: 1107421413
+mas "1Keyboard", id: 766939888
+mas "1Password 7", id: 1333542190
+mas "Affinity Designer", id: 824171161
+mas "Affinity Photo", id: 824183456
+mas "Amphetamine", id: 937984704
+mas "Bundle for iWork -GN Templates", id: 538727314
+mas "Byword", id: 420212497
+mas "Capo", id: 696977615
+mas "Discovery", id: 1381004916
+mas "Disk Diag", id: 672206759
+mas "Disk Speed Test", id: 425264550
+mas "Downlink", id: 1454269192
 mas "Drafts", id: 1435957248
+mas "Fantastical", id: 975937182
+mas "FSNotes", id: 1277179284
+# mas "GarageBand", id: 682658836
+# mas "GIF Brewery 3", id: 1081413713
+# mas "GIPHY CAPTURE", id: 668208984
+mas "HEIC Converter", id: 1294126402
+mas "iMazing HEIC Converter", id: 1292198261
+mas "iMovie", id: 408981434
+mas "Instapaper", id: 1481302432
+mas "Jayson", id: 1468691718
+mas "Key Codes", id: 414568915
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+# mas "LanScan", id: 472226235
+mas "Location Helper", id: 488536386
+mas "Magnet", id: 441258766
+mas "Marked 2", id: 890031187
+mas "MarsEdit", id: 402376225
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "MindNode Pro", id: 402398561
+mas "Mobile Mouse Server", id: 412814284
+mas "Notability", id: 736189492
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Paprika Recipe Manager 3", id: 1303222628
+mas "Parcel", id: 639968404
+mas "Patterns", id: 429449079
+mas "PCalc", id: 403504866
+mas "PhotoResize", id: 492236133
+mas "Pixelmator", id: 407963104
+mas "Pixelmator Pro", id: 1289583905
+mas "Prizmo", id: 546392952
+mas "QuickSleep", id: 1121441756
+mas "Radio Paradise", id: 663334697
+# mas "ReadKit", id: 588726889
+mas "Reeder", id: 1449412482
+mas "SafariMarkdownLinker", id: 1289119450
+mas "Screens", id: 1224268771
+mas "Secrets", id: 973049011
+mas "Sip", id: 507257563
+mas "Snapheal", id: 480623975
+mas "Sofortbild", id: 411729406
+# mas "Soulver", id: 413965349
+mas "Stockfish", id: 801463932
+mas "StopTheMadness", id: 1376402589
+mas "TableFlip", id: 1462643128
+mas "Things", id: 904280696
+# mas "Transporter", id: 1450874784
+mas "Tweetbot", id: 557168941
+# mas "Ulysses", id: 1225570693
+mas "WiFi Explorer Lite", id: 1408727408
+mas "Xcode", id: 497799835
