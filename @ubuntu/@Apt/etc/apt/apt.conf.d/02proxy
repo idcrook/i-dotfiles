@@ -1,2 +1,3 @@
-Acquire::http::proxy "http://192.168.50.6:3142/";
-Acquire::https::proxy "DIRECT";
+Acquire::http::proxy "http://192.168.50.8:3142/";
+#Acquire::http::proxy "http://192.168.50.6:3142/";
+#Acquire::https::proxy "DIRECT";
