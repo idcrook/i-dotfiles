@@ -1,0 +1,112 @@
+---
+name: datetime
+parent: default
+
+
+matches:
+  # Dates
+  - trigger: "tdate"
+    replace: "{{ymddate}} "
+    vars:
+      - name: ymddate
+        type: date
+        params:
+          format: "%Y-%b-%d"
+          # 2020-Jun-22
+
+  - trigger: "ddate"
+    replace: "{{isodate}} "
+    vars:
+      - name: isodate
+        type: date
+        params:
+          format: "%F"
+          # 2020-05-11
+          # same as %Y-%m-%d
+
+  - trigger: "xdeu"
+    replace: "{{dmydate}} "
+    vars:
+      - name: dmydate
+        type: date
+        params:
+          format: "%e %B %Y"
+          # 11 May 2020
+
+  - trigger: "xdus"
+    replace: "{{dmydate}} "
+    vars:
+      - name: dmydate
+        type: date
+        params:
+          format: "%B %e, %Y"
+          # May 11, 2020
+
+  - trigger: "tdatr"
+    replace: "{{longtime}} "
+    vars:
+      - name: longtime
+        type: date
+        params:
+          format: "%Y-%m-%dT%H:%M:%S%:z"
+          # 2020-05-11T18:27:27-06:00
+          # UTC time support?
+          #TE tzulu %@+6h%Y-%m-%dT%H:%M:%SZ
+          # 2020-05-11T23:45:28Z
+
+  - trigger: "tiso"
+    replace: "{{isotime2}} "
+    word: true
+    vars:
+      - name: isotime2
+        type: date
+        params:
+          format: "%+"
+          # 2020-05-11T17:47:47.837717-06:00
+
+  # Times
+  - trigger: "ttime"
+    replace: "{{time12p}} "
+    vars:
+      - name: time12p
+        type: date
+        params:
+          format: "%l:%M %p"
+          # " 8:52 PM"
+
+  # Calendar
+  - trigger: "xm1"
+    replace: "January "
+
+  - trigger: "xm2"
+    replace: "February "
+
+  - trigger: "xm3"
+    replace: "March "
+
+  - trigger: "xm4"
+    replace: "April "
+
+  - trigger: "xm5"
+    replace: "May "
+
+  - trigger: "xm6"
+    replace: "June "
+
+  - trigger: "xm7"
+    replace: "July "
+
+  - trigger: "xm8"
+    replace: "August "
+
+  - trigger: "xm9"
+    replace: "September "
+
+  - trigger: "xmd"
+    replace: "December "
+
+  - trigger: "xmn"
+    replace: "November "
+
+  - trigger: "xmo"
+    replace: "October "
