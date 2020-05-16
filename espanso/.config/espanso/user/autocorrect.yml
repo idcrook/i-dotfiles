@@ -1,0 +1,30 @@
+---
+name: autocorrect
+parent: default
+
+
+matches:
+  - trigger: "seperate"
+    replace: "separate"
+    word: true
+    propagate_case: true
+
+  - trigger: "changable"
+    replace: "changeable"
+    word: true
+
+  - trigger: "convertable"
+    replace: "convertible"
+    word: true
+
+  - trigger: "mispell"
+    replace: "misspell"
+    word: true
+
+  - trigger: "supercede"
+    replace: "supersede"
+    word: true
+
+  - trigger: "wierd"
+    replace: "weird"
+    word: true
