@@ -1,6 +1,7 @@
-## [`espanso`](https://espanso.org/)
+[`espanso`](https://espanso.org/)
+---------------------------------
 
-~~~
+```
 └── .config
     └── espanso
         ├── default.yml
@@ -8,7 +9,7 @@
             ├── datetime.yml
             ├── kubernetes.yml
             └── etc.
-~~~
+```
 
 ### customize secrets
 
@@ -17,14 +18,13 @@ cp .config/espanso/user/personal.secrets.yml.example \
    .config/espanso/user/personal.secrets.yml
 ```
 
-
 ### espanso Install notes
 
 See https://espanso.org/install/ for more
 
-- macOS config path:  `$HOME/.config/espanso` works
-  - default is `$HOME/Library/Preferences/espanso`
-- Linux config path: `$HOME/.config/espanso`
+-	macOS config path: `$HOME/.config/espanso` works
+	-	default is `$HOME/Library/Preferences/espanso`
+-	Linux config path: `$HOME/.config/espanso`
 
 To see where `espanso` configuration folder is:
 
@@ -35,13 +35,16 @@ espanso path
 <!-- #### macOS -->
 
 <!-- ```shell -->
+
 <!-- cd ~/Library/Preferences -->
+
 <!-- rm espanso -->
+
 <!-- ln -s ~/.config/espanso . -->
+
 <!-- ``` -->
 
 #### Ubuntu / Debian Linux
-
 
 ```shell
 wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
