@@ -6,7 +6,7 @@ parent: default
 matches:
   # Dates
   - trigger: "tdate"
-    replace: "{{ymddate}} "
+    replace: "{{ymddate}}"
     vars:
       - name: ymddate
         type: date
@@ -15,7 +15,7 @@ matches:
           # 2020-Jun-22
 
   - trigger: "ddate"
-    replace: "{{isodate}} "
+    replace: "{{isodate}}"
     vars:
       - name: isodate
         type: date
@@ -25,7 +25,7 @@ matches:
           # same as %Y-%m-%d
 
   - trigger: "xdeu"
-    replace: "{{dmydate}} "
+    replace: "{{dmydate}}"
     vars:
       - name: dmydate
         type: date
@@ -34,7 +34,7 @@ matches:
           # 11 May 2020
 
   - trigger: "xdus"
-    replace: "{{dmydate}} "
+    replace: "{{dmydate}}"
     vars:
       - name: dmydate
         type: date
