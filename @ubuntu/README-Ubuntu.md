@@ -4,7 +4,7 @@ Install
 Installation on fresh ubuntu 19.10
 
 ```shell
-sudo apt install -y stow git
+sudo apt install -y stow git openssh-server
 
 # this requires SSH key on git account
 git clone --recurse-submodules \
@@ -22,7 +22,7 @@ cd @ubuntu
 sudo stow -vv --target=/ @Apt
 
 # for emacs26 repo
-sudo add-apt-repository ppa:kelleyk/emacs
+#sudo add-apt-repository ppa:kelleyk/emacs
 # for emacs snapshot
 sudo add-apt-repository ppa:ubuntu-elisp/ppa
 
@@ -61,6 +61,8 @@ stow -vv emacs
 
 stow -vv golang
 
+stow -vv espanso
+
 cd _dpkg
 # ...
 cd ../_pip
@@ -69,12 +71,17 @@ cd ../_npm
 # ...
 
 # login from a new terminal
-emacs26 -nw
 emacs-snapshot -nw
+
+cd ../golang
+cat README.md
+# ...
 ```
 
 Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
 -----------------------------------------------
+
+Use `gnome-tweaks` to do related in Ubuntu 20.04+
 
 Via https://unix.stackexchange.com/questions/452391/execute-command-to-swap-caps-lock-and-ctrl-at-startup
 

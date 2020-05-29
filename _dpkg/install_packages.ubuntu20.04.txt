@@ -2,16 +2,16 @@
 
 # bash zsh and utils
 sudo apt install -y screen molly-guard mosh dselect rcs \
-    tcsh keychain source-highlight jq shellcheck curl \
-    zsh colordiff
+     tcsh keychain source-highlight jq shellcheck curl \
+     zsh colordiff
 
 # emacs-snapshot and some dependencies
 sudo apt remove emacs26 emacs26-common
 sudo apt install -y emacs-snapshot \
-    imagemagick-6.q16 ack silversearcher-ag \
-    npm \
-    python-is-python3 python3-dev python3-pip python3-venv python3-virtualenv python3-wheel \
-    fonts-powerline fonts-hack fonts-inconsolata fonts-dejavu fonts-symbola
+     imagemagick-6.q16 ack silversearcher-ag \
+     npm \
+     python-is-python3 python3-dev python3-pip python3-venv python3-virtualenv python3-wheel \
+     fonts-powerline fonts-hack fonts-inconsolata fonts-dejavu fonts-symbola
 
 # image tools
 sudo apt install trimage
@@ -25,10 +25,11 @@ sudo apt install gnome-tweaks
 # gnome-tweaks: Keyboard and Mouse -> Keyboard : Enable 'Emacs Input'
 # gnome-tweaks: Keyboard and Mouse -> Mouse:  Acceleration Profile [Adaptive]
 
+# golang - https://github.com/golang/go/wiki/Ubuntu
+#sudo apt install -y golang-go #
+#sudo snap install go --classic
+sudo apt install golang-1.14-go golang-go
+
 # github hub - https://hub.github.com
 sudo snap install hub --classic
 # sudo apt install hub
-
-# golang
-# sudo apt install -y golang-go #
-sudo snap install go --classic
