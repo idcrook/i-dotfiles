@@ -78,6 +78,33 @@ cat README.md
 # ...
 ```
 
+
+Update GRUB config to save defaults
+-----------------------------------------------
+
+```diff
+-GRUB_DEFAULT=0
++#GRUB_DEFAULT=0
++GRUB_DEFAULT=saved
++GRUB_SAVEDEFAULT=true
+ GRUB_TIMEOUT_STYLE=hidden
+ GRUB_TIMEOUT=10
+ GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
++#GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
++GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+ GRUB_CMDLINE_LINUX=""
+```
+
+Some older machines BIOS-es do not play well with the graphical splash screen
+on Ubuntu 20.04. Removing `splash` from the `GRUB_CMDLINE_LINUX_DEFAULT=` is only needed if Ubuntu spinner on the boot screen spins forever.
+
+
+
+```shell
+sudo update-grub2
+```
+
 Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
 -----------------------------------------------
 
