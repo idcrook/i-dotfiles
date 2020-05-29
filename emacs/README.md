@@ -10,7 +10,6 @@ Using
 2.	Push any changes back to its remote
 3.	When ready, can add/commit `.emacs.d` reference into `i-dotfiles`
 
-
 emacs for macosx casks
 ----------------------
 
@@ -34,7 +33,15 @@ brew cask install emacs
 #  /Applications/Emacs.app
 ```
 
+secrets
+-------
 
+`~/.emacs.d/private/authinfo.secrets` shall contain app API passwords
+
+Refer to
+
+-	https://github.com/seagle0128/grip-mode#customize
+-	https://github.com/joeyespo/grip#access
 
 Install emacs26 on Ubuntu
 -------------------------
