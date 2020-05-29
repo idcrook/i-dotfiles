@@ -78,9 +78,8 @@ cat README.md
 # ...
 ```
 
-
 Update GRUB config to save defaults
------------------------------------------------
+-----------------------------------
 
 ```diff
 -GRUB_DEFAULT=0
@@ -96,13 +95,30 @@ Update GRUB config to save defaults
  GRUB_CMDLINE_LINUX=""
 ```
 
-Some older machines BIOS-es do not play well with the graphical splash screen
-on Ubuntu 20.04. Removing `splash` from the `GRUB_CMDLINE_LINUX_DEFAULT=` is only needed if Ubuntu spinner on the boot screen spins forever.
-
-
+Some older machines BIOS-es do not play well with the graphical splash screen on Ubuntu 20.04. Removing `splash` from the `GRUB_CMDLINE_LINUX_DEFAULT=` is only needed if Ubuntu spinner on the boot screen spins forever.
 
 ```shell
 sudo update-grub2
+```
+
+Tell Ubuntu to play together if dual booting with Windows via BIOS RTC
+----------------------------------------------------------------------
+
+```shell
+timedatectl set-local-rtc 1 --adjust-system-clock
+timedatectl
+```
+
+Now should show:
+
+```
+“RTC in local TZ: yes”
+```
+
+and gives a verbose warning about UTC and local BIOS RTC. To revert to the standard Ubuntu behavior:
+
+```
+timedatectl set-local-rtc 0 --adjust-system-clock
 ```
 
 Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
