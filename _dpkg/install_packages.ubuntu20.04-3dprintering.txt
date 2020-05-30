@@ -9,11 +9,11 @@ sudo apt install -y blender \
      openscad openscad-mcad \
      meshlab geomview
 
-# sudo apt install wings3d
+# not used
+#sudo apt install wings3d
 # https://github.com/solvespace/solvespace
 #sudo apt install solvespace
 #snap install --edge solvespace
-
 
 # PCB design - https://kicad-pcb.org/download/ubuntu/
 sudo add-apt-repository --yes ppa:js-reynaud/kicad-5.1
@@ -27,6 +27,12 @@ sudo apt install kicad-demos
 sudo apt install --install-recommends fritzing
 #sudo apt install --install-recommends qelectrotech
 
-
 # diskspace eater
-#sudo apt install texlive-full lyx
+sudo apt install texlive-full lyx dot2tex asymptote
+# rec: fonts-freefont
+#  auctex emacs-common-non-dfsg asymptote-x11
+
+# graphics and figures
+sudo apt install --install-recommends gimp inkscape inkscape-tutorials \
+     xfig xfig-doc dia graphviz potrace scour
+# also: python-scour python3-scour
