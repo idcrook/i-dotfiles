@@ -41,13 +41,16 @@ case "$OSTYPE" in
             done;
             Emacs.sh ${args[*]}
         }
-    ;;
+        ;;
     # commands for Linux go here
     linux*)
-    ;;
+        function emacsnap () {
+            /snap/bin/emacs $* 2>&1 1>/dev/null | grep -v Fontconfig | grep -v libgvfsdbus.so;
+        }
+        ;;
     # commands for BSD-s go here
     dragonfly*|freebsd*|netbsd*|openbsd*)
-    ;;
+        ;;
 esac
 
 

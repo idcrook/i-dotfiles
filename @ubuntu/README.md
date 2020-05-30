@@ -1,5 +1,5 @@
-
-## apt config
+apt config
+----------
 
 Install custom `apt` configs
 
@@ -7,7 +7,7 @@ Install custom `apt` configs
 sudo stow --target=/ @Apt
 ```
 
+Install notes
+-------------
 
-## Install notes
-
- - [Installation: ubuntu 18.04 (server)](README-Ubuntu.md)
+-	[Installation: Ubuntu 20.04 LTS](README-Ubuntu.md)

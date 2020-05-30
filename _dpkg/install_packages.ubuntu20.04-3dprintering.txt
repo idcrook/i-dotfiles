@@ -1,0 +1,32 @@
+# -*- sh -*-
+
+# slicers and related
+sudo apt install -y slic3r cura cura-engine gpx
+
+# design tools (3d modeling or CAD)
+sudo apt install -y blender \
+     freecad librecad \
+     openscad openscad-mcad \
+     meshlab geomview
+
+# sudo apt install wings3d
+# https://github.com/solvespace/solvespace
+#sudo apt install solvespace
+#snap install --edge solvespace
+
+
+# PCB design - https://kicad-pcb.org/download/ubuntu/
+sudo add-apt-repository --yes ppa:js-reynaud/kicad-5.1
+sudo apt update
+sudo apt install --install-recommends kicad
+# If you want demo projects
+sudo apt install kicad-demos
+# see also librepcbm gEDA
+
+# Hobbyist electronics
+sudo apt install --install-recommends fritzing
+#sudo apt install --install-recommends qelectrotech
+
+
+# diskspace eater
+#sudo apt install texlive-full lyx

@@ -5,13 +5,16 @@ sudo apt install -y screen molly-guard mosh dselect rcs \
      tcsh keychain source-highlight jq shellcheck curl \
      zsh colordiff
 
-# emacs-snapshot and some dependencies
-sudo apt remove emacs26 emacs26-common
-sudo apt install -y emacs-snapshot \
+# some emacs dependencies
+#sudo apt install -y emacs-snapshot
+sudo apt install -y \
      imagemagick-6.q16 ack silversearcher-ag \
      npm \
      python-is-python3 python3-dev python3-pip python3-venv python3-virtualenv python3-wheel \
      fonts-powerline fonts-hack fonts-inconsolata fonts-dejavu fonts-symbola
+
+# https://github.com/alexmurray/emacs-snap
+snap install emacs --beta --classic
 
 # image tools
 sudo apt install trimage
