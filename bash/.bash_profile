@@ -170,7 +170,7 @@ then
     # sudo apt install keychain
     if [ -x /usr/bin/keychain ]; then
         keychainpath=/usr/bin/keychain
-        eval "$($keychainpath --eval --agents ssh --inherit any id_rsa)"
+        eval "$($keychainpath --eval --agents ssh --inherit any id_rsa id_ed25519)"
         unset keychainpath
     fi
 
