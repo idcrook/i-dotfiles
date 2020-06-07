@@ -27,6 +27,8 @@ pip3 install -r packages3.txt
 
 Since we are using `--user` should not need to preface with `sudo`
 
+In a newly sourced shell (to get the proper environment)
+
 ```shell
 #pip3 install --user --requirement packages3.ubuntu18.04.server.txt
 #pip3 install --user --requirement packages3.ubuntu19.10.txt
