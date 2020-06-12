@@ -45,9 +45,9 @@ case "$OSTYPE" in
     # commands for Linux go here
     linux*)
         # https://github.com/alexmurray/emacs-snap/issues/10
-        function emacsnap () {
-            /snap/bin/emacs $* 2>&1 1>/dev/null | grep -v Fontconfig | grep -v libgvfsdbus.so;
-        }
+        # function emacsnap () {
+        #     /snap/bin/emacs $* 2>&1 1>/dev/null | grep -v Fontconfig | grep -v libgvfsdbus.so;
+        # }
         ;;
     # commands for BSD-s go here
     dragonfly*|freebsd*|netbsd*|openbsd*)
