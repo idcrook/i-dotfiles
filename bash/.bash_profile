@@ -170,7 +170,14 @@ then
     # sudo apt install keychain
     if [ -x /usr/bin/keychain ]; then
         keychainpath=/usr/bin/keychain
-        eval "$($keychainpath --eval --agents ssh --inherit any id_rsa id_ed25519)"
+        case "$(uname -r)" in
+            *-microsoft-*)
+                eval "$($keychainpath --eval --agents ssh --inherit any-once id_rsa id_ed25519)"
+                ;;
+            * )
+                eval "$($keychainpath --eval --agents ssh --inherit any-once id_rsa)"
+                ;;
+        esac
         unset keychainpath
     fi
 
