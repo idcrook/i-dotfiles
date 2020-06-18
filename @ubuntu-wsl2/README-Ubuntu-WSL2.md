@@ -41,12 +41,14 @@ stow -vv git
 
 # populate secrets from another host, in another terminal
 # incoming SSH from external network is problematic at this time; do manually
-ssh DONOR_HOST
-TARGET=host.local
-scp ~/.config/git/config.secrets  $TARGET:.dotfiles/git/.config/git/config.secrets
-scp ~/.dotfiles/homedir/.ansiweatherrc.secrets  $TARGET:.dotfiles/homedir/.ansiweatherrc.secrets
-scp ~/.dotfiles/homedir/.wakatime.cfg.secrets $TARGET:.dotfiles/homedir/.wakatime.cfg.secrets
-exit
+TARGET=donor.local
+scp $TARGET:.config/git/config.secrets               ./git/.config/git/config.secrets
+scp $TARGET:.dotfiles/homedir/.ansiweatherrc.secrets ./homedir/.ansiweatherrc.secrets
+scp $TARGET:.dotfiles/homedir/.wakatime.cfg.secrets  ./homedir/.wakatime.cfg.secrets
+scp $TARGET:.dotfiles/homedir/.wakatime.cfg.secrets  ./homedir/.wakatime.cfg.secrets
+scp $TARGET:.dotfiles/espanso/user/personal.secrets.yml ./espanso/user/personal.secrets.yml
+scp $TARGET:.config/espanso/user/personal.secrets.yml \
+  ./espanso/.config/espanso/user/personal.secrets.yml
 
 mv ~/{.bash_logout,.bashrc,.profile} ~/backup
 ( cd ~ && mv .bash_aliases .bash_profile .inputrc .powerline-shell.json .bash_completion.d/ backup/ )

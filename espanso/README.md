@@ -81,3 +81,19 @@ espanso register
 # now after the following command, should see espanso icon appear in the status bar
 espanso start
 ```
+#### Windows 10
+
+```bat
+# in a windows cmd prompt
+explorer %HOMEDRIVE%%HOMEPATH%\AppData\Roaming\espanso
+```
+now, in a WSL 2
+
+```shell
+cd ~/.dotfiles/espanso/.config/espanso/
+xdg-open .
+```
+
+Now drag the files from the WSL 2 location (`default.yml` and `user/`) in explorer.exe to the Windows location.
+
+You should see the "Espanso Reload" Windows notification appear a few times as it observes the file changes.

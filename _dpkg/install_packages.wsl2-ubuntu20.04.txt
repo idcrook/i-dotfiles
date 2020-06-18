@@ -1,7 +1,7 @@
 # -*- sh -*-
 
 # bash zsh and utils
-sudo apt install -y screen molly-guard mosh dselect rcs \
+sudo apt install -y screen mosh dselect rcs \
      tcsh keychain source-highlight jq shellcheck curl \
      zsh colordiff
 

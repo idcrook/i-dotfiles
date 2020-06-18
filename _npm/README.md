@@ -33,7 +33,7 @@ To (re)install :
 ```
 
 -	`sudo` is required when using the apt `npm` package
-	-	this means `ubuntu` and `raspbian`
+	-	this means `ubuntu` and `raspbian`, and WSL Ubuntu
 
 Update / upgrade
 ----------------
