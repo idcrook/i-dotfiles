@@ -95,3 +95,11 @@ cd fonts
 explorer.exe .
 # right-click on `install.ps1` and select Run in Powershell
 ```
+
+## Installing Cascadia Code on Windows
+
+The latest releases include Powerline embeds (trailing "PL" in name)
+
+Download from https://github.com/microsoft/cascadia-code/releases
+
+Unzip, right-click on each in `ttf` sub-directory and Install.
