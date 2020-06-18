@@ -25,7 +25,7 @@ I used to manage my macOS/Linux/msys2/WSL dotfiles in a "homedir.git" repository
 Install
 -------
 
-Starting points: [macOS](%40macos/README-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md)
+Starting points: [macOS](%40macos/README-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md), [WSL2 Ubuntu](%40ubuntu-wsl2/README-Ubuntu-WSL2.md)
 
 1.	Assumes GNU `stow` is installed
 2.	clone the repository :`git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git ~/.dotfiles ; cd ~/.dotfiles`
