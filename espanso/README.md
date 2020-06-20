@@ -32,6 +32,8 @@ To see where `espanso` configuration folder is:
 espanso path
 ```
 
+See below for additional steps for Windows 10/WSL 2
+
 <!-- #### macOS -->
 
 <!-- ```shell -->
