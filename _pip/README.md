@@ -1,17 +1,10 @@
 **List of packages to install via `pip`, the python packaging tool.**
 
-```
-├── packages2.txt        python2 packages list
-└── packages3.txt        python3 packages list
-```
-
 ---
 
 To create the packages list do :
 
 ```
-pip2 list --format=columns | sed '/Package/,/---------/d' | \
-    cut -d " " -f 1 > packages2.txt
 pip3 list --format=columns | sed '/Package/,/---------/d' | \
     cut -d " " -f 1 > packages3.txt
 ```
@@ -19,8 +12,14 @@ pip3 list --format=columns | sed '/Package/,/---------/d' | \
 To install :
 
 ```
-# pip2 install -r packages2.txt
 pip3 install -r packages3.txt
+```
+
+### macOS
+
+
+```
+pip3 install --user -r packages3.bigsur.txt
 ```
 
 ### Ubuntu
@@ -30,8 +29,6 @@ Since we are using `--user` should not need to preface with `sudo`
 In a newly sourced shell (to get the proper environment)
 
 ```shell
-#pip3 install --user --requirement packages3.ubuntu18.04.server.txt
-#pip3 install --user --requirement packages3.ubuntu19.10.txt
 pip3 install --user --requirement packages3.ubuntu20.04.txt
 ```
 
@@ -51,7 +48,6 @@ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 Since we are using `--user` should not need to preface with `sudo`
 
 ```shell
-# pip2 install --user --requirement packages2.raspbian.buster.txt
 pip3 install --user --requirement packages3.raspbian.buster.txt
 ```
 

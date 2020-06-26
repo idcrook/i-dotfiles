@@ -1,0 +1,13 @@
+autopep8
+black
+flake8
+jedi
+powerline-shell
+pyflakes
+wakatime
+yapf
+yamllint
+click
+titlecase
+#virtualenv # python3-virtualenv
+grip # preview GitHub README.md
