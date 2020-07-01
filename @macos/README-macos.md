@@ -55,3 +55,14 @@ cd ../_npm
 cd ../golang
 # ...
 ```
+
+
+## other fixup
+
+Does zsh complain about un-safe directories?
+
+```shell
+compaudit
+chmod 755 /usr/local/share/zsh
+chmod 755 /usr/local/share/zsh/site-functions/
+```
