@@ -17,13 +17,19 @@ if [[ ! -d "${EMACSPATH_BIN}" ]] ; then
     fi
 fi
 
+EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
+if [[ ! -x  "${EMACSPATH}"/Emacs-x86_64-10_14 ]] ; then
+    EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs-x86_64-10_14
+fi
+
+
 if ! ("${EMACSPATH_BIN}"/emacsclient --eval "t"  2> /dev/null > /dev/null )
 then
     # There is no server available so,
     # Start Emacs.app detached from the terminal
-    # and change Emac's directory to PWD
+    # and change Emacs directory to PWD
 
-    nohup ${EMACSPATH}/Emacs --chdir "${PWD}" "${@}" 2>&1 > /dev/null &
+    nohup "${EMACS_WRAPPER_OR_BIN}" --chdir "${PWD}" "${@}" 2>&1 > /dev/null &
 else
     # The emacs server is available so use emacsclient
 
