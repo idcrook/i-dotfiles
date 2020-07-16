@@ -1,4 +1,4 @@
-install rustlang
+Capture Rust dotfiles
 =====================
 
 
@@ -7,9 +7,8 @@ cd ~/.dotfiles
 stow -v rustlang
 ```
 
-
-Ubuntu
-------
+install rustlang
+=====================
 
 macOS
 -----
@@ -21,3 +20,9 @@ brew install rustup-init
 # accept defaults, except for dotfile edits
 rustup-init
 ```
+
+After installing `stable`, start a new shell- `~/.cargo/bin` should be found and added to path
+
+
+Ubuntu
+------

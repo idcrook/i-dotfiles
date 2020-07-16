@@ -46,13 +46,18 @@ scp $TARGET:.config/espanso/user/personal.secrets.yml \
 
 stow -vv emacs
 stow -vv golang
-cd _homebrew
+stow -vv rustlang
+
+# check the READMEs in the following
+cd ~/.dotfiles/_homebrew
 # ...
-cd ../_pip
+cd ~/.dotfiles/_pip
 # ...
-cd ../_npm
+cd ~/.dotfiles/_npm
 # ...
-cd ../golang
+cd ~/.dotfiles/golang
+# ...
+cd ~/.dotfiles/rustlang
 # ...
 ```
 
