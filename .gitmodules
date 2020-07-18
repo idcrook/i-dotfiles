@@ -1,6 +1,7 @@
 [submodule "emacs/.emacs.d"]
 	path = emacs/.emacs.d
-	url = git@github.com:idcrook/.emacs.d.git
+	url = https://github.com/idcrook/.emacs.d.git
+	branch = main
 [submodule "zsh/.zprezto"]
 	path = zsh/.zprezto
-	url = git@github.com:idcrook/prezto.git
+	url = https://github.com/idcrook/prezto.git
