@@ -8,7 +8,7 @@ sudo apt install -y stow git openssh-server
 
 # this requires SSH key on git account
 git clone --recurse-submodules \
-    git@github.com:idcrook/i-dotfiles.git ~/.dotfiles
+    https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles
 stow -t ~ stow # bootstrap stow config at top-level

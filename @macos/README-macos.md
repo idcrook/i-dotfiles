@@ -12,7 +12,7 @@ Typical Install (on macOS)
 ssh-keygen -b 4096
 # upload SSH key to GitHub
 cd
-git clone --recurse-submodules git@github.com:idcrook/i-dotfiles.git .dotfiles
+git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git .dotfiles
 cd .dotfiles
 stow -t ~ stow
 stow -vv @macos

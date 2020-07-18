@@ -119,7 +119,7 @@ git archive master | tar -x -C ../emacs.d
 
 # Clone the new repository so we can add things to it
 cd ..
-git clone git@github.com:idcrook/.emacs.d.git
+git clone https://github.com/idcrook/.emacs.d.git
 # this is back to the "exported" dir again
 cd ../emacs.d
 mv ../.emacs.d/.git .
@@ -130,7 +130,7 @@ git push -u origin master
 
 # now add to i-dotfiles (you may want https:// github URL instead)
 cd ~/.dotfiles/
-git submodule add git@github.com:idcrook/.emacs.d.git emacs/.emacs.d
+git submodule add http://github.com/idcrook/.emacs.d.git emacs/.emacs.d
 # implicitly does a 'git add .gitmodules emacs/.emacs.d'
 
 # first time, for transition

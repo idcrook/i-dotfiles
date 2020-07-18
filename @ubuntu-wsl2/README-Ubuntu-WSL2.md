@@ -19,7 +19,7 @@ sudo dpkg-reconfigure openssh-server
 
 # this requires SSH key on git account
 git clone --recurse-submodules \
-    git@github.com:idcrook/i-dotfiles.git ~/.dotfiles
+    https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles
 stow -t ~ stow # bootstrap stow config at top-level
@@ -120,7 +120,7 @@ Windows Terminal Installed now includes the Cascadia Code fonts
 +   "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
 ```
 
-- Change Default Font and Color Scheme 
+- Change Default Font and Color Scheme
 
 ```diff
  "defaults":
@@ -148,4 +148,3 @@ The latest releases include Powerline embeds (trailing "PL" in name)
 Download from https://github.com/microsoft/cascadia-code/releases
 
 Unzip, right-click on each in `ttf` sub-directory and Install.
-

@@ -9,7 +9,7 @@ Add a module for zsh configs, with `zprezto` as submodule
 
 ```shell
 mkdir zsh
-git submodule add git@github.com:idcrook/prezto.git zsh/.zprezto
+git submodule add https://github.com/idcrook/prezto.git zsh/.zprezto
 git submodule update --init --recursive --  zsh/.zprezto
 ```
 
