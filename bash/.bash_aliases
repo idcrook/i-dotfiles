@@ -203,16 +203,16 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 # kubernetes ------------------------------------------------------------------
 alias kbk="kubectl"
 alias kbn="kubectl  --namespace=kube-system"
-alias kbb="kubectl  --namespace=metallb-system"
-alias kbi="kubectl  --namespace=ingress-nginx"
-alias kbf="kubectl  --namespace=openfaas"
-alias kbfn="kubectl --namespace=openfaas-fn"
+# alias kbb="kubectl  --namespace=metallb-system"
+# alias kbi="kubectl  --namespace=ingress-nginx"
+# alias kbf="kubectl  --namespace=openfaas"
+# alias kbfn="kubectl --namespace=openfaas-fn"
 
 # _complete_alias requires https://github.com/cykerway/complete-alias to be loaded
-# ~/.bash_completion.d/bash_complete-alias.sh loaded by ~/.bash_completion
+# ~/.bash_completion.d/complete_alias loaded by ~/.bash_completion
 complete -F _complete_alias kbk
 complete -F _complete_alias kbn
-complete -F _complete_alias kbb
-complete -F _complete_alias kbi
-complete -F _complete_alias kbf
-complete -F _complete_alias kbfn
+# complete -F _complete_alias kbb
+# complete -F _complete_alias kbi
+# complete -F _complete_alias kbf
+# complete -F _complete_alias kbfn
