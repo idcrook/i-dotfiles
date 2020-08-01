@@ -172,7 +172,7 @@ mas "Radio Paradise", id: 663334697
 mas "Reeder", id: 1449412482
 mas "SafariMarkdownLinker", id: 1289119450
 mas "Screens", id: 1224268771
-mas "Secrets", id: 973049011
+# mas "Secrets", id: 973049011
 mas "Sip", id: 507257563
 mas "Snapheal", id: 480623975
 mas "Sofortbild", id: 411729406
