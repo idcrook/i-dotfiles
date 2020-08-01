@@ -90,3 +90,11 @@ Control-Space is reserved by OS X for changing keyboard layouts. Unintuitively, 
 - Go back to System Preferences > Language & Text > Input Sources
 
 - Turn off the inputs on the left
+
+### Control-ArrowKeys capture
+
+DefaultSystem  *Mission Control* Keyboard Shortcuts take over <kbd>Ctrl-<Arrow-key\></kbd> bindings.
+
+![Default ShortCuts Control-Arrows](KeybdPrefs_ShortCuts_ControlArrows.png)
+
+Turn these off so that shell command line and Emacs editting can use them.
