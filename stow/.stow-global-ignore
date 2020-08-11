@@ -4,6 +4,7 @@
 .stow-local-ignore
 .*.example
 ^/@.*
+KeybdPrefs_.*.png
 README.*
 TODO.*
 RCS
