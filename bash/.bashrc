@@ -122,6 +122,13 @@ then
     # http://hints.macworld.com/article.php?story=20131226153018801
     # function man { if [ $# -eq 1 ] ; then open x-man-page://$1 ; elif [ $# -eq 2 ] ; then open x-man-page://$1/$2 ; fi }
 
+    # brew info nvm
+    if [ -z $NVM_DIR ] ; then
+        # mkdir -p ~/.nvm
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+        [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+    fi
 fi
 
 # bash completion settings (actually, these are readline settings) : bind -lv

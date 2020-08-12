@@ -37,11 +37,10 @@ fi
 # via https://github.com/cykerway/complete-alias
 # requires BASH 4
 # mkdir ~/.bash_completion.d
-# curl -o bash_complete-alias.sh  https://raw.githubusercontent.com/cykerway/complete-alias/master/bash_completion.sh
-# mv bash_complete-alias.sh  ~/.bash_completion.d
-if [ -f ~/.bash_completion.d/bash_complete-alias.sh ] ; then
-    # shellcheck source=.bash_completion.d/bash_complete-alias.sh
-    source ~/.bash_completion.d/bash_complete-alias.sh
+# curl -o ~/.bash_completion.d/complete_alias  https://raw.githubusercontent.com/cykerway/complete-alias/master/complete_alias
+if [ -f ~/.bash_completion.d/complete_alias ] ; then
+    # shellcheck source=.bash_completion.d/complete_alias
+    source ~/.bash_completion.d/complete_alias
 fi
 
 

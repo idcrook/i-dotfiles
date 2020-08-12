@@ -14,7 +14,7 @@ macOS
 -----
 
 ```
-# show already be done by homebrew
+# should already be done by homebrew
 brew install rustup-init
 
 # accept defaults, except for dotfile edits

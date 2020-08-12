@@ -18,8 +18,15 @@ pip3 install -r packages3.txt
 ### macOS
 
 
-```
+```shell
 pip3 install --user -r packages3.bigsur.txt
+```
+
+(upgrade and/or) re-install packages
+
+```shell
+pip3 install --upgrade --force-reinstall  --user -r packages3.bigsur.txt
+pip3 install --ignore-installed           --user -r packages3.bigsur.txt
 ```
 
 ### Ubuntu
@@ -61,6 +68,8 @@ libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
 xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
 ```
 
+now clone over
+
 ```
 python --version
 # > Python 3.6.7
@@ -71,6 +80,5 @@ git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git ~/.pyenv/plugins/
 pyenv install 3.7.3
 pyenv global 3.7.3
 python --version
+# > Python 3.7.3
 ```
-
-> Python 3.7.3
