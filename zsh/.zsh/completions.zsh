@@ -14,3 +14,7 @@ if (( $+commands[kubectl] )) ; then
     alias kbn="kbk --namespace=kube-system"
     complete -F __start_kubectl kbk
 fi
+
+# nvm (node version manager)  -------------------------------------------
+# brew info nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

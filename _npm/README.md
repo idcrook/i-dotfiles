@@ -1,3 +1,44 @@
+
+Using `nvm`
+===========
+
+## On macOS
+
+```
+mkdir ~/.nvm
+brew install nvm
+mkdir -p ~/.nvm
+# update shell startup files to source nvm and load completions in respective shells
+# ... and source a new shell
+nvm install node
+```
+
+```
+nvm which node
+which npm
+npm install -g npm
+npm list --global --parseable --depth=0
+```
+
+
+## On macOS
+
+```
+mkdir ~/.nvm
+brew install nvm
+mkdir -p ~/.nvm
+# update shell startup files to source nvm and load completions in respective shells
+# ... and source a new shell
+nvm install node
+```
+
+```
+nvm which node
+```
+
+
+# Using
+
 **List of packages to install via `npm`, the *node.js* packaging tool.**
 
 ```
@@ -23,8 +64,6 @@ echo "$newlist" > npm_global_packages.list
 
 Install
 -------
-
-FIXME: add nvm instructions for ubuntu
 
 To (re)install :
 

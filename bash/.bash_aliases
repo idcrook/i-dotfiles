@@ -45,6 +45,10 @@ then
 
     alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 
+    # this loads nvm
+    # brew info nvm
+    alias nvms='export NVM_DIR="$HOME/.nvm" ; [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"'
+
 else  # not Darwin/macOS
 
     if [ -x /usr/bin/notify-send ] ; then
@@ -64,6 +68,8 @@ else  # not Darwin/macOS
 	    alias git=hub
     fi
 
+    # shellcheck disable=2139
+    alias nvms="export NVM_DIR='${HOME}/.nvm' ; [ -s \"\$NVM_DIR/nvm.sh\" ] && \. \"\$NVM_DIR/nvm.sh\""
 fi
 
 
