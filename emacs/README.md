@@ -10,10 +10,15 @@ Using
 2.	Push any changes back to its remote
 3.	When ready, can add/commit `.emacs.d` reference into `i-dotfiles`
 
-emacs for macosx casks
-----------------------
+Install emacs
+=============
+
+macOS : emacs via homebrew casks
+--------------------------------
 
 there is a shell wrapper `Emacs.sh`
+
+<!--
 
 ### Install emacs pre-test cask
 
@@ -24,32 +29,41 @@ brew cask install emacs-pretest
 #  /Applications/Emacs.app
 ```
 
+-->
+
 ### Install emacs cask
 
-As of 18-Apr-2020 emacs26.3 build
+from https://emacsformacosx.com/
+
+As of 2020-Aug-12 `emacs27.1` build
 
 ```bash
 brew cask install emacs
 #  /Applications/Emacs.app
 ```
 
-secrets
--------
+Ubuntu
+------
 
-`~/.emacs.d/private/authinfo.secrets` shall contain app API passwords
+### Ubuntu - Install emacs from snap (recommended)
 
-Refer to
+- `--beta` will not be needed when emacs27 hits stable
 
--	https://github.com/seagle0128/grip-mode#customize
--	https://github.com/joeyespo/grip#access
+```shellsession
+$ sudo snap install emacs --beta --classic
+# should be in path
+$ /snap/bin/emacs
+```
 
-Install emacs26 on Ubuntu
--------------------------
+Maintained by the `snapd` system
+
+<!--
+
+### Install emacs26 on Ubuntu
 
 Refer to [@ubuntu README](../%40ubuntu/README.md#install-notes) for details on how to add repository for emacs26.
 
-Install emacs27 (emacs-snapshot) on ubuntu
-------------------------------------------
+### Install emacs27 (emacs-snapshot) on ubuntu
 
 ```
 sudo add-apt-repository ppa:ubuntu-elisp/ppa
@@ -57,6 +71,9 @@ sudo apt-get update
 sudo apt install emacs-snapshot
 ```
 
+ -->
+
+<!--
 Install emacs-head build on macOS
 ---------------------------------
 
@@ -82,6 +99,18 @@ ln -s /usr/local/Cellar/emacs-head/HEAD-<<CHANGEME>>_1/bin/ \
 
 ls -l /usr/local/opt/emacs-head/Emacs.app/Contents/MacOS/bin/
 ```
+
+ -->
+
+secrets
+-------
+
+`~/.emacs.d/private/authinfo.secrets` shall contain app API passwords
+
+Refer to
+
+-	https://github.com/seagle0128/grip-mode#customize
+-	https://github.com/joeyespo/grip#access
 
 Updating .emacs.d locally from its host repo
 --------------------------------------------
