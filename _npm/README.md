@@ -5,39 +5,42 @@ Using `nvm`
 ## On macOS
 
 ```
-mkdir ~/.nvm
-brew install nvm
 mkdir -p ~/.nvm
+brew install nvm
 # update shell startup files to source nvm and load completions in respective shells
-# ... and source a new shell
-nvm install node
 ```
 
+
+## On Linux
+
 ```
+mkdir -p ~/.nvm
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+
+## Source a new shell and install a node version
+
+In a fresh shell, after `nvm` is "installed"
+
+```
+nvm install node
 nvm which node
 which npm
 npm install -g npm
 npm list --global --parseable --depth=0
 ```
 
-
-## On macOS
-
-```
-mkdir ~/.nvm
-brew install nvm
-mkdir -p ~/.nvm
-# update shell startup files to source nvm and load completions in respective shells
-# ... and source a new shell
-nvm install node
-```
+### older system modules
 
 ```
-nvm which node
+=> If you wish to uninstall them at a later point (or re-install them under your
+=> `nvm` Nodes), you can remove them from the system Node as follows:
+
+     $ nvm use system
+     $ npm uninstall -g a_module
 ```
 
-
-# Using
+# Using node packages
 
 **List of packages to install via `npm`, the *node.js* packaging tool.**
 
@@ -71,8 +74,9 @@ To (re)install :
 [sudo] npm install --global $(cat npm_global_packages.list)
 ```
 
--	`sudo` is required when using the apt `npm` package
+-	`sudo` is required when using the system / apt `npm` package
 	-	this means `ubuntu` and `raspbian`, and WSL Ubuntu
+    -   if using `nvm`, do not use sudo!
 
 Update / upgrade
 ----------------
