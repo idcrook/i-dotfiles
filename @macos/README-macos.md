@@ -3,14 +3,16 @@ Typical Install (on macOS)
 
 1.	First, install **Homebrew <https://brew.sh>**
 	-	`brew cask info emacs`
+	-	`brew cask install emacs`
 	-	`brew cask info homebrew/cask-versions/emacs-pretest`
 	-	`brew cask install homebrew/cask-versions/emacs-pretest`
-	-	`emacs` .. [Show In Finder] .. open and Run
-2.	Assumes [`stow`](stow/README.md#install-gnu-stow) is installed`brew install stow git`
+	-	`emacs` .. [Show In Finder] .. Right-Click ... Open and Open
+2.	Assumes [`stow`](stow/README.md#install-gnu-stow) and `git` are installed
+	-	`brew install stow git keychain`
 
 ```shell
 ssh-keygen -b 4096
-# upload SSH key to GitHub
+# upload SSH key to GitHub # ssh -T git@github.com
 cd
 git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git .dotfiles
 # git clone --recurse-submodules git@github.com:idcrook/i-dotfiles.git .dotfiles
@@ -42,6 +44,7 @@ cp -v ./homedir/bin/macos/homebrew/HOMEBREW_GITHUB_API_TOKEN.secrets.example \
 stow -vv espanso
 # see espanso/README.md
 
+TARGET=hostname
 scp $TARGET:.config/espanso/user/personal.secrets.yml \
   ./espanso/.config/espanso/user/personal.secrets.yml
 

@@ -17,6 +17,7 @@ Applies specifically to my preferences. For example, my shell setup wants these 
 ```shell
 brew install keychain git 
 # 'open /Applications/Emacs.app' or run 'Emacs.sh'
+cd ~/.dotfiles/_homebrew
 brew install mas
 brew tap homebrew/bundle
 brew bundle --file=Brewfile

@@ -12,6 +12,10 @@ in `iTerm2`
 		-	:: Scrollback Buffer : [x] Unlimited scrollback
 -	color scheme:
 
+- In System Preferences...Security & Privacy / Privacy
+
+Give Full Disk Access, etc. to iTerm2
+
 Install manually
 ================
 
