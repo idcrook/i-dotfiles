@@ -12,7 +12,7 @@ in `iTerm2`
 		-	:: Scrollback Buffer : [x] Unlimited scrollback
 -	color scheme:
 
-- In System Preferences...Security & Privacy / Privacy
+-	In System Preferences...Security & Privacy / Privacy
 
 Give Full Disk Access, etc. to iTerm2
 
@@ -29,6 +29,13 @@ Hardware support
 
 -	Cura Lulzbot Edition - https://www.lulzbot.com/learn/tutorials/cura-lulzbot-edition-installation-macos
 -	Simplify3D - https://www.simplify3d.com/software/features/
+
+Not from App Store
+------------------
+
+-	AirParrot 3 https://www.airsquirrels.com/airparrot/download
+-	Reflector 3 https://www.airsquirrels.com/reflector
+-	Forklift https://binarynights.com
 
 ### Rogue Amoeba
 
