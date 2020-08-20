@@ -4,8 +4,8 @@ Typical Install (on macOS)
 1.	First, install **Homebrew <https://brew.sh>**
 	-	`brew cask info emacs`
 	-	`brew cask install emacs`
-	-	`brew cask info homebrew/cask-versions/emacs-pretest`
-	-	`brew cask install homebrew/cask-versions/emacs-pretest`
+	<!-- -	`brew cask info homebrew/cask-versions/emacs-pretest` -->
+	<!-- -	`brew cask install homebrew/cask-versions/emacs-pretest` -->
 	-	`emacs` .. [Show In Finder] .. Right-Click ... Open and Open
 2.	Assumes [`stow`](stow/README.md#install-gnu-stow) and `git` are installed
 	-	`brew install stow git keychain`

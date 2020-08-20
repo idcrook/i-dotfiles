@@ -132,7 +132,7 @@ mas "1Password 7", id: 1333542190
 # mas "Bundle for iWork -GN Templates", id: 538727314
 # mas "Byword", id: 420212497
 mas "Capo", id: 696977615
-# says "requires older version" in Big Sur beta 5 # mas "Developer", id: 640199958
+# says "requires older version" in Big Sur beta 5 # mas "Apple Developer", id: 640199958
 mas "Discovery", id: 1381004916
 mas "Disk Diag", id: 672206759
 #mas "Disk Speed Test", id: 425264550

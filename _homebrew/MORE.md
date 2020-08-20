@@ -33,7 +33,7 @@ Hardware support
 Not from App Store
 ------------------
 
--	AirParrot 3 https://www.airsquirrels.com/airparrot/download
+-	AirParrot 2 (not AirParrot 3) https://www.airsquirrels.com/airparrot/download
 -	Reflector 3 https://www.airsquirrels.com/reflector
 -	Forklift https://binarynights.com
 
