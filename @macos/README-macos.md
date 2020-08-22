@@ -1,18 +1,22 @@
 Typical Install (on macOS)
 --------------------------
 
-1.	First, install **Homebrew <https://brew.sh>**
+1.	First, install **Homebrew https://brew.sh**
+2.	Emacs is preferred editor, config dir `emacs.d` is installed below
 	-	`brew cask info emacs`
 	-	`brew cask install emacs`
-	<!-- -	`brew cask info homebrew/cask-versions/emacs-pretest` -->
-	<!-- -	`brew cask install homebrew/cask-versions/emacs-pretest` -->
 	-	`emacs` .. [Show In Finder] .. Right-Click ... Open and Open
-2.	Assumes [`stow`](stow/README.md#install-gnu-stow) and `git` are installed
+3.	Assumes [`stow`](stow/README.md#install-gnu-stow) and `git` are installed
 	-	`brew install stow git keychain`
+
+<!--  `brew cask info homebrew/cask-versions/emacs-pretest` -->
+
+<!--  `brew cask install homebrew/cask-versions/emacs-pretest` -->
 
 ```shell
 ssh-keygen -b 4096
-# upload SSH key to GitHub # ssh -T git@github.com
+# Upload this SSH key to GitHub account # cat ~/.ssh/id_rsa.pub | pbcopy
+# and test # ssh -T git@github.com
 cd
 git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git .dotfiles
 # git clone --recurse-submodules git@github.com:idcrook/i-dotfiles.git .dotfiles
@@ -65,39 +69,42 @@ cd ~/.dotfiles/rustlang
 # ...
 ```
 
+Some fixup
+----------
 
-## other fixup
+See [MORE.md](../_homebrew/MORE.md) in Homebrew directory for more.
 
-Does zsh complain about un-safe directories?
+### Does zsh complain about un-safe directories?
 
 ```shell
 compaudit
 chmod 755 /usr/local/share/zsh
 chmod 755 /usr/local/share/zsh/site-functions/
 ```
+
 ### Control-Space capture
 
 Via [https://forum.sublimetext.com/t/os-x-control-space-not-working/2145/3](https://forum.sublimetext.com/t/os-x-control-space-not-working/2145/3)
 
 Control-Space is reserved by OS X for changing keyboard layouts. Unintuitively, you have to enable the feature to disable the keyboard shortcut (and free up the key combo). To do this:
 
-- Go to System Preferences > Language & Text > Input Sources
+-	Go to System Preferences > Language & Text > Input Sources
 
-- Check (turn on) at least two input sources in the left column
+-	Check (turn on) at least two input sources in the left column
 
-- Click the “Keyboard Shortcuts…” button in the right column
+-	Click the “Keyboard Shortcuts…” button in the right column
 
-- Select Keyboard & Text Input on the left
+-	Select Keyboard & Text Input on the left
 
-- Scroll to the bottom and disable “Select the previous input source – ^Space” on the right
+-	Scroll to the bottom and disable “Select the previous input source – ^Space” on the right
 
-- Go back to System Preferences > Language & Text > Input Sources
+-	Go back to System Preferences > Language & Text > Input Sources
 
-- Turn off the inputs on the left
+-	Turn off the inputs on the left
 
 ### Control-ArrowKeys capture
 
-DefaultSystem  *Mission Control* Keyboard Shortcuts take over <kbd>Ctrl-<Arrow-key\></kbd> bindings.
+DefaultSystem *Mission Control* Keyboard Shortcuts take over <kbd>Ctrl-<Arrow-key\></kbd> bindings.
 
 ![Default ShortCuts Control-Arrows](KeybdPrefs_ShortCuts_ControlArrows.png)
 

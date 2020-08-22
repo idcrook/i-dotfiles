@@ -1,20 +1,34 @@
 App Config
 ==========
 
-in `iTerm2`
+`iTerm2`
+--------
 
 -	font: \[Profiles] toolbar item
-	-	>Text< Tab
-		-	:: Font : Ubuntu Mono Nerd Font
-	-	>Window< Tab
+	-	`>Text<` Tab
+		-	:: Font : `Ubuntu Mono Nerd Font`
+	-	`>Window<` Tab
 		-	:: Settings for New Windows : Columns `XX` Rows `YY`
-	-	>Terminal< Tab
+	-	`>Terminal<` Tab
 		-	:: Scrollback Buffer : [x] Unlimited scrollback
--	color scheme:
+-	In System Preferences...Security & Privacy / Privacy : Give Full Disk Access, etc. to iTerm2
 
--	In System Preferences...Security & Privacy / Privacy
+Magnet
+------
 
-Give Full Disk Access, etc. to iTerm2
+Needs `Accessibility` turned on.
+
+1Keyboard
+---------
+
+Add associated devices.
+
+Fusion 360
+----------
+
+No longer in App Store. Download directly after logging into Autodesk account..
+
+https://www.autodesk.com/content/autodesk/global/en/products/fusion-360/personal.html via https://www.autodesk.com/products/fusion-360/free-trial
 
 Install manually
 ================
