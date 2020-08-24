@@ -37,6 +37,8 @@ Basics
 ------
 
 -	Google Chrome - https://www.google.com/chrome/
+-   Transmit - https://panic.com/transmit/#download
+-   Forklift - https://binarynights.com
 
 Hardware support
 ----------------
