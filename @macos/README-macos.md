@@ -84,6 +84,15 @@ chmod 755 /usr/local/share/zsh/site-functions/
 
 ### Control-Space capture
 
+#### Catalina 10.15.6 and later?
+
+Things are reorganized. - In `System Preferences > Language & Region` there's a `preferred language" setting for Global and by App.
+
+There is an `Input Sources` Tab in Catalina `System Preferences > Keyboard` where the additional Input Source can be added. However, the workaround to bring up Input Sources in the `System Preferences > Keyboard` tab now named `Shortcuts` does not seem to be required as the <kbd>Ctrl-SPACE</kbd> shortcuts are not enabled on a fresh Catalina install.
+
+
+#### Prior
+
 Via [https://forum.sublimetext.com/t/os-x-control-space-not-working/2145/3](https://forum.sublimetext.com/t/os-x-control-space-not-working/2145/3)
 
 Control-Space is reserved by OS X for changing keyboard layouts. Unintuitively, you have to enable the feature to disable the keyboard shortcut (and free up the key combo). To do this:
