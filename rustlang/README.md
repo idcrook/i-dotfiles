@@ -14,10 +14,10 @@ macOS
 -----
 
 ```
-# should already be done by homebrew
+# next line should already be done by homebrew
 brew install rustup-init
 
-# accept defaults, except for dotfile edits
+# Customize installation, and do not modify PATH variables
 rustup-init
 ```
 

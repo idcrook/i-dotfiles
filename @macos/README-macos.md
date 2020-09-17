@@ -118,3 +118,10 @@ DefaultSystem *Mission Control* Keyboard Shortcuts take over <kbd>Ctrl-<Arrow-ke
 ![Default ShortCuts Control-Arrows](KeybdPrefs_ShortCuts_ControlArrows.png)
 
 Turn these off so that shell command line and Emacs editting can use them.
+
+
+### Turn Safari "auto" unzip off
+
+In `Safari >> Preferences > General` uncheck the Open "safe" files... option.
+
+![Safari Safe files](Safari_safe_files.png)

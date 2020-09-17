@@ -6,7 +6,7 @@ App Config
 
 -	font: \[Profiles] toolbar item
 	-	`>Text<` Tab
-		-	:: Font : `Ubuntu Mono Nerd Font`
+		-	:: Font : `Ubuntu Nerd Font Mono`, size `16`+
 	-	`>Window<` Tab
 		-	:: Settings for New Windows : Columns `XX` Rows `YY`
 	-	`>Terminal<` Tab
@@ -36,6 +36,7 @@ Install manually
 Basics
 ------
 
+-   Litle Snitch - [Download – Little Snitch](https://www.obdev.at/products/littlesnitch/download.html)
 -	Google Chrome - https://www.google.com/chrome/
 -   Transmit - https://panic.com/transmit/#download
 -   Forklift - https://binarynights.com
@@ -46,12 +47,11 @@ Hardware support
 -	Cura Lulzbot Edition - https://www.lulzbot.com/learn/tutorials/cura-lulzbot-edition-installation-macos
 -	Simplify3D - https://www.simplify3d.com/software/features/
 
-Not from App Store
+More utilities
 ------------------
 
 -	AirParrot 2 (not AirParrot 3) https://www.airsquirrels.com/airparrot/download
 -	Reflector 3 https://www.airsquirrels.com/reflector
--	Forklift https://binarynights.com
 
 ### Rogue Amoeba
 
@@ -61,6 +61,7 @@ See Big Sur status : https://www.rogueamoeba.com/status/
 -	Fission - https://www.rogueamoeba.com/fission/
 -	Audio Hijaak - https://www.rogueamoeba.com/audiohijack/
 -	SoundSource - https://www.rogueamoeba.com/soundsource/
+    - Version 4: [Rogue Amoeba | Legacy Software](https://www.rogueamoeba.com/legacy/#soundsource)
 
 ### Maybe do not use any more?
 
