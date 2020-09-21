@@ -7,8 +7,8 @@ Installation on fresh ubuntu 19.10
 sudo apt install -y stow git openssh-server
 
 # this requires SSH key on git account
-git clone --recurse-submodules \
-    https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
+git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
+# git clone --recurse-submodules   git@github.com:idcrook/i-dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles
 stow -t ~ stow # bootstrap stow config at top-level
@@ -21,8 +21,6 @@ mv -i ~/.stowrc.hard  ~/.stowrc
 cd @ubuntu
 sudo stow -vv --target=/ @Apt
 
-# for emacs26 repo
-#sudo add-apt-repository ppa:kelleyk/emacs
 # for emacs snapshot
 sudo add-apt-repository ppa:ubuntu-elisp/ppa
 
@@ -62,6 +60,7 @@ stow -vv emacs
 stow -vv golang
 
 stow -vv espanso
+# espanso README: manual install and custom settings
 
 cd _dpkg
 # ...
@@ -74,6 +73,10 @@ cd ../_npm
 emacs-snapshot -nw
 
 cd ../golang
+cat README.md
+# ...
+
+cd ../rustlang
 cat README.md
 # ...
 ```
