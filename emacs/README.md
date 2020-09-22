@@ -18,19 +18,6 @@ macOS : emacs via homebrew casks
 
 there is a shell wrapper `Emacs.sh`
 
-<!--
-
-### Install emacs pre-test cask
-
-As of 18-Apr-2020 emacs27 build
-
-```bash
-brew cask install emacs-pretest
-#  /Applications/Emacs.app
-```
-
--->
-
 ### Install emacs cask
 
 from https://emacsformacosx.com/
@@ -45,17 +32,21 @@ brew cask install emacs
 Ubuntu
 ------
 
-### Ubuntu - Install emacs from snap (recommended)
+<!-- ### Ubuntu - Install emacs from snap (recommended) -->
 
-- `--beta` will not be needed when emacs27 hits stable
+<!-- - `--beta` will not be needed when emacs27 hits stable -->
 
-```shellsession
-$ sudo snap install emacs --beta --classic
-# should be in path
-$ /snap/bin/emacs
-```
+<!-- ```shellsession -->
 
-Maintained by the `snapd` system
+<!-- $ sudo snap install emacs --beta --classic -->
+
+<!-- # should be in path -->
+
+<!-- $ /snap/bin/emacs -->
+
+<!-- ``` -->
+
+<!-- Maintained by the `snapd` system -->
 
 ### Install emacs27 on ubuntu
 
@@ -64,35 +55,6 @@ sudo add-apt-repository ppa:kelleyk/emacs
 sudo apt-get update
 sudo apt install emacs27
 ```
-
-<!--
-Install emacs-head build on macOS
----------------------------------
-
-```bash
-# rename /Applications/Emacs.app -> Emacs26.app
-brew tap daviderestivo/emacs-head
-brew install emacs-head --HEAD --with-cocoa --with-imagemagick --with-jansson
-# imagemagick@7 -> Homebrew `imagemagick`
-# jansson -> C-lang JSON parser
-ln -s /usr/local/opt/emacs-head/Emacs.app /Applications
-
-# symlink some binaries for command line
-# =======================================
-
-ls -ld /Applications/Emacs.app
-brew list emacs-head
-
-# this step probably not necessary
-rm /usr/local/opt/emacs-head/Emacs.app/Contents/MacOS/bin
-
-ln -s /usr/local/Cellar/emacs-head/HEAD-<<CHANGEME>>_1/bin/ \
-      /usr/local/opt/emacs-head/Emacs.app/Contents/MacOS/bin
-
-ls -l /usr/local/opt/emacs-head/Emacs.app/Contents/MacOS/bin/
-```
-
- -->
 
 secrets
 -------
