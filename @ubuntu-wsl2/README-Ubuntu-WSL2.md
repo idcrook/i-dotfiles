@@ -32,10 +32,10 @@ mv -i ~/.stowrc.hard  ~/.stowrc
 cd @ubuntu-wsl2
 sudo stow -vv --target=/ @Apt
 
-# for emacs26 repo
-#sudo add-apt-repository ppa:kelleyk/emacs
-# for emacs snapshot
-sudo add-apt-repository ppa:ubuntu-elisp/ppa
+# for emacs27 repo
+sudo add-apt-repository ppa:kelleyk/emacs
+## for emacs snapshot
+#sudo add-apt-repository ppa:ubuntu-elisp/ppa
 
 sudo apt update # may be implicit
 

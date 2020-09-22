@@ -14,9 +14,9 @@ sudo apt install -y \
 # # no need for system node package manager if using nvm
 # sudo apt install npm
 
-sudo apt install -y emacs-snapshot
-# https://github.com/alexmurray/emacs-snap
-#sudo snap install emacs --beta --classic
+# provided by ppa:kelleyk/emacs
+sudo apt install emacs27
+# sudo apt install emacs27-nox
 
 # image tools
 sudo apt install trimage

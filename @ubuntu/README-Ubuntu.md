@@ -21,8 +21,8 @@ mv -i ~/.stowrc.hard  ~/.stowrc
 cd @ubuntu
 sudo stow -vv --target=/ @Apt
 
-# for emacs snapshot
-sudo add-apt-repository ppa:ubuntu-elisp/ppa
+# for emacs27 - https://launchpad.net/~kelleyk/+archive/ubuntu/emacs
+sudo add-apt-repository ppa:kelleyk/emacs
 
 sudo apt update # may be implicit
 

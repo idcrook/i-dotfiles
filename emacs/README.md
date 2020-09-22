@@ -57,21 +57,13 @@ $ /snap/bin/emacs
 
 Maintained by the `snapd` system
 
-<!--
-
-### Install emacs26 on Ubuntu
-
-Refer to [@ubuntu README](../%40ubuntu/README.md#install-notes) for details on how to add repository for emacs26.
-
-### Install emacs27 (emacs-snapshot) on ubuntu
+### Install emacs27 on ubuntu
 
 ```
-sudo add-apt-repository ppa:ubuntu-elisp/ppa
+sudo add-apt-repository ppa:kelleyk/emacs
 sudo apt-get update
-sudo apt install emacs-snapshot
+sudo apt install emacs27
 ```
-
- -->
 
 <!--
 Install emacs-head build on macOS
