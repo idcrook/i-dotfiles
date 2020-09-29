@@ -40,3 +40,6 @@ sudo apt install golang-1.14-go golang-go
 # github hub - https://hub.github.com
 sudo snap install hub --classic
 # sudo apt install hub
+
+# espanso - https://espanso.org/install/linux/
+sudo snap install espanso --classic

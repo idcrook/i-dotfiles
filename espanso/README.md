@@ -48,6 +48,20 @@ See below for additional steps for Windows 10/WSL 2
 
 #### Ubuntu / Debian Linux
 
+https://espanso.org/install/linux/
+
+snap now recommended
+
+```
+sudo snap install espanso --classic
+```
+
+Important: if you are upgrading espanso, after the previous command, execute `espanso unregister` in the terminal.
+
+
+
+##### DEB package
+
 ```shell
 wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
 sudo apt install ./espanso-debian-amd64.deb
