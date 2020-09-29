@@ -52,8 +52,9 @@ https://espanso.org/install/linux/
 
 snap now recommended
 
-```
+```shell
 sudo snap install espanso --classic
+sudo apt install xclip
 ```
 
 Important: if you are upgrading espanso, after the previous command, execute `espanso unregister` in the terminal.

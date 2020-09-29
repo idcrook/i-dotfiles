@@ -43,3 +43,4 @@ sudo snap install hub --classic
 
 # espanso - https://espanso.org/install/linux/
 sudo snap install espanso --classic
+sudo apt install xclip
