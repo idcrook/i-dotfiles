@@ -1,13 +1,17 @@
 Install
 -------
 
-Installation on fresh ubuntu 19.10
+Installation on fresh ubuntu 20.04
 
 ```shell
 sudo apt install -y stow git openssh-server
 
-# this requires SSH key on git account
+ssh-keygen -b 4096
+# Upload this SSH key to GitHub account # cat ~/.ssh/id_rsa.pub
+# and test # ssh -T git@github.com
+
 git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
+# this requires SSH key on git account
 # git clone --recurse-submodules   git@github.com:idcrook/i-dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles
@@ -70,7 +74,7 @@ cd ../_npm
 # ...
 
 # login from a new terminal
-emacs-snapshot -nw
+emacs27 -nw
 
 cd ../golang
 cat README.md
