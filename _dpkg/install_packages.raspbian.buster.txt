@@ -11,7 +11,7 @@ sudo apt install -y emacs imagemagick-6.q16 ack  silversearcher-ag \
     fonts-powerline fonts-inconsolata fonts-ubuntu fonts-symbola \
     fonts-dejavu fonts-hack
 
-# if using nvm, no need for system node package manager
+# using nvm, no need for "system" node package manager
 # sudo apt install npm
 
 # golang - FIXME - install more recent version
