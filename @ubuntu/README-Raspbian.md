@@ -1,10 +1,10 @@
 Install
 -------
 
-Installation on Raspbian Buster (c. 07/2019)
+Installation on Raspberry Pi OS - Buster (c. Oct-2020)
 
 ```shell
-sudo apt install -y stow git
+sudo apt install -y stow git openssh-server
 
 # requires SSH public key to be installed in github account
 git clone --recurse-submodules \
@@ -40,35 +40,58 @@ mv ~/{.bash_logout,.bashrc,.profile} ~/backup
 mkdir -p ~/.local/{bin,lib}
 stow -vv bash
 
+stow -vv zsh
+
 mv ~/.pystartup ~/backup/
 stow python
 
 mv .wakatime.cfg .ansiweatherrc .editorconfig .screenrc .tmux.conf ~/backup/
 stow homedir
 
-stow -vv zsh
-
 mv ~/.emacs.d ~/backup/
-stow emacs
+stow -vv emacs
 
 stow -vv golang
 # See golang/README for more
 
+#stow -vv espanso
+# espanso README: manual install and custom settings
+
 cd _dpkg
 # ... refer to README.md contained therein
-cd ../_pip
+cd ~/.dotfiles/_pip
 # ...
-cd ../_npm
+cd ~/.dotfiles/_npm
 # ...
 
 # login from a new terminal
 emacs
 ```
 
+## Hardware Considerations
+
+[Automatic Fan SHIM Control](https://github.com/pimoroni/fanshim-python/blob/master/examples/README.md)
+
+Example 
+```console
+mkdir ~/projects
+cd ~/projects
+git clone https://github.com/pimoroni/fanshim-python
+cd fanshim-python
+sudo apt install git python3-pip
+sudo ./install.sh
+cd examples/
+sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
+
+```
+
+
 Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
 -----------------------------------------------
 
 Via https://unix.stackexchange.com/questions/452391/execute-command-to-swap-caps-lock-and-ctrl-at-startup
+
+the `XKBOPTIONS` is the important setting
 
 ```
 root@rpi:/home/pi# cat /etc/default/keyboard

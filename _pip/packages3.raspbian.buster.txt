@@ -3,8 +3,8 @@ black
 flake8
 jedi
 powerline-shell
-pyflakes
+wakatime
 # requests
 yapf
 yamllint
-wakatime
+grip # preview GitHub README.md
