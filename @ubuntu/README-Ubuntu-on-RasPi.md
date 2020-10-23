@@ -10,9 +10,9 @@ sudo apt install -y stow git ssh
 sudo systemctl enable --now ssh
 
 ssh-keygen -b 4096
-# Upload this SSH key to GitHub account 
+# Upload this SSH key to GitHub account
 #     cat ~/.ssh/id_rsa.pub
-# and test 
+# and test
 #     ssh -T git@github.com
 
 git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
@@ -35,7 +35,7 @@ sudo add-apt-repository ppa:kelleyk/emacs
 # until groovy is avail., change to focal
 sudo vi /etc/apt/sources.list.d/kelleyk-ubuntu-emacs-groovy.list
 
-sudo apt update 
+sudo apt update
 
 # some files will be replaced /taken over in ~
 mkdir -p ~/backup
@@ -79,7 +79,7 @@ cd ~/.dotfiles/_dpkg
 cd ~/.dotfiles/_pip
 # ...  packages3.ubuntu20.10.raspi.txt
 cd ~/.dotfiles/_npm
-# ...  
+# ...
 
 # login from a new terminal
 emacs27 -nw
@@ -120,11 +120,10 @@ Now run this command as described in man 7 keyboard:
 sudo udevadm trigger --subsystem-match=input --action=change
 ```
 
+Fix for Visual Studio Code remote editting on large Git repos
+-------------------------------------------------------------
 
-## Fix for Visual Studio Code remote editting on large Git repos
-
- - ["Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
-
+-	["Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
 
 ```console
 $ cat /proc/sys/fs/inotify/max_user_watches
