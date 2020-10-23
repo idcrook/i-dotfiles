@@ -231,10 +231,21 @@ fi
 # https://github.com/golang/go/wiki/SettingGOPATH - https://golang.org/doc/code.html#GOPATH
 # mkdir -p ~/go/src/github.com
 # mkdir -p ~/go/bin
-if [[ -d $(go env GOPATH) ]] ; then
-    # export GOPATH=$HOME/go
-    export GOPATH=$(go env GOPATH)
-    modpath $(go env GOPATH)/bin
+if ! command -v go &> /dev/null
+then
+   if [[ -d /usr/lib/go-1.15/bin ]] ; then
+        modpath /usr/lib/go-1.15/bin
+        export GOPATH=$(go env GOPATH)
+        modpath $(go env GOPATH)/bin
+    else
+        echo WARNING: Cannot find golang go
+    fi
+else
+    if [[ -d $(go env GOPATH) ]] ; then
+        # export GOPATH=$HOME/go
+        export GOPATH=$(go env GOPATH)
+        modpath $(go env GOPATH)/bin
+    fi 
 fi
 
 # node version manager

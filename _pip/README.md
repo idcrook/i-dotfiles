@@ -58,6 +58,13 @@ Since we are using `--user` should not need to preface with `sudo`
 pip3 install --user --requirement packages3.raspbian.buster.txt
 ```
 
+### Ubuntu 20.10 groovy on Pi 4
+
+```shell
+pip3 install --user --requirement packages3.ubuntu20.10.raspi.txt
+```
+
+
 #### `pyenv`
 
 Via https://github.com/pyenv/pyenv/wiki/Common-build-problems

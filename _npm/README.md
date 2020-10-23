@@ -20,7 +20,7 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 
 ## Source a new shell and install a node version
 
-In a fresh shell, after `nvm` is "installed"
+In a **freshly sourced shell**, after `nvm` is "installed"
 
 ```
 nvm install node
