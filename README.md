@@ -18,7 +18,7 @@ Inspired heavily by:
 Background
 ----------
 
-When needed, special install instructions are present in package `README.md` file. Starting points: [macOS](%40macos/README-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md), [Raspbian buster](%40ubuntu/README-Raspbian.md)
+When needed, special install instructions are present in package `README.md` file. Starting points: [macOS](%40macos/README-macos.md), [Ubuntu](%40ubuntu/README.md), [Raspbian buster](%40ubuntu/README-Raspbian.md)
 
 I used to manage my macOS/Linux/msys2/WSL dotfiles in a "homedir.git" repository. This left things to be desired, and syncing multiple platforms sometimes presented unresolvable conflicts. Now I use GNU Stow and this organization.
 

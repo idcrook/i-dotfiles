@@ -58,6 +58,12 @@ Since we are using `--user` should not need to preface with `sudo`
 pip3 install --user --requirement packages3.raspbian.buster.txt
 ```
 
+### Ubuntu 20.10 groovy on x86-64
+
+```shell
+pip3 install --user --requirement packages3.ubuntu20.10.txt
+```
+
 ### Ubuntu 20.10 groovy on Pi 4
 
 ```shell

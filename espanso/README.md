@@ -34,18 +34,6 @@ espanso path
 
 See below for additional steps for Windows 10/WSL 2
 
-<!-- #### macOS -->
-
-<!-- ```shell -->
-
-<!-- cd ~/Library/Preferences -->
-
-<!-- rm espanso -->
-
-<!-- ln -s ~/.config/espanso . -->
-
-<!-- ``` -->
-
 #### Ubuntu / Debian Linux
 
 https://espanso.org/install/linux/
@@ -59,17 +47,20 @@ sudo apt install xclip
 
 Important: if you are upgrading espanso, after the previous command, execute `espanso unregister` in the terminal.
 
-
-
 ##### DEB package
 
 ```shell
 wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
 sudo apt install ./espanso-debian-amd64.deb
+```
+
+### Now launch
+
+```shell
 espanso start
 ```
 
-#### macOS
+### macOS
 
 ```shell
 # open its tap
@@ -98,12 +89,14 @@ espanso register
 # now after the following command, should see espanso icon appear in the status bar
 espanso start
 ```
+
 #### Windows 10
 
 ```bat
 # in a windows cmd prompt
 explorer %HOMEDRIVE%%HOMEPATH%\AppData\Roaming\espanso
 ```
+
 now, in a WSL 2
 
 ```shell
