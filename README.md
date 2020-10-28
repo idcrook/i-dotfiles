@@ -1,13 +1,45 @@
 My i-dotfiles
 =============
 
-*i-dotfiles is an opiniated dotfiles organization scheme based on stow. (Implementation of [F-dotfiles](https://github.com/Kraymer/F-dotfiles)\) Highest priorities are ease of maintenance and deployment on both Linux and macOS.*
+Install
+-------
+
+Installation instructions are present in `README.md` files, including any special instructions. 
+
+Starting points: 
+
+- [macOS](%40macos/README-macos.md)
+- [Ubuntu](%40ubuntu/README.md) variants including on [WSL2](%40ubuntu/README-Ubuntu-WSL2-20.04.md) or [Raspberry Pi](%40ubuntu/README-Ubuntu-on-RasPi.md), and [Raspberry Pi OS](%40ubuntu/README-Raspbian.md).
+
+Overview
+
+1.	Assumes GNU `stow` is installed
+2.	Clone this repository:
+	```
+	git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git \
+		~/.dotfiles
+	cd ~/.dotfiles
+	```
+3.	Setup GNU `stow`, *inception style*:
+	-	probably need to first update home directory path in `~/.stowrc`
+	```
+	stow -t ~ stow
+	```
+4.	Install desired package via `stow <directory>` <sup id="a1">[1](#f1)</sup> 
+    - Covered with explicit details in each `README.md`, including any special install instructions.
+
+Background
+----------
+
+I used to manage my macOS/Linux/WSL dotfiles in a "`homedir.git`" repository. This left things to be desired, and syncing multiple platforms sometimes presented unresolvable conflicts. Now I use GNU Stow and this repository.
+
+*i-dotfiles is an opiniated dotfiles organization scheme based on stow. (Originally an implementation of [F-dotfiles](https://github.com/Kraymer/F-dotfiles)\) High priorities are ease-of-maintenance and deployment on both Linux and macOS.*
 
 -	**`stow` powered:** symlink dotfiles and thus keep them always up-to-date in your repository
 -	**topical organization:** organize dotfiles by application facilitating reuse across different machines
--	**clever naming scheme:** the repository architecture is easy to browse while staying compatible with `stow` symlinking mechanism
--	**KISS:** there is deliberately none build script involved at all, the repository consist of dotfiles all installable using same modus operandi (`stow <directory>`\)
--	**documentation:** each package has a *README.md* which present its purpose and a flat `tree` view of its files. Install notes and requirements can also be listed. a *TODO.md* is enlisted to track things to be done.
+-	**naming scheme:** the repository architecture is easy to browse while staying compatible with `stow` symlinking mechanism
+-	**KISS:** there is deliberately no build script involved at all, the repository consist of dotfiles all installable using same modus operandi (`stow <directory>`\)
+-	**documentation:** each package has a *`README.md`* which present its purpose. Install notes and requirements can also be listed. a *`TODO.md`* may be enlisted to track things to be done.
 
 Inspired heavily by:
 
@@ -15,25 +47,6 @@ Inspired heavily by:
 	-	https://github.com/andschwa/dotfiles
 	-	http://dotfiles.github.io
 
-Background
-----------
-
-When needed, special install instructions are present in package `README.md` file. Starting points: [macOS](%40macos/README-macos.md), [Ubuntu](%40ubuntu/README.md), [Raspbian buster](%40ubuntu/README-Raspbian.md)
-
-I used to manage my macOS/Linux/msys2/WSL dotfiles in a "homedir.git" repository. This left things to be desired, and syncing multiple platforms sometimes presented unresolvable conflicts. Now I use GNU Stow and this organization.
-
-Install
--------
-
-Starting points: [macOS](%40macos/README-macos.md), [Ubuntu](%40ubuntu/README-Ubuntu.md), [WSL2 Ubuntu](%40ubuntu-wsl2/README-Ubuntu-WSL2.md)
-
-1.	Assumes GNU `stow` is installed
-2.	clone the repository :`git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git ~/.dotfiles ; cd ~/.dotfiles`
-3.	setup `stow`, *inception style* : `stow -t ~ stow`
-	-	may need to update homedir path in `~/.stowrc`
-4.	install desired package via `stow <directory>` <sup id="a1">[1](#f1)</sup>
-
-When needed, special install instructions are present in package `README.md` file.
 
 Rules
 -----
@@ -57,9 +70,9 @@ Quoting stow [documentation](https://www.gnu.org/software/stow/manual/html_node/
 
 ### Secrets files
 
-Secrets files, ie files that should not be commited/published, must have *.secrets* or */secrets/* in their filepath to be ignored by the root `.gitignore` file.
+Secrets files, ie files that should not be commited/published, must have `*.secrets*` or `*/secrets/*` in their filepath to be ignored by the root `.gitignore` file.
 
-Each *secrets* file should be accompanied by an *\*.example* file that is commited instead, to illustrate the use.
+Each *secrets* file should be accompanied by an `*.example*` file that is instead commited to repository, to illustrate the use.
 
 Keep your secrets files as short as possible to limit their influence as it complicates deployments (as they cannot be just pulled from github).
 
