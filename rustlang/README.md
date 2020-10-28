@@ -1,7 +1,6 @@
 Capture Rust dotfiles
 =====================
 
-
 ```
 cd ~/.dotfiles
 stow -v rustlang
@@ -37,4 +36,20 @@ Better: do not modify path in startup files
 
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
+```
+
+## Rust Applications
+
+Cargo could also be used, but might as well use system packager where available.
+
+### macOS
+
+```shell
+brew install ripgrep
+```
+
+### macOS
+
+```shell
+sudo apt install ripgrep
 ```

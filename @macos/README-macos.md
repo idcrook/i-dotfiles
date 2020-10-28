@@ -1,17 +1,13 @@
 Typical Install (on macOS)
 --------------------------
 
-1.	First, install **Homebrew https://brew.sh**
+1.	First, install **Homebrew**: https://brew.sh 
 2.	Emacs is preferred editor, config dir `emacs.d` is installed below
 	-	`brew cask info emacs`
 	-	`brew cask install emacs`
 	-	`emacs` .. [Show In Finder] .. Right-Click ... Open and Open
 3.	Assumes [`stow`](stow/README.md#install-gnu-stow) and `git` are installed
 	-	`brew install stow git keychain`
-
-<!--  `brew cask info homebrew/cask-versions/emacs-pretest` -->
-
-<!--  `brew cask install homebrew/cask-versions/emacs-pretest` -->
 
 ```shell
 ssh-keygen -b 4096
