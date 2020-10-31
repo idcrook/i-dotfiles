@@ -1,7 +1,6 @@
-**Homebrew <<https://brew.sh>> setup on macOS**
+**Homebrew \<https://brew.sh> setup on macOS**
 
 https://docs.brew.sh/Installation
-
 
 Assumes Homebrew has already been installed :
 
@@ -9,20 +8,23 @@ Assumes Homebrew has already been installed :
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-
-## Typical macOS System bootstrap
+Typical macOS System bootstrap
+------------------------------
 
 Applies specifically to my preferences. For example, my shell setup wants these first.
 
 ```shell
-brew install keychain git 
+brew install keychain git
 # 'open /Applications/Emacs.app' or run 'Emacs.sh'
 cd ~/.dotfiles/_homebrew
 brew install mas
 brew tap homebrew/bundle
 brew bundle --file=Brewfile
+brew bundle --file=Brewfile.developer
 ```
-## (Optional) Cleanup
+
+(Optional) Cleanup
+------------------
 
 You can hand-edit `Brewfile` and have Homebrew clean things up.
 
@@ -31,7 +33,8 @@ You can hand-edit `Brewfile` and have Homebrew clean things up.
 brew bundle --file=Brewfile --force cleanup
 ```
 
-## Capturing configuration, including Homebrew taps, casks, and MAS (Mac App Store) 
+Capturing configuration, including Homebrew taps, casks, and MAS (Mac App Store)
+--------------------------------------------------------------------------------
 
 ```shell
 brew tap homebrew/bundle
