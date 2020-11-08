@@ -2,6 +2,8 @@
 Using `nvm`
 ===========
 
+<https://github.com/nvm-sh/nvm>
+
 ## On macOS
 
 ```
@@ -14,8 +16,8 @@ brew install nvm
 ## On Linux
 
 ```
-mkdir -p ~/.nvm
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+# moves to $XDG_CONFIG_HOME with nvm v0.37 # mkdir -p ~/.nvm
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
 ```
 
 ## Source a new shell and install a node version

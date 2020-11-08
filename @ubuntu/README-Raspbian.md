@@ -57,7 +57,7 @@ stow -vv golang
 #stow -vv espanso
 # espanso README: manual install and custom settings
 
-cd _dpkg
+cd ~/.dotfiles/_dpkg
 # ... refer to README.md contained therein
 cd ~/.dotfiles/_pip
 # ...
@@ -93,7 +93,7 @@ Via https://unix.stackexchange.com/questions/452391/execute-command-to-swap-caps
 
 the `XKBOPTIONS` is the important setting
 
-```
+```console
 root@rpi:/home/pi# cat /etc/default/keyboard
 # KEYBOARD CONFIGURATION FILE
 
@@ -111,5 +111,5 @@ BACKSPACE="guess"
 Now run this command as described in man 7 keyboard:
 
 ```
-udevadm trigger --subsystem-match=input --action=change
+sudo udevadm trigger --subsystem-match=input --action=change
 ```
