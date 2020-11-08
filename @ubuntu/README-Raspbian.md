@@ -63,6 +63,8 @@ cd ~/.dotfiles/_pip
 # ...
 cd ~/.dotfiles/_npm
 # ...
+cd ~/.dotfiles/rustlang
+# ...
 
 # login from a new terminal
 emacs
@@ -72,7 +74,7 @@ emacs
 
 [Automatic Fan SHIM Control](https://github.com/pimoroni/fanshim-python/blob/master/examples/README.md)
 
-Example 
+Example
 ```console
 mkdir ~/projects
 cd ~/projects

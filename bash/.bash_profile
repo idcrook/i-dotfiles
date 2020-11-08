@@ -233,8 +233,12 @@ fi
 # mkdir -p ~/go/bin
 if ! command -v go &> /dev/null
 then
-   if [[ -d /usr/lib/go-1.15/bin ]] ; then
+    if [[ -d /usr/lib/go-1.15/bin ]] ; then
         modpath /usr/lib/go-1.15/bin
+        export GOPATH=$(go env GOPATH)
+        modpath $(go env GOPATH)/bin
+    elif [[ -d /usr/local/go/bin ]] ; then
+        modpath /usr/local/go/bin
         export GOPATH=$(go env GOPATH)
         modpath $(go env GOPATH)/bin
     else
@@ -245,7 +249,7 @@ else
         # export GOPATH=$HOME/go
         export GOPATH=$(go env GOPATH)
         modpath $(go env GOPATH)/bin
-    fi 
+    fi
 fi
 
 # node version manager

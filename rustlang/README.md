@@ -7,7 +7,7 @@ stow -v rustlang
 ```
 
 install rustlang
-=====================
+================
 
 macOS
 -----
@@ -22,9 +22,8 @@ rustup-init
 
 After installing `stable`, start a new shell- `~/.cargo/bin` should be found and added to path
 
-
-Ubuntu
-------
+Ubuntu or Debian
+----------------
 
 Via https://rustup.rs/
 
@@ -32,13 +31,14 @@ Via https://rustup.rs/
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-Better: do not modify path in startup files
+Better: Set directly flag to not modify path in startup files
 
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
 ```
 
-## Rust Applications
+Rust Applications
+-----------------
 
 Cargo could also be used, but might as well use system packager where available.
 

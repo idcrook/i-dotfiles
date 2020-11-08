@@ -4,6 +4,8 @@ install recent golang
 Ubuntu
 ------
 
+See `../_dpkg/install_packages.ubuntu20.04.txt` for Ubuntu 20.04 LTS
+
 https://github.com/golang/go/wiki/Ubuntu
 
 On 18.04 LTS or 19.10 Ubuntu, as of April 2020, it is golang 1.14
@@ -14,7 +16,19 @@ sudo apt update
 sudo apt install golang-go
 ```
 
-See `../_dpkg/install_packages.ubuntu20.04.txt` for Ubuntu 20.04 LTS
+Raspberry Pi OS
+---------------
+
+See https://golang.org/dl/ for latest version. There are currently ARMv6 and ARMv8 (64-bit) ARM versions
+
+```console
+$ cd ~/Downloads/
+$ wget https://golang.org/dl/go1.15.4.linux-armv6l.tar.gz
+$ sha256sum go1.15.4.linux-armv6l.tar.gz
+$ sudo tar -C /usr/local -xzf go1.15.4.linux-armv6l.tar.gz
+```
+
+The above commands will install into `/usr/local/go/bin`
 
 macOS
 -----
