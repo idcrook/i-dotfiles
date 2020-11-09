@@ -3,8 +3,7 @@
 # bash zsh and utils
 sudo apt install -y screen mosh dselect rcs vim \
      tcsh keychain source-highlight jq shellcheck curl \
-     zsh colordiff htop
-     \
+     zsh colordiff htop 
 
 # OPTIONAL: ptotect against accidental remote shutdown
 sudo apt install -y molly-guard
@@ -19,10 +18,10 @@ sudo apt install -y \
 sudo apt install -y \
      python3-rpi.gpio
 
-# # no need for system node package manager if using nvm
-# sudo apt install npm
+# no need for system node package manager if using nvm
+#sudo apt install npm
 
-# provided by ppa:kelleyk/emacs
+# provided by ppa:kelleyk/emacs (refer to main README)
 sudo apt install emacs27
 # sudo apt install emacs27-nox
 
@@ -36,7 +35,7 @@ sudo apt install xdg-utils
 sudo apt install xdotool
 
 # other desktop utlis
-sudo apt install gnome-tweaks
+sudo apt install -y gnome-tweaks
 # gnome-tweaks: Windows -> Window Focus : [x] Secondary-Click
 # gnome-tweaks: Keyboard and Mouse -> Keyboard : Enable 'Emacs Input'
 # gnome-tweaks: Keyboard and Mouse -> Keyboard : [Additional Layout Options]
@@ -44,11 +43,11 @@ sudo apt install gnome-tweaks
 # gnome-tweaks: Keyboard and Mouse -> Mouse:  Acceleration Profile [Adaptive]
 
 # golang - https://github.com/golang/go/wiki/Ubuntu
-sudo apt install golang-1.15-go 
+sudo apt install -y golang-1.15-go 
 
 # github hub - https://hub.github.com
 #sudo snap install hub --classic # unavailble on arm64
-sudo apt install hub
+sudo apt install -y hub
 
 # espanso - https://espanso.org/install/linux/
 sudo snap install espanso --classic
