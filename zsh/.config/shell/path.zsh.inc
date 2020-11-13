@@ -22,6 +22,12 @@ fi
 # See ~/.zshenv for others
 
 # pip3 --user uses this dir
+if [[ -d "${HOME}"/Library/Python/3.9/bin ]] ; then
+    modpath -q -f -d "${HOME}"/Library/Python/3.9/bin
+    modpath -q -b /usr/local/bin "${HOME}"/Library/Python/3.9/bin
+fi
+
+# pip3 --user uses this dir
 if [[ -d "${HOME}"/Library/Python/3.8/bin ]] ; then
     modpath -q -f -d "${HOME}"/Library/Python/3.8/bin
     modpath -q -b /usr/local/bin "${HOME}"/Library/Python/3.8/bin
