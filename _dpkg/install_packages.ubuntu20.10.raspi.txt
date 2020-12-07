@@ -5,7 +5,7 @@ sudo apt install -y screen tmux mosh dselect rcs vim \
      tcsh keychain source-highlight jq shellcheck curl \
      zsh colordiff htop
 
-# OPTIONAL: ptotect against accidental remote shutdown
+# OPTIONAL: protect against accidental remote shutdown
 sudo apt install -y molly-guard
 
 # some emacs and python dependencies

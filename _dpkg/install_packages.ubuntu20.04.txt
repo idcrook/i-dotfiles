@@ -1,30 +1,36 @@
 # -*- sh -*-
 
 # bash zsh and utils
-sudo apt install -y screen molly-guard mosh dselect rcs \
+sudo apt install -y screen tmux mosh dselect rcs \
      tcsh keychain source-highlight jq shellcheck curl \
-     zsh colordiff
+     zsh colordiff htop vim
+
+# OPTIONAL: protect against accidental remote shutdown
+sudo apt install -y molly-guard
 
 # some emacs dependencies
 sudo apt install -y \
      imagemagick-6.q16hdri ack silversearcher-ag \
-     python-is-python3 python3-dev python3-pip python3-venv python3-virtualenv python3-wheel \
-     fonts-powerline fonts-hack fonts-inconsolata fonts-dejavu fonts-symbola
+     python-is-python3 python3-dev python3-pip python3-venv python3-virtualenv python3-wheel
+
+# OPTIONAL: for graphical desktop env
+sudo apt install -y      fonts-powerline fonts-hack fonts-inconsolata fonts-dejavu fonts-symbola
 
 # # no need for system node package manager if using nvm
 # sudo apt install npm
 
-# provided by ppa:kelleyk/emacs
+# OPTIONAL: provided by ppa:kelleyk/emacs
 sudo apt install emacs27
-# sudo apt install emacs27-nox
+# OPTIONAL: No desktop environment (saves 875 MB)
+sudo apt install emacs27-nox
 
-# image tools
+# OPTIONAL: image tools
 sudo apt install trimage
 
-# xdg-open
+# OPTIONAL: xdg-open for desktop environment
 sudo apt install xdg-utils
 
-# other desktop utlis
+# OPTIONAL: other desktop utlis
 sudo apt install gnome-tweaks
 # gnome-tweaks: Windows -> Window Focus : [x] Secondary-Click
 # gnome-tweaks: Keyboard and Mouse -> Keyboard : Enable 'Emacs Input'
@@ -41,6 +47,6 @@ sudo apt install golang-1.14-go golang-go
 sudo snap install hub --classic
 # sudo apt install hub
 
-# espanso - https://espanso.org/install/linux/
+# OPTIONAL: espanso - https://espanso.org/install/linux/
 sudo snap install espanso --classic
 sudo apt install xclip

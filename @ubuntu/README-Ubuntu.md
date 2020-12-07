@@ -4,11 +4,16 @@ Install
 Installation on fresh ubuntu 20.04
 
 ```shell
-sudo apt install -y stow git openssh-server
+sudo apt install -y stow git 
+(OPTIONAL, may be required: sudo apt install openssh-server)
 
 ssh-keygen -b 4096
 # Upload this SSH key to GitHub account # cat ~/.ssh/id_rsa.pub
 # and test # ssh -T git@github.com
+
+# Add locales, like, e.g., `en_US.UTF-8`
+sudo dpkg-reconfigure locales
+
 
 git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
 # this requires SSH key on git account
@@ -64,23 +69,23 @@ stow -vv emacs
 stow -vv golang
 
 stow -vv espanso
-# espanso README: manual install and custom settings
+# espanso README: manual install and custom settings (can skip for Non-Desktop env)
 
-cd _dpkg
-# ...
-cd ../_pip
-# ...
-cd ../_npm
+cd ~/.dotfiles/_dpkg
+# ...  install_packages.ubuntu20.04.txt
+cd ~/.dotfiles/_pip
+# ...  packages3.ubuntu20.04.txt
+cd ~/.dotfiles/_npm
 # ...
 
 # login from a new terminal
 emacs27 -nw
 
-cd ../golang
+cd ~/.dotfiles/golang
 cat README.md
 # ...
 
-cd ../rustlang
+cd ~/.dotfiles/rustlang
 cat README.md
 # ...
 ```
