@@ -3,8 +3,8 @@ Typical Install (on macOS)
 
 1.	First, install **Homebrew**: https://brew.sh 
 2.	Emacs is preferred editor, config dir `emacs.d` is installed below
-	-	`brew cask info emacs`
-	-	`brew cask install emacs`
+	-	`brew info --cask emacs`
+	-	`brew install --cask emacs`
 	-	`emacs` .. [Show In Finder] .. Right-Click ... Open and Open
 3.	Assumes [`stow`](stow/README.md#install-gnu-stow) and `git` are installed
 	-	`brew install stow git keychain`
@@ -30,6 +30,7 @@ cp -v bash/.config/shell/local.aliases.secrets.sh.example \
 $EDITOR bash/.config/shell/local.aliases.secrets.sh
 
 stow -vv zsh
+# see FIXUP below 
 
 stow -vv python
 
@@ -65,7 +66,7 @@ cd ~/.dotfiles/rustlang
 # ...
 ```
 
-Some fixup
+Some FIXUP
 ----------
 
 See [MORE.md](../_homebrew/MORE.md) in Homebrew directory for more.

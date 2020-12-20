@@ -5,6 +5,7 @@
 .*.example
 ^/@.*
 KeybdPrefs_.*.png
+Safari_.*.png
 README.*
 TODO.*
 RCS
