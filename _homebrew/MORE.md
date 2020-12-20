@@ -23,13 +23,6 @@ Needs `Accessibility` turned on.
 
 Add associated devices.
 
-Fusion 360
-----------
-
-No longer in App Store. Download directly after logging into Autodesk account..
-
-https://www.autodesk.com/content/autodesk/global/en/products/fusion-360/personal.html via https://www.autodesk.com/products/fusion-360/free-trial
-
 Install manually
 ================
 
@@ -37,9 +30,14 @@ Basics
 ------
 
 -   Litle Snitch - [Download – Little Snitch](https://www.obdev.at/products/littlesnitch/download.html)
--	Google Chrome - https://www.google.com/chrome/
--   Transmit - https://panic.com/transmit/#download
--   Forklift - https://binarynights.com
+-	Google Chrome - <https://www.google.com/chrome/>
+-   Firefox - <https://www.mozilla.org/firefox/download/>
+-   Bartender 4 - <https://www.macbartender.com/Bartender4/>
+
+There are casks for these 
+
+-   Transmit - <https://panic.com/transmit/#download>
+-   Forklift - <https://binarynights.com>
 
 Hardware support
 ----------------
@@ -66,4 +64,10 @@ See Big Sur status : https://www.rogueamoeba.com/status/
 ### Maybe do not use any more?
 
 -	Hazel - https://www.noodlesoft.com/manual/hazel/installation-setup/
--	HamerSpoon - http://www.hammerspoon.org
+-	HammerSpoon - http://www.hammerspoon.org
+
+-   Fusion 360
+
+	- No longer in App Store. Download directly after logging into Autodesk account..
+
+	- <https://www.autodesk.com/content/autodesk/global/en/products/fusion-360/personal.html> via <https://www.autodesk.com/products/fusion-360/free-trial>
