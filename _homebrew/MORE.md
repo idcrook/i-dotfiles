@@ -32,7 +32,11 @@ Basics
 -   Litle Snitch - [Download – Little Snitch](https://www.obdev.at/products/littlesnitch/download.html)
 -	Google Chrome - <https://www.google.com/chrome/>
 -   Firefox - <https://www.mozilla.org/firefox/download/>
+
+## Utilities
+
 -   Bartender 4 - <https://www.macbartender.com/Bartender4/>
+-   Geekbench 5 - <https://www.geekbench.com/download/>
 
 There are casks for these 
 
