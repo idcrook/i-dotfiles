@@ -20,7 +20,8 @@ cd ~/.dotfiles/_homebrew
 brew install mas
 brew tap homebrew/bundle
 brew bundle --file=Brewfile
-brew bundle --file=Brewfile.developer --verbose
+brew bundle --file=Brewfile.apple-dev --verbose
+brew bundle --file=Brewfile.hardware-dev --verbose
 ```
 
 (Optional) Cleanup

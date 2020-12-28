@@ -1,0 +1,7 @@
+tap "finestructure/tap"
+tap "kylef/formulae"
+brew "kylef/formulae/swiftenv"
+brew "finestructure/tap/arena"
+cask "cocoarestclient"
+cask "sf-symbols"
+mas "Xcode", id: 497799835
