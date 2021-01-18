@@ -43,7 +43,9 @@ else
         # There are arguments, so
         # tell emacs to open them
 
-        "${EMACSPATH_BIN}"/emacsclient --no-wait --create-frame "${@}"
+        # `--no-wait` was problematic for `crontab -e` e.g., so do not use it
+        # "${EMACSPATH_BIN}"/emacsclient --no-wait --create-frame "${@}"
+        "${EMACSPATH_BIN}"/emacsclient --create-frame "${@}"
     fi
 
     # Bring emacs to the foreground
