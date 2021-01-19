@@ -5,3 +5,7 @@ brew "finestructure/tap/arena"
 cask "cocoarestclient"
 cask "sf-symbols"
 mas "Xcode", id: 497799835
+# mas "Transporter", id: 1450874784
+# says "requires older version" in Big Sur beta 5 # mas "Apple Developer", id: 640199958
+brew "nmap"
+brew "wakeonlan"

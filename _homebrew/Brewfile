@@ -6,80 +6,43 @@ tap "homebrew/command-not-found"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "federico-terzi/espanso"
-brew "libyaml"
-brew "sqlite"
-# brew "ansible"
-# brew "oniguruma"
 brew "jq"
-# brew "ansiweather"
-brew "autoconf"
 brew "bash"
 brew "bash-completion@2"
 brew "brew-cask-completion"
-brew "ccat"
-brew "cmake"
 brew "colordiff"
 brew "coreutils"
 brew "cpanminus"
-brew "curl"
 brew "dos2unix"
-# brew "doctl"
 brew "editorconfig"
-# brew "fasd"
-brew "ffmpeg"
-# brew "libav"
-brew "gettext", link: true
 brew "git"
 brew "go"
 brew "htop"
-# brew "httpie"
 brew "hub"
-brew "icu4c"
-brew "libtool"
 brew "imagemagick"
 brew "keychain"
 brew "kubernetes-cli"
-brew "libconfig"
-brew "libusb-compat"
-brew "llvm"
 brew "mas"
 brew "mosh"
-brew "mosquitto"
 brew "multimarkdown"
-brew "nmap"
-brew "nvm"
-brew "openssl@1.1"
 brew "p7zip"
 brew "pstree"
-brew "pth"
 brew "pv"
-brew "pyenv"
 brew "python"
-brew "python@3.8"
-brew "ruby-build"
-brew "rbenv"
 brew "rcs"
-brew "ripgrep"
 brew "rsync"
 brew "rustup-init"
 brew "shellcheck"
 brew "socat"
 brew "ssh-copy-id", link: true
 brew "stow"
-# brew "svn"
 brew "the_silver_searcher"
 brew "tmux"
 brew "tree"
-#REMOVED# brew "unrar"
-brew "wakeonlan"
-brew "watchman"
 brew "wget"
-brew "yamllint"
-# brew "yarn"
 brew "youtube-dl"
 brew "zsh-completions"
 brew "federico-terzi/espanso/espanso"
-# cask "aerial"
 # cask "airfoil"
 cask "amazon-music"
 cask "appzapper"
@@ -87,6 +50,7 @@ cask "balenaetcher"
 cask "discord"
 cask "dotnet-sdk"
 cask "emacs"
+cask "firefox"
 cask "font-cascadia-mono-pl"
 cask "font-dejavu-sans-mono-nerd-font"
 cask "font-hack-nerd-font"
@@ -100,47 +64,33 @@ cask "grandperspective"
 # cask "hammerspoon"
 cask "hermes"
 cask "icanhazshortcut"
-cask "iina"
 cask "imageoptim"
-# cask "inkscape" # broken in Big Sur beta 1
 cask "iterm2"
-# cask "java"
-# cask "java8"
 cask "joplin"
 cask "keycastr"
 cask "mark-text"
-# cask "middleclick"
 cask "omnidisksweeper"
-# cask "plex-media-player"
+cask "plex"
+cask "transmission"
 cask "visual-studio-code"
 cask "vlc"
+cask "vnc-viewer"
 #MISSING# cask "xact"
-# cask "xca"  # broken in Big Sur beta 1
 mas "1Blocker", id: 1107421413
 mas "1Keyboard", id: 766939888
 mas "1Password 7", id: 1333542190
-mas "Affinity Designer", id: 824171161
-mas "Affinity Photo", id: 824183456
 # mas "Amphetamine", id: 937984704
-# mas "Bundle for iWork -GN Templates", id: 538727314
 # mas "Byword", id: 420212497
-# mas "Capo", id: 696977615
-# says "requires older version" in Big Sur beta 5 # mas "Apple Developer", id: 640199958
 mas "Discovery", id: 1381004916
 mas "Disk Diag", id: 672206759
 # mas "Disk Speed Test", id: 425264550
 # mas "Downlink", id: 1454269192
 mas "Drafts", id: 1435957248
-# mas "Fantastical", id: 975937182
-# mas "FSNotes", id: 1277179284
-# mas "GarageBand", id: 682658836
-# mas "GIF Brewery 3", id: 1081413713
-# mas "GIPHY CAPTURE", id: 668208984
+mas "Fantastical", id: 975937182
+mas "FSNotes", id: 1277179284
 mas "HEIC Converter", id: 1294126402
 mas "iMazing HEIC Converter", id: 1292198261
-# mas "iMovie", id: 408981434
 # mas "Instapaper", id: 1481302432
-# mas "Jayson", id: 1468691718 # crashes in Big Sur beta 5
 mas "Key Codes", id: 414568915
 # mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
@@ -148,9 +98,7 @@ mas "Kindle", id: 405399194
 # mas "Location Helper", id: 488536386
 mas "Magnet", id: 441258766
 mas "Marked 2", id: 890031187
-# mas "MarsEdit", id: 402376225
 mas "Microsoft Remote Desktop", id: 1295203466
-# mas "MindNode Pro", id: 402398561
 # mas "Mobile Mouse Server", id: 412814284
 # mas "Notability", id: 736189492
 # mas "Numbers", id: 409203825
@@ -160,8 +108,6 @@ mas "Parcel", id: 639968404
 # mas "Patterns", id: 429449079
 mas "PCalc", id: 403504866
 mas "PhotoResize", id: 492236133
-# mas "Pixelmator", id: 407963104
-# mas "Pixelmator Pro", id: 1289583905
 mas "Prizmo", id: 546392952
 # mas "QuickSleep", id: 1121441756
 mas "Radio Paradise", id: 663334697
@@ -171,14 +117,8 @@ mas "SafariMarkdownLinker", id: 1289119450
 mas "Screens", id: 1224268771
 # mas "Secrets", id: 973049011
 mas "Sip", id: 507257563
-mas "Snapheal", id: 480623975
-mas "Sofortbild", id: 411729406
 # mas "Soulver", id: 413965349
 # mas "Stockfish", id: 801463932
 mas "StopTheMadness", id: 1376402589
 mas "TableFlip", id: 1462643128
 mas "Things", id: 904280696
-# mas "Transporter", id: 1450874784
-# mas "Tweetbot", id: 557168941
-# mas "Ulysses", id: 1225570693
-# mas "WiFi Explorer Lite", id: 1408727408
