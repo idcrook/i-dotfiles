@@ -1,0 +1,4 @@
+brew "cmake"
+brew "llvm"
+brew "icu4c"
+# brew "svn"

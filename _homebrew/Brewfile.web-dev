@@ -1,0 +1,8 @@
+# brew "doctl"
+# brew "httpie"
+brew "nvm"
+brew "ruby-build"
+brew "rbenv"
+brew "watchman"
+# brew "yarn"
+mas "Jayson", id: 1468691718

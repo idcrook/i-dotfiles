@@ -1,0 +1,22 @@
+brew "ffmpeg"
+# brew "libav"
+cask "beardedspice"
+cask "iina"
+# cask "plex-media-player"
+mas "Affinity Designer", id: 824171161
+mas "Affinity Photo", id: 824183456
+# mas "Bundle for iWork -GN Templates", id: 538727314
+# mas "Capo", id: 696977615
+# mas "GarageBand", id: 682658836
+# mas "GIF Brewery 3", id: 1081413713
+# mas "GIPHY CAPTURE", id: 668208984
+# mas "iMovie", id: 408981434
+# mas "MarsEdit", id: 402376225
+# mas "MindNode Pro", id: 402398561
+# mas "Downcast", id: 668429425
+# mas "Pixelmator", id: 407963104
+# mas "Pixelmator Pro", id: 1289583905
+mas "Snapheal", id: 480623975
+# mas "Ulysses", id: 1225570693
+mas "Sofortbild", id: 411729406
+# cask "aerial"
