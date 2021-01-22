@@ -44,6 +44,11 @@ if [ -d /usr/local/opt/python@3.8/bin ] ; then
     modpath -q -a /usr/local/bin /usr/local/opt/python@3.8/bin
 fi
 
+# python@3.9 - Homebrew
+if [ -d /usr/local/opt/python@3.9/bin ] ; then
+    modpath -q -a /usr/local/bin /usr/local/opt/python@3.9/bin
+fi
+
 
 # on macOS, homebrew version
 modpath -q /usr/local/opt/curl/bin
