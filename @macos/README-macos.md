@@ -1,7 +1,7 @@
 Typical Install (on macOS)
 --------------------------
 
-1.	First, install **Homebrew**: https://brew.sh 
+1.	First, install **Homebrew**: https://brew.sh
 2.	Emacs is preferred editor, config dir `emacs.d` is installed below
 	-	`brew info --cask emacs`
 	-	`brew install --cask emacs`
@@ -24,13 +24,15 @@ stow -vv git
 cp -v git/.config/git/config.secrets.example ~/.config/git/config.secrets
 $EDITOR  ~/.config/git/config.secrets
 
+stow -vv shell
+
 stow -vv bash
 cp -v bash/.config/shell/local.aliases.secrets.sh.example \
       bash/.config/shell/local.aliases.secrets.sh
 $EDITOR bash/.config/shell/local.aliases.secrets.sh
 
 stow -vv zsh
-# see FIXUP below 
+# see FIXUP below
 
 stow -vv python
 

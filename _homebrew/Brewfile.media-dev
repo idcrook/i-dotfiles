@@ -1,7 +1,5 @@
 brew "ffmpeg"
 # brew "libav"
-cask "beardedspice"
-cask "iina"
 # cask "inkscape" # broken in Big Sur beta 1
 # cask "plex-media-player"
 mas "Affinity Designer", id: 824171161

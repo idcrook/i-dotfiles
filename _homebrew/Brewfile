@@ -6,35 +6,54 @@ tap "homebrew/command-not-found"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "federico-terzi/espanso"
+brew "bash"
+brew "bash-completion@2"
+brew "brew-cask-completion"
+brew "colordiff"
+brew "coreutils"
 brew "cpanminus"
+brew "curl"
+brew "dos2unix"
+brew "editorconfig"
+brew "git"
 brew "go"
 brew "htop"
+brew "hub"
+brew "imagemagick"
+brew "jq"
+brew "keychain"
 brew "kubernetes-cli"
 brew "mas"
 brew "mosh"
 brew "multimarkdown"
-# brew "p7zip"
-# brew "pstree"
-# brew "pv"
+brew "nvm"
+brew "p7zip"
+brew "pstree"
+brew "pv"
+brew "python"
 brew "rcs"
+brew "ripgrep"
 brew "rsync"
 brew "rustup-init"
 brew "shellcheck"
 # brew "ssh-copy-id", link: true
 brew "stow"
 brew "the_silver_searcher"
-# brew "tmux"
-# brew "tree"
+brew "tmux"
+brew "tree"
+brew "wget"
+brew "yamllint"
+brew "youtube-dl"
 brew "zsh-completions"
 brew "federico-terzi/espanso/espanso"
 # cask "airfoil"
 cask "amazon-music"
 cask "appzapper"
 cask "balenaetcher"
+cask "beardedspice"
 cask "discord"
-# cask "dotnet-sdk"
 cask "emacs"
-cask "firefox"
+#cask "firefox"
 cask "font-cascadia-mono-pl"
 cask "font-dejavu-sans-mono-nerd-font"
 cask "font-hack-nerd-font"
@@ -49,13 +68,15 @@ cask "grandperspective"
 # cask "hammerspoon"
 cask "hermes"
 cask "icanhazshortcut"
+cask "iina"
 cask "imageoptim"
 cask "iterm2"
 cask "joplin"
 cask "keycastr"
 cask "mark-text"
 cask "omnidisksweeper"
-cask "plex"
+#cask "plex"
+cask "sf-symbols"
 cask "transmission"
 cask "transmit"
 cask "visual-studio-code"
@@ -77,6 +98,7 @@ mas "FSNotes", id: 1277179284
 mas "HEIC Converter", id: 1294126402
 mas "iMazing HEIC Converter", id: 1292198261
 # mas "Instapaper", id: 1481302432
+mas "Jayson", id: 1468691718
 mas "Key Codes", id: 414568915
 # mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
@@ -91,7 +113,7 @@ mas "Microsoft Remote Desktop", id: 1295203466
 # mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Parcel", id: 639968404
-# mas "Patterns", id: 429449079
+mas "Patterns", id: 429449079
 mas "PCalc", id: 403504866
 mas "PhotoResize", id: 492236133
 mas "Prizmo", id: 546392952
@@ -108,3 +130,5 @@ mas "Sip", id: 507257563
 mas "StopTheMadness", id: 1376402589
 mas "TableFlip", id: 1462643128
 mas "Things", id: 904280696
+mas "Xcode", id: 497799835
+mas "Apple Developer", id: 640199958
