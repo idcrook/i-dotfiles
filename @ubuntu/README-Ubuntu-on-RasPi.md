@@ -45,6 +45,8 @@ mv ~/.gitignore_global ~/backup
 mv ~/.git/ ~/backup/
 stow -vv git
 
+stow -vv shell
+
 # populate secrets from another host, in another terminal
 ssh DONOR_HOST
 TARGET=host.local
@@ -133,4 +135,3 @@ $ sudo vi /etc/sysctl.conf
 fs.inotify.max_user_watches=524288
 $ sudo sysctl -p
 ```
-

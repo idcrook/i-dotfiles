@@ -4,7 +4,7 @@ Install
 Installation on fresh ubuntu 20.04
 
 ```shell
-sudo apt install -y stow git 
+sudo apt install -y stow git
 (OPTIONAL, may be required: sudo apt install openssh-server)
 
 ssh-keygen -b 4096
@@ -42,6 +42,8 @@ cd ~/.dotfiles
 mv ~/.gitignore_global ~/backup
 mv ~/.git/ ~/backup/
 stow -vv git
+
+stow -vv shell
 
 # populate secrets from another host, in another terminal
 ssh DONOR_HOST

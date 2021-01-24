@@ -7,13 +7,13 @@
 # INSTALL AFTER CREATION
 #
 # cd ~/.dotfiles
-# stow -vv bash
+# stow -vv shell
 #
 # EXAMPLE
 #
 # to use openscad-mcad in openscad-nightly on ubuntu, need to set environment
 # variable
 #
-if [[ -d /usr/share/openscad/libraries ]] ; then
+if [ -d /usr/share/openscad/libraries ] ; then
     export OPENSCADPATH=/usr/share/openscad/libraries
 fi

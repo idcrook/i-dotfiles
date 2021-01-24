@@ -1,7 +1,7 @@
 Install
 -------
 
-Installation on Ubuntu 20.10 (amd64) 
+Installation on Ubuntu 20.10 (amd64)
 
 ```shell
 sudo apt install -y stow git ssh
@@ -44,6 +44,8 @@ cd ~/.dotfiles
 mv ~/.gitignore_global ~/backup
 mv ~/.git/ ~/backup/
 stow -vv git
+
+stow -vv shell
 
 # populate secrets from another host, in another terminal
 ssh DONOR_HOST

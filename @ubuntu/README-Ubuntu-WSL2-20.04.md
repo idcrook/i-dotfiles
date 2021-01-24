@@ -47,6 +47,8 @@ mv ~/.gitignore_global ~/backup
 mv ~/.git/ ~/backup/
 stow -vv git
 
+stow -vv shell
+
 # populate secrets from another host, in another terminal
 # incoming SSH from external network is problematic at this time; do manually
 TARGET=donor.local

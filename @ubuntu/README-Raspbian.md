@@ -24,6 +24,8 @@ sudo stow -vv --target=/ @Apt
 cd ~/.dotfiles
 stow git
 
+stow -vv shell
+
 # populate secrets from another host, in another terminal
 ssh DONOR_HOST
 
