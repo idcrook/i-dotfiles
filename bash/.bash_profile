@@ -31,21 +31,41 @@ fi
 
 # Path ------------------------------------------------------------
 
-# very handy utility
-modpath () {
-    modpathargs=${@+"$@"};
-    # shellcheck source=/dev/null
-    source "${shell_config}/modpath.sh";
-    unset modpathargs
+# # very handy utility
+# modpath () {
+#     modpathargs=${@+"$@"};
+#     # shellcheck source=/dev/null
+#     source "${shell_config}/modpath.sh";
+#     unset modpathargs
+# }
+
+
+# https://superuser.com/a/753948
+pathappend() {
+  for ARG in "$@"
+  do
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$ARG"
+    fi
+  done
 }
 
-modpath -q -b /usr/bin        /usr/local/bin
-modpath -q -b /usr/local/bin  /usr/local/sbin
-modpath -q -b /usr/local/bin  "$HOME"/bin
+pathprepend() {
+  for ((i=$#; i>0; i--));
+  do
+    ARG=${!i}
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="$ARG${PATH:+":$PATH"}"
+    fi
+  done
+}
+
+
+pathprepend /usr/local/bin /usr/local/sbin "$HOME"/bin "$HOME"/.local/bin
 
 # pip --user puts stuff in here; add to path before sourcing .bashrc
 # echo $(systemd-path user-binaries)
-modpath -q -b "$HOME"/bin     "$HOME"/.local/bin
+pathprepend "$HOME"/.local/bin
 
 
 # the default umask is set in /etc/login.defs
@@ -134,7 +154,7 @@ then
     fi
 
     if [ -d  ~/bin/macos ] ; then
-        modpath "${HOME}"/bin/macos
+        pathappend "${HOME}"/bin/macos
     fi
 
     ## swiftlang ############################################################
@@ -148,12 +168,12 @@ then
 
     # python3 - Homebrew
     if [ -d /usr/local/opt/python/libexec/bin ] ; then
-        modpath -b /usr/local/bin /usr/local/opt/python/libexec/bin
+        pathprepend /usr/local/opt/python/libexec/bin
     fi
 
     # golang - Homebrew
     if [ -d /usr/local/opt/go/libexec/bin ] ; then
-        modpath /usr/local/opt/go/libexec/bin
+        pathappend /usr/local/opt/go/libexec/bin
     fi
 
     # https://github.com/Homebrew/homebrew-command-not-found#install
@@ -184,7 +204,7 @@ then
     # https://github.com/pyenv/pyenv
     # git clone https://github.com/pyenv/pyenv.git ~/.pyenv
     if [ -d  ~/.pyenv/bin ] ; then
-        modpath $HOME/.pyenv/bin
+        pathappend $HOME/.pyenv/bin
 	    eval "$(pyenv init -)"
         # https://github.com/pyenv/pyenv-virtualenv
         # git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
@@ -193,15 +213,15 @@ then
     fi
 
     if [ -d ~/bin/linux ] ; then
-        modpath "${HOME}"/bin/linux
+        pathappend "${HOME}"/bin/linux
     fi
 
     # ubuntu - sudo apt install golang-go
     # ubuntu 18.04 - prefer v1.10
     if [ -d /usr/lib/go-1.10/bin ] ; then
-        modpath /usr/lib/go-1.10/bin
+        pathappend /usr/lib/go-1.10/bin
     elif [ -d /usr/lib/go/bin ] ; then
-        modpath /usr/lib/go/bin
+        pathappend /usr/lib/go/bin
     fi
 
 fi
@@ -218,13 +238,13 @@ then
     fi
 
     # if [ -d  ~/.pyenv/bin ] ; then
-    #     modpath $HOME/.pyenv/bin
+    #     pathappend $HOME/.pyenv/bin
 	#     eval "$(pyenv init -)"
 	#     eval "$(pyenv virtualenv-init -)"
     # fi
 
     if [ -d  ~/bin/windows/msys2 ] ; then
-        modpath $HOME/bin/windows/msys2
+        pathappend $HOME/bin/windows/msys2
     fi
 fi
 
@@ -234,13 +254,13 @@ fi
 if ! command -v go &> /dev/null
 then
     if [[ -d /usr/lib/go-1.15/bin ]] ; then
-        modpath /usr/lib/go-1.15/bin
+        pathappend /usr/lib/go-1.15/bin
         export GOPATH=$(go env GOPATH)
-        modpath $(go env GOPATH)/bin
+        pathappend $(go env GOPATH)/bin
     elif [[ -d /usr/local/go/bin ]] ; then
-        modpath /usr/local/go/bin
+        pathappend /usr/local/go/bin
         export GOPATH=$(go env GOPATH)
-        modpath $(go env GOPATH)/bin
+        pathappend $(go env GOPATH)/bin
     else
         echo WARNING: Cannot find golang go
     fi
@@ -248,7 +268,7 @@ else
     if [[ -d $(go env GOPATH) ]] ; then
         # export GOPATH=$HOME/go
         export GOPATH=$(go env GOPATH)
-        modpath $(go env GOPATH)/bin
+        pathappend $(go env GOPATH)/bin
     fi
 fi
 
@@ -270,9 +290,9 @@ if [ -d $HOME/perl5/lib/perl5 ] ; then
     # sets PERL5LIB and others
     eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
     # should warn that it is already in PATH
-    modpath $HOME/perl5/bin
+    pathappend $HOME/perl5/bin
 fi
 
 # placed here by rustup
 #export PATH="$HOME/.cargo/bin:$PATH"
-modpath $HOME/.cargo/bin
+pathappend $HOME/.cargo/bin

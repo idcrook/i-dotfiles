@@ -14,14 +14,14 @@ fi
 if [ -d ~/bin/linux/containers ] ; then
     for d in $(cd ~/bin/linux/containers && ls -1d  2> /dev/null ) ; do
         if [[ $d == "." ]] ; then continue ; fi ;
-        modpath ~/bin/linux/containers/${d}
+        pathappend "$HOME"/bin/linux/containers/${d}
     done
 fi
 
 # macOS python user libraries can be installed here
-if [[ -d ~/Library/Python/3.7/bin ]] ; then
-    modpath -q ~/Library/Python/3.7/bin
+if [ -d ~/Library/Python/3.7/bin ] ; then
+    pathappend "$HOME"//Library/Python/3.7/bin
 fi
 
 # on macOS, homebrew version
-modpath -q -b /usr/bin /usr/local/opt/curl/bin
+pathprepend /usr/local/opt/curl/bin

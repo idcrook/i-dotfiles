@@ -46,14 +46,14 @@ fi
 
 # Path ------------------------------------------------------------
 
-# very handy utility
-modpath () {
-    # shellcheck disable=2124
-    modpathargs=${@+"$@"};
-    # shellcheck source=.config/shell/modpath.sh
-    source "${shell_config}/modpath.sh";
-    unset modpathargs
-}
+# # very handy utility
+# modpath () {
+#     # shellcheck disable=2124
+#     modpathargs=${@+"$@"};
+#     # shellcheck source=.config/shell/modpath.sh
+#     source "${shell_config}/modpath.sh";
+#     unset modpathargs
+# }
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -122,11 +122,11 @@ then
     # http://hints.macworld.com/article.php?story=20131226153018801
     # function man { if [ $# -eq 1 ] ; then open x-man-page://$1 ; elif [ $# -eq 2 ] ; then open x-man-page://$1/$2 ; fi }
 
- 
+
 fi
 
 # nvm - node version manager
-if [ "$(uname -s)" == 'Darwin' ] ; then 
+if [ "$(uname -s)" == 'Darwin' ] ; then
     # brew info nvm
     if [ -z $NVM_DIR ] ; then
         # mkdir -p ~/.nvm
@@ -141,7 +141,7 @@ else
     # Changed with v0.37 nvm # export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi 
+fi
 
 # bash completion settings (actually, these are readline settings) : bind -lv
 bind "set completion-ignore-case on" # note: bind used instead of sticking these in .inputrc
