@@ -3,18 +3,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# # If not running interactively, don't do anything
-# case $- in
-#     *i*) ;;
-#     # the PATH export is a workaround to have mosh-server found
-#     # (resides in /usr/local/bin/mosh-server on macOS Homebrew)
-#       *) export PATH="$PATH:/usr/local/bin" && return;;
-# esac
+# If not running interactively, don't do anything
 
-# another way to test that
-# [ -z "$PS1" ] && return
-# the PATH export is a workaround to have mosh-server found
-# (resides in /usr/local/bin/mosh-server on macOS Homebrew)
+# the PATH export is a workaround to have mosh-server found (resides in
+# /usr/local/bin/mosh-server on macOS Homebrew)
+
 # https://github.com/mobile-shell/mosh/issues/102#issuecomment-308291984
 [ -z "$PS1" ] && export PATH="$PATH:/usr/local/bin" && return
 
@@ -43,17 +36,7 @@ if [[ ! -x "$shell_data" ]]; then
 fi
 
 
-
 # Path ------------------------------------------------------------
-
-# # very handy utility
-# modpath () {
-#     # shellcheck disable=2124
-#     modpathargs=${@+"$@"};
-#     # shellcheck source=.config/shell/modpath.sh
-#     source "${shell_config}/modpath.sh";
-#     unset modpathargs
-# }
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -209,26 +192,6 @@ fi
 
 # Editors ----------------------------------------------------------
 
-# https://stuff-things.net/2014/12/16/working-with-emacsclient/
-# if [ -z "$SSH_CONNECTION" ]; then
-#    case $OSTYPE in
-#    darwin*)
-#        export EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
-#        alias emacsclient=$EMACSCLIENT
-#        ;;
-#    *)
-#        export EMACSCLIENT=emacsclient
-#        ;;
-#    esac
-#    alias ec="$EMACSCLIENT -c -n"
-#    export EDITOR="$EMACSCLIENT -c"
-#    export ALTERNATE_EDITOR=""
-# else
-#     export EDITOR=$(type -P emacs || type -P vim || type -P vi)
-# fi
-# export VISUAL=$EDITOR
-
-
 case $OSTYPE in
     darwin*)
         EMACSPATH=/Applications/Emacs.app/Contents/MacOS
@@ -272,7 +235,3 @@ if [[ -f "${shell_config}"/env.$nodename.sh ]] ; then
     # shellcheck source=/dev/null
     source "${shell_config}"/env.$nodename.sh
 fi
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
