@@ -41,7 +41,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 
     # pip3 --user uses this dir
     if [[ -d "${HOME}"/Library/Python/3.9/bin ]] ; then
-        path=(${HOME}/Library/Python/3.8/bin $path)
+        path=(${HOME}/Library/Python/3.9/bin $path)
     fi
 
     # pip3 --user uses this dir

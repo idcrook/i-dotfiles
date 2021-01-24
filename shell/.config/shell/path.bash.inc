@@ -19,6 +19,14 @@ if [ -d ~/bin/linux/containers ] ; then
 fi
 
 # macOS python user libraries can be installed here
+if [ -d ~/Library/Python/3.9/bin ] ; then
+    pathappend "$HOME"//Library/Python/3.9/bin
+fi
+
+if [ -d ~/Library/Python/3.8/bin ] ; then
+    pathappend "$HOME"//Library/Python/3.8/bin
+fi
+
 if [ -d ~/Library/Python/3.7/bin ] ; then
     pathappend "$HOME"//Library/Python/3.7/bin
 fi
