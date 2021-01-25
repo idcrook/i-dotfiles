@@ -272,18 +272,6 @@ else
     fi
 fi
 
-# node version manager
-# brew info nvm
-# doing in .bash_profile allows non-interactive shells to use
-if [  "$(uname -s)" == 'Darwin' ]
-then
-    # mkdir -p ~/.nvm
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-    #[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-fi
-
-
 # perl local modules
 # https://metacpan.org/pod/local::lib
 if [ -d $HOME/perl5/lib/perl5 ] ; then

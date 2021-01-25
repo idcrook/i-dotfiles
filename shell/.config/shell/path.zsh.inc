@@ -42,38 +42,31 @@ if [[ "$OSTYPE" == darwin* ]]; then
     # pip3 --user uses this dir
     if [[ -d "${HOME}"/Library/Python/3.9/bin ]] ; then
         path=(${HOME}/Library/Python/3.9/bin $path)
-    fi
-
-    # pip3 --user uses this dir
-    if [[ -d "${HOME}"/Library/Python/3.8/bin ]] ; then
+    elif [[ -d "${HOME}"/Library/Python/3.8/bin ]] ; then
         path=(${HOME}/Library/Python/3.8/bin $path)
-    fi
-
-    # pip3 --user uses this dir
-    if [[ -d "${HOME}"/Library/Python/3.7/bin ]] ; then
+    elif [[ -d "${HOME}"/Library/Python/3.7/bin ]] ; then
         path=(${HOME}/Library/Python/3.7/bin $path)
     fi
 
-    # python@3.8 - Homebrew
-    if [ -d /usr/local/opt/python@3.8/bin ] ; then
+    # python@3 - Homebrew
+    if [   -d /usr/local/opt/python@3.9/bin ] ; then
+        path+=/usr/local/opt/python@3.9/bin
+    elif [ -d /usr/local/opt/python@3.8/bin ] ; then
         path+=/usr/local/opt/python@3.8/bin
     fi
 
-    # python@3.9 - Homebrew
-    if [ -d /usr/local/opt/python@3.9/bin ] ; then
-        path+=/usr/local/opt/python@3.9/bin
-    fi
-
-    # on macOS, homebrew version
-    path+=/usr/local/opt/curl/bin
-
     # python3 - Homebrew
-    if [ -d /usr/local/opt/python/libexec/bin ] ; then
+    if [   -d /usr/local/opt/python/libexec/bin ] ; then
         path=(/usr/local/opt/python/libexec/bin $path)
     fi
 
+    # on macOS, homebrew version
+    if [   -d /usr/local/opt/curl/bin ] ; then
+        path=(/usr/local/opt/curl/bin $path)
+    fi
+
     # golang - Homebrew
-    if [ -d /usr/local/opt/go/libexec/bin ] ; then
+    if [   -d /usr/local/opt/go/libexec/bin ] ; then
         path+=/usr/local/opt/go/libexec/bin
     fi
 

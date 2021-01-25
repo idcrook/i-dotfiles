@@ -56,7 +56,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-# Only available in bash version 4
+# Available starting in BASH version 4
 shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
@@ -88,25 +88,25 @@ if [ -f $HOME/projects/vcpkg/scripts/vcpkg_completion.bash ] ; then
     source $HOME/projects/vcpkg/scripts/vcpkg_completion.bash
 fi
 
-# some Mac OS X specific checks
-if [  "$(uname -s)" == 'Darwin' ]
-then
-    ### http://brettterpstra.com/2014/05/10/bash-and-dash/
+# # some Mac OS X specific checks
+# if [  "$(uname -s)" == 'Darwin' ]
+# then
+#     ### http://brettterpstra.com/2014/05/10/bash-and-dash/
 
-    # Open argument in Dash
-    function dash() {
-        open "dash://$*"
-    }
+#     # Open argument in Dash
+#     function dash() {
+#         open "dash://$*"
+#     }
 
-    function dman() {
-        open "dash://man:$*"
-    }
+#     function dman() {
+#         open "dash://man:$*"
+#     }
 
-    # http://hints.macworld.com/article.php?story=20131226153018801
-    # function man { if [ $# -eq 1 ] ; then open x-man-page://$1 ; elif [ $# -eq 2 ] ; then open x-man-page://$1/$2 ; fi }
+#     # http://hints.macworld.com/article.php?story=20131226153018801
+#     # function man { if [ $# -eq 1 ] ; then open x-man-page://$1 ; elif [ $# -eq 2 ] ; then open x-man-page://$1/$2 ; fi }
 
 
-fi
+# fi
 
 # nvm - node version manager
 if [ "$(uname -s)" == 'Darwin' ] ; then
@@ -114,9 +114,10 @@ if [ "$(uname -s)" == 'Darwin' ] ; then
     if [ -z $NVM_DIR ] ; then
         # mkdir -p ~/.nvm
         export NVM_DIR="$HOME/.nvm"
-        [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-        [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
     fi
+    # to use in non-interactive shell, must source independently
+    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 else
     export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 
@@ -125,6 +126,7 @@ else
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+
 
 # bash completion settings (actually, these are readline settings) : bind -lv
 bind "set completion-ignore-case on" # note: bind used instead of sticking these in .inputrc
@@ -138,7 +140,7 @@ bind "set show-all-if-ambiguous On" # show list automatically, without double ta
 # fi
 
 # https://github.com/b-ryan/powerline-shell
-# pip install powerline-shell
+# pip3 install --user powerline-shell
 function _update_ps1() {
     PS1=$(powerline-shell $?)
 }
