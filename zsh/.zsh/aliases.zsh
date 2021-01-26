@@ -14,7 +14,7 @@ alias val='vi ~/.zsh/aliases.zsh; sal'
 # brew install hub || sudo snap install hub --classic
 if (( $+commands[hub] ))
 then
-	#alias git=hub
+	# `hub alias` sez...
     eval "$(hub alias -s)"
 fi
 
