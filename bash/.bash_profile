@@ -31,15 +31,6 @@ fi
 
 # Path ------------------------------------------------------------
 
-# # very handy utility
-# modpath () {
-#     modpathargs=${@+"$@"};
-#     # shellcheck source=/dev/null
-#     source "${shell_config}/modpath.sh";
-#     unset modpathargs
-# }
-
-
 # https://superuser.com/a/753948
 pathappend() {
   for ARG in "$@"
