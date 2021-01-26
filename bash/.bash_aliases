@@ -66,6 +66,8 @@ else  # not Darwin/macOS
     if [ -x /usr/bin/hub ]
     then
 	    alias git=hub
+        # hotfix for bash completion - https://github.com/github/hub/issues/1792#issuecomment-518227676
+        alias __git=hub
     fi
 
     # shellcheck disable=2139
