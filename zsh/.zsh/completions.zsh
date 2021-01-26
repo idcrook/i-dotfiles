@@ -64,7 +64,8 @@ fi
 
 # nvm (node version manager)  -------------------------------------------
 
-# DONE INSTEAD in zshenv?
+# .zprezto has built-in support for nvm via node module, so do not need
+
 # brew info nvm
 
 # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

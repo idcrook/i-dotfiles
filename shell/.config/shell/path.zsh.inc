@@ -21,7 +21,6 @@ then
     fi
 fi
 
-# macOS python user libraries can be installed here
 # See ~/.zshenv for others
 
 # macOS
@@ -39,36 +38,39 @@ if [[ "$OSTYPE" == darwin* ]]; then
         path+="${HOME}"/bin/macos
     fi
 
+    # NOTE: these directories or paths can be handled by zprezto modules
+
     # pip3 --user uses this dir
-    if [[ -d "${HOME}"/Library/Python/3.9/bin ]] ; then
-        path=(${HOME}/Library/Python/3.9/bin $path)
-    elif [[ -d "${HOME}"/Library/Python/3.8/bin ]] ; then
-        path=(${HOME}/Library/Python/3.8/bin $path)
-    elif [[ -d "${HOME}"/Library/Python/3.7/bin ]] ; then
-        path=(${HOME}/Library/Python/3.7/bin $path)
-    fi
+    # macOS python user libraries can be installed here
+    # if [[ -d "${HOME}"/Library/Python/3.9/bin ]] ; then
+    #     path=(${HOME}/Library/Python/3.9/bin $path)
+    # elif [[ -d "${HOME}"/Library/Python/3.8/bin ]] ; then
+    #     path=(${HOME}/Library/Python/3.8/bin $path)
+    # elif [[ -d "${HOME}"/Library/Python/3.7/bin ]] ; then
+    #     path=(${HOME}/Library/Python/3.7/bin $path)
+    # fi
 
-    # python@3 - Homebrew
-    if [   -d /usr/local/opt/python@3.9/bin ] ; then
-        path+=/usr/local/opt/python@3.9/bin
-    elif [ -d /usr/local/opt/python@3.8/bin ] ; then
-        path+=/usr/local/opt/python@3.8/bin
-    fi
+    # # python@3 - Homebrew
+    # if [   -d /usr/local/opt/python@3.9/bin ] ; then
+    #     path+=/usr/local/opt/python@3.9/bin
+    # elif [ -d /usr/local/opt/python@3.8/bin ] ; then
+    #     path+=/usr/local/opt/python@3.8/bin
+    # fi
 
-    # python3 - Homebrew
-    if [   -d /usr/local/opt/python/libexec/bin ] ; then
-        path=(/usr/local/opt/python/libexec/bin $path)
-    fi
+    # # python3 - Homebrew
+    # if [   -d /usr/local/opt/python/libexec/bin ] ; then
+    #     path=(/usr/local/opt/python/libexec/bin $path)
+    # fi
 
-    # on macOS, homebrew version
+    # on macOS, homebrew version is keg-only
     if [   -d /usr/local/opt/curl/bin ] ; then
         path=(/usr/local/opt/curl/bin $path)
     fi
 
-    # golang - Homebrew
-    if [   -d /usr/local/opt/go/libexec/bin ] ; then
-        path+=/usr/local/opt/go/libexec/bin
-    fi
+    # # golang - Homebrew
+    # if [   -d /usr/local/opt/go/libexec/bin ] ; then
+    #     path+=/usr/local/opt/go/libexec/bin
+    # fi
 
     # rbenv - Homebrew
     # handled in zprezto ruby pmodule
