@@ -5,7 +5,7 @@ Installation on fresh ubuntu 20.04
 
 ```shell
 sudo apt install -y stow git
-(OPTIONAL, may be required: sudo apt install openssh-server)
+# OPTIONAL: may be required: sudo apt install openssh-server
 
 ssh-keygen -b 4096
 # Upload this SSH key to GitHub account # cat ~/.ssh/id_rsa.pub
@@ -13,7 +13,7 @@ ssh-keygen -b 4096
 
 # Add locales, like, e.g., `en_US.UTF-8`
 sudo dpkg-reconfigure locales
-
+sudo dpkg-reconfigure tzdata
 
 git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
 # this requires SSH key on git account
@@ -49,7 +49,6 @@ stow -vv shell
 ssh DONOR_HOST
 TARGET=host.local
 scp ~/.config/git/config.secrets  $TARGET:.dotfiles/git/.config/git/config.secrets
-scp ~/.dotfiles/homedir/.ansiweatherrc.secrets  $TARGET:.dotfiles/homedir/.ansiweatherrc.secrets
 scp ~/.dotfiles/homedir/.wakatime.cfg.secrets $TARGET:.dotfiles/homedir/.wakatime.cfg.secrets
 exit
 
