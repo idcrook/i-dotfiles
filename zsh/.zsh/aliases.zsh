@@ -71,7 +71,9 @@ function ec () {
 
 
 # Navigation -------------------------------------------------------
-alias o='cd ..'
+# comment out to unmask zprezto utility module "open" alias
+#alias o='cd ..'
+alias oi='cd ..'
 alias oo='cd ../..'
 alias ooo='cd ../../..'
 alias oooo='cd ../../../..'
