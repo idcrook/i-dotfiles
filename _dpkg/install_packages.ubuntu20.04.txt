@@ -8,35 +8,22 @@ sudo apt install -y screen tmux mosh dselect rcs \
 # OPTIONAL: protect against accidental remote shutdown
 sudo apt install -y molly-guard
 
+# OPTIONAL: Ubuntu LTS enablement (also called HWE or Hardware Enablement)
+# https://wiki.ubuntu.com/Kernel/LTSEnablementStack
+sudo apt install --install-recommends linux-generic-hwe-20.04
+
 # some emacs dependencies
 sudo apt install -y \
      imagemagick-6.q16hdri ack silversearcher-ag \
-     python-is-python3 python3-dev python3-pip python3-venv python3-virtualenv python3-wheel
+     python-is-python3 \
+     python3-dev python3-pip python3-venv python3-virtualenv python3-wheel
 
 # OPTIONAL: for graphical desktop env
-sudo apt install -y      fonts-powerline fonts-hack fonts-inconsolata fonts-dejavu fonts-symbola
+sudo apt install -y fonts-powerline fonts-hack fonts-inconsolata \
+     fonts-dejavu fonts-symbola
 
 # # no need for system node package manager if using nvm
 # sudo apt install npm
-
-# OPTIONAL: provided by ppa:kelleyk/emacs
-sudo apt install emacs27
-# OPTIONAL: No desktop environment (saves 875 MB)
-sudo apt install emacs27-nox
-
-# OPTIONAL: image tools
-sudo apt install trimage
-
-# OPTIONAL: xdg-open for desktop environment
-sudo apt install xdg-utils
-
-# OPTIONAL: other desktop utlis
-sudo apt install gnome-tweaks
-# gnome-tweaks: Windows -> Window Focus : [x] Secondary-Click
-# gnome-tweaks: Keyboard and Mouse -> Keyboard : Enable 'Emacs Input'
-# gnome-tweaks: Keyboard and Mouse -> Keyboard : [Additional Layout Options]
-#               Ctrl position : [x] Caps Lock as Ctrl
-# gnome-tweaks: Keyboard and Mouse -> Mouse:  Acceleration Profile [Adaptive]
 
 # golang - https://github.com/golang/go/wiki/Ubuntu
 #sudo apt install -y golang-go #
@@ -46,6 +33,26 @@ sudo apt install golang-1.14-go golang-go
 # github hub - https://hub.github.com
 sudo snap install hub --classic
 # sudo apt install hub
+
+# OPTIONAL: No desktop environment (saves 875 MB)
+sudo apt install emacs27-nox
+
+# OPTIONAL: provided by ppa:kelleyk/emacs
+sudo apt install emacs27
+
+# OPTIONAL: other desktop utils, no really suitable on server
+
+# image tool
+sudo apt install trimage
+# xdg-open for desktop environment
+sudo apt install xdg-utils
+
+sudo apt install gnome-tweaks
+# gnome-tweaks: Windows -> Window Focus : [x] Secondary-Click
+# gnome-tweaks: Keyboard and Mouse -> Keyboard : Enable 'Emacs Input'
+# gnome-tweaks: Keyboard and Mouse -> Keyboard : [Additional Layout Options]
+#               Ctrl position : [x] Caps Lock as Ctrl
+# gnome-tweaks: Keyboard and Mouse -> Mouse:  Acceleration Profile [Adaptive]
 
 # OPTIONAL: espanso - https://espanso.org/install/linux/
 sudo snap install espanso --classic
