@@ -1,10 +1,10 @@
-
 Using `nvm`
 ===========
 
-<https://github.com/nvm-sh/nvm>
+https://github.com/nvm-sh/nvm
 
-## On macOS
+On macOS
+--------
 
 ```
 mkdir -p ~/.nvm
@@ -12,15 +12,16 @@ brew install nvm
 # update shell startup files to source nvm and load completions in respective shells
 ```
 
-
-## On Linux
+On Linux
+--------
 
 ```
 # moves to $XDG_CONFIG_HOME with nvm v0.37 # mkdir -p ~/.nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 ```
 
-## Source a new shell and install a node version
+Source a new shell and install a node version
+---------------------------------------------
 
 In a **freshly sourced shell**, after `nvm` is "installed"
 
@@ -42,7 +43,8 @@ npm list --global --parseable --depth=0
      $ npm uninstall -g a_module
 ```
 
-# Using node packages
+Using node packages
+===================
 
 **List of packages to install via `npm`, the *node.js* packaging tool.**
 
@@ -73,12 +75,13 @@ Install
 To (re)install :
 
 ```shell
+cd ~/.dotfiles/_npm
 [sudo] npm install --global $(cat npm_global_packages.list)
 ```
 
 -	`sudo` is required when using the system / apt `npm` package
 	-	this means `ubuntu` and `raspbian`, and WSL Ubuntu
-    -   if using `nvm`, do not use sudo!
+	-	if using `nvm`, do not use sudo!
 
 Update / upgrade
 ----------------

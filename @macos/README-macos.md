@@ -3,6 +3,7 @@ Typical Install (on macOS)
 
 1.	First, install **Homebrew**: https://brew.sh
 2.	Emacs is preferred editor, config dir `emacs.d` is installed below
+	-	`brew tap homebrew/cask`
 	-	`brew info --cask emacs`
 	-	`brew install --cask emacs`
 	-	`emacs` .. [Show In Finder] .. Right-Click ... Open and Open
