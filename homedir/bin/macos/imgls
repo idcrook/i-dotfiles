@@ -1,7 +1,4 @@
 #!/bin/bash
-
-# via https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/imgls
-
 # tmux requires unrecognized OSC sequences to be wrapped with DCS tmux;
 # <sequence> ST, and for all ESCs in <sequence> to be replaced with ESC ESC. It
 # only accepts ESC backslash for ST.
@@ -11,6 +8,13 @@ function print_osc() {
     else
         printf "\033]"
     fi
+}
+
+function check_dependency() {
+  if ! (builtin command -V "$1" > /dev/null 2>& 1); then
+    echo "imgcat: missing dependency: can't find $1" 1>& 2
+    exit 1
+  fi
 }
 
 # More of the tmux workaround described above.
@@ -24,12 +28,13 @@ function print_st() {
 
 function list_file() {
   fn=$1
-  dims=$(php -r 'if (!is_file($argv[1])) exit(1); $a = getimagesize($argv[1]); if ($a==FALSE) exit(1); else { echo $a[0] . "x" .$a[1]; exit(0); }' "$fn")
+  test -f "$fn" || return 0
+  dims=$(php -r 'if (!is_file($argv[1])) exit(1); $a = getimagesize($argv[1]); if ($a==FALSE) exit(1); else { echo $a[0] . "x" .$a[1]; exit(0); }' -- "$fn")
   rc=$?
   if [[ $rc == 0 ]] ; then
     print_osc
     printf '1337;File=name='`echo -n "$fn" | base64`";"
-    wc -c "$fn" | awk '{printf "size=%d",$1}'
+    wc -c -- "$fn" | awk '{printf "size=%d",$1}'
     printf ";inline=1;height=3;width=3;preserveAspectRatio=true"
     printf ":"
     base64 < "$fn"
@@ -51,11 +56,15 @@ function list_file() {
       printf '\033[A'
     fi
     echo -n "$dims "
-    ls -ld "$fn"
+    ls -ld -- "$fn"
   else
-    ls -ld "$fn"
+    ls -ld -- "$fn"
   fi
 }
+
+check_dependency php
+check_dependency base64
+check_dependency wc
 
 if [ $# -eq 0 ]; then
   for fn in *
@@ -68,3 +77,4 @@ else
      list_file "$fn"
   done
 fi
+

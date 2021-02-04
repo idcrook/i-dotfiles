@@ -1,7 +1,7 @@
 
 ### https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 # should only do on macOS
-# https://superuser.com/a/638247 for safe-reattach-to-user-namespace
+# https://superuser.com/a/638247 for safe-reattach-to-user-namespace (~/bin/macos)
 set-option -g default-command "safe-reattach-to-user-namespace"
 
 # https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/blob/master/Usage.md#cross-platform-conditional-usage
