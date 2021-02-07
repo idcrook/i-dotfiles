@@ -36,16 +36,18 @@
 # mv hub.zsh_completion _hub
 # ```
 
+if [ -x "$(command -v brew)" ]; then
+    # curl -----------------------------------------------------------------------
 
-# curl -----------------------------------------------------------------------
+    # curl is keg-only, and its completions do not go into central Homebrew
+    # `brew info curl`
+    # echo $(brew --prefix)
 
-# curl is keg-only, and its completions do not go into central Homebrew
-# `brew info curl`
+    if [[ -d $(brew --prefix)/opt/curl/share/zsh/site-functions ]] ; then
+        fpath=($(brew --prefix)/opt/curl/share/zsh/site-functions $fpath)
+    fi
 
-if [[ -d /usr/local/opt/curl/share/zsh/site-functions ]] ; then
-  fpath=(/usr/local/opt/curl/share/zsh/site-functions $fpath)
 fi
-
 
 # kubernetes ------------------------------------------------------------
 

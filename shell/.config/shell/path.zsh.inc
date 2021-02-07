@@ -50,28 +50,31 @@ if [[ "$OSTYPE" == darwin* ]]; then
     #     path=(${HOME}/Library/Python/3.7/bin $path)
     # fi
 
-    # # python@3 - Homebrew
-    # if [   -d /usr/local/opt/python@3.9/bin ] ; then
-    #     path+=/usr/local/opt/python@3.9/bin
-    # elif [ -d /usr/local/opt/python@3.8/bin ] ; then
-    #     path+=/usr/local/opt/python@3.8/bin
-    # fi
+    if [ -x "$(command -v brew)" ]; then
 
-    # # python3 - Homebrew
-    # if [   -d /usr/local/opt/python/libexec/bin ] ; then
-    #     path=(/usr/local/opt/python/libexec/bin $path)
-    # fi
+        # # python@3 - Homebrew
+        # if [   -d /usr/local/opt/python@3.9/bin ] ; then
+        #     path+=/usr/local/opt/python@3.9/bin
+        # elif [ -d /usr/local/opt/python@3.8/bin ] ; then
+        #     path+=/usr/local/opt/python@3.8/bin
+        # fi
 
-    # on macOS, homebrew version is keg-only
-    if [   -d /usr/local/opt/curl/bin ] ; then
-        path=(/usr/local/opt/curl/bin $path)
+        # # python3 - Homebrew
+        # if [   -d /usr/local/opt/python/libexec/bin ] ; then
+        #     path=(/usr/local/opt/python/libexec/bin $path)
+        # fi
+
+        # on macOS, homebrew version is keg-only
+        if [ -d $(brew --prefix)/opt/curl/bin ] ; then
+            path=($(brew --prefix)/opt/curl/bin $path)
+        fi
+
+        # # golang - Homebrew
+        # if [   -d /usr/local/opt/go/libexec/bin ] ; then
+        #     path+=/usr/local/opt/go/libexec/bin
+        # fi
+
+        # rbenv - Homebrew
+        # handled in zprezto ruby pmodule
     fi
-
-    # # golang - Homebrew
-    # if [   -d /usr/local/opt/go/libexec/bin ] ; then
-    #     path+=/usr/local/opt/go/libexec/bin
-    # fi
-
-    # rbenv - Homebrew
-    # handled in zprezto ruby pmodule
 fi
