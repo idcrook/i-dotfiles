@@ -77,3 +77,8 @@ alias oi='cd ..'
 alias oo='cd ../..'
 alias ooo='cd ../../..'
 alias oooo='cd ../../../..'
+
+# set an explicit alias for Intel-based Homebrew; assumes macOS install
+if [ -x "$(command -v brew)" ]; then
+    alias ibrew="arch -x86_64 /usr/local/bin/brew"
+fi
