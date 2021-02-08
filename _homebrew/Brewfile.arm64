@@ -32,7 +32,7 @@ brew "jq"
 # brew "p7zip"
 # brew "pstree"
 # brew "pv"
-# brew "python"
+# brew "python" # imagemagick dep
 # brew "rcs"
 # brew "ripgrep"
 brew "rsync"
