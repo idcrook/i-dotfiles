@@ -6,6 +6,7 @@
 # tap "homebrew/core"
 # tap "homebrew/services"
 # tap "federico-terzi/espanso"
+tap d12frosted/emacs-plus
 # brew "bash"
 # brew "bash-completion@2"
 # brew "brew-cask-completion"
@@ -15,6 +16,7 @@
 brew "curl"
 # brew "dos2unix"
 # brew "editorconfig"
+brew "emacs-plus"
 brew "git"
 brew "go"
 brew "htop"

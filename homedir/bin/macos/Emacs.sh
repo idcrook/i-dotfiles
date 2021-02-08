@@ -6,20 +6,38 @@
 
 # open --new -a /Applications/Emacs.app --args --debug-init
 
-EMACSPATH=/Applications/Emacs.app/Contents/MacOS
+arch_name="$(uname -m)"
 
 # Check if an emacs server is available
 # (by checking to see if it will evaluate a lisp statement)
-EMACSPATH_BIN="${EMACSPATH}/bin"
-if [[ ! -d "${EMACSPATH_BIN}" ]] ; then
-    if [[ -d "${EMACSPATH}/bin-x86_64-10_14" ]] ; then
-        EMACSPATH_BIN="${EMACSPATH}/bin-x86_64-10_14"
-    fi
-fi
 
-EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
-if [[ ! -x  "${EMACSPATH}"/Emacs-x86_64-10_14 ]] ; then
-    EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs-x86_64-10_14
+if [ "${arch_name}" = "x86_64" ]; then
+
+    # these are for Homebrew emacs cask http://emacsformacosx.com
+    EMACSPATH=/Applications/Emacs.app/Contents/MacOS
+
+    EMACSPATH_BIN="${EMACSPATH}/bin"
+    if [[ ! -d "${EMACSPATH_BIN}" ]] ; then
+        if [[ -d "${EMACSPATH}/bin-x86_64-10_14" ]] ; then
+            EMACSPATH_BIN="${EMACSPATH}/bin-x86_64-10_14"
+        fi
+    fi
+
+    EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
+    if [[ ! -x "${EMACSPATH}"/Emacs-x86_64-10_14 ]] ; then
+        EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs-x86_64-10_14
+    fi
+
+elif [ "${arch_name}" = "arm64" ]; then
+
+    # these are for Homebrew d12frosted/emacs-plus
+    EMACSPATH=/opt/homebrew/opt/emacs-plus/Emacs.app/Contents/MacOS
+
+    EMACSPATH_BIN="${EMACSPATH}/../../../bin"
+    #EMACSPATH_BIN="/opt/homebrew/opt/emacs-plus/bin"
+
+    EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
+
 fi
 
 
