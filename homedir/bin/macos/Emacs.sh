@@ -40,6 +40,10 @@ elif [ "${arch_name}" = "arm64" ]; then
 
 fi
 
+# echo EMACSPATH=$EMACSPATH
+# echo EMACSPATH_BIN=$EMACSPATH_BIN
+# echo EMACS_WRAPPER_OR_BIN=$EMACS_WRAPPER_OR_BIN
+
 
 if ! ("${EMACSPATH_BIN}"/emacsclient --eval "t"  2> /dev/null > /dev/null )
 then
