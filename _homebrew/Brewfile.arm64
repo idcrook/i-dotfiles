@@ -16,7 +16,7 @@ tap d12frosted/emacs-plus
 brew "curl"
 # brew "dos2unix"
 # brew "editorconfig"
-brew "emacs-plus"
+brew "emacs-plus"  args: ["with-elrumo2-icon"]
 brew "git"
 brew "go"
 brew "htop"
