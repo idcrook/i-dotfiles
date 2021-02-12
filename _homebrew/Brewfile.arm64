@@ -83,7 +83,7 @@ brew "zsh-completions"
 # cask "transmission"
 # cask "transmit"
 # cask "visual-studio-code"
-# cask "vlc"
+cask "vlc"
 # cask "vnc-viewer"
 # #MISSING# cask "xact"
 # mas "1Blocker", id: 1107421413
