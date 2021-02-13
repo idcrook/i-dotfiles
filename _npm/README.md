@@ -1,46 +1,43 @@
-Using `nvm`
-===========
+Using `nvm` to manage `node` and `npm`
+======================================
 
-https://github.com/nvm-sh/nvm
+https://github.com/nvm-sh/nvm#readme
 
 On macOS
 --------
 
-```
-mkdir -p ~/.nvm
-brew install nvm
-# update shell startup files to source nvm and load completions in respective shells
+```shell
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | zsh
 ```
 
 On Linux
 --------
 
-```
-# moves to $XDG_CONFIG_HOME with nvm v0.37 # mkdir -p ~/.nvm
+```shells
+# $XDG_CONFIG_HOME instead with nvm v0.37+ # mkdir -p ~/.nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 ```
 
 Source a new shell and install a node version
 ---------------------------------------------
 
-In a **freshly sourced shell**, after `nvm` is "installed"
+In a **freshly sourced shell**, i.e., with `nvm` "installed" and activated"
 
-```
+```shell
 nvm install node
 nvm which node
 which npm
 npm install -g npm
+npm --version
 npm list --global --parseable --depth=0
 ```
 
-### older system modules
+#### Old macOS way
 
-```
-=> If you wish to uninstall them at a later point (or re-install them under your
-=> `nvm` Nodes), you can remove them from the system Node as follows:
-
-     $ nvm use system
-     $ npm uninstall -g a_module
+```shell
+# mkdir -p ~/.nvm
+# brew install nvm
+# update shell startup files to source nvm and load completions in respective shells
 ```
 
 Using node packages
@@ -72,16 +69,15 @@ echo "$newlist" > npm_global_packages.list
 Install
 -------
 
-To (re)install :
+-	`sudo` may be required when using system / apt `npm` package for global packages
+	-	if using `nvm`, do not use **`sudo`**!
+
+To install or re-install packages:
 
 ```shell
 cd ~/.dotfiles/_npm
-[sudo] npm install --global $(cat npm_global_packages.list)
+npm install --global $(cat npm_global_packages.list)
 ```
-
--	`sudo` is required when using the system / apt `npm` package
-	-	this means `ubuntu` and `raspbian`, and WSL Ubuntu
-	-	if using `nvm`, do not use sudo!
 
 Update / upgrade
 ----------------
