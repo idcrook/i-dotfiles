@@ -90,9 +90,9 @@
     midnight_commander      # midnight commander shell (https://midnight-commander.org/)
     nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     # vpn_ip                # virtual private network indicator
-    load                  # CPU load
+    # load                  # CPU load
     # disk_usage            # disk usage
-    ram                   # free RAM
+    # ram                   # free RAM
     # swap                  # used swap
     todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
     timewarrior             # timewarrior tracking status (https://timewarrior.net/)
