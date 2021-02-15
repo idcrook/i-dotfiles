@@ -37,14 +37,32 @@
 # ```
 
 if [ -x "$(command -v brew)" ]; then
-    # curl -----------------------------------------------------------------------
+    # curl -------------------------------------------------------------------
 
     # curl is keg-only, and its completions do not go into central Homebrew
     # `brew info curl`
     # echo $(brew --prefix)
 
-    if [[ -d $(brew --prefix)/opt/curl/share/zsh/site-functions ]] ; then
+    if [[ -d   $(brew --prefix)/opt/curl/share/zsh/site-functions ]] ; then
         fpath=($(brew --prefix)/opt/curl/share/zsh/site-functions $fpath)
+    fi
+
+    # Homebrew ---------------------------------------------------------------
+
+    # homebrew shared zsh completions
+    if [[ -d   $(brew --prefix)/share/zsh/site-functions ]] ; then
+        fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+    fi
+
+    # zsh-completions --------------------------------------------------------
+
+    # brew info zsh-completions
+
+    # zprezto adds local version to fpath in modules/completion/init.zsh
+    #                         definitions in modules/completion/external/src
+    # adding homebrew version here should be OK?
+    if [[ -d   $(brew --prefix)/share/zsh-completions ]] ; then
+        fpath=($(brew --prefix)/share/zsh-completions $fpath)
     fi
 
 fi
