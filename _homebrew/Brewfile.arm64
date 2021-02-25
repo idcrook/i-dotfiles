@@ -13,6 +13,7 @@ brew "colordiff"
 brew "coreutils" # PATH="/opt/homebrew/opt/coreutils/libexec/gnubin" for non-g prefix
 brew "cpanminus"
 brew "curl"
+brew "deno"
 brew "dos2unix"
 # brew "editorconfig" # no bottle 2021-Feb-17
 brew "emacs-plus"  args: ["with-elrumo2-icon"]
