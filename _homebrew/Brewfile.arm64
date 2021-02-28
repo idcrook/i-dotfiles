@@ -7,8 +7,10 @@
 # tap "homebrew/services"
 # tap "federico-terzi/espanso"
 tap d12frosted/emacs-plus
+brew "archey"
 # brew "bash"
 # brew "bash-completion@2"
+# brew "brightness"
 brew "colordiff"
 brew "coreutils" # PATH="/opt/homebrew/opt/coreutils/libexec/gnubin" for non-g prefix
 brew "cpanminus"
