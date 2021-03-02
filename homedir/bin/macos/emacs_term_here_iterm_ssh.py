@@ -6,7 +6,7 @@
 # pip3 install --user pyobjc
 # chmod +x iterm_command.py
 
-import string
+# import string
 import sys
 
 # 2019-May-21: Requires iTerm that has the Python API enabled (beta (v3.3+))
@@ -15,8 +15,7 @@ import iterm2
 import AppKit
 
 bundle = "com.googlecode.iterm2"
-if not AppKit.NSRunningApplication.runningApplicationsWithBundleIdentifier_(
-        bundle):
+if not AppKit.NSRunningApplication.runningApplicationsWithBundleIdentifier_(bundle):
     AppKit.NSWorkspace.sharedWorkspace().launchApplication_("iTerm")
 
 
