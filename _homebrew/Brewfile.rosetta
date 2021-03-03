@@ -1,0 +1,6 @@
+brew "bash" # use zsh
+brew "bash-completion@2" # use zsh and .zprezto
+brew "editorconfig" # no bottle 2021-Mar-03
+brew "kubernetes-cli" # no bottle 2021-Mar-03
+brew "shellcheck" # no bottle 2021-Mar-03
+brew "stow"

@@ -64,6 +64,12 @@ if [[ "$OSTYPE" == darwin* ]]; then
         #     path=(/usr/local/opt/python/libexec/bin $path)
         # fi
 
+        ### [Homebrew/homebrew-command-not-found](https://github.com/Homebrew/homebrew-command-not-found)
+        HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+        if [ -f "$HB_CNF_HANDLER" ] ; then
+            source "$HB_CNF_HANDLER"
+        fi
+
         # on macOS, homebrew version is keg-only
         if [ -d $(brew --prefix)/opt/curl/bin ] ; then
             path=($(brew --prefix)/opt/curl/bin $path)
