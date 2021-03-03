@@ -1,35 +1,49 @@
-**Homebrew \<https://brew.sh> setup on macOS**
+**Homebrew https://brew.sh setup on macOS**
 
-https://docs.brew.sh/Installation
+On Apple Silicon, it is possible to have Homebrew for both Apple Silicon and Intel installed side-by-side.
 
-Assumes Homebrew has already been installed :
+Assumes Homebrew has already been installed : https://docs.brew.sh/Installation
 
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Typical macOS System bootstrap
-------------------------------
+My Typical macOS Homebrew Bring-up
+----------------------------------
 
-Applies specifically to my preferences. For example, my shell setup wants these first.
+Pre-reqs (`bundle` and `mas` for `Brewfile`\)
 
 ```shell
-brew install keychain git
-# 'open /Applications/Emacs.app' or run 'Emacs.sh'
-cd ~/.dotfiles/_homebrew
-brew install mas
 brew tap homebrew/bundle
-brew bundle --file=Brewfile
+brew install mas
+# might assume # brew install git stow
+```
 
-# inspect directory for other groups
+Ordering here applies specifically to my preferences, and allows me to have consistent availability across my Macs.
+
+```shell
+cd ~/.dotfiles/_homebrew
+
+# on Apple Silicon (native)
+brew bundle --file=Brewfile.arm64
+
+# Auxiliary on Apple Silicon (Rosetta2) - requires independent
+# Homebrew install in the Rosetta environment
+brew bundle --file=Brewfile.rosetta
+
+# on Intel Mac
+brew bundle --file=Brewfile.intel
+
+# inspect directory for other app bundles
 brew bundle --file=Brewfile.apple-dev --verbose
 brew bundle --file=Brewfile.hardware-dev --verbose
+# etc.
 ```
 
 (Optional) Cleanup
 ------------------
 
-You can hand-edit `Brewfile` and have Homebrew clean things up.
+You can hand-edit a `Brewfile` and have Homebrew clean things up. The cleanup will prune formulae or dependencies not mentioned in `Brewfile`
 
 ```shell
 # reads in Brewfile
