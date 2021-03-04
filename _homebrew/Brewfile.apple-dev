@@ -1,7 +1,7 @@
-tap "finestructure/tap"
-tap "kylef/formulae"
-brew "kylef/formulae/swiftenv"
-brew "finestructure/tap/arena"
+# tap "finestructure/tap"
+# tap "kylef/formulae"
+# brew "kylef/formulae/swiftenv"
+# brew "finestructure/tap/arena"
 mas "Xcode", id: 497799835
 mas "Transporter", id: 1450874784
 mas "Apple Developer", id: 640199958

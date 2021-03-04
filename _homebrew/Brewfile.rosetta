@@ -1,0 +1,9 @@
+brew "bash" # use zsh
+brew "bash-completion@2" # use zsh and .zprezto
+brew "editorconfig" # no bottle 2021-Mar-03
+brew "kubernetes-cli" # no bottle 2021-Mar-03
+brew "shellcheck" # no bottle 2021-Mar-03
+brew "go"
+brew "stow"
+cask "amazon-music" # 2021-Mar-03 The current OS X version is not supported
+cask "icanhazshortcut" # 2021-Mar-03 app needs to be updated

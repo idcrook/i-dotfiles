@@ -4,7 +4,9 @@
 [include]
     path = ~/.config/git/config.secrets
 
-# Customize these
+# Customize the following in secrets file; see config.secrets.example
+#
+# [github]
 # [user]
 # 	name = Github User
 # 	email = github-user@users.noreply.github.com
