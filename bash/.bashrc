@@ -172,6 +172,9 @@ then
     [[ "$TERM" == *-256color ]] && test -e "${shell_config}/.iterm2_shell_integration.bash" && source "${shell_config}/.iterm2_shell_integration.bash"
 fi
 
+# Secure shellfish (iOS app) integration
+test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
+
 # Alias definitions. ----------------------------------------------
 
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.

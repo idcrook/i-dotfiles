@@ -1,0 +1,152 @@
+# -*- sh -*- # include this from .bashrc, .zshrc or
+# another shell startup file with:
+#   source $HOME/.shellfishrc
+
+# this script does nothing outside ShellFish
+if [[ "$LC_TERMINAL" = "ShellFish" ]]; then
+  printURIComponent() {
+    awk 'BEGIN {while (y++ < 125) z[sprintf("%c", y)] = y
+    while (y = substr(ARGV[1], ++j, 1))
+    q = y ~ /[a-zA-Z0-9]/ ? q y : q sprintf("%%%02X", z[y])
+    printf("%s", q)}' "$1"
+  }
+
+  printOSC() {
+    if [[ -n "$TMUX" ]]; then
+      awk 'BEGIN {printf "\033Ptmux;\033\033]"}'
+    else
+      awk 'BEGIN {printf "\033]"}'
+    fi
+  }
+
+  printST() {
+    if [[ -n "$TMUX" ]]; then
+      awk 'BEGIN {printf "\a\033\\"}'
+    else
+      awk 'BEGIN {printf "\a"}'
+    fi
+  }
+
+  # sharesheet should be called with
+  # filenames as arguments that will open
+  # in system sharesheet. Alternatively you
+  # can pipe in text and call it without
+  # arguments
+  sharesheet() {
+    printOSC
+    awk 'BEGIN {printf "6;sharesheet://?pwd="}'
+    printURIComponent "$PWD"
+    awk 'BEGIN {printf "&home="}'
+    printURIComponent "$HOME"
+    for var in "$@"
+    do
+      awk 'BEGIN {printf "&path="}'
+      printURIComponent "$var"
+    done
+    if [[ $# -eq 0 ]]; then
+      text=$(cat -)
+      awk 'BEGIN {printf "&text="}'
+      printURIComponent "$text"
+    fi
+    printST
+  }
+
+  textastic() {
+    if [[ $# -eq 0 ]]; then
+      cat <<EOF
+Usage: textastic <text-file>
+
+Open in Textastic 9.5 or later.
+File must be in directory represented in the Files app to allow writing back edits.
+EOF
+    else
+      printOSC
+      awk 'BEGIN {printf "6;textastic://?pwd="}'
+      printURIComponent "$PWD"
+      awk 'BEGIN {printf "&home="}'
+      printURIComponent "$HOME"
+      awk 'BEGIN {printf "&path="}'
+      printURIComponent "$1"
+      printST
+    fi
+  }
+
+  openUrl() {
+    if [[ $# -eq 0 ]]; then
+      cat <<EOF
+Usage: openUrl <url>
+
+Open URL on iOS.
+EOF
+    else
+      printOSC
+      awk 'BEGIN {printf "6;open://?url="}'
+      printURIComponent "$1"
+      printST
+    fi
+  }
+
+  runShortcut() {
+    if [[ $# -eq 0 ]]; then
+      cat <<EOF
+Usage: runShortcut <shortcut-name> [input-for-shortcut]
+
+Run in Shortcuts app.
+EOF
+    else
+      local name=$(printURIComponent "$1")
+      shift
+      local input=$(printURIComponent "$*")
+      openUrl "shortcuts://run-shortcut?name=$name&input=$input"
+    fi
+  }
+
+  notify() {
+    if [[ $# -eq 0 ]]; then
+      cat <<EOF
+Usage: notify <title> [body]
+
+Show notification on iOS device.
+Title cannot contain semicolon.
+EOF
+    else
+      local title="${1-}" body="${2-}"
+      printOSC
+      echo $title | awk -F";" 'BEGIN {printf "777;notify;"} {printf "%s;", $1}'
+      echo $body
+      printST
+    fi
+  }
+
+  # copy standard input or arguments to iOS clipboard
+  pbcopy() {
+    printOSC
+    awk 'BEGIN {printf "52;c;"} '
+    if [ $# -eq 0 ]; then
+      base64 | tr -d '\n'
+    else
+      echo -n "$@" | base64 | tr -d '\n'
+    fi
+    printST
+  }
+
+  # Secure ShellFish supports 24-bit colors
+  export COLORTERM=truecolor
+
+  # send the current directory using OSC 7
+  # when showing prompt to make filename
+  # detection work better
+  if [ -z "$INSIDE_EMACS" ]; then
+    update_terminal_cwd() {
+      printOSC
+      awk "BEGIN {printf \"7;%s\", \"file://$HOSTNAME\"}"
+      printURIComponent "$PWD"
+      printST
+    }
+    if [ -n "$ZSH_VERSION" ]; then
+      precmd() { update_terminal_cwd; }
+    else
+      PROMPT_COMMAND="update_terminal_cwd${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+    fi
+  fi
+fi
