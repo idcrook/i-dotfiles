@@ -1,64 +1,56 @@
 My i-dotfiles
 =============
 
+`i-dotfiles` is an opinionated dotfiles organization scheme based on stow.
+
 Install
 -------
 
-Installation instructions are present in `README.md` files, including any special instructions. 
+Starting points:
 
-Starting points: 
+-	[macOS](%40macos/README-macos.md)
+-	[Raspberry Pi OS](%40ubuntu/README-Raspbian.md) (based on Debian)
+-	[Ubuntu](%40ubuntu/README.md) variants including on [WSL2](%40ubuntu/README-Ubuntu-WSL2-20.04.md) or [Raspberry Pi](%40ubuntu/README-Ubuntu-on-RasPi.md)
 
-- [macOS](%40macos/README-macos.md)
-- [Ubuntu](%40ubuntu/README.md) variants including on [WSL2](%40ubuntu/README-Ubuntu-WSL2-20.04.md) or [Raspberry Pi](%40ubuntu/README-Ubuntu-on-RasPi.md), and [Raspberry Pi OS](%40ubuntu/README-Raspbian.md).
+Additional installation instructions are present in respective `README.md` files.
 
-Overview
+#### General Idea
 
-1.	Assumes GNU `stow` is installed
-2.	Clone this repository:
+Assumes GNU `stow` is installed (usually via a package manager). It will generally go as follows.
+
+Refer to specific `README.md` files for additional details.
+
+1.	Clone this repository:
+
+	```console
+	$ git clone --recurse-submodules \
+	  https://github.com/idcrook/i-dotfiles.git \
+	  ~/.dotfiles
+	$ cd ~/.dotfiles
 	```
-	git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git \
-		~/.dotfiles
-	cd ~/.dotfiles
+
+1.	Install GNU `stow` config, after confirming home directory path in `~/.stowrc`
+
+	-	Covered with explicit details in each `README.md`
+
+	```console
+	$ stow -t ~ stow
 	```
-3.	Setup GNU `stow`, *inception style*:
-	-	probably need to first update home directory path in `~/.stowrc`
-	```
-	stow -t ~ stow
-	```
-4.	Install desired package via `stow <directory>` <sup id="a1">[1](#f1)</sup> 
-    - Covered with explicit details in each `README.md`, including any special install instructions.
 
-Background
-----------
-
-I used to manage my macOS/Linux/WSL dotfiles in a "`homedir.git`" repository. This left things to be desired, and syncing multiple platforms sometimes presented unresolvable conflicts. Now I use GNU Stow and this repository.
-
-*i-dotfiles is an opiniated dotfiles organization scheme based on stow. (Originally an implementation of [F-dotfiles](https://github.com/Kraymer/F-dotfiles)\) High priorities are ease-of-maintenance and deployment on both Linux and macOS.*
-
--	**`stow` powered:** symlink dotfiles and thus keep them always up-to-date in your repository
--	**topical organization:** organize dotfiles by application facilitating reuse across different machines
--	**naming scheme:** the repository architecture is easy to browse while staying compatible with `stow` symlinking mechanism
--	**KISS:** there is deliberately no build script involved at all, the repository consist of dotfiles all installable using same modus operandi (`stow <directory>`\)
--	**documentation:** each package has a *`README.md`* which present its purpose. Install notes and requirements can also be listed. a *`TODO.md`* may be enlisted to track things to be done.
-
-Inspired heavily by:
-
--	https://github.com/Kraymer/F-dotfiles
-	-	https://github.com/andschwa/dotfiles
-	-	http://dotfiles.github.io
-
+2.	Use `stow` to install desired package(s) via `stow <directory>` <sup id="a1">[1](#f1)</sup>
 
 Rules
 -----
 
-### Directories naming
+### Sub-Directory Naming
 
--	lowercase for packages to install in `$HOME` (the default)
--	titlecase for packages to install as root in `/`, eg[`@Daemon-macos`](https://github.com/Kraymer/F-dotfiles/blob/master/attic/@Daemon-osx)
--	leading `@` for environment packages and subpackages, eg[`@macos`](https://github.com/idcrook/i-dotfiles/blob/master/%40macos/)
--	leading `_` for non packages, eg [`_pip`](https://github.com/idcrook/i-dotfiles/blob/master/_pip) meaning that these directories must not be *stowed*
+-   *`lowercase`* - for packages to install in `$HOME` (the default)
 
-Having a convention for subpackage naming enable us to write a [`.stow-global-ignore`](https://github.com/idcrook/i-dotfiles/blob/master/stow/.stow-global-ignore#L6) file so that subpackages are not symlinked when stowing parent package.
+-	*`TitleCase`* - for packages which need `root` permissions, e.g. top-level of filesysyem at `/` [`@Daemon-macos`](https://github.com/Kraymer/F-dotfiles/blob/master/attic/@Daemon-osx)
+-	leading `@` - for environment packages and subpackages, e.g. [`@macos`](https://github.com/idcrook/i-dotfiles/blob/master/%40macos/)
+-	leading `_` - for non-`stow`-able packages, e.g. [`_pip`](https://github.com/idcrook/i-dotfiles/blob/master/_pip) which describes python package installation
+
+Having a convention for sub-package naming enables a [`.stow-global-ignore`](https://github.com/idcrook/i-dotfiles/blob/master/stow/.stow-global-ignore#L6) file such that sub-packages are not symlinked when stowing parent package.
 
 ### Ignore files
 
@@ -66,25 +58,47 @@ Quoting stow [documentation](https://www.gnu.org/software/stow/manual/html_node/
 
 > if Stow can create a single symlink that points to an entire subtree within the package tree, it will choose to do that rather than create a directory in the target tree and populate it with symlinks.
 
-`.gitignore` can be present in packages because of this behaviour, in order to avoid having your repository cluttered with unknown files
+Using `.gitignore` in packages because of this behaviour, can be useful for avoiding having this git repository cluttered with unknown files, when language package managers or App configs introduce files in certain directories.
 
 ### Secrets files
 
-Secrets files, ie files that should not be commited/published, must have `*.secrets*` or `*/secrets/*` in their filepath to be ignored by the root `.gitignore` file.
+Secrets files, i.e., files that should not be committed to git repository, must have `*.secrets*` or `*/secrets/*` in their filepath to be ignored by the root `.gitignore` file.
 
-Each *secrets* file should be accompanied by an `*.example*` file that is instead commited to repository, to illustrate the use.
+Each *secrets* file should be accompanied by an `*.example*` file that is, itself, instead commited to repository, to illustrate the contents.
 
-Keep your secrets files as short as possible to limit their influence as it complicates deployments (as they cannot be just pulled from github).
+Keep your secrets files as short as possible to limit their influence as it complicates deployments (as they are not available in the git repository).
 
 See [example](https://github.com/idcrook/i-dotfiles/blob/master/git/.config/git/config.secrets.example).
 
 ### Multi-platforms paths
 
-**Where to save a file that is installed at different locations depending on the OS ?**
+**Where to save a file that is installed at different locations depending on the OS?**
 
-The trick is to have one package per OS, just to create each specific directories structure properly. Then create the part of the filepath that is common to the two OS in `<package>/_common`, put the files in it, symlink from the subpackages to that location.
+The trick is to have one sub-package per OS, just to create each specific directory structure properly.
+
+Then create the part of the filepath that is common to the two OS-es in `<package>/_common`, put the files in it, symlink from the subpackages to that location.
 
 Feel confused ? Check [example](https://github.com/Kraymer/F-dotfiles/tree/master/_sublime_text_3/%40linux/.config/sublime-text-3)
+
+Background
+----------
+
+I used to manage my macOS/Linux/WSL *dotfiles* in an "`homedir.git`" repository that was directly overlayed. This left things to be desired, and syncing multiple platforms sometimes presented unresolvable conflicts. Now, I use GNU Stow and this repository instead.
+
+`i-dotfiles` is an opinionated dotfiles organization scheme based on stow. Its priorities are ease-of-maintenance and deployment on both Linux and macOS. It was created originally as an implementation of [F-dotfiles](https://github.com/Kraymer/F-dotfiles), borrowing its philosophy as follows:
+
+-	**`stow` powered:** symlink dotfiles and thus keep them always up-to-date in git repository
+-	**topical organization:** organize dotfiles by application facilitating reuse across different machines
+-	**naming schemas:** the repository architecture is easy to browse while staying compatible with `stow` symlinking mechanism
+-	**KISS:** there is deliberately no build script involved at all, the repository consist of dotfiles all installable using same modus operandi (`stow <directory>`\)
+-	**documentation:** each "package" directory has a *`README.md`* which presents its purpose. Install notes and requirements can be included. A separate  *`TODO.md`* may be enlisted to track things still to be implemented.
+
+Inspired heavily by:
+
+-	https://github.com/Kraymer/F-dotfiles
+-	https://github.com/andschwa/dotfiles
+-	http://dotfiles.github.io
+
 
 ---
 
