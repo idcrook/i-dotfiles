@@ -161,7 +161,8 @@ optp (){
 
 
 # Navigation -------------------------------------------------------
-alias o='cd ..'
+#alias o='cd ..' # stop using for this alias
+alias oi='cd ..'
 alias oo='cd ../..'
 alias ooo='cd ../../..'
 alias oooo='cd ../../../..'
