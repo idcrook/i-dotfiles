@@ -2,7 +2,6 @@
 
 # BASH aliases on macOS and Linux
 #
-# TODO: add graceful checks and fallbacks where applicable
 
 # meta-aliases
 alias sal='echo sourcing ~/.bash_aliases ; source ~/.bash_aliases'

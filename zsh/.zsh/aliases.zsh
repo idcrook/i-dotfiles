@@ -56,7 +56,6 @@ esac
 
 
 # https://stuff-things.net/2019/09/04/updated-emacs-open-with-line-numbers/
-# FIXME: add guard for $EMACSCLIENT not being set
 function ec () {
     setopt local_options KSH_ARRAYS BASH_REMATCH
     # Replace line numbers specified with <FILE>:n <FILE>:#Ln into the +n <FILE> emacs syntax

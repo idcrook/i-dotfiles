@@ -12,7 +12,6 @@ then
        path+=/snap/bin
     fi
 
-    # FIXME: make more zsh-ish
     if [ -d ~/bin/linux/containers ] ; then
         for d in $(cd ~/bin/linux/containers && ls -1d 2> /dev/null ) ; do
             if [[ $d == "." ]] ; then continue ; fi ;
