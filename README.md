@@ -12,13 +12,11 @@ Starting points:
 -	[Raspberry Pi OS](%40ubuntu/README-Raspbian.md) (based on Debian)
 -	[Ubuntu](%40ubuntu/README.md) variants including on [WSL2](%40ubuntu/README-Ubuntu-WSL2-20.04.md) or [Raspberry Pi](%40ubuntu/README-Ubuntu-on-RasPi.md)
 
-Additional installation instructions are present in respective `README.md` files.
-
 #### General Idea
 
-Assumes GNU `stow` is installed (usually via a package manager). It will generally go as follows.
+Refer to specific "Starting point" `README.md` files above for specific details.
 
-Refer to specific `README.md` files for additional details.
+Assumes `git` and GNU `stow` are available/installed (usually via a package manager). In general, it will go as follows:
 
 1.	Clone this repository:
 
@@ -29,15 +27,18 @@ Refer to specific `README.md` files for additional details.
 	$ cd ~/.dotfiles
 	```
 
-1.	Install GNU `stow` config, after confirming home directory path in `~/.stowrc`
-
-	-	Covered with explicit details in each `README.md`
+1.	Install GNU `stow` config itself
 
 	```console
 	$ stow -t ~ stow
 	```
 
+    **IMPORTANT**: Confirm that the hard-coded home directory path in `~/.stowrc` matches your system
+
 2.	Use `stow` to install desired package(s) via `stow <directory>` <sup id="a1">[1](#f1)</sup>
+
+	-	Additional installation instructions are present in respective package `README.md` files.
+
 
 Rules
 -----
