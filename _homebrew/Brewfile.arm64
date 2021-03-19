@@ -17,7 +17,7 @@ brew "cpanminus"
 brew "curl"
 brew "deno"
 brew "dos2unix"
-# brew "editorconfig" # no bottle 2021-Feb-17
+# brew "editorconfig" # no bottle 2021-Mar-19
 brew "emacs-plus"  args: ["with-elrumo2-icon"]
 brew "git"
 brew "go"
@@ -25,12 +25,13 @@ brew "htop"
 # brew "hub" # alias and completions stuff seems broken
 brew "imagemagick"
 brew "jq"
-# brew "kubernetes-cli" # no bottle 2021-Feb-17
+brew "kubernetes-cli"
 brew "mas"
 brew "mosh"
 brew "multimarkdown"
 # brew "nvm" # install using downloader
 brew "p7zip"
+# brew "pandoc" # no bottle 2021-Mar-19
 brew "pstree"
 brew "pv"
 # brew "python" # imagemagick dep
@@ -38,7 +39,7 @@ brew "rcs"
 brew "ripgrep"
 brew "rsync"
 brew "rustup-init"
-# brew "shellcheck" # no bottle 2021-Feb-17
+# brew "shellcheck" # no bottle 2021-Mar-19
 brew "stow"
 brew "the_silver_searcher"
 brew "tmux"
