@@ -2,7 +2,6 @@
 
 # BASH aliases on macOS and Linux
 #
-# TODO: add graceful checks and fallbacks where applicable
 
 # meta-aliases
 alias sal='echo sourcing ~/.bash_aliases ; source ~/.bash_aliases'
@@ -161,7 +160,8 @@ optp (){
 
 
 # Navigation -------------------------------------------------------
-alias o='cd ..'
+#alias o='cd ..' # stop using for this alias
+alias oi='cd ..'
 alias oo='cd ../..'
 alias ooo='cd ../../..'
 alias oooo='cd ../../../..'
