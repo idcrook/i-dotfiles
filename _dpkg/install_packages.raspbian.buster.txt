@@ -1,9 +1,12 @@
 # -*- sh -*-
 
 # bash zsh and utils
-sudo apt install -y screen molly-guard mosh dselect rcs \
+sudo apt install -y screen tmux mosh dselect rcs \
     vim keychain source-highlight jq shellcheck \
     zsh colordiff
+
+# Option: in case want protection from remote reboots, etc.
+sudo apt install -y molly-guard 
 
 # emacs (emacs26) and some dependencies
 sudo apt install -y emacs
@@ -23,6 +26,9 @@ sudo apt-get install hub
 
 # xdg-open for desktop environment
 sudo apt install xdg-utils
+
+# firefox ESR
+sudo apt install firefox-esr
 
 # espanso - not yet available for ARM
 #cd ~/Downloads

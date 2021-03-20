@@ -48,7 +48,7 @@ Cargo could also be used, but might as well use system packager where available.
 brew install ripgrep
 ```
 
-### macOS
+### Linux
 
 ```shell
 sudo apt install ripgrep

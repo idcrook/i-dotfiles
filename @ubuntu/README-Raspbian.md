@@ -1,10 +1,10 @@
 Install
 -------
 
-Installation on Raspberry Pi OS - Buster (c. Oct-2020)
+Installation on Raspberry Pi OS - Buster (c. Mar-2021)
 
 ```shell
-sudo apt install -y stow git openssh-server
+sudo apt install -y stow git 
 
 git clone --recurse-submodules \
     https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
@@ -18,6 +18,7 @@ vi  ~/.stowrc.hard
 mv -i ~/.stowrc.hard  ~/.stowrc
 
 cd @ubuntu
+# may need:  sudo rm /etc/apt/apt.conf.d/02proxy
 sudo stow -vv --target=/ @Apt
 
 cd ~/.dotfiles
@@ -64,30 +65,14 @@ cd ~/.dotfiles/_pip
 # ...
 cd ~/.dotfiles/_npm
 # ...
+cd ~/.dotfiles/golang
+# ...
 cd ~/.dotfiles/rustlang
 # ...
 
-# login from a new terminal
+# login from a new terminal (in GUI, may want to logout/back in first)
 emacs
 ```
-
-## Hardware Considerations
-
-[Automatic Fan SHIM Control](https://github.com/pimoroni/fanshim-python/blob/master/examples/README.md)
-
-Example
-```console
-mkdir ~/projects
-cd ~/projects
-git clone https://github.com/pimoroni/fanshim-python
-cd fanshim-python
-sudo apt install git python3-pip
-sudo ./install.sh
-cd examples/
-sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
-
-```
-
 
 Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
 -----------------------------------------------
@@ -116,3 +101,21 @@ Now run this command as described in man 7 keyboard:
 ```
 sudo udevadm trigger --subsystem-match=input --action=change
 ```
+
+## Hardware Considerations
+
+[Automatic Fan SHIM Control](https://github.com/pimoroni/fanshim-python/blob/master/examples/README.md)
+
+Example
+```console
+mkdir ~/projects
+cd ~/projects
+git clone https://github.com/pimoroni/fanshim-python
+cd fanshim-python
+sudo apt install git python3-pip
+sudo ./install.sh
+cd examples/
+sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
+
+```
+
