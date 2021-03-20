@@ -29,7 +29,7 @@ cp ~/.stowrc ~/.stowrc.hard
 vi  ~/.stowrc.hard
 mv -i ~/.stowrc.hard  ~/.stowrc
 
-cd @ubuntu
+cd @linux
 sudo stow -vv --target=/ @Apt
 
 # for emacs27 repo

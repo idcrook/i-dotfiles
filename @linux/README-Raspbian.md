@@ -4,7 +4,7 @@ Install
 Installation on Raspberry Pi OS - Buster (c. Mar-2021)
 
 ```shell
-sudo apt install -y stow git 
+sudo apt install -y stow git
 
 git clone --recurse-submodules \
     https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
@@ -17,7 +17,7 @@ cp ~/.stowrc ~/.stowrc.hard
 vi  ~/.stowrc.hard
 mv -i ~/.stowrc.hard  ~/.stowrc
 
-cd @ubuntu
+cd @linux
 # may need:  sudo rm /etc/apt/apt.conf.d/02proxy
 sudo stow -vv --target=/ @Apt
 
@@ -118,4 +118,3 @@ cd examples/
 sudo ./install-service.sh --on-threshold 65 --off-threshold 55 --delay 2
 
 ```
-

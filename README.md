@@ -9,8 +9,8 @@ Install
 Starting points:
 
 -	[macOS](%40macos/README-macos.md)
--	[Raspberry Pi OS](%40ubuntu/README-Raspbian.md) (based on Debian)
--	[Ubuntu](%40ubuntu/README.md) variants including on [WSL2](%40ubuntu/README-Ubuntu-WSL2-20.04.md) or [Raspberry Pi](%40ubuntu/README-Ubuntu-on-RasPi.md)
+-	[Raspberry Pi OS](%40linux/README-Raspbian.md) (based on Debian)
+-	[Ubuntu](%40linux/README.md) variants including on [WSL2](%40linux/README-Ubuntu-WSL2-20.04.md) or [Raspberry Pi](%40linux/README-Ubuntu-on-RasPi.md)
 
 #### General Idea
 

@@ -1,19 +1,19 @@
 Install
 -------
 
-Installation on fresh ubuntu 20.04
+Installation on Ubuntu 20.10 (arm64) Rasperry Pi Model 4B
 
 ```shell
-sudo apt install -y stow git
-# OPTIONAL: may be required: sudo apt install openssh-server
+sudo apt install -y stow git ssh
+
+# allows incoming SSH connections
+sudo systemctl enable --now ssh
 
 ssh-keygen -b 4096
-# Upload this SSH key to GitHub account # cat ~/.ssh/id_rsa.pub
-# and test # ssh -T git@github.com
-
-# Add locales, like, e.g., `en_US.UTF-8`
-sudo dpkg-reconfigure locales
-sudo dpkg-reconfigure tzdata
+# Upload this SSH key to GitHub account
+#     cat ~/.ssh/id_rsa.pub
+# and test
+#     ssh -T git@github.com
 
 git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
 # this requires SSH key on git account
@@ -27,13 +27,15 @@ cp ~/.stowrc ~/.stowrc.hard
 vi  ~/.stowrc.hard
 mv -i ~/.stowrc.hard  ~/.stowrc
 
-cd @ubuntu
+cd @linux
 sudo stow -vv --target=/ @Apt
 
 # for emacs27 - https://launchpad.net/~kelleyk/+archive/ubuntu/emacs
 sudo add-apt-repository ppa:kelleyk/emacs
+# until groovy is avail., change to focal
+sudo vi /etc/apt/sources.list.d/kelleyk-ubuntu-emacs-groovy.list
 
-sudo apt update # may be implicit
+sudo apt update
 
 # some files will be replaced /taken over in ~
 mkdir -p ~/backup
@@ -49,6 +51,7 @@ stow -vv shell
 ssh DONOR_HOST
 TARGET=host.local
 scp ~/.config/git/config.secrets  $TARGET:.dotfiles/git/.config/git/config.secrets
+scp ~/.dotfiles/homedir/.ansiweatherrc.secrets  $TARGET:.dotfiles/homedir/.ansiweatherrc.secrets
 scp ~/.dotfiles/homedir/.wakatime.cfg.secrets $TARGET:.dotfiles/homedir/.wakatime.cfg.secrets
 exit
 
@@ -69,69 +72,27 @@ stow -vv emacs
 
 stow -vv golang
 
+# snap is available on arm64
 stow -vv espanso
-# espanso README: manual install and custom settings (can skip for Non-Desktop env)
+# espanso README: manual install and custom settings
 
 cd ~/.dotfiles/_dpkg
-# ...  install_packages.ubuntu20.04.txt
+# ...  install_packages.ubuntu20.10.raspi.txt
 cd ~/.dotfiles/_pip
-# ...  packages3.ubuntu20.04.txt
+# ...  packages3.ubuntu20.10.raspi.txt
 cd ~/.dotfiles/_npm
 # ...
 
 # login from a new terminal
 emacs27 -nw
 
-cd ~/.dotfiles/golang
+cd  ~/.dotfiles/golang
 cat README.md
 # ...
 
 cd ~/.dotfiles/rustlang
 cat README.md
 # ...
-```
-
-Update GRUB config to save defaults
------------------------------------
-
-```diff
--GRUB_DEFAULT=0
-+#GRUB_DEFAULT=0
-+GRUB_DEFAULT=saved
-+GRUB_SAVEDEFAULT=true
- GRUB_TIMEOUT_STYLE=hidden
- GRUB_TIMEOUT=10
- GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
--GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-+#GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
- GRUB_CMDLINE_LINUX=""
-```
-
-Some older machines BIOS-es do not play well with the graphical splash screen on Ubuntu 20.04. Removing `splash` from the `GRUB_CMDLINE_LINUX_DEFAULT=` is only needed if Ubuntu spinner on the boot screen spins forever.
-
-```shell
-sudo update-grub2
-```
-
-Tell Ubuntu to play together if dual booting with Windows via BIOS RTC
-----------------------------------------------------------------------
-
-```shell
-timedatectl set-local-rtc 1 --adjust-system-clock
-timedatectl
-```
-
-Now should show:
-
-```
-“RTC in local TZ: yes”
-```
-
-and gives a verbose warning about UTC and local BIOS RTC. To revert to the standard Ubuntu behavior:
-
-```
-timedatectl set-local-rtc 0 --adjust-system-clock
 ```
 
 Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
@@ -159,4 +120,18 @@ Now run this command as described in man 7 keyboard:
 
 ```
 sudo udevadm trigger --subsystem-match=input --action=change
+```
+
+Fix for Visual Studio Code remote editting on large Git repos
+-------------------------------------------------------------
+
+-	["Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
+
+```console
+$ cat /proc/sys/fs/inotify/max_user_watches
+65536
+$ sudo vi /etc/sysctl.conf
+# add line to end of file
+fs.inotify.max_user_watches=524288
+$ sudo sysctl -p
 ```

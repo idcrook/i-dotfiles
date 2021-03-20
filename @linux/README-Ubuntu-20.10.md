@@ -1,7 +1,7 @@
 Install
 -------
 
-Installation on Ubuntu 20.10 (arm64) Rasperry Pi Model 4B
+Installation on Ubuntu 20.10 (amd64)
 
 ```shell
 sudo apt install -y stow git ssh
@@ -27,7 +27,7 @@ cp ~/.stowrc ~/.stowrc.hard
 vi  ~/.stowrc.hard
 mv -i ~/.stowrc.hard  ~/.stowrc
 
-cd @ubuntu
+cd @linux
 sudo stow -vv --target=/ @Apt
 
 # for emacs27 - https://launchpad.net/~kelleyk/+archive/ubuntu/emacs
@@ -72,12 +72,11 @@ stow -vv emacs
 
 stow -vv golang
 
-# snap is available on arm64
 stow -vv espanso
 # espanso README: manual install and custom settings
 
 cd ~/.dotfiles/_dpkg
-# ...  install_packages.ubuntu20.10.raspi.txt
+# ...  install_packages.ubuntu20.10.txt
 cd ~/.dotfiles/_pip
 # ...  packages3.ubuntu20.10.raspi.txt
 cd ~/.dotfiles/_npm
