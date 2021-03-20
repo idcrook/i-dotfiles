@@ -17,4 +17,4 @@ Install notes
 
 `arm/arm64`
 -	[Installation: Ubuntu 20.10 (arm64) on Raspberry Pi 4](README-Ubuntu-on-RasPi.md)
--	[Installation: Raspberry Pi OS - buster](README-Raspbian.md) - Formerly Raspbian
+-	[Installation: Raspberry Pi OS - buster](README-RasPiOS.md) - Formerly Raspbian

@@ -50,12 +50,12 @@ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 ```
 
 
-### Raspbian buster
+### Raspberry Pi OS buster
 
 Since we are using `--user` should not need to preface with `sudo`
 
 ```shell
-pip3 install --user --requirement packages3.raspbian.buster.txt
+pip3 install --user --requirement packages3.raspios.buster.txt
 ```
 
 ### Ubuntu 20.10 groovy on x86-64
