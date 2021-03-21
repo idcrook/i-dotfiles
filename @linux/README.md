@@ -4,7 +4,7 @@ apt config
 Install custom `apt` configs
 
 ```shell
-sudo stow --target=/ @Apt
+sudo stow -vv --target=/ @Apt
 ```
 
 Install notes
