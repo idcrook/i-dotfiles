@@ -5,6 +5,7 @@
 # https://stackoverflow.com/a/38276432
 
 # open --new -a /Applications/Emacs.app --args --debug-init
+# open -n -a /opt/homebrew/opt/emacs-plus/Emacs.app  --args --debug-init
 
 arch_name="$(uname -m)"
 
