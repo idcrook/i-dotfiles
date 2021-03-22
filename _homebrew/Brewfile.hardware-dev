@@ -9,6 +9,7 @@ cask "arduino"
 # cask "brl-cad-mged"
 cask "cura-lulzbot"
 # cask "dust3d"
+# for freecad openscad workbench: pip3 install --user ply
 cask "freecad"
 cask "fritzing"
 cask "kicad"
