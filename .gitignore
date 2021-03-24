@@ -5,6 +5,7 @@
 # /bin/
 .markdown-preview.html
 !README.md
+README.html
 !TODO.md
 !*example
 /Backup/

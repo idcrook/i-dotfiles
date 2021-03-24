@@ -3,6 +3,8 @@ My i-dotfiles
 
 `i-dotfiles` is an opinionated dotfiles organization scheme based on stow.
 
+Includes co-managed **emacs** [emacs.d](https://github.com/idcrook/.emacs.d) and **zsh** [zprezto](https://github.com/idcrook/prezto) repositories.
+
 Install
 -------
 
