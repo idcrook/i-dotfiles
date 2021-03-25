@@ -29,7 +29,7 @@ Ubuntu or Debian
 
 Via https://rustup.rs/
 
-Better: Set directly flag to not modify path in startup files
+Better: Directly set flag when using web installer to not modify path in startup files
 
 ```shell
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
@@ -44,23 +44,22 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 Rust Applications
 -----------------
 
-Cargo could also be used, but might as well use system packager where available.
+Cargo can be used, but might as well use system packager where available or if rust is not installed locally.
 
-## `ripgrep`
-
+`ripgrep`
+---------
 
 ```console
 $ cargo install ripgrep
 ```
 
-
-### macOS
+#### macOS
 
 ```shell
 brew install ripgrep
 ```
 
-### Linux
+#### Linux
 
 ```shell
 sudo apt install ripgrep
