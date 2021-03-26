@@ -1,4 +1,4 @@
-# -*- sh -*- # include this from .bashrc, .zshrc or
+# include this from .bashrc, .zshrc or
 # another shell startup file with:
 #   source $HOME/.shellfishrc
 
@@ -50,6 +50,28 @@ if [[ "$LC_TERMINAL" = "ShellFish" ]]; then
     fi
     printST
   }
+  
+  # quicklook is called with filenames as
+  # arguments. Alternatively you can pipe
+  # in text and call it without arguments
+  quicklook() {
+    printOSC
+    awk 'BEGIN {printf "6;quicklook://?pwd="}'
+    printURIComponent "$PWD"
+    awk 'BEGIN {printf "&home="}'
+    printURIComponent "$HOME"
+    for var in "$@"
+    do
+      awk 'BEGIN {printf "&path="}'
+      printURIComponent "$var"
+    done
+    if [[ $# -eq 0 ]]; then
+      text=$(cat -)
+      awk 'BEGIN {printf "&text="}'
+      printURIComponent "$text"
+    fi
+    printST
+  }
 
   textastic() {
     if [[ $# -eq 0 ]]; then
@@ -70,7 +92,7 @@ EOF
       printST
     fi
   }
-
+  
   openUrl() {
     if [[ $# -eq 0 ]]; then
       cat <<EOF
@@ -117,7 +139,7 @@ EOF
       printST
     fi
   }
-
+  
   # copy standard input or arguments to iOS clipboard
   pbcopy() {
     printOSC
@@ -129,9 +151,15 @@ EOF
     fi
     printST
   }
-
+  
   # Secure ShellFish supports 24-bit colors
   export COLORTERM=truecolor
+  
+  # tmux mouse mode enables scrolling with
+  # two-finger swipe and mouse wheel
+  if [[ -n "$TMUX" ]]; then
+      tmux set -g mouse on
+  fi
 
   # send the current directory using OSC 7
   # when showing prompt to make filename
