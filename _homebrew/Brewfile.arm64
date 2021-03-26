@@ -80,6 +80,7 @@ cask "joplin"
 cask "keycastr"
 cask "mark-text"
 cask "omnidisksweeper"
+cask "onyx"
 # #cask "plex" # install manually
 cask "sf-symbols"
 # cask "spyder
@@ -89,6 +90,8 @@ cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
 #MISSING# cask "xact"
+# installer wants password
+cask "zoom"
 mas "1Blocker", id: 1365531024
 mas "1Keyboard", id: 766939888
 mas "1Password 7", id: 1333542190
