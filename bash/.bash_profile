@@ -266,9 +266,9 @@ fi
 # perl local modules
 # https://metacpan.org/pod/local::lib
 if [ -d $HOME/perl5/lib/perl5 ] ; then
-    # sets PERL5LIB and others
-    eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
-    # should warn that it is already in PATH
+    # sets PERL5LIB and local::lib related
+    eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+    # above eval command should already place in PATH
     pathappend $HOME/perl5/bin
 fi
 
