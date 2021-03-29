@@ -33,8 +33,13 @@ brew bundle --file=Brewfile.rosetta
 
 # on Intel Mac
 brew bundle --file=Brewfile.intelsilicon
+```
 
+Now install interesting groupings of applications.
+
+```
 # inspect directory for other app bundles
+brew bundle --verbose --file=Brewfile.safariextensions
 brew bundle --verbose --file=Brewfile.xcode-dev
 brew bundle --verbose --file=Brewfile.cpp-dev
 brew bundle --verbose --file=Brewfile.hardware-dev
