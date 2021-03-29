@@ -1,2 +1,2 @@
 Brewfile.lock.json
-*dev.lock.json
+*.lock.json
