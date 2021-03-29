@@ -6,35 +6,39 @@ tap "homebrew/command-not-found"
 # tap "homebrew/core"
 # tap "homebrew/services"
 tap "federico-terzi/espanso"
-brew "bash"
-brew "bash-completion@2"
+tap d12frosted/emacs-plus
+brew "archey"
+# brew "bash"
+# brew "bash-completion@2"
+# brew "brightness"
 brew "colordiff"
-brew "coreutils"
+brew "coreutils" # PATH="/opt/homebrew/opt/coreutils/libexec/gnubin" for non-g prefix
 brew "cpanminus"
 brew "curl"
 brew "dos2unix"
-brew "editorconfig"
+# brew "editorconfig" # no bottle 2021-Mar-29
+brew "emacs-plus"  args: ["with-elrumo2-icon", "with-xwidgets"]
 brew "git"
 brew "go"
 brew "htop"
-# brew "hub"
+# brew "hub" # alias and completions stuff seems broken
 brew "imagemagick"
 brew "jq"
-brew "keychain"
+# brew "keychain"
 brew "kubernetes-cli"
 brew "mas"
 brew "mosh"
 brew "multimarkdown"
-# brew "nvm"
 brew "p7zip"
+# brew "pandoc" # no bottle 2021-Mar-19
 brew "pstree"
 brew "pv"
-brew "python"
+brew "python" # currently python@3.9
 brew "rcs"
 brew "ripgrep"
 brew "rsync"
 brew "rustup-init"
-brew "shellcheck"
+# brew "shellcheck" # no bottle 2021-Mar-19
 # brew "ssh-copy-id", link: true
 brew "stow"
 brew "the_silver_searcher"
@@ -46,14 +50,15 @@ brew "yamllint"
 brew "youtube-dl"
 brew "zsh-completions"
 brew "federico-terzi/espanso/espanso"
-# cask "airfoil"
-cask "amazon-music"
+cask "acorn"
+cask "airfoil"
+# cask "amazon-music" # 2021-Mar-03 The current OS X version is not supported
 cask "appzapper"
 cask "balenaetcher"
 cask "beardedspice"
 cask "discord"
-#cask "emacs"  # use emacs-plus formula
-#cask "firefox"
+# cask "emacs" # use emacs-plus formula
+# cask "firefox" # install manually
 cask "font-cascadia-mono-pl"
 cask "font-dejavu-sans-mono-nerd-font"
 cask "font-hack-nerd-font"
@@ -68,7 +73,7 @@ cask "free42-decimal"
 cask "grandperspective"
 # cask "hammerspoon"
 cask "hermes"
-cask "icanhazshortcut"  # 2021-Mar-03 app needs to be updated
+# cask "icanhazshortcut"
 cask "iina"
 cask "imageoptim"
 cask "iterm2"
@@ -76,14 +81,17 @@ cask "joplin"
 cask "keycastr"
 cask "mark-text"
 cask "omnidisksweeper"
-#cask "plex"
+# cask "onyx"
 cask "sf-symbols"
+# cask "spyder
 cask "transmission"
 cask "transmit"
 cask "visual-studio-code"
-# arm64 # cask "vlc"
+cask "vlc"
 cask "vnc-viewer"
 #MISSING# cask "xact"
+# installer wants password
+cask "zoom"
 mas "1Blocker", id: 1365531024
 mas "1Keyboard", id: 766939888
 mas "1Password 7", id: 1333542190

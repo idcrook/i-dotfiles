@@ -12,34 +12,34 @@ brew "archey"
 # brew "bash-completion@2"
 # brew "brightness"
 brew "colordiff"
-brew "coreutils" # PATH="/opt/homebrew/opt/coreutils/libexec/gnubin" for non-g prefix
+brew "coreutils" # PATH="/usr/local/opt/coreutils/libexec/gnubin" for non-g prefix
 brew "cpanminus"
 brew "curl"
-brew "deno"
 brew "dos2unix"
-# brew "editorconfig" # no bottle 2021-Mar-19
-brew "emacs-plus"  args: ["with-elrumo2-icon"]
+brew "editorconfig"
+brew "emacs-plus"  args: ["with-elrumo2-icon", "with-xwidgets"]
 brew "git"
 brew "go"
 brew "htop"
 # brew "hub" # alias and completions stuff seems broken
 brew "imagemagick"
 brew "jq"
+# brew "keychain"
 brew "kubernetes-cli"
 brew "mas"
 brew "mosh"
 brew "multimarkdown"
-# brew "nvm" # install using downloader
 brew "p7zip"
-# brew "pandoc" # no bottle 2021-Mar-19
+# brew "pandoc"
 brew "pstree"
 brew "pv"
-# brew "python" # imagemagick dep
+brew "python" # currently python@3.9
 brew "rcs"
 brew "ripgrep"
 brew "rsync"
 brew "rustup-init"
-# brew "shellcheck" # no bottle 2021-Mar-19
+brew "shellcheck"
+# brew "ssh-copy-id", link: true
 brew "stow"
 brew "the_silver_searcher"
 brew "tmux"
@@ -50,14 +50,15 @@ brew "yamllint"
 brew "youtube-dl"
 brew "zsh-completions"
 brew "federico-terzi/espanso/espanso"
+cask "acorn"
 cask "airfoil"
-# cask "amazon-music" # 2021-Mar-03 The current OS X version is not supported
+cask "amazon-music"
 cask "appzapper"
 cask "balenaetcher"
 cask "beardedspice"
 cask "discord"
-# #cask "emacs" # use emacs-plus formula
-# #cask "firefox" # install manually
+# cask "emacs" # use emacs-plus formula
+# cask "firefox" # install manually
 cask "font-cascadia-mono-pl"
 cask "font-dejavu-sans-mono-nerd-font"
 cask "font-hack-nerd-font"
@@ -70,9 +71,9 @@ cask "font-ubuntu-mono-nerd-font"
 cask "forklift"
 cask "free42-decimal"
 cask "grandperspective"
-cask "hammerspoon"
+# cask "hammerspoon"
 cask "hermes"
-# cask "icanhazshortcut" # 2021-Mar-03 app needs to be updated
+# cask "icanhazshortcut"
 cask "iina"
 cask "imageoptim"
 cask "iterm2"
@@ -80,8 +81,7 @@ cask "joplin"
 cask "keycastr"
 cask "mark-text"
 cask "omnidisksweeper"
-cask "onyx"
-# #cask "plex" # install manually
+# cask "onyx"
 cask "sf-symbols"
 # cask "spyder
 cask "transmission"
