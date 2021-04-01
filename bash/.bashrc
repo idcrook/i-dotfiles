@@ -74,6 +74,8 @@ if [ -f /usr/local/bin/src-hilite-lesspipe.sh ] ; then
     export LESS=' -R '
 fi
 
+os_name="$(uname -s)" # like OSTYPE
+
 # bash-completion will automatically source file ~/.bash_completion
 # Ubuntu : sudo apt install bash-completion
 # macOS: brew install bash-completion@2 (BASH 4.1+)
@@ -89,7 +91,7 @@ if [ -f $HOME/projects/vcpkg/scripts/vcpkg_completion.bash ] ; then
 fi
 
 # # some Mac OS X specific checks
-# if [  "$(uname -s)" == 'Darwin' ]
+# if [  "${os_name}" == 'Darwin' ]
 # then
 #     ### http://brettterpstra.com/2014/05/10/bash-and-dash/
 
@@ -109,7 +111,7 @@ fi
 # fi
 
 # nvm - node version manager
-if [ "$(uname -s)" == 'Darwin' ] ; then
+if [ "${os_name}" == 'Darwin' ] ; then
     # brew info nvm
     if [ -z $NVM_DIR ] ; then
         # mkdir -p ~/.nvm
@@ -162,7 +164,7 @@ export PS4='+'     # Prompt 4
 # prompt
 
 # only source if we are a smarter shell (and on macOS, for now)
-if [ "$(uname -s)" == 'Darwin' ]
+if [ "${os_name}" == 'Darwin' ]
 then
     # # https://www.iterm2.com/documentation-tmux-integration.html
     # export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=1
@@ -226,6 +228,14 @@ export VISUAL=$EDITOR
 # set up python for interactive
 if [ -f "$HOME"/.pystartup ]; then
     export PYTHONSTARTUP=$HOME/.pystartup
+fi
+
+if [[ "${os_name}" == 'Linux' ]] ; then
+    # source local configurations if found
+    if [[ -r "$shell_config/env.ANY-linux.sh" ]]; then
+        # shellcheck disable=1090
+        source "$shell_config/env.ANY-linux.sh"
+    fi
 fi
 
 # source local configurations if found
