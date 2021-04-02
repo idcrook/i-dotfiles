@@ -23,9 +23,9 @@ See https://golang.org/dl/ for latest version. There are currently ARMv6 and ARM
 
 ```console
 $ cd ~/Downloads/
-$ wget https://golang.org/dl/go1.16.2.linux-armv6l.tar.gz
-$ sha256sum go1.16.2.linux-armv6l.tar.gz
-$ sudo tar -C /usr/local -xzf go1.16.2.linux-armv6l.tar.gz
+$ wget https://golang.org/dl/go1.16.3.linux-armv6l.tar.gz
+$ sha256sum go1.16.3.linux-armv6l.tar.gz
+$ sudo tar -C /usr/local -xzf go1.16.3.linux-armv6l.tar.gz
 ```
 
 The above commands will install into `/usr/local/go/bin`
