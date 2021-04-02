@@ -7,7 +7,7 @@ On macOS
 --------
 
 ```shell
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | zsh
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38/install.sh | zsh
 ```
 
 On Linux
@@ -15,7 +15,7 @@ On Linux
 
 ```shells
 # $XDG_CONFIG_HOME instead with nvm v0.37+ # mkdir -p ~/.nvm
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38/install.sh | bash
 ```
 
 Source a new shell and install a node version
