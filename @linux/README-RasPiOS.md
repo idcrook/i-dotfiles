@@ -74,6 +74,19 @@ cd ~/.dotfiles/rustlang
 emacs
 ```
 
+`lxterminal` login shell
+-------------------
+
+For whatever reason, there is not a Setting in `lxterminal` (the default terminal app in RasPiOS) to launch a shell as a *login* shell. However, the man page for it has a command line argument for it.
+
+So, in Applications menu, right-click on the Terminal menu item `Applications > Accessories > Terminal` and select `Properties` in the popup.
+
+Then, in the application propoerties dialog, in the *Desktop Entry* Tab, for the **Command:**, append `--loginshell`.
+
+Other options for `lxterminal` can be found by `man lxterminal`
+
+
+
 Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
 -----------------------------------------------
 
@@ -102,11 +115,13 @@ Now run this command as described in man 7 keyboard:
 sudo udevadm trigger --subsystem-match=input --action=change
 ```
 
-## Hardware Considerations
+Hardware Considerations
+-----------------------
 
 [Automatic Fan SHIM Control](https://github.com/pimoroni/fanshim-python/blob/master/examples/README.md)
 
 Example
+
 ```console
 mkdir ~/projects
 cd ~/projects
