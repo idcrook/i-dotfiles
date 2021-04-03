@@ -2,18 +2,20 @@
 
 # bash zsh and utils
 sudo apt install -y screen tmux mosh dselect rcs \
-    vim keychain source-highlight jq shellcheck \
-    zsh colordiff
+     vim keychain source-highlight jq shellcheck \
+     zsh colordiff
 
 # Option: in case want protection from remote reboots, etc.
-sudo apt install -y molly-guard 
+sudo apt install -y molly-guard
 
 # emacs (emacs26) and some dependencies
-sudo apt install -y emacs
-    imagemagick-6.q16 silversearcher-ag \
-    python3-pip python3-venv python3-virtualenv python3-dev python3-wheel \
-    fonts-powerline fonts-inconsolata fonts-ubuntu fonts-symbola \
-    fonts-dejavu fonts-hack
+sudo apt install -y emacs \
+     imagemagick-6.q16 silversearcher-ag \
+     python3-pip python3-venv python3-virtualenv python3-dev python3-wheel \
+     fonts-powerline fonts-inconsolata fonts-ubuntu fonts-symbola \
+     fonts-dejavu fonts-hack
+
+# emacs27 can instead be built from source
 
 # using nvm, no need for "system" node package manager
 # sudo apt install npm
@@ -24,13 +26,22 @@ sudo apt install -y emacs
 # github hub - https://hub.github.com
 sudo apt-get install hub
 
+# #  cnf
+# sudo apt install command-not-found
+# sudo apt-file update
+# sudo update-command-not-found
+
 # xdg-open for desktop environment
 sudo apt install xdg-utils
+
+# Option: in case want a GUI to ask for passwd (Desktop)
+sudo apt install ssh-askpass
 
 # firefox ESR
 sudo apt install firefox-esr
 
-# espanso - not yet available for ARM
+# espanso - https://github.com/federico-terzi/espanso
+# not yet available for ARM
 #cd ~/Downloads
 #wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-debian-amd64.deb
 #sudo apt install ./espanso-debian-amd64.deb
