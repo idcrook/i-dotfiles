@@ -11,8 +11,8 @@
 # 	name = Github User
 # 	email = github-user@users.noreply.github.com
 
-[credential]
-	helper = osxkeychain
+# [credential]
+# 	helper = osxkeychain
 
 [merge]
   tool = ediff
