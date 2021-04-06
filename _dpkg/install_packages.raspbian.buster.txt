@@ -34,6 +34,9 @@ sudo apt-get install hub
 # xdg-open for desktop environment
 sudo apt install xdg-utils
 
+# screenshot util (for desktop environment)
+sudo apt install gnome-screenshot
+
 # Option: in case want a GUI to ask for passwd (Desktop)
 sudo apt install ssh-askpass
 
