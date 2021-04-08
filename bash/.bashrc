@@ -230,11 +230,25 @@ if [ -f "$HOME"/.pystartup ]; then
     export PYTHONSTARTUP=$HOME/.pystartup
 fi
 
+# environment variables
+if [[ -r "$shell_config/env.ANY-any.sh" ]]; then
+  # shellcheck disable=1090
+  source "$shell_config/env.ANY-any.sh"
+fi
+
 if [[ "${os_name}" == 'Linux' ]] ; then
     # source local configurations if found
     if [[ -r "$shell_config/env.ANY-linux.sh" ]]; then
         # shellcheck disable=1090
         source "$shell_config/env.ANY-linux.sh"
+    fi
+fi
+
+if [[ "${os_name}" == 'Darwin' ]] ; then
+    # source local configurations if found
+    if [[ -r "$shell_config/env.ANY-macos.sh" ]]; then
+        # shellcheck disable=1090
+        source "$shell_config/env.ANY-macos.sh"
     fi
 fi
 
