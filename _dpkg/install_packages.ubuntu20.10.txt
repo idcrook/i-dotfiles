@@ -24,13 +24,16 @@ sudo apt install trimage
 # xdg-open
 sudo apt install xdg-utils
 
-# other desktop utlis
+# other desktop utils
 sudo apt install gnome-tweaks
 # gnome-tweaks: Windows -> Window Focus : [x] Secondary-Click
 # gnome-tweaks: Keyboard and Mouse -> Keyboard : Enable 'Emacs Input'
 # gnome-tweaks: Keyboard and Mouse -> Keyboard : [Additional Layout Options]
 #               Ctrl position : [x] Caps Lock as Ctrl
 # gnome-tweaks: Keyboard and Mouse -> Mouse:  Acceleration Profile [Adaptive]
+
+# so that screen sharing (aka VNC) will be found in Settings > Sharing
+sudo apt install vino
 
 # golang - https://github.com/golang/go/wiki/Ubuntu
 sudo apt install golang-1.15 golang-go
