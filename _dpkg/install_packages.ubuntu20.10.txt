@@ -2,7 +2,7 @@
 
 # bash zsh and utils
 sudo apt install -y screen molly-guard mosh dselect rcs \
-     keychain source-highlight jq shellcheck curl \
+     keychain source-highlight jq shellcheck curl tree \
      zsh colordiff
 
 # some emacs dependencies
