@@ -1,10 +1,10 @@
 # -*- conf -*-
 # https://www.emacswiki.org/emacs/GnuScreen#toc1
 ## Control-^ (usually Control-Shift-6) is traditional and the only key not used by emacs
-escape ^^^^
+#escape ^^^^
 
-# use C-a to switch back to other window
-bind ^a other
+## use C-a to switch back to other window
+#bind ^a other
 
 # save many lines in scrollback buffer
 scrollback 5000
