@@ -18,3 +18,11 @@ __pycache__
 /virtualenv
 /titlecase
 /runxlrd.py
+/readelf.py
+/espefuse.py
+/espsecure.py
+/esptool.py
+/futurize
+/pasteurize
+/pyserial-miniterm
+/pyserial-ports
