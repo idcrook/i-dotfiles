@@ -26,3 +26,10 @@ __pycache__
 /pasteurize
 /pyserial-miniterm
 /pyserial-ports
+/adafruit-nrfutil
+/bin2hex.py
+/hex2bin.py
+/hex2dump.py
+/hexdiff.py
+/hexinfo.py
+/hexmerge.py
