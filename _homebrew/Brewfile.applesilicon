@@ -83,6 +83,7 @@ cask "mark-text"
 cask "netnewswire"
 cask "omnidisksweeper"
 # cask "onyx"
+cask "raspberry-pi-imager"
 cask "sf-symbols"
 # cask "spyder
 cask "transmission"
