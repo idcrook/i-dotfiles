@@ -15,18 +15,15 @@ sudo apt install -y imagemagick-6.q16 silversearcher-ag \
      fonts-dejavu fonts-hack
 
 # install emacs26
-sudo apt install emacs 
-# emacs27 can be built from source
-# or by snap
-sudo apt update
-sudo apt install snapd
-sudo reboot
-sudo snap install emacs --classic
+#sudo apt install emacs
 
-# using nvm, no need for "system" node package manager
+# emacs27 can be built from source
+# SEE https://github.com/idcrook/.emacs.d/blob/main/site-lisp/BUILD.md
+
+# # using nvm, no need for "system" node package manager
 # sudo apt install npm
 
-# golang - See ~/.dotfiles/golang/README.md
+# # golang - See ~/.dotfiles/golang/README.md
 #sudo apt install -y golang-go
 
 # github hub - https://hub.github.com

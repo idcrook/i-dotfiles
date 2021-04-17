@@ -67,7 +67,7 @@ stow -vv golang
 
 cd ~/.dotfiles/_dpkg
 # ... refer to README.md contained therein
-cat install_packages.raspbian.buster.txt
+less install_packages.raspbian.buster.txt
 
 cd ~/.dotfiles/_pip
 # ...

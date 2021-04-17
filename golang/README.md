@@ -52,7 +52,7 @@ go get -u github.com/jingweno/ccat
 
 ```shell
 go get -d -v github.com/moorereason/mdfmt
-cd ~/go/src/github.com/moorereason/mdfmt
+# cd ~/go/src/github.com/moorereason/mdfmt
 GO111MODULE=on  go get github.com/gohugoio/hugo@v0.49.2
 GO111MODULE=on  go get -v github.com/moorereason/mdfmt
 ```
