@@ -11,9 +11,6 @@
 # 	name = Github User
 # 	email = github-user@users.noreply.github.com
 
-# [credential]
-# 	helper = osxkeychain
-
 [merge]
   tool = ediff
 [mergetool "ediff"]
@@ -29,8 +26,6 @@
 	smudge = git hawser smudge %f
 	required = true
 
-[push]
-	default = matching
 [core]
 	excludesfile = ~/.gitignore_global
 [diff "ansible-vault"]
@@ -66,9 +61,14 @@
         h     = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
         short = log --pretty=format:'%h %cr %cN %Cgreen%s%Creset'
 #        bullets = log --pretty=format:' * %s %e %N'
+# [credential]
+# 	helper = osxkeychain
 [color]
 	ui = true
-#[pull]
-#	rebase = true
 [init]
 	defaultBranch = main
+[pull]
+#	rebase = true
+	rebase = false
+[push]
+	default = matching
