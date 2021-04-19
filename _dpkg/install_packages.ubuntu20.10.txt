@@ -1,8 +1,8 @@
 # -*- sh -*-
 
 # bash zsh and utils
-sudo apt install -y screen molly-guard mosh dselect rcs \
-     keychain source-highlight jq shellcheck curl tree \
+sudo apt install -y screen tmux molly-guard mosh dselect rcs \
+     git-lfs keychain source-highlight jq shellcheck curl tree \
      zsh colordiff
 
 # some emacs dependencies

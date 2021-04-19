@@ -4,47 +4,37 @@
 [include]
     path = ~/.config/git/config.secrets
 
+[core]
+	excludesfile = ~/.gitignore_global
+
 # Customize the following in secrets file; see config.secrets.example
 #
-# [github]
 # [user]
-# 	name = Github User
-# 	email = github-user@users.noreply.github.com
+#         name =
+#         email =
+
+# [github]
+#     user =
+#     oauth-token =
 
 [merge]
   tool = ediff
 [mergetool "ediff"]
   cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
 
-[filter "media"]
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+	process = git-lfs filter-process
 
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+# [credential]
+# 	helper = osxkeychain
 
-[core]
-	excludesfile = ~/.gitignore_global
 [diff "ansible-vault"]
     textconv = ansible-vault view
     # Do not cache the vault contents
     cachetextconv = false
-# [merge "ansible-vault"]
-#     name = ansible-vault merge driver
-#     driver = /usr/local/bin/ansible-vault-merge -- %O %A %B %P
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
 [alias]
 	co = checkout
         finda = "!grepalias() { git config --global --get-regexp alias | grep -i \"$1\" | awk -v nr=2 '{sub(/^alias\\./,\"\")};{printf \"\\033[31m%10s\\033[1;37m\", $1};{sep=FS};{for (x=nr; x<=NF; x++) {printf \"%s%s\", sep, $x; }; print \"\\033[0;39m\"}'; }; grepalias"
@@ -61,8 +51,6 @@
         h     = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
         short = log --pretty=format:'%h %cr %cN %Cgreen%s%Creset'
 #        bullets = log --pretty=format:' * %s %e %N'
-# [credential]
-# 	helper = osxkeychain
 [color]
 	ui = true
 [init]
