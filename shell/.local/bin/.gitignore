@@ -33,3 +33,4 @@ __pycache__
 /hexdiff.py
 /hexinfo.py
 /hexmerge.py
+/yapf-diff

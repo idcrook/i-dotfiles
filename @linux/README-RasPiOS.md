@@ -20,9 +20,10 @@ mv -i ~/.stowrc.hard  ~/.stowrc
 cd @linux
 # may need:  sudo rm /etc/apt/apt.conf.d/02proxy
 sudo stow -vv --target=/ @Apt
+sudo apt update
 
 cd ~/.dotfiles
-stow git
+stow -vv git
 
 stow -vv shell
 
@@ -30,6 +31,8 @@ stow -vv shell
 ssh DONOR_HOST
 
 export TARGET=pi@raspberrypi.local
+ssh-copy-id $TARGET
+
 scp ~/.config/git/config.secrets                $TARGET:.dotfiles/git/.config/git/config.secrets
 scp ~/.dotfiles/homedir/.ansiweatherrc.secrets  $TARGET:.dotfiles/homedir/.ansiweatherrc.secrets
 scp ~/.dotfiles/homedir/.wakatime.cfg.secrets   $TARGET:.dotfiles/homedir/.wakatime.cfg.secrets
@@ -40,15 +43,18 @@ mkdir -p ~/backup
 
 mv ~/{.bash_logout,.bashrc,.profile} ~/backup
 ( cd ~ && mv .bash_aliases .bash_profile .inputrc .powerline-shell.json .bash_completion.d/ backup/ )
-mkdir -p ~/.local/{bin,lib}
+#mkdir -p ~/.local/{bin,lib}
+
+cd ~/.dotfiles
 
 stow -vv bash zsh
 
 mv ~/.pystartup ~/backup/
-stow python
+stow -vv python
 
-mv .wakatime.cfg .ansiweatherrc .editorconfig .screenrc .tmux.conf ~/backup/
-stow homedir
+( cd ~ && mv .wakatime.cfg .ansiweatherrc .editorconfig .screenrc .tmux.conf ~/backup/ )
+
+stow -vv homedir
 
 mv ~/.emacs.d ~/backup/
 stow -vv emacs
@@ -61,6 +67,8 @@ stow -vv golang
 
 cd ~/.dotfiles/_dpkg
 # ... refer to README.md contained therein
+less install_packages.raspbian.buster.txt
+
 cd ~/.dotfiles/_pip
 # ...
 cd ~/.dotfiles/_npm

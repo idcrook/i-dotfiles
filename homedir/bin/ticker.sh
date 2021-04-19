@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-
-# requires BASH interpreter
-
 set -e
 
-LANG=en_US.UTF-8
+LANG=C
+LC_NUMERIC=C
 
 SYMBOLS=("$@")
 
@@ -14,7 +12,7 @@ if ! $(type jq > /dev/null 2>&1); then
 fi
 
 if [ -z "$SYMBOLS" ]; then
-  echo "Usage: ./ticker.sh AAPL MSFT GOOG BTCUSD=X"
+  echo "Usage: ./ticker.sh AAPL MSFT GOOG BTC-USD"
   exit
 fi
 
@@ -22,43 +20,47 @@ FIELDS=(symbol marketState regularMarketPrice regularMarketChange regularMarketC
   preMarketPrice preMarketChange preMarketChangePercent postMarketPrice postMarketChange postMarketChangePercent)
 API_ENDPOINT="https://query1.finance.yahoo.com/v7/finance/quote?lang=en-US&region=US&corsDomain=finance.yahoo.com"
 
-COLOR_BOLD='\e[1;37m'
-COLOR_GREEN='\e[32m'
-COLOR_RED='\e[31m'
-COLOR_RESET='\e[00m'
+if [ -z "$NO_COLOR" ]; then
+  : "${COLOR_BOLD:=\e[1;37m}"
+  : "${COLOR_GREEN:=\e[32m}"
+  : "${COLOR_RED:=\e[31m}"
+  : "${COLOR_RESET:=\e[00m}"
+fi
 
 symbols=$(IFS=,; echo "${SYMBOLS[*]}")
 fields=$(IFS=,; echo "${FIELDS[*]}")
-
-#echo "fields=$fields"
-#echo "symbols=$symbols"
 
 results=$(curl --silent "$API_ENDPOINT&fields=$fields&symbols=$symbols" \
   | jq '.quoteResponse .result')
 
 query () {
-  echo $results | jq -r ".[] | select (.symbol == \"$1\") | .$2"
+  echo $results | jq -r ".[] | select(.symbol == \"$1\") | .$2"
 }
 
-for symbol in $(IFS=' '; echo "${SYMBOLS[*]}"); do
-  if [ -z "$(query $symbol 'marketState')" ]; then
+for symbol in $(IFS=' '; echo "${SYMBOLS[*]}" | tr '[:lower:]' '[:upper:]'); do
+  marketState="$(query $symbol 'marketState')"
+
+  if [ -z $marketState ]; then
     printf 'No results for symbol "%s"\n' $symbol
     continue
   fi
 
-  if [ $(query $symbol 'marketState') == "PRE" ] \
-    && [ "$(query $symbol 'preMarketChange')" != "0" ] \
-    && [ "$(query $symbol 'preMarketChange')" != "null" ]; then
+  preMarketChange="$(query $symbol 'preMarketChange')"
+  postMarketChange="$(query $symbol 'postMarketChange')"
+
+  if [ $marketState == "PRE" ] \
+    && [ $preMarketChange != "0" ] \
+    && [ $preMarketChange != "null" ]; then
     nonRegularMarketSign='*'
     price=$(query $symbol 'preMarketPrice')
-    diff=$(query $symbol 'preMarketChange')
+    diff=$preMarketChange
     percent=$(query $symbol 'preMarketChangePercent')
-  elif [ $(query $symbol 'marketState') != "REGULAR" ] \
-    && [ "$(query $symbol 'postMarketChange')" != "0" ] \
-    && [ "$(query $symbol 'postMarketChange')" != "null" ]; then
+  elif [ $marketState != "REGULAR" ] \
+    && [ $postMarketChange != "0" ] \
+    && [ $postMarketChange != "null" ]; then
     nonRegularMarketSign='*'
     price=$(query $symbol 'postMarketPrice')
-    diff=$(query $symbol 'postMarketChange')
+    diff=$postMarketChange
     percent=$(query $symbol 'postMarketChangePercent')
   else
     nonRegularMarketSign=''
@@ -67,7 +69,7 @@ for symbol in $(IFS=' '; echo "${SYMBOLS[*]}"); do
     percent=$(query $symbol 'regularMarketChangePercent')
   fi
 
-  if [ "$diff" == "0" ]; then
+  if [ "$diff" == "0" ] || [ "$diff" == "0.0" ]; then
     color=
   elif ( echo "$diff" | grep -q ^- ); then
     color=$COLOR_RED
@@ -75,7 +77,9 @@ for symbol in $(IFS=' '; echo "${SYMBOLS[*]}"); do
     color=$COLOR_GREEN
   fi
 
-  printf "%-10s$COLOR_BOLD%8.2f$COLOR_RESET" $symbol $price
-  printf "$color%10.2f%12s$COLOR_RESET" $diff $(printf "(%.2f%%)" $percent)
-  printf " %s\n" "$nonRegularMarketSign"
+  if [ "$price" != "null" ]; then
+    printf "%-10s$COLOR_BOLD%8.2f$COLOR_RESET" $symbol $price
+    printf "$color%10.2f%12s$COLOR_RESET" $diff $(printf "(%.2f%%)" $percent)
+    printf " %s\n" "$nonRegularMarketSign"
+  fi
 done

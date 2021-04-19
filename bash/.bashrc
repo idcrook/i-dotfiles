@@ -225,6 +225,13 @@ else
 fi
 export VISUAL=$EDITOR
 
+# golang: handle non-login shell and tarball install in /usr/local
+if ! command -v go &> /dev/null ; then
+    if [[ -d /usr/local/go/bin ]] ; then
+        PATH="${PATH:+"$PATH:"}/usr/local/go/bin"
+    fi
+fi
+
 # set up python for interactive
 if [ -f "$HOME"/.pystartup ]; then
     export PYTHONSTARTUP=$HOME/.pystartup
