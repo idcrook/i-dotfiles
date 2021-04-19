@@ -28,6 +28,7 @@
 	required = true
 	process = git-lfs filter-process
 
+# set in $(brew --prefix)/etc/gitconfig
 # [credential]
 # 	helper = osxkeychain
 
