@@ -19,6 +19,7 @@ brew "dos2unix"
 # brew "editorconfig" # no bottle 2021-Mar-29
 brew "emacs-plus"  args: ["with-elrumo2-icon", "with-xwidgets"]
 brew "git"
+brew "git-lfs"
 brew "go"
 brew "htop"
 # brew "hub" # alias and completions stuff seems broken
