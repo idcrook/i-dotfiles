@@ -161,10 +161,10 @@ optp (){
 
 # Navigation -------------------------------------------------------
 #alias o='cd ..' # stop using for this alias
-alias oi='cd ..'
-alias oii='cd ../..'
-alias oiii='cd ../../..'
-alias oiiii='cd ../../../..'
+alias ui='cd ..'
+alias uii='cd ../..'
+alias uiii='cd ../../..'
+alias uiiii='cd ../../../..'
 alias vf='cd'  # common typo
 
 alias pu='pushd'

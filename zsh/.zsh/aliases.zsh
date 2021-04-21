@@ -72,10 +72,10 @@ function ec () {
 # Navigation -------------------------------------------------------
 # comment out to unmask zprezto utility module "open" alias
 #alias o='cd ..'
-alias oi='cd ..'
-alias oii='cd ../..'
-alias oiii='cd ../../..'
-alias oiiii='cd ../../../..'
+alias ui='cd ..'
+alias uii='cd ../..'
+alias uiii='cd ../../..'
+alias uiiii='cd ../../../..'
 
 # set an explicit alias for Intel-based Homebrew; assumes macOS install
 if [ -x "$(command -v brew)" ]; then
