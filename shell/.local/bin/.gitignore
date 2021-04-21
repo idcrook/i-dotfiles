@@ -16,6 +16,7 @@ __pycache__
 /markdown_py
 /pygmentize
 /virtualenv
+/pbr
 /virtualenv-clone
 /virtualenvwrapper.sh
 /virtualenvwrapper_lazy.sh
