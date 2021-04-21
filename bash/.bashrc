@@ -237,6 +237,14 @@ if [ -f "$HOME"/.pystartup ]; then
     export PYTHONSTARTUP=$HOME/.pystartup
 fi
 
+# set up virtualenvwrapper
+if [ -d "$HOME"/.virtualenvs/ ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+else
+    mkdir -p "$HOME"/.virtualenvs/
+    export WORKON_HOME=$HOME/.virtualenvs
+fi
+
 # environment variables
 if [[ -r "$shell_config/env.ANY-any.sh" ]]; then
   # shellcheck disable=1090

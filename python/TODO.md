@@ -1,4 +1,4 @@
-Python TODO
+Python
 ===========
 
 1.	Configure linters and code formatters
@@ -9,9 +9,3 @@ Python TODO
 	-	yapf
 	-	jedi
 	-	autopep8
-
-2.	Add examples of `pyenv`
-
-	-	Linux
-	-	macOS
-	-	virtualenv plugins

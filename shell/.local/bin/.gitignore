@@ -16,6 +16,9 @@ __pycache__
 /markdown_py
 /pygmentize
 /virtualenv
+/virtualenv-clone
+/virtualenvwrapper.sh
+/virtualenvwrapper_lazy.sh
 /titlecase
 /runxlrd.py
 /readelf.py

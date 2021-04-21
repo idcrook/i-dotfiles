@@ -3,6 +3,8 @@ Emacs .emacs.d
 
 Introduced separate [`.emacs.d`](https://github.com/idcrook/.emacs.d) repository as git submodule
 
+See locally here: [.emacs.d](.emacs.d/#readme)
+
 Using
 -----
 
@@ -13,21 +15,30 @@ Using
 Install emacs
 =============
 
-macOS : emacs via homebrew casks
---------------------------------
+On emacss, there is a shell wrapper `Emacs.sh` (`~/bin/macos/`) for launching `emacs`
 
-there is a shell wrapper `Emacs.sh`
+macOS Option 1: Build emacs via emacs-plus formula
+--------------------------------------------------
 
-### Install emacs cask
+Works best on Apple Silicon Macs (until cask supports native Apple Silicon)
+
+```shell
+brew reinstall emacs-plus --with-xwidgets --with-elrumo2-icon
+```
+
+macOS Option 2: emacs via homebrew cask
+---------------------------------------
+
+Works best on Intel silicon Macs
+
+```bash
+brew install --cask emacs
+#  /Applications/Emacs.app
+```
 
 from https://emacsformacosx.com/
 
-As of 2020-Aug-12 `emacs27.1` build
-
-```bash
-brew cask install emacs
-#  /Applications/Emacs.app
-```
+As of 2021-Apr-21 `emacs27.2-2` build
 
 Ubuntu
 ------

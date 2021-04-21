@@ -8,3 +8,4 @@ wakatime
 yapf
 yamllint
 grip # preview GitHub README.md
+virtualenvwrapper

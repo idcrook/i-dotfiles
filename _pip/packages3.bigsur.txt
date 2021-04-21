@@ -1,13 +1,16 @@
+# checkers and wrappers for emacs
 autopep8
 black
 flake8
 jedi
-powerline-shell
-pyflakes
-wakatime
 yapf
 yamllint
+virtualenvwrapper
+grip # preview GitHub README.md
+# time tracking
+wakatime
+# other scripts may rely on these
 click
 titlecase
-#virtualenv # python3-virtualenv
-grip # preview GitHub README.md
+# bash prompt
+powerline-shell
