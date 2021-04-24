@@ -3,6 +3,12 @@
 # slicers and related
 sudo apt install -y slic3r cura cura-engine gpx
 
+cat /etc/apt/sources.list.d/openscad.list
+# # Ubuntu 21.04 (x86_64, aarch64)
+# deb https://download.opensuse.org/repositories/home:/t-paul/xUbuntu_21.04/ ./
+
+sudo apt update
+
 # design tools (3d modeling or CAD)
 sudo apt install -y blender \
      freecad librecad \
