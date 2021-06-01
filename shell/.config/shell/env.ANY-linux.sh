@@ -32,9 +32,3 @@ fi
 # mode: sh
 # eval: (sh-set-shell "bash")
 # End:
-
-
-# Local Variables:
-# mode: sh
-# eval: (sh-set-shell "bash")
-# End:
