@@ -4,73 +4,133 @@
 
 # this script does nothing outside ShellFish
 if [[ "$LC_TERMINAL" = "ShellFish" ]]; then
-  printURIComponent() {
+  ios_printURIComponent() {
     awk 'BEGIN {while (y++ < 125) z[sprintf("%c", y)] = y
     while (y = substr(ARGV[1], ++j, 1))
     q = y ~ /[a-zA-Z0-9]/ ? q y : q sprintf("%%%02X", z[y])
     printf("%s", q)}' "$1"
   }
-
-  printOSC() {
-    if [[ -n "$TMUX" ]]; then
-      awk 'BEGIN {printf "\033Ptmux;\033\033]"}'
+  
+  which printf > /dev/null
+  ios_hasPrintf=$?
+  ios_printf() {
+    if [ $ios_hasPrintf ]; then
+      printf "$1"
     else
-      awk 'BEGIN {printf "\033]"}'
+      awk "BEGIN {printf \"$1\"}"
     fi
   }
 
-  printST() {
+  ios_printOSC() {
     if [[ -n "$TMUX" ]]; then
-      awk 'BEGIN {printf "\a\033\\"}'
+      ios_printf '\033Ptmux;\033\033]'
     else
-      awk 'BEGIN {printf "\a"}'
+      ios_printf '\033]'
     fi
   }
 
-  # sharesheet should be called with
-  # filenames as arguments that will open
-  # in system sharesheet. Alternatively you
-  # can pipe in text and call it without
-  # arguments
-  sharesheet() {
-    printOSC
-    awk 'BEGIN {printf "6;sharesheet://?pwd="}'
-    printURIComponent "$PWD"
-    awk 'BEGIN {printf "&home="}'
-    printURIComponent "$HOME"
-    for var in "$@"
-    do
-      awk 'BEGIN {printf "&path="}'
-      printURIComponent "$var"
-    done
-    if [[ $# -eq 0 ]]; then
-      text=$(cat -)
-      awk 'BEGIN {printf "&text="}'
-      printURIComponent "$text"
+  ios_printST() {
+    if [[ -n "$TMUX" ]]; then
+      ios_printf '\a\033\\'
+    else
+      ios_printf '\a'
     fi
-    printST
   }
   
-  # quicklook is called with filenames as
-  # arguments. Alternatively you can pipe
-  # in text and call it without arguments
-  quicklook() {
-    printOSC
-    awk 'BEGIN {printf "6;quicklook://?pwd="}'
-    printURIComponent "$PWD"
+  # prepare fifo for communicating result back to shell
+  ios_prepareResult() {
+    FIFO=$(mktemp)
+    rm -f $FIFO
+    mkfifo $FIFO
+    echo $FIFO
+  }
+    
+  # wait for terminal to complete action
+  ios_handleResult() {
+    FIFO=$1
+    if [ -n "$FIFO" ]; then
+      read <$FIFO -s
+      rm -f $FIFO
+    
+      if [[ $REPLY = error* ]]; then
+        echo "${REPLY#error=}" | base64 >&2 -d
+        return 1
+      fi
+  
+      if [[ $REPLY = result* ]]; then
+        echo "${REPLY#result=}" | base64 -d
+      fi
+    fi
+  }
+
+  sharesheet() {
+      if [[ $# -eq 0 ]]; then
+        if tty -s; then
+          cat <<EOF
+Usage: sharesheet [FILE]...
+
+Present share sheet for files and directories. Alternatively you can pipe in text and call it without arguments.
+
+If arguments exist inside the Files app changes made are written back to the server.
+EOF
+        return 0
+      fi
+    fi
+
+    FIFO=$(ios_prepareResult)
+    ios_printOSC
+    awk 'BEGIN {printf "6;sharesheet://?respond="}'
+    ios_printURIComponent "$FIFO"
+    awk 'BEGIN {printf "&pwd="}'
+    ios_printURIComponent "$PWD"
     awk 'BEGIN {printf "&home="}'
-    printURIComponent "$HOME"
+    ios_printURIComponent "$HOME"
     for var in "$@"
     do
       awk 'BEGIN {printf "&path="}'
-      printURIComponent "$var"
+      ios_printURIComponent "$var"
     done
     if [[ $# -eq 0 ]]; then
       text=$(cat -)
       awk 'BEGIN {printf "&text="}'
-      printURIComponent "$text"
+      ios_printURIComponent "$text"
     fi
-    printST
+    ios_printST
+    ios_handleResult "$FIFO"
+  }
+  
+  quicklook() {
+    if [[ $# -eq 0 ]]; then
+      if tty -s; then
+            cat <<EOF
+Usage: quicklook [FILE]...
+
+Show QuickLook preview for files and directories. Alternatively you can pipe in text and call it without arguments.
+EOF
+        return 0
+      fi
+    fi
+  
+    FIFO=$(ios_prepareResult)
+    ios_printOSC
+    awk 'BEGIN {printf "6;quicklook://?respond="}'
+    ios_printURIComponent "$FIFO"
+    awk 'BEGIN {printf "&pwd="}'
+    ios_printURIComponent "$PWD"
+    awk 'BEGIN {printf "&home="}'
+    ios_printURIComponent "$HOME"
+    for var in "$@"
+    do
+      awk 'BEGIN {printf "&path="}'
+      ios_printURIComponent "$var"
+    done
+    if [[ $# -eq 0 ]]; then
+      text=$(cat -)
+      awk 'BEGIN {printf "&text="}'
+      ios_printURIComponent "$text"
+    fi
+    ios_printST
+    ios_handleResult "$FIFO"
   }
 
   textastic() {
@@ -82,14 +142,17 @@ Open in Textastic 9.5 or later.
 File must be in directory represented in the Files app to allow writing back edits.
 EOF
     else
-      printOSC
+      if [ ! -e "$1" ]; then
+        touch "$1"
+      fi
+      ios_printOSC
       awk 'BEGIN {printf "6;textastic://?pwd="}'
-      printURIComponent "$PWD"
+      ios_printURIComponent "$PWD"
       awk 'BEGIN {printf "&home="}'
-      printURIComponent "$HOME"
+      ios_printURIComponent "$HOME"
       awk 'BEGIN {printf "&path="}'
-      printURIComponent "$1"
-      printST
+      ios_printURIComponent "$1"
+      ios_printST
     fi
   }
   
@@ -101,25 +164,35 @@ Usage: openUrl <url>
 Open URL on iOS.
 EOF
     else
-      printOSC
-      awk 'BEGIN {printf "6;open://?url="}'
-      printURIComponent "$1"
-      printST
+      FIFO=$(ios_prepareResult)
+      ios_printOSC
+      awk 'BEGIN {printf "6;open://?respond="}'
+      ios_printURIComponent "$FIFO"
+      awk 'BEGIN {printf "&url="}'
+      ios_printURIComponent "$1"
+      ios_printST
+      ios_handleResult "$FIFO"
     fi
   }
 
   runShortcut() {
+    local baseUrl="shortcuts://run-shortcut"
+    if [[ $1 == "--x-callback" ]]; then
+        local baseUrl="shortcuts://x-callback-url/run-shortcut"
+        shift
+    fi
+
     if [[ $# -eq 0 ]]; then
       cat <<EOF
-Usage: runShortcut <shortcut-name> [input-for-shortcut]
+Usage: runShortcut [--x-callback] <shortcut-name> [input-for-shortcut]
 
-Run in Shortcuts app.
+Run in Shortcuts app bringing back results if --x-callback is included.
 EOF
     else
-      local name=$(printURIComponent "$1")
+      local name=$(ios_printURIComponent "$1")
       shift
-      local input=$(printURIComponent "$*")
-      openUrl "shortcuts://run-shortcut?name=$name&input=$input"
+      local input=$(ios_printURIComponent "$*")
+      openUrl "$baseUrl?name=$name&input=$input"
     fi
   }
 
@@ -133,47 +206,46 @@ Title cannot contain semicolon.
 EOF
     else
       local title="${1-}" body="${2-}"
-      printOSC
+      ios_printOSC
       echo $title | awk -F";" 'BEGIN {printf "777;notify;"} {printf "%s;", $1}'
       echo $body
-      printST
+      ios_printST
     fi
   }
-  
+
   # copy standard input or arguments to iOS clipboard
   pbcopy() {
-    printOSC
+    ios_printOSC
     awk 'BEGIN {printf "52;c;"} '
     if [ $# -eq 0 ]; then
       base64 | tr -d '\n'
     else
       echo -n "$@" | base64 | tr -d '\n'
     fi
-    printST
+    ios_printST
   }
-  
+
   # Secure ShellFish supports 24-bit colors
   export COLORTERM=truecolor
   
-  # tmux mouse mode enables scrolling with
-  # two-finger swipe and mouse wheel
-  if [[ -n "$TMUX" ]]; then
+  if [[ -z "$INSIDE_EMACS" && $- = *i* ]]; then
+    # tmux mouse mode enables scrolling with
+    # two-finger swipe and mouse wheel
+    if [[ -n "$TMUX" ]]; then
       tmux set -g mouse on
-  fi
+    fi
 
-  # send the current directory using OSC 7
-  # when showing prompt to make filename
-  # detection work better
-  if [ -z "$INSIDE_EMACS" ]; then
+    # send the current directory using OSC 7 when showing prompt to
+    # make filename detection work better for interactive shell
     update_terminal_cwd() {
-      printOSC
+      ios_printOSC
       awk "BEGIN {printf \"7;%s\", \"file://$HOSTNAME\"}"
-      printURIComponent "$PWD"
-      printST
+      ios_printURIComponent "$PWD"
+      ios_printST
     }
     if [ -n "$ZSH_VERSION" ]; then
       precmd() { update_terminal_cwd; }
-    else
+    elif [[ $PROMPT_COMMAND != *"update_terminal_cwd"* ]]; then
       PROMPT_COMMAND="update_terminal_cwd${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
     fi
   fi
