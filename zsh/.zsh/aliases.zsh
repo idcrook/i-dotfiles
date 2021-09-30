@@ -29,6 +29,12 @@ case "$OSTYPE" in
         # Use Marked 2.app for .md files (a suffix alias)
         alias -s md="open -a 'Marked 2.app'"
 
+        # https://harmtemolder.com/read-qr-codes-from-your-mac-screen/
+        # Select area of screen to decode info from contained qrcode to STDOUT
+        # - zbarimg: brew zbar
+        # - shred: brew coreutils
+        alias read-qr='screencapture -i $TMPDIR/screencapture.bmp && zbarimg -q --raw $TMPDIR/screencapture.bmp; shred -u $TMPDIR/screencapture.bmp'
+
         # open
         # USAGE
         #      ne somefile:line
