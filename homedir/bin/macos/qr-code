@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Generates a temporary QR code and opens it in preview
+#     Usage:   qr-code TEXT
+#     Example: qr-code https://www.google.com
+
+# Requires brew qrencode
+# Inspired by https://gist.github.com/BPScott/5412821
+
+# First parameter: DATA
+QRCODE_DATA="${1:-https://example.com}"
+
+# Set a default foreground color. to override QRCODE_FG_COLOR=000000 qr-code ...
+QRCODE_FG_COLOR="${QRCODE_FG_COLOR:-bc1142}"
+
+if [ -z "${1}" ]; then
+    echo "WARNING: Expected TEXT argument. Using default value of $QRCODE_DATA"
+fi
+
+
+# the --size= (PIXELS) and --symversion= (NUMBER) are currently hard-coded
+qrencode --foreground="${QRCODE_FG_COLOR}" --size=6 --symversion=4 -o - "$QRCODE_DATA" | open -f -a Preview
