@@ -11,6 +11,10 @@ if [[ "$LC_TERMINAL" = "ShellFish" ]]; then
     printf("%s", q)}' "$1"
   }
   
+  ios_printBase64Component() {
+    echo -n "$1" | base64 >&2
+  }
+  
   which printf > /dev/null
   ios_hasPrintf=$?
   ios_printf() {
@@ -79,21 +83,21 @@ EOF
 
     FIFO=$(ios_prepareResult)
     ios_printOSC
-    awk 'BEGIN {printf "6;sharesheet://?respond="}'
-    ios_printURIComponent "$FIFO"
+    awk 'BEGIN {printf "6;sharesheet://?ver=2&respond="}'
+    ios_printBase64Component "$FIFO"
     awk 'BEGIN {printf "&pwd="}'
-    ios_printURIComponent "$PWD"
+    ios_printBase64Component "$PWD"
     awk 'BEGIN {printf "&home="}'
-    ios_printURIComponent "$HOME"
+    ios_printBase64Component "$HOME"
     for var in "$@"
     do
       awk 'BEGIN {printf "&path="}'
-      ios_printURIComponent "$var"
+      ios_printBase64Component "$var"
     done
     if [[ $# -eq 0 ]]; then
       text=$(cat -)
       awk 'BEGIN {printf "&text="}'
-      ios_printURIComponent "$text"
+      ios_printBase64Component "$text"
     fi
     ios_printST
     ios_handleResult "$FIFO"
@@ -113,21 +117,21 @@ EOF
   
     FIFO=$(ios_prepareResult)
     ios_printOSC
-    awk 'BEGIN {printf "6;quicklook://?respond="}'
-    ios_printURIComponent "$FIFO"
+    awk 'BEGIN {printf "6;quicklook://?ver=2&respond="}'
+    ios_printBase64Component "$FIFO"
     awk 'BEGIN {printf "&pwd="}'
-    ios_printURIComponent "$PWD"
+    ios_printBase64Component "$PWD"
     awk 'BEGIN {printf "&home="}'
-    ios_printURIComponent "$HOME"
+    ios_printBase64Component "$HOME"
     for var in "$@"
     do
       awk 'BEGIN {printf "&path="}'
-      ios_printURIComponent "$var"
+      ios_printBase64Component "$var"
     done
     if [[ $# -eq 0 ]]; then
       text=$(cat -)
       awk 'BEGIN {printf "&text="}'
-      ios_printURIComponent "$text"
+      ios_printBase64Component "$text"
     fi
     ios_printST
     ios_handleResult "$FIFO"
@@ -146,12 +150,12 @@ EOF
         touch "$1"
       fi
       ios_printOSC
-      awk 'BEGIN {printf "6;textastic://?pwd="}'
-      ios_printURIComponent "$PWD"
+      awk 'BEGIN {printf "6;textastic://?ver=2&pwd="}'
+      ios_printBase64Component "$PWD"
       awk 'BEGIN {printf "&home="}'
-      ios_printURIComponent "$HOME"
+      ios_printBase64Component "$HOME"
       awk 'BEGIN {printf "&path="}'
-      ios_printURIComponent "$1"
+      ios_printBase64Component "$1"
       ios_printST
     fi
   }
@@ -166,10 +170,10 @@ EOF
     else
       FIFO=$(ios_prepareResult)
       ios_printOSC
-      awk 'BEGIN {printf "6;open://?respond="}'
-      ios_printURIComponent "$FIFO"
+      awk 'BEGIN {printf "6;open://?ver=2&respond="}'
+      ios_printBase64Component "$FIFO"
       awk 'BEGIN {printf "&url="}'
-      ios_printURIComponent "$1"
+      ios_printBase64Component "$1"
       ios_printST
       ios_handleResult "$FIFO"
     fi
@@ -230,7 +234,7 @@ EOF
   
   if [[ -z "$INSIDE_EMACS" && $- = *i* ]]; then
     # tmux mouse mode enables scrolling with
-    # two-finger swipe and mouse wheel
+    # swipe and mouse wheel
     if [[ -n "$TMUX" ]]; then
       tmux set -g mouse on
     fi
