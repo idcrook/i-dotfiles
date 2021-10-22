@@ -1,0 +1,36 @@
+# -*- sh -*-
+
+# slicers and related
+#sudo apt install -y slic3r cura cura-engine gpx
+sudo snap install cura-slicer
+
+# viewers
+sudo apt install -y fstl
+
+# design tools (3d modeling or CAD)
+sudo apt install -y --install-recommends openscad
+sudo apt install -y blender \
+     freecad librecad \
+     meshlab
+# rec-s
+# graphics and figures
+sudo apt install --install-recommends gimp inkscape inkscape-tutorials \
+     xfig xfig-doc graphviz potrace
+# also: dia python-scour python3-scour scour
+
+# PCB design - https://kicad-pcb.org/download/ubuntu/
+sudo add-apt-repository ppa:kicad/kicad-5.1-releases
+sudo apt update
+sudo apt install --install-recommends kicad
+# If you want demo projects
+sudo apt install kicad-demos
+# see also librepcbm gEDA
+
+# Hobbyist electronics
+sudo apt install fritzing
+#sudo apt install --install-recommends qelectrotech
+
+# diskspace eater (around 4GB) for TeX, etc.
+#sudo apt install texlive-full lyx dot2tex asymptote
+# rec: fonts-freefont
+#  auctex emacs-common-non-dfsg asymptote-x11
