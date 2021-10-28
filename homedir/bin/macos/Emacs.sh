@@ -1,11 +1,15 @@
 #!/bin/bash
 #!/bin/bash -x
 
-# Adapted from
-# https://stackoverflow.com/a/38276432
+# Adapted from https://stackoverflow.com/a/38276432
+#
+# EMACSPATH : .../Emacs.app/Contents/MacOS
+# EMACSPATH_BIN : Location (directory) of binaries like emacsclient
+# EMACS_WRAPPER_OR_BIN : Actual Emacs.app macOS binary
 
 # open --new -a /Applications/Emacs.app --args --debug-init
 # open -n -a /opt/homebrew/opt/emacs-plus/Emacs.app  --args --debug-init
+# open -n -a /opt/homebrew/opt/emacs-plus@28/Emacs.app  --args --debug-init
 
 arch_name="$(uname -m)"
 
@@ -30,9 +34,18 @@ if [ "${arch_name}" = "x86_64" ]; then
     fi
 
 elif [ "${arch_name}" = "arm64" ]; then
+    # for Homebrew d12frosted/emacs-plus builds --with-xwidgets
 
-    # these are for Homebrew d12frosted/emacs-plus
-    EMACSPATH=/opt/homebrew/opt/emacs-plus/Emacs.app/Contents/MacOS
+    # next release Emacs 28 --with-native-comp
+    if [ -d /opt/homebrew/opt/emacs-plus@28/Emacs.app/ ] ; then
+        EMACSPATH=/opt/homebrew/opt/emacs-plus@28/Emacs.app/Contents/MacOS
+    # latest "released", currently Emacs 27
+    elif [ -d  /opt/homebrew/opt/emacs-plus/Emacs.app/ ] ; then
+        EMACSPATH=/opt/homebrew/opt/emacs-plus/Emacs.app/Contents/MacOS
+    # fall back to any (usually symlinked) Emacs 27
+    elif [ -d /Applications/Emacs.app/ ] ; then
+        EMACSPATH=/Applications/Emacs.app/Contents/MacOS
+    fi
 
     EMACSPATH_BIN="${EMACSPATH}/../../../bin"
     #EMACSPATH_BIN="/opt/homebrew/opt/emacs-plus/bin"
