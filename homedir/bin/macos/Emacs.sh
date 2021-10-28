@@ -17,20 +17,26 @@ arch_name="$(uname -m)"
 # (by checking to see if it will evaluate a lisp statement)
 
 if [ "${arch_name}" = "x86_64" ]; then
+    # for Homebrew d12frosted/emacs-plus builds --with-xwidgets
 
-    # these are for Homebrew emacs cask http://emacsformacosx.com
-    EMACSPATH=/Applications/Emacs.app/Contents/MacOS
-
-    EMACSPATH_BIN="${EMACSPATH}/bin"
-    if [[ ! -d "${EMACSPATH_BIN}" ]] ; then
-        if [[ -d "${EMACSPATH}/bin-x86_64-10_14" ]] ; then
-            EMACSPATH_BIN="${EMACSPATH}/bin-x86_64-10_14"
+    # next release Emacs 28 --with-native-comp
+    if [ -d /usr/local/opt/emacs-plus@28/Emacs.app/ ] ; then
+        EMACSPATH=/usr/local/opt/emacs-plus@28/Emacs.app/Contents/MacOS
+        EMACSPATH_BIN="${EMACSPATH}/../../../bin"
+        EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
+    # for Homebrew emacs cask http://emacsformacosx.com
+    elif [ -d /Applications/Emacs.app/ ] ; then
+        EMACSPATH=/Applications/Emacs.app/Contents/MacOS
+        EMACSPATH_BIN="${EMACSPATH}/bin"
+        if [[ ! -d "${EMACSPATH_BIN}" ]] ; then
+            if [[ -d "${EMACSPATH}/bin-x86_64-10_14" ]] ; then
+                EMACSPATH_BIN="${EMACSPATH}/bin-x86_64-10_14"
+            fi
         fi
-    fi
-
-    EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
-    if [[ ! -x "${EMACSPATH}"/Emacs-x86_64-10_14 ]] ; then
-        EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs-x86_64-10_14
+        EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
+        if [[ ! -x "${EMACSPATH}"/Emacs-x86_64-10_14 ]] ; then
+            EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs-x86_64-10_14
+        fi
     fi
 
 elif [ "${arch_name}" = "arm64" ]; then
