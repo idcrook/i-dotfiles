@@ -1,8 +1,8 @@
-# -*- conf-unix -*-
+# -*- gitconfig -*-
 
 # Local/private config goes in the include
 [include]
-    path = ~/.config/git/config.secrets
+	path = ~/.config/git/config.secrets
 
 [core]
 	excludesfile = ~/.gitignore_global
@@ -18,9 +18,9 @@
 #     oauth-token =
 
 [merge]
-  tool = ediff
+	tool = ediff
 [mergetool "ediff"]
-  cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+	cmd = emacsclient -c -a \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -33,25 +33,38 @@
 # 	helper = osxkeychain
 
 [diff "ansible-vault"]
-    textconv = ansible-vault view
-    # Do not cache the vault contents
-    cachetextconv = false
+	textconv = ansible-vault view
+	# Do not cache the vault contents
+	cachetextconv = false
+
+# This file is not considered --global "config"; only ~/.gitconfig seems to be
+#  git config --list --show-origin
 [alias]
 	co = checkout
-        finda = "!grepalias() { git config --global --get-regexp alias | grep -i \"$1\" | awk -v nr=2 '{sub(/^alias\\./,\"\")};{printf \"\\033[31m%10s\\033[1;37m\", $1};{sep=FS};{for (x=nr; x<=NF; x++) {printf \"%s%s\", sep, $x; }; print \"\\033[0;39m\"}'; }; grepalias"
-        r = remote -v
-        unstage = reset HEAD
-        uncommit = reset --soft HEAD^
-        type = cat-file -t
-        dump = cat-file -p
-        diffc = diff --cached
-        filelog = log -u
-        l = log --graph --date=short
-        changes = log --oneline --reverse
-        files = log --pretty=format:'%h %cr %cN %Cgreen%s%Creset' --name-status
-        h     = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-        short = log --pretty=format:'%h %cr %cN %Cgreen%s%Creset'
-#        bullets = log --pretty=format:' * %s %e %N'
+	st = status
+	r = remote -v
+	finda = "!grepalias() { git config --get-regexp alias | grep -i \"$1\" | awk -v nr=2 '{sub(/^alias\\./,\"\")};{printf \"\\033[31m%10s\\033[1;37m\", $1};{sep=FS};{for (x=nr; x<=NF; x++) {printf \"%s%s\", sep, $x; }; print \"\\033[0;39m\"}'; }; grepalias"
+	# unstage = reset HEAD
+	unstage = reset HEAD --
+	uncommit = reset --soft HEAD^
+	revertfile = checkout --
+	type = cat-file -t
+	dump = cat-file -p
+	diffc = diff --cached
+	filelog = log -u
+	l = log --graph --date=short
+	changes = log --oneline --reverse
+	files = log --pretty=format:'%h %cr %cN %Cgreen%s%Creset' --name-status
+	h     = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	short = log --pretty=format:'%h %cr %cN %Cgreen%s%Creset'
+	# git smartlog -3
+	smartlog = log --graph --pretty=format:'commit: %C(bold red)%h%Creset %C(red)<%H>%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd %Creset%C(yellow)%cr%Creset%nauthor: %C(bold blue)%an%Creset %C(blue)<%ae>%Creset%n%C(cyan)%s%n%Creset'
+	sl = !git smartlog
+	log-commit = log -1 --pretty=format:'commit: %C(bold red)%h%Creset %C(red)<%H>%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd %Creset%C(yellow)%cr%Creset%nauthor: %C(bold blue)%an%Creset %C(blue)<%ae>%Creset%n%n%C(bold cyan)%s%n%n%C(cyan)%b%n%Creset'
+# usage
+	logcm  = !git log-commit
+	bullets = log --pretty=format:' * %s %e %N'
+	authorlist = shortlog -e -s -n
 [color]
 	ui = true
 [init]
