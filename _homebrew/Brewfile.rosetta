@@ -1,5 +1,1 @@
-brew "editorconfig" # no bottle 2021-Apr-27
-brew "pandoc" # no bottle 2021-Apr-27
-brew "shellcheck" # no bottle 2021-Apr-27
-cask "amazon-music" # 2021-Mar-03 The current OS X version is not supported
-cask "icanhazshortcut" # 2021-Mar-03 app needs to be updated
+cask "amazon-music" # 2021-Nov-01: The current OS X version is not supported

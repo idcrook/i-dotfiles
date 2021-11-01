@@ -16,7 +16,7 @@ brew "coreutils" # PATH="/opt/homebrew/opt/coreutils/libexec/gnubin" for non-g p
 brew "cpanminus"
 brew "curl"
 brew "dos2unix"
-# brew "editorconfig" # no bottle 2021-Mar-29
+brew "editorconfig"
 brew "emacs-plus"  args: ["with-elrumo2-icon", "with-xwidgets"]
 brew "git"
 brew "git-lfs"
@@ -31,7 +31,7 @@ brew "mas"
 brew "mosh"
 brew "multimarkdown"
 brew "p7zip"
-# brew "pandoc" # no bottle 2021-Mar-19
+brew "pandoc"
 brew "pstree"
 brew "pv"
 brew "python" # currently python@3.9
@@ -40,7 +40,7 @@ brew "rcs"
 brew "ripgrep"
 brew "rsync"
 brew "rustup-init"
-# brew "shellcheck" # no bottle 2021-Mar-19
+brew "shellcheck"
 # brew "ssh-copy-id", link: true
 brew "stow"
 brew "the_silver_searcher"
@@ -78,7 +78,7 @@ cask "gitup"
 cask "grandperspective"
 # cask "hammerspoon"
 cask "hermes"
-# cask "icanhazshortcut"
+cask "icanhazshortcut"
 cask "iina"
 cask "imageoptim"
 cask "iterm2"
