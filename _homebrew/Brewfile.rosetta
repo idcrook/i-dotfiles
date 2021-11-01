@@ -1,1 +1,2 @@
 cask "amazon-music" # 2021-Nov-01: The current OS X version is not supported
+brew "go" # needed as zsh startup relies upon in Rosetta 2 env
