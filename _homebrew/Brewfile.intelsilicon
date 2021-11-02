@@ -116,7 +116,7 @@ mas "Key Codes", id: 414568915
 # mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
 # mas "LanScan", id: 472226235
-mas "Location Helper", id: 488536386
+# mas "Location Helper", id: 488536386
 mas "Magnet", id: 441258766
 mas "Marked 2", id: 890031187
 # mas "Microsoft Remote Desktop", id: 1295203466
