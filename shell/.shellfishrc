@@ -12,7 +12,7 @@ if [[ "$LC_TERMINAL" = "ShellFish" ]]; then
   }
   
   ios_printBase64Component() {
-    echo -n "$1" | base64 >&2
+    echo -n "$1" | base64
   }
   
   which printf > /dev/null
@@ -24,20 +24,25 @@ if [[ "$LC_TERMINAL" = "ShellFish" ]]; then
       awk "BEGIN {printf \"$1\"}"
     fi
   }
-
-  ios_printOSC() {
+  
+  ios_sequence() {
     if [[ -n "$TMUX" ]]; then
+     OUTPUT=$(
       ios_printf '\033Ptmux;\033\033]'
+      echo -n "$1"
+      ios_printf '\a\033\\' )
     else
+     OUTPUT=$(
       ios_printf '\033]'
+      echo -n "$1"
+      ios_printf '\a' )
     fi
-  }
-
-  ios_printST() {
-    if [[ -n "$TMUX" ]]; then
-      ios_printf '\a\033\\'
+    if [ -t 1 ] ; then
+      echo -n $OUTPUT
+    elif [[ -n "$SSH_TTY" ]]; then
+      echo -n $OUTPUT > $SSH_TTY
     else
-      ios_printf '\a'
+      echo >&2 'Standard output is not tty and there is no $SSH_TTY'
     fi
   }
   
@@ -82,24 +87,25 @@ EOF
     fi
 
     FIFO=$(ios_prepareResult)
-    ios_printOSC
-    awk 'BEGIN {printf "6;sharesheet://?ver=2&respond="}'
-    ios_printBase64Component "$FIFO"
-    awk 'BEGIN {printf "&pwd="}'
-    ios_printBase64Component "$PWD"
-    awk 'BEGIN {printf "&home="}'
-    ios_printBase64Component "$HOME"
-    for var in "$@"
-    do
-      awk 'BEGIN {printf "&path="}'
-      ios_printBase64Component "$var"
-    done
-    if [[ $# -eq 0 ]]; then
-      text=$(cat -)
-      awk 'BEGIN {printf "&text="}'
-      ios_printBase64Component "$text"
-    fi
-    ios_printST
+    ios_sequence $(
+      awk 'BEGIN {printf "6;sharesheet://?ver=2&respond="}'
+      ios_printBase64Component "$FIFO"
+      awk 'BEGIN {printf "&pwd="}'
+      ios_printBase64Component "$PWD"
+      awk 'BEGIN {printf "&home="}'
+      ios_printBase64Component "$HOME"
+      for var in "$@"
+      do
+        awk 'BEGIN {printf "&path="}'
+        ios_printBase64Component "$var"
+      done
+      if [[ $# -eq 0 ]]; then
+        text=$(cat -)
+        awk 'BEGIN {printf "&text="}'
+        ios_printBase64Component "$text"
+      fi
+     )
+ 
     ios_handleResult "$FIFO"
   }
   
@@ -116,24 +122,24 @@ EOF
     fi
   
     FIFO=$(ios_prepareResult)
-    ios_printOSC
-    awk 'BEGIN {printf "6;quicklook://?ver=2&respond="}'
-    ios_printBase64Component "$FIFO"
-    awk 'BEGIN {printf "&pwd="}'
-    ios_printBase64Component "$PWD"
-    awk 'BEGIN {printf "&home="}'
-    ios_printBase64Component "$HOME"
-    for var in "$@"
-    do
-      awk 'BEGIN {printf "&path="}'
-      ios_printBase64Component "$var"
-    done
-    if [[ $# -eq 0 ]]; then
-      text=$(cat -)
-      awk 'BEGIN {printf "&text="}'
-      ios_printBase64Component "$text"
-    fi
-    ios_printST
+    ios_sequence $(
+      awk 'BEGIN {printf "6;quicklook://?ver=2&respond="}'
+      ios_printBase64Component "$FIFO"
+      awk 'BEGIN {printf "&pwd="}'
+      ios_printBase64Component "$PWD"
+      awk 'BEGIN {printf "&home="}'
+      ios_printBase64Component "$HOME"
+      for var in "$@"
+      do
+        awk 'BEGIN {printf "&path="}'
+        ios_printBase64Component "$var"
+      done
+      if [[ $# -eq 0 ]]; then
+        text=$(cat -)
+        awk 'BEGIN {printf "&text="}'
+        ios_printBase64Component "$text"
+      fi
+    )
     ios_handleResult "$FIFO"
   }
 
@@ -149,14 +155,14 @@ EOF
       if [ ! -e "$1" ]; then
         touch "$1"
       fi
-      ios_printOSC
-      awk 'BEGIN {printf "6;textastic://?ver=2&pwd="}'
-      ios_printBase64Component "$PWD"
-      awk 'BEGIN {printf "&home="}'
-      ios_printBase64Component "$HOME"
-      awk 'BEGIN {printf "&path="}'
-      ios_printBase64Component "$1"
-      ios_printST
+      ios_sequence $(
+        awk 'BEGIN {printf "6;textastic://?ver=2&pwd="}'
+        ios_printBase64Component "$PWD"
+        awk 'BEGIN {printf "&home="}'
+        ios_printBase64Component "$HOME"
+        awk 'BEGIN {printf "&path="}'
+        ios_printBase64Component "$1"
+      )
     fi
   }
   
@@ -169,12 +175,12 @@ Open URL on iOS.
 EOF
     else
       FIFO=$(ios_prepareResult)
-      ios_printOSC
-      awk 'BEGIN {printf "6;open://?ver=2&respond="}'
-      ios_printBase64Component "$FIFO"
-      awk 'BEGIN {printf "&url="}'
-      ios_printBase64Component "$1"
-      ios_printST
+      ios_sequence $(
+        awk 'BEGIN {printf "6;open://?ver=2&respond="}'
+        ios_printBase64Component "$FIFO"
+        awk 'BEGIN {printf "&url="}'
+        ios_printBase64Component "$1"
+      )
       ios_handleResult "$FIFO"
     fi
   }
@@ -210,23 +216,33 @@ Title cannot contain semicolon.
 EOF
     else
       local title="${1-}" body="${2-}"
-      ios_printOSC
-      echo $title | awk -F";" 'BEGIN {printf "777;notify;"} {printf "%s;", $1}'
-      echo $body
-      ios_printST
+      ios_sequence $(
+        echo $title | awk -F";" 'BEGIN {printf "777;notify;"} {printf "%s;", $1}'
+        echo $body
+      )
     fi
   }
 
   # copy standard input or arguments to iOS clipboard
   pbcopy() {
-    ios_printOSC
-    awk 'BEGIN {printf "52;c;"} '
-    if [ $# -eq 0 ]; then
-      base64 | tr -d '\n'
-    else
-      echo -n "$@" | base64 | tr -d '\n'
-    fi
-    ios_printST
+    ios_sequence $(
+      awk 'BEGIN {printf "52;c;"} '
+      if [ $# -eq 0 ]; then
+        base64 | tr -d '\n'
+      else
+        echo -n "$@" | base64 | tr -d '\n'
+      fi
+    )
+  }
+  
+  # paste from iOS device clipboard to standard output
+  pbpaste() {
+    FIFO=$(ios_prepareResult)
+    ios_sequence $(
+      awk 'BEGIN {printf "6;pbpaste://?ver=2&respond="}'
+      ios_printBase64Component "$FIFO"
+    )
+    ios_handleResult "$FIFO"
   }
 
   # Secure ShellFish supports 24-bit colors
@@ -242,10 +258,10 @@ EOF
     # send the current directory using OSC 7 when showing prompt to
     # make filename detection work better for interactive shell
     update_terminal_cwd() {
-      ios_printOSC
-      awk "BEGIN {printf \"7;%s\", \"file://$HOSTNAME\"}"
-      ios_printURIComponent "$PWD"
-      ios_printST
+      ios_sequence $(
+        awk "BEGIN {printf \"7;%s\", \"file://$HOSTNAME\"}"
+        ios_printURIComponent "$PWD"
+      )
     }
     if [ -n "$ZSH_VERSION" ]; then
       precmd() { update_terminal_cwd; }
