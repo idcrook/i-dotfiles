@@ -36,10 +36,24 @@ Since we are using `--user` should not need to preface with `sudo`
 In a newly sourced shell (to get the proper environment)
 
 ```shell
+cd ~/.dotfiles/_pip/
 pip3 install --user --requirement packages3.ubuntu20.04.txt
 ```
 
 may get an error if not using an updated shell session about `~/.local/bin` not being in PATH. that should be a transient error.
+
+### Debian
+
+Since we are using `--user` should not need to preface with `sudo`
+
+In a newly sourced shell (to get the proper environment)
+
+```shell
+cd ~/.dotfiles/_pip/
+pip3 install --user --requirement packages3.debian.bullseye.txt
+```
+
+may get warning if not using an updated shell session about `~/.local/bin` not being in PATH; that should be a transient issue.
 
 #### pyenv
 

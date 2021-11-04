@@ -16,6 +16,13 @@ sudo apt update
 sudo apt install golang-go
 ```
 
+Debian 11 (bullseye)
+---------------------
+
+```shell
+sudo apt install golang-go
+```
+
 Raspberry Pi OS
 ---------------
 
