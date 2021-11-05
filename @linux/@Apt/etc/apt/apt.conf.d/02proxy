@@ -1,2 +1,5 @@
 Acquire::http::proxy "http://192.168.50.25:3142/";
-# Acquire::CompressionTypes::Order:: "gz";
+
+# -o Acquire::CompressionTypes::Order::="gz";
+# Acquire::CompressionTypes::Order { "lzma"; "gz"; "bz2"; };
+# sudo apt update  -o Debug::Acquire::http=True 2> /tmp/apt-http.log 
