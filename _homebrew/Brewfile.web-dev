@@ -15,3 +15,4 @@ cask "cocoarestclient"
 # cask "postman"
 cask "proxyman"
 cask "responsively"
+cask "temurin" # jdk
