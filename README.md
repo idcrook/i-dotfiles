@@ -14,16 +14,11 @@ An opinionated dotfiles organization scheme based on `stow`.
 Install
 -------
 
-Starting points:
+### General Idea
 
--	[macOS](%40macos/README-macos.md) (Both Intel and Apple Silicon)
--	[Linux](%40linux/README.md) variants including [Raspberry Pi OS](%40linux/README-RasPiOS.md) (based on Debian) and Ubuntu flavors [WSL2](%40linux/README-Ubuntu-WSL2-20.04.md) or [Ubuntu on Raspberry Pi](%40linux/README-Ubuntu-on-RasPi.md)
+Assumes `git` and GNU `stow` are available/already installed (usually via a package manager). Refer to specific "Starting point" `README.md` files below for specific details.
 
-#### General Idea
-
-Refer to specific "Starting point" `README.md` files above for specific details.
-
-Assumes `git` and GNU `stow` are available/installed (usually via a package manager). In general, it will go as follows:
+In general, it will go as follows:
 
 1.	Clone this repository:
 
@@ -34,7 +29,7 @@ Assumes `git` and GNU `stow` are available/installed (usually via a package mana
 	$ cd ~/.dotfiles
 	```
 
-1.	Install config for `stow`  itself
+1.	Install config for `stow` itself
 
 	```console
 	$ stow -t ~ stow
@@ -45,6 +40,11 @@ Assumes `git` and GNU `stow` are available/installed (usually via a package mana
 2.	Use `stow` to install desired package(s) via `stow <directory>` <sup id="a1">[1](#f1)</sup>
 
 	-	Additional installation instructions are present in respective platform and package `README.md`.
+
+### Starting Point
+
+-	[macOS](%40macos/README-macos.md) (Both Intel and Apple Silicon)
+-	[Linux](%40linux/README.md) variants including [Raspberry Pi OS](%40linux/README-RasPiOS.md) (based on Debian) and Ubuntu flavors [WSL2](%40linux/README-Ubuntu-WSL2-20.04.md) or [Ubuntu on Raspberry Pi](%40linux/README-Ubuntu-on-RasPi.md)
 
 Rules
 -----
@@ -67,7 +67,7 @@ Quoting stow [documentation](https://www.gnu.org/software/stow/manual/html_node/
 
 > if Stow can create a single symlink that points to an entire subtree within the package tree, it will choose to do that rather than create a directory in the target tree and populate it with symlinks.
 
- Because of this, using `.gitignore` in packages (which do not themselves get stow-ed, due to `stow-global-ignore`) can help avoid this `i-dotfiles` git repository getting cluttered with unknown files. For example, this happens when language package managers add files to certain directories.
+Because of this, using `.gitignore` in packages (which do not themselves get stow-ed, due to `stow-global-ignore`) can help avoid this `i-dotfiles` git repository getting cluttered with unknown files. For example, this happens when language package managers add files to certain directories.
 
 ### Secrets files
 
