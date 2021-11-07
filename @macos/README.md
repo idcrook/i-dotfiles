@@ -1,15 +1,9 @@
 **macOS specific setup**
 
-```
-└── .config
-    └── git
-        └── config.secrets         I use same git credentials on my macs
-```
+This package installs configuration files, aliases, functions, etc. for macOS environment. Use subpackages for configuration specific to a mac instance.
 
-This package installs configuration files, aliases, functions, etc. for an OS X environment. Use subpackages for configuration specific to a mac instance.
-
-See [README-macos.md](README-macos.md)
+See [README-macos.md](README-macos.md); heavily relies on [The Missing Package Manager for macOS (or Linux) — Homebrew](https://brew.sh/)
 
 ### Subpackages
 
--	[@macmini](https://github.com/idcrook/i-dotfiles/tree/master/%40mac/%40macmini)
+-	[@macmini](%40macmini)
