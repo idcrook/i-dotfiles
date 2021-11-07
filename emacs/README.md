@@ -24,9 +24,28 @@ macOS Option 1: Build emacs via emacs-plus formula
 
 Works best on Apple Silicon Macs (until cask supports native Apple Silicon)
 
+### emacs27
+
 ```shell
-brew reinstall emacs-plus --with-xwidgets --with-elrumo2-icon
+brew tap d12frosted/emacs-plus
+brew uninstall emacs-plus
+brew install emacs-plus --with-xwidgets --with-elrumo2-icon
 ```
+
+### emacs28
+
+Enable native compilation.
+
+```shell
+brew tap d12frosted/emacs-plus
+brew info emacs-plus@28
+brew uninstall emacs-plus
+brew install emacs-plus@28 --with-xwidgets \
+  --with-nobu417-big-sur-icon --with-native-comp
+# optionally:
+# ln -s /opt/homebrew/opt/emacs-plus@28/Emacs.app /Applications
+```
+
 
 macOS Option 2: emacs via homebrew cask
 ---------------------------------------
