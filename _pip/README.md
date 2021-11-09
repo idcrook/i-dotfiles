@@ -64,6 +64,14 @@ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 ```
 
 
+### Raspberry Pi OS bullseye
+
+Since we are using `--user` should not need to preface with `sudo`
+
+```shell
+pip3 install --user --requirement packages3.raspios.bullseye.txt
+```
+
 ### Raspberry Pi OS buster
 
 Since we are using `--user` should not need to preface with `sudo`

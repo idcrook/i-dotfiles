@@ -16,6 +16,7 @@
 ```shell
 cp .config/espanso/user/personal.secrets.yml.example \
    .config/espanso/user/personal.secrets.yml
+espanso restart
 ```
 
 ### espanso Install notes
@@ -42,7 +43,7 @@ snap now recommended
 
 ```shell
 sudo snap install espanso --classic
-sudo apt install xclip
+sudo apt install xclip libnotify-bin
 ```
 
 Important: if you are upgrading espanso, after the previous command, execute `espanso unregister` in the terminal.

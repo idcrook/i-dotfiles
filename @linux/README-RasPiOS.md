@@ -62,12 +62,12 @@ stow -vv emacs
 stow -vv golang
 # See golang/README for more
 
-#stow -vv espanso
+stow -vv espanso
 # espanso README: manual install and custom settings
 
 cd ~/.dotfiles/_dpkg
 # ... refer to README.md contained therein
-less install_packages.raspios.buster.txt
+less install_packages.raspios.bullseye.txt
 
 cd ~/.dotfiles/_pip
 # ...

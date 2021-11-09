@@ -1,0 +1,55 @@
+# -*- sh -*-
+
+# bash zsh and utils
+sudo apt install -y screen tmux mosh dselect rcs \
+     vim keychain source-highlight jq shellcheck \
+     zsh colordiff
+
+# Option: in case want protection from remote reboots, etc.
+sudo apt install -y molly-guard
+
+# install some dependencies for my emacs configuration
+sudo apt install -y imagemagick-6.q16 silversearcher-ag \
+     python3-pip python3-venv python3-virtualenv python3-dev python3-wheel \
+     fonts-powerline fonts-inconsolata fonts-ubuntu fonts-symbola \
+     fonts-dejavu fonts-hack fonts-stix fonts-lmodern
+
+# install emacs27
+sudo apt install emacs
+
+# emacs can be built from source
+# SEE https://github.com/idcrook/.emacs.d/blob/main/site-lisp/BUILD.md
+
+# # using nvm, no need for "system" node package manager
+# sudo apt install npm
+
+# golang - See ~/.dotfiles/golang/README.md
+sudo apt install -y golang-go
+
+# github hub - https://hub.github.com
+sudo apt install -y hub
+
+# #  cnf
+# sudo apt install command-not-found
+# sudo apt-file update
+# sudo update-command-not-found
+
+# xdg-open for desktop environment
+sudo apt install xdg-utils
+
+# screenshot util (for desktop environment)
+sudo apt install gnome-screenshot
+
+# Option: in case want a GUI to ask for passwd (Desktop)
+sudo apt install ssh-askpass
+
+# firefox ESR
+sudo apt install --install-recommends firefox-esr
+
+# espanso - https://github.com/federico-terzi/espanso
+# https://snapcraft.io/install/espanso/raspbian
+sudo apt install snapd
+sudo reboot
+sudo snap install core
+sudo snap install espanso --classic
+sudo apt install xclip libnotify-bin
