@@ -186,7 +186,7 @@ then
                 eval "$($keychainpath --eval --agents ssh --inherit any-once id_rsa id_ed25519)"
                 ;;
             * )
-                eval "$($keychainpath --eval --agents ssh --inherit any-once id_rsa)"
+                eval "$($keychainpath --eval --agents ssh --inherit any-once id_rsa id_ed25519)"
                 ;;
         esac
         unset keychainpath
