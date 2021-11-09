@@ -130,7 +130,7 @@ Hardware Considerations
 
 Example
 
-```console
+```shell
 mkdir ~/projects
 cd ~/projects
 git clone https://github.com/pimoroni/fanshim-python

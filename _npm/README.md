@@ -13,7 +13,7 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38/install.sh | zsh
 On Linux
 --------
 
-```shells
+```shell
 # $XDG_CONFIG_HOME instead with nvm v0.37+ # mkdir -p ~/.nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 ```

@@ -22,17 +22,17 @@ In general, it will go as follows:
 
 1.	Clone this repository:
 
-	```console
-	$ git clone --recurse-submodules \
+	```shell
+	git clone --recurse-submodules \
 	  https://github.com/idcrook/i-dotfiles.git \
 	  ~/.dotfiles
-	$ cd ~/.dotfiles
+	cd ~/.dotfiles
 	```
 
 1.	Install config for `stow` itself
 
-	```console
-	$ stow -t ~ stow
+	```shell
+	stow -t ~ stow
 	```
 
 	**IMPORTANT**: Confirm the hard-coded home directory path in `~/.stowrc` matches your system
