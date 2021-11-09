@@ -1,13 +1,14 @@
 Install
 -------
 
-Installation on Raspberry Pi OS - Buster (c. Mar-2021)
+Installation on Raspberry Pi OS - bullseye (circa NOV-2021)
 
 ```shell
 sudo apt install -y stow git
 
 git clone --recurse-submodules \
     https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
+# alternative: SSH from `ssh-keygen -t ed25519 -C "your_email@example.com"`
 
 cd ~/.dotfiles
 stow -t ~ stow # bootstrap stow config at top-level
@@ -83,7 +84,7 @@ emacs
 ```
 
 `lxterminal` login shell
--------------------
+------------------------
 
 For whatever reason, there is not a Setting in `lxterminal` (the default terminal app in RasPiOS) to launch a shell as a *login* shell. However, the man page for it has a command line argument for it.
 
@@ -92,8 +93,6 @@ So, in Applications menu, right-click on the Terminal menu item `Applications > 
 Then, in the application propoerties dialog, in the *Desktop Entry* Tab, for the **Command:**, append `--loginshell`.
 
 Other options for `lxterminal` can be found by `man lxterminal`
-
-
 
 Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
 -----------------------------------------------
