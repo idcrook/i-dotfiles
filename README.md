@@ -11,8 +11,9 @@ An opinionated dotfiles organization scheme based on `stow`.
 
 -	Includes configs for **emacs** [emacs.d](https://github.com/idcrook/.emacs.d) and **zsh** [zprezto](https://github.com/idcrook/prezto) (managed as `git submodule` repos).
 
--   Includes platform detection:
-    ![platform detection in multiple platforms](%40macos/platform_recognition_zsh.jpg)
+-	Includes platform detection
+
+![platform detection in multiple platforms](%40macos/platform_recognition_zsh.jpg)
 
 Install
 -------
