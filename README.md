@@ -3,13 +3,16 @@ i-dotfiles
 
 An opinionated dotfiles organization scheme based on `stow`.
 
--	Supports BASH and `zsh`.
+-	Supports BASH (now legacy for me) and `zsh`.
 
 -	Supports Linux: x86 or amd64 or armhf or arm64.
 
 -	Supports macOS, both Intel and Apple Silicon.
 
 -	Includes configs for **emacs** [emacs.d](https://github.com/idcrook/.emacs.d) and **zsh** [zprezto](https://github.com/idcrook/prezto) (managed as `git submodule` repos).
+
+-   Includes platform detection:
+    ![platform detection in multiple platforms](%40macos/platform_recognition_zsh.jpg)
 
 Install
 -------
