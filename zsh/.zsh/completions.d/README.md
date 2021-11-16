@@ -1,12 +1,32 @@
-
-
-## hub
+hub
+---
 
 git wrapper
 
-- [hub/hub.zsh_completion at master · github/hub](https://github.com/github/hub/blob/master/etc/hub.zsh_completion)
+-	[hub/hub.zsh_completion at master · github/hub](https://github.com/github/hub/blob/master/etc/hub.zsh_completion)
 
+	```
+	wget https://github.com/github/hub/raw/master/etc/hub.zsh_completion
+	mv hub.zsh_completion _hub
+	```
+
+docker
+------
+
+https://docs.docker.com/desktop/mac/#zsh
+
+```shell
+etc=/Applications/Docker.app/Contents/Resources/etc
+ln -s $etc/docker.zsh-completion /usr/local/share/zsh/site-functions/_docker
+ln -s $etc/docker-compose.zsh-completion /usr/local/share/zsh/site-functions/_docker-compose
 ```
-wget https://github.com/github/hub/raw/master/etc/hub.zsh_completion
-mv hub.zsh_completion _hub
+
+copying
+
+```shellsession
+❯ cd ~/.dotfiles/zsh/.zsh/completions.d
+❯ cp -av $etc/docker.zsh-completion _docker
+/Applications/Docker.app/Contents/Resources/etc/docker.zsh-completion -> _docker
+❯ cp -av $etc/docker-compose.zsh-completion _docker-compose
+/Applications/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion -> _docker-compose
 ```

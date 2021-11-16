@@ -11,13 +11,13 @@
 # completions on macOS:
 # MAIN:  /usr/local/share/zsh/site-functions
 
-# PUT ANY CUSTOM completions in ~/.zsh/completions.d
-# if [[ -d ${ZDOTDIR:-$HOME}/.zsh/completions.d ]] ; then
-#   fpath=(${ZDOTDIR:-$HOME}/.zsh/completions.d $fpath)
-#   # handled in zprezto package completion # autoload -U compinit
-#   # -u skips checks for insecure directory and file
-#   #compinit -u
-# fi
+# Use ~/.zsh/completions.d for custom completions
+if [[ -d ${HOME}/.zsh/completions.d ]] ; then
+  fpath=(${HOME}/.zsh/completions.d $fpath)
+  # handled in zprezto package completion # autoload -U compinit
+  # -u skips checks for insecure directory and file
+  #compinit -u
+fi
 
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
 # automatically handled by zprezto
