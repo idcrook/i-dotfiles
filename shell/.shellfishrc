@@ -29,12 +29,12 @@ if [[ "$LC_TERMINAL" = "ShellFish" ]]; then
     if [[ -n "$TMUX" ]]; then
      OUTPUT=$(
       ios_printf '\033Ptmux;\033\033]'
-      echo -n "$1"
+      echo -n "$1" | tr -d '[:space:]'
       ios_printf '\a\033\\' )
     else
      OUTPUT=$(
       ios_printf '\033]'
-      echo -n "$1"
+      echo -n "$1" | tr -d '[:space:]'
       ios_printf '\a' )
     fi
     if [ -t 1 ] ; then
@@ -87,7 +87,7 @@ EOF
     fi
 
     FIFO=$(ios_prepareResult)
-    ios_sequence $(
+    OUTPUT=$(
       awk 'BEGIN {printf "6;sharesheet://?ver=2&respond="}'
       ios_printBase64Component "$FIFO"
       awk 'BEGIN {printf "&pwd="}'
@@ -105,7 +105,7 @@ EOF
         ios_printBase64Component "$text"
       fi
      )
- 
+    ios_sequence "$OUTPUT"
     ios_handleResult "$FIFO"
   }
   
@@ -122,7 +122,7 @@ EOF
     fi
   
     FIFO=$(ios_prepareResult)
-    ios_sequence $(
+    OUTPUT=$(
       awk 'BEGIN {printf "6;quicklook://?ver=2&respond="}'
       ios_printBase64Component "$FIFO"
       awk 'BEGIN {printf "&pwd="}'
@@ -140,6 +140,7 @@ EOF
         ios_printBase64Component "$text"
       fi
     )
+    ios_sequence "$OUTPUT"
     ios_handleResult "$FIFO"
   }
 
@@ -155,7 +156,7 @@ EOF
       if [ ! -e "$1" ]; then
         touch "$1"
       fi
-      ios_sequence $(
+      OUTPUT=$(
         awk 'BEGIN {printf "6;textastic://?ver=2&pwd="}'
         ios_printBase64Component "$PWD"
         awk 'BEGIN {printf "&home="}'
@@ -163,6 +164,7 @@ EOF
         awk 'BEGIN {printf "&path="}'
         ios_printBase64Component "$1"
       )
+      ios_sequence "$OUTPUT"
     fi
   }
   
@@ -175,12 +177,13 @@ Open URL on iOS.
 EOF
     else
       FIFO=$(ios_prepareResult)
-      ios_sequence $(
+      OUTPUT=$(
         awk 'BEGIN {printf "6;open://?ver=2&respond="}'
         ios_printBase64Component "$FIFO"
         awk 'BEGIN {printf "&url="}'
         ios_printBase64Component "$1"
       )
+      ios_sequence "$OUTPUT"
       ios_handleResult "$FIFO"
     fi
   }
@@ -216,16 +219,17 @@ Title cannot contain semicolon.
 EOF
     else
       local title="${1-}" body="${2-}"
-      ios_sequence $(
+      OUTPUT=$(
         echo $title | awk -F";" 'BEGIN {printf "777;notify;"} {printf "%s;", $1}'
         echo $body
       )
+      ios_sequence "$OUTPUT"
     fi
   }
 
   # copy standard input or arguments to iOS clipboard
   pbcopy() {
-    ios_sequence $(
+    OUTPUT=$(
       awk 'BEGIN {printf "52;c;"} '
       if [ $# -eq 0 ]; then
         base64 | tr -d '\n'
@@ -233,15 +237,17 @@ EOF
         echo -n "$@" | base64 | tr -d '\n'
       fi
     )
+    ios_sequence "$OUTPUT"
   }
   
   # paste from iOS device clipboard to standard output
   pbpaste() {
     FIFO=$(ios_prepareResult)
-    ios_sequence $(
+    OUTPUT=$(
       awk 'BEGIN {printf "6;pbpaste://?ver=2&respond="}'
       ios_printBase64Component "$FIFO"
     )
+    ios_sequence "$OUTPUT"
     ios_handleResult "$FIFO"
   }
 
