@@ -1,6 +1,12 @@
 hub
 ---
 
+`brew info hub` - completions go in central Homebrew
+
+-	`$(brew --prefix)/share/zsh/site-functions/_hub`
+
+https://github.com/github/hub/tree/master/etc#zsh
+
 git wrapper
 
 -	[hub/hub.zsh_completion at master · github/hub](https://github.com/github/hub/blob/master/etc/hub.zsh_completion)

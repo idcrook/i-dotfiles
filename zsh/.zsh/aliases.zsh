@@ -9,14 +9,14 @@
 alias sal='echo sourcing ~/.zsh/aliases.zsh ; source ~/.zsh/aliases.zsh'
 alias val='vi ~/.zsh/aliases.zsh; sal'
 
-
-# https://hub.github.com/
-# brew install hub || sudo snap install hub --classic
-if (( $+commands[hub] ))
-then
-	# `hub alias` sez...
-    eval "$(hub alias -s)"
-fi
+# commenting out as it breaks git completions
+# # https://hub.github.com/
+# # brew install hub || sudo snap install hub --classic
+# if (( $+commands[hub] ))
+# then
+# 	# `hub alias` sez...
+#     eval "$(hub alias -s)"
+# fi
 
 # create "global" alias
 alias -g L="| less"   # example: cat README.md L

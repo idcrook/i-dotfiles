@@ -22,7 +22,7 @@ brew "git"
 brew "git-lfs"
 brew "go"
 brew "htop"
-# brew "hub" # alias and completions stuff seems broken
+brew "hub" # alias and completions stuff seems broken
 brew "imagemagick"
 brew "jq"
 # brew "keychain"

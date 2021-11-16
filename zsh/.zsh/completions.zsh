@@ -9,14 +9,12 @@
 
 # see man zshcompsys / compinit
 # completions on macOS:
-# MAIN:  /usr/local/share/zsh/site-functions
+# MAIN:     /usr/local/share/zsh/site-functions
+# MAIN:  /opt/homebrew/share/zsh/site-functions (Apple Silicon homebrew)
 
 # Use ~/.zsh/completions.d for custom completions
 if [[ -d ${HOME}/.zsh/completions.d ]] ; then
   fpath=(${HOME}/.zsh/completions.d $fpath)
-  # handled in zprezto package completion # autoload -U compinit
-  # -u skips checks for insecure directory and file
-  #compinit -u
 fi
 
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
@@ -25,16 +23,6 @@ fi
 #   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 # fi
 
-# hub ------------------------------------------------------------------------
-
-# `brew info hub` - completions go in central Homebrew
-# /usr/local/share/zsh/site-functions/_hub
-
-# <https://github.com/github/hub/tree/master/etc#zsh>
-# ```
-# wget https://github.com/github/hub/raw/master/etc/hub.zsh_completion
-# mv hub.zsh_completion _hub
-# ```
 
 if [ -x "$(command -v brew)" ]; then
     # curl -------------------------------------------------------------------
