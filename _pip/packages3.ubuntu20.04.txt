@@ -7,7 +7,7 @@ wakatime
 # requests
 yapf
 yamllint
-click
+#click
 titlecase
 grip # preview GitHub README.md
 virtualenvwrapper

@@ -11,6 +11,15 @@ Install on Windows 10
 - from Windows Store: [Ubuntu 20.04 LTS](https://www.microsoft.com/store/apps/9n6svws3rx71)
 - nice to have: [Visual Studio Code](https://code.visualstudio.com/)
 
+
+Generate an SSH key and upload to GitHub account, if you prefer using `git+ssh:` instead of `https` protocol.
+
+```shell
+ssh-keygen -t ed25519
+```
+
+## In a WSL2 session
+
 ```shell
 sudo apt install -y stow git openssh-server
 
@@ -78,10 +87,10 @@ stow -vv golang
 stow -vv espanso
 # see README for how to install on Windows
 
-cd _dpkg
-# ...
+cd _dpkg  
+# ... install_packages.wsl2-ubuntu20.04.txt
 cd ../_pip
-# ...
+# ... packages3.ubuntu20.04.txt
 cd ../_npm
 # ...
 
@@ -91,7 +100,7 @@ cat README.md
 # ...
 
 # login from a new terminal
-emacs-snapshot -nw
+emacs27 -nw
 ```
 <!--
 ## Installing powerline fonts on Windows
