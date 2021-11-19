@@ -9,13 +9,14 @@ sudo apt install -y screen mosh tmux dselect rcs \
 sudo apt install emacs27-nox
 sudo apt install -y \
      imagemagick-6.q16 ack silversearcher-ag \
-     python-is-python3 python3 python3-pip python3-venv python3-virtualenv python3-wheel \
-     fonts-powerline fonts-hack fonts-inconsolata fonts-dejavu fonts-symbola fonts-cascadia-code
+     python-is-python3 python3 python3-pip python3-venv python3-virtualenv python3-wheel
 
-# node + npm : use nvm
+# DNI # fonts-powerline fonts-hack fonts-inconsolata fonts-dejavu fonts-symbola fonts-cascadia-code
 
-# xdg-open
-sudo apt install xdg-utils
+# node + npm : use nvm : see README
+
+# xdg-open : not desktop env
+#sudo apt install xdg-utils
 
 # golang - https://github.com/golang/go/wiki/Ubuntu
 sudo apt install golang-1.14-go golang-go
