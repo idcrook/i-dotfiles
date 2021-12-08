@@ -61,6 +61,7 @@ cask "balenaetcher"
 cask "beardedspice"
 cask "discord"
 # cask "emacs" # use emacs-plus formula
+# cask "epoccam"
 # cask "firefox" # install manually
 cask "font-cascadia-mono-pl"
 cask "font-dejavu-sans-mono-nerd-font"
