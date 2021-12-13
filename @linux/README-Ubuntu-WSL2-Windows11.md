@@ -147,6 +147,11 @@ Unzip, right-click on each "`PL`" in `ttf` sub-directory and Install.
 
 Many other [settings](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/startup)!
 
+For me, this is 
+
+```
+\\wsl$\Ubuntu\home\dpc
+```
 
 ### Default Terminal Application
 
