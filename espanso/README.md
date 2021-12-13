@@ -91,18 +91,28 @@ espanso register
 espanso start
 ```
 
-#### Windows 10
+#### Windows 10 / Windows 11
+
+**Destination**
 
 ```bat
 # in a windows cmd prompt
 explorer %HOMEDRIVE%%HOMEPATH%\AppData\Roaming\espanso
 ```
 
+**Source**
+
 now, in a WSL 2
 
 ```shell
 cd ~/.dotfiles/espanso/.config/espanso/
 xdg-open .
+```
+
+Alternatively, in Windows explorer, a path like:
+
+```
+\\wsl.localhost\Ubuntu\home\dpc\.dotfiles\espanso\.config\espanso
 ```
 
 Now drag the files from the WSL 2 location (`default.yml` and `user/`) in explorer.exe to the Windows location.

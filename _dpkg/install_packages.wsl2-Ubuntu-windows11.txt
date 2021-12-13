@@ -1,0 +1,29 @@
+# -*- sh -*-
+
+# bash zsh and utils
+sudo apt install -y screen mosh tmux dselect rcs \
+     keychain source-highlight jq shellcheck curl \
+     zsh colordiff
+
+# emacs and some dependencies
+sudo apt install emacs27-nox
+sudo apt install -y \
+     imagemagick-6.q16 ack silversearcher-ag \
+     python-is-python3 python3 python3-pip python3-venv python3-virtualenv python3-wheel
+
+# DNI # fonts-powerline fonts-hack fonts-inconsolata fonts-dejavu fonts-symbola fonts-cascadia-code
+
+# node + npm : use nvm : see README
+
+# xdg-open : works in WSL2 to open directories in Windows Explorer, e.g.
+sudo apt install xdg-utils
+
+# golang - https://github.com/golang/go/wiki/Ubuntu
+sudo apt install golang-1.16-go # golang-go
+
+sudo update-alternatives --install /usr/bin/go go /usr/lib/go-1.16/bin/go 50 \
+    --slave /usr/bin/gofmt gofmt /usr/lib/go-1.16/bin/gofmt
+sudo update-alternatives --list go
+
+## github hub - https://hub.github.com
+#sudo apt install hub
