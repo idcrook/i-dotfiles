@@ -2,7 +2,8 @@
 #Install New apps
 Write-Output "Installing Apps"
 $apps = @(
-    @{name = "OpenSCAD.OpenSCAD" }, 
+    @{name = "OpenSCAD" }, 
+    @{name = "OpenJSCAD"; source = "msstore" }, 
     @{name = "Ultimaker.Cura" }, 
     @{name = "FreeCAD.FreeCAD" }, 
     @{name = "KiCad.KiCad" }, 

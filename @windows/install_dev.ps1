@@ -2,8 +2,10 @@
 #Install New apps
 Write-Output "Installing Apps"
 $apps = @(
-    @{name = "Microsoft.VisualStudioCode" }, 
-    @{name = "Microsoft.PowerToys" }, 
+    @{name = "Microsoft.VisualStudioCode" },
+    @{name = "Git.Git" }, 
+#     @{name = "Microsoft.PowerToys" }, 
+#     @{name = "Microsoft.WindowsTerminal"; source = "msstore" }, 
     @{name = "GitHub.GitHubDesktop" }
 );
 
