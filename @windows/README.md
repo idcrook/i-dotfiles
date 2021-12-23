@@ -39,6 +39,8 @@ Successfully installed
 
 ### Use PowerShell scripts
 
+Information from [About Signing](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_signing?view=powershell-7.2)
+
 We will choose to digitally sign the `.ps1` files... Start PowerShell, navigate to this directory, and **copy and paste interactively** in a PowerShell session:
 
 ```powershell
@@ -53,13 +55,49 @@ $cert = New-SelfSignedCertificate @params
 
 This creates a self-signed certificate that can be used for signing PS1 files to run them as scripts.  
 
-Next, we will sign a helper script (`add-signature.ps1`) that will help to sign additional scripts as needed. (also run interactively)
+```powershell
+Get-ChildItem cert:\CurrentUser\my -codesigning
+```
+
+Next, we will sign with this certificate (also run interactively) a helper script (`Add-Signature.ps1`) that will help to sign additional scripts as needed. 
 
 ```powershell
 $cert = @(Get-ChildItem cert:\CurrentUser\My -codesigning)[0]
 Set-AuthenticodeSignature Add-Signature.ps1 $cert
 ```
 
+Now run a PowerShell session with `"Open As Administrator"` to 
+
+```powershell
+Get-ExecutionPolicy
+Set-ExecutionPolicy RemoteSigned
+```
+
+Accept the caveats with <kbd>Y</kbd>.
+
+Now, should be able to sign and run `.ps1` scripts. 
+
+#### Working with signatures
+
+Change to this directory in a PowerShell session, and sign and run a script
+
+```powershell
+.\Add-Signature.ps1 .\install_dev.ps1
+```
+
+To have git ignore changes to the files (the signature gets embedded in the file), can tell git:
+
+```shell
+git update-index --skip-worktree install_dev.ps1 Add-Signature.ps1
+```
+
+To make changes again visible to `git`:
+
+```shell
+git update-index --no-skip-worktree  install_dev.ps1
+```
+
+Of course, will need to re-sign after any desired changes.
 
 ## Windows Configuration
 

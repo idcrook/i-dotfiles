@@ -2,9 +2,11 @@
 #Install New apps
 Write-Output "Installing Apps"
 $apps = @(
-    @{name = "Microsoft.VisualStudioCode" }, 
-    @{name = "Microsoft.PowerToys" }, 
-    @{name = "GitHub.GitHubDesktop" }
+    @{name = "OpenSCAD.OpenSCAD" }, 
+    @{name = "Ultimaker.Cura" }, 
+    @{name = "FreeCAD.FreeCAD" }, 
+    @{name = "KiCad.KiCad" }, 
+    @{name = "Prusa3D.PrusaSlicer" }
 );
 
 Foreach ($app in $apps) {
