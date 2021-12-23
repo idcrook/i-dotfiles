@@ -1,4 +1,4 @@
-@echo off  
+@echo off
 Echo Install Powertoys and Terminal  
 REM Powertoys  
 winget install Microsoft.Powertoys  
