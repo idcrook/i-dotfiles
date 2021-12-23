@@ -91,7 +91,9 @@ espanso register
 espanso start
 ```
 
-#### Windows 10 / Windows 11
+#### Windows
+
+This should work for Windows 10 and Windows 11
 
 **Destination**
 
