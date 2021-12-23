@@ -20,7 +20,13 @@ Start PowerShell, navigate to this directory, and run helper scripts or install 
 PS Microsoft.PowerShell.Core\FileSystem::\\wsl$\Ubuntu\home\dpc> cd .\.dotfiles\@windows\
 
 PS Microsoft.PowerShell.Core\FileSystem::\\wsl$\Ubuntu\home\dpc\.dotfiles\@windows> .\install_basics.bat
-...
+```
+
+#### Manually install a package using `winget`
+
+In a PowerShell session
+
+```
 PS Microsoft.PowerShell.Core\FileSystem::\\wsl$\Ubuntu\home\dpc\.dotfiles\@windows> winget search openscad
 Name     Id                Version Source
 ------------------------------------------
