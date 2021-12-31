@@ -6,6 +6,7 @@ $apps = @(
 #     @{name = "Git.Git" }, 
 #     @{name = "Microsoft.PowerToys" }, 
 #     @{name = "Microsoft.WindowsTerminal"; source = "msstore" }, 
+    @{name = "CodeSector.TeraCopy" },
     @{name = "GitHub.GitHubDesktop" }
 );
 
