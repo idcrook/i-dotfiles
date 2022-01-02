@@ -1,0 +1,15 @@
+# -*- powershell -*-
+
+# Create and store self-signed signing certificate
+$params = @{
+    Subject = 'CN=PowerShell Code Signing Cert'
+    Type = 'CodeSigning'
+    CertStoreLocation = 'Cert:\CurrentUser\My'
+    HashAlgorithm = 'sha256'
+}
+$cert = New-SelfSignedCertificate @params
+
+
+# Sign helper script itself
+$cert = @(Get-ChildItem cert:\CurrentUser\My -codesigning)[0]
+Set-AuthenticodeSignature Add-Signature.ps1 $cert -TimeStampServer http://timestamp.digicert.com
