@@ -1,8 +1,10 @@
+# Python
+
 **List of packages to install via `pip`, the python packaging tool.**
 
 ---
 
-To create the packages list do :
+To generate a packages list do something like:
 
 ```
 pip3 list --format=columns | sed '/Package/,/---------/d' | \
@@ -15,21 +17,14 @@ To install :
 pip3 install -r packages3.txt
 ```
 
-### macOS
-
-
-```shell
-pip3 install --user -r packages3.bigsur.txt
-```
-
 (upgrade and/or) re-install packages
 
 ```shell
-pip3 install --upgrade --force-reinstall  --user -r packages3.bigsur.txt
-pip3 install --ignore-installed           --user -r packages3.bigsur.txt
+pip3 install --upgrade --force-reinstall  --user -r packages3.txt
+pip3 install --ignore-installed           --user -r packages3.txt
 ```
 
-### Ubuntu
+## macOS / Ubuntu / Debian / Ras Pi OS / WSL
 
 Since we are using `--user` should not need to preface with `sudo`
 
@@ -37,83 +32,53 @@ In a newly sourced shell (to get the proper environment)
 
 ```shell
 cd ~/.dotfiles/_pip/
+# use matching one
 pip3 install --user --requirement packages3.ubuntu20.04.txt
-```
-
-may get an error if not using an updated shell session about `~/.local/bin` not being in PATH. that should be a transient error.
-
-### Debian
-
-Since we are using `--user` should not need to preface with `sudo`
-
-In a newly sourced shell (to get the proper environment)
-
-```shell
-cd ~/.dotfiles/_pip/
-pip3 install --user --requirement packages3.debian.bullseye.txt
-```
-
-may get warning if not using an updated shell session about `~/.local/bin` not being in PATH; that should be a transient issue.
-
-#### pyenv
-
-works for zsh or bash
-
-```
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-```
-
-
-### Raspberry Pi OS bullseye
-
-Since we are using `--user` should not need to preface with `sudo`
-
-```shell
-pip3 install --user --requirement packages3.raspios.bullseye.txt
-```
-
-### Raspberry Pi OS buster
-
-Since we are using `--user` should not need to preface with `sudo`
-
-```shell
-pip3 install --user --requirement packages3.raspios.buster.txt
-```
-
-### Ubuntu 20.10 groovy on x86-64
-
-```shell
 pip3 install --user --requirement packages3.ubuntu20.10.txt
+pip3 install --user --requirement packages3.debian.bullseye.txt
+pip3 install --user --requirement packages3.raspios.buster.txt
+pip3 install --user --requirement packages3.ubuntu20.10.raspi.txt
+pip3 install --user --requirement packages3.raspios.bullseye.txt
+pip3 install --user -r packages3.bigsur.txt
 ```
+may get an error if not using an updated shell session about `~/.local/bin` not being in PATH. that should be a transient error and go away in a newly-sourced shell.
 
-### Ubuntu 20.10 groovy on Pi 4
+## pipx
+
+<https://pypa.github.io/pipx/> - Install and Run Python Applications in Isolated Environments
+
+### Install pipx
+
+debian / ubuntu
 
 ```shell
-pip3 install --user --requirement packages3.ubuntu20.10.raspi.txt
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
 ```
 
+macOS 
 
-#### `pyenv`
-
-Via https://github.com/pyenv/pyenv/wiki/Common-build-problems
-
-```
-sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
-libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
-xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+```shell
+brew install pipx
+pipx ensurepath
 ```
 
-now clone over
+### Use pipx
 
+```console
+> pipx install glances
+⣻ upgrading shared libraries
+# ...
+  These apps are now globally available
+    - glances
+done! ✨ 🌟 ✨
+> pipx list
+> glances
 ```
-python --version
-# > Python 3.6.7
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git ~/.pyenv/plugins/pyenv-virtualenvwrapper
-# will need to relogin - so pyenv gets sourced into environment
-pyenv install 3.7.3
-pyenv global 3.7.3
-python --version
-# > Python 3.7.3
-```
+
+### useful pipx apps
+
+- `glances` - a cross-platform system monitoring tool written in Python. - https://nicolargo.github.io/glances/
+- `ptpython` - A better Python REPL - https://github.com/prompt-toolkit/ptpython
+- `asciinema` - Terminal session recorder - https://github.com/asciinema/asciinema
+  - `pipx run asciinema`
