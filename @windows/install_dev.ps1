@@ -3,7 +3,7 @@
 Write-Output "Installing Apps"
 $apps = @(
     @{name = "Microsoft.VisualStudioCode" },
-#     @{name = "Git.Git" }, 
+    @{name = "Git.Git" }, 
 #     @{name = "Microsoft.PowerToys" }, 
 #     @{name = "Microsoft.WindowsTerminal"; source = "msstore" }, 
     @{name = "CodeSector.TeraCopy" },
