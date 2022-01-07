@@ -33,6 +33,7 @@ In a newly sourced shell (to get the proper environment)
 ```shell
 cd ~/.dotfiles/_pip/
 # use matching one
+pip3 install --user --requirement packages3.ubuntu22.04.txt
 pip3 install --user --requirement packages3.ubuntu20.04.txt
 pip3 install --user --requirement packages3.ubuntu20.10.txt
 pip3 install --user --requirement packages3.debian.bullseye.txt
