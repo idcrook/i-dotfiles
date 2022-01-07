@@ -1,0 +1,28 @@
+# -*- sh -*-
+
+# slicers and related
+sudo apt install  prusa-slicer
+sudo snap install cura-slicer
+
+# viewers
+sudo apt install -y fstl
+
+# design tools (3d modeling or CAD)
+sudo apt install -y --install-recommends openscad
+sudo apt install -y blender \
+     freecad librecad \
+     meshlab
+# rec-s
+# graphics and figures
+sudo apt install --install-recommends gimp inkscape inkscape-tutorials \
+     xfig xfig-doc graphviz potrace
+# also: dia python-scour python3-scour scour
+
+# PCB design - https://www.kicad.org/download/ubuntu/
+sudo add-apt-repository --yes ppa:kicad/kicad-6.0-releases
+sudo apt update
+sudo apt install --install-recommends kicad
+# If you want demo projects
+sudo apt install kicad-demos
+# see also librepcbm gEDA
+
