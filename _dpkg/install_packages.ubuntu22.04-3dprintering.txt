@@ -10,13 +10,27 @@ sudo apt install -y fstl
 # design tools (3d modeling or CAD)
 sudo apt install -y --install-recommends openscad
 sudo apt install -y blender \
-     freecad librecad \
+     librecad \
      meshlab
 # rec-s
 # graphics and figures
 sudo apt install --install-recommends gimp inkscape inkscape-tutorials \
      xfig xfig-doc graphviz potrace
-# also: dia python-scour python3-scour scour
+
+# FreeCAD
+
+## use AppImage for freecad  19.3 at this time
+#cd ~/projects/install
+#wget https://github.com/FreeCAD/FreeCAD/releases/download/0.19.3/FreeCAD_0.19.3-Linux-Conda_glibc2.12-x86_64.AppImage
+#chmod +x FreeCAD_0.19.3-Linux-Conda_glibc2.12-x86_64.AppImage
+#./FreeCAD_0.19.3-Linux-Conda_glibc2.12-x86_64.AppImage
+## weekly https://github.com/FreeCAD/FreeCAD-Bundle/releases/tag/weekly-builds
+
+# PPA daily
+sudo add-apt-repository ppa:freecad-maintainers/freecad-daily
+sudo apt update
+sudo apt install freecad-daily
+
 
 # PCB design - https://www.kicad.org/download/ubuntu/
 sudo add-apt-repository --yes ppa:kicad/kicad-6.0-releases
@@ -25,4 +39,5 @@ sudo apt install --install-recommends kicad
 # If you want demo projects
 sudo apt install kicad-demos
 # see also librepcbm gEDA
+
 
