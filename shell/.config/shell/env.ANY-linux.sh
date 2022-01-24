@@ -27,6 +27,13 @@ if [[ -d "${HOME}/projects/hw/esp/ESP8266_RTOS_SDK" ]] ; then
     export IDF_PATH="${HOME}/projects/hw/esp/ESP8266_RTOS_SDK"
 fi
 
+# CUDA https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
+if [[ -d "/usr/local/cuda-11.6/bin" ]] ; then
+    export PATH="/usr/local/cuda-11.6/bin${PATH:+:${PATH}}"
+
+    export LD_LIBRARY_PATH=/usr/local/cuda-11.6/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+fi
+
 
 # Local Variables:
 # mode: sh
