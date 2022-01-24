@@ -134,3 +134,18 @@ $ sudo vi /etc/sysctl.conf
 fs.inotify.max_user_watches=524288
 $ sudo sysctl -p
 ```
+
+Hide mounted drives in Ubuntu Dock
+----------------------------------
+
+```
+gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
+```
+
+there is also `dconf-editor`
+
+```shell
+apt install dconf-editor
+```
+
+Launch dconf editor and navigate to "org/gnome/shell/extensions/dash-to-dock", scroll down and turn off the value of "show-mounts".
