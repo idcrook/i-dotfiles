@@ -19,7 +19,6 @@
 # fi
 
 # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/dpc/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -32,6 +31,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# https://docs.microsoft.com/en-us/windows/ai/directml/gpu-faq#how-do-i-use-the--dml-visible-devices--environment-variable-to-control-which-gpu-s--get-used-by-directml
+export DML_VISIBLE_DEVICES="0"
 
 # Local Variables:
 # mode: sh
