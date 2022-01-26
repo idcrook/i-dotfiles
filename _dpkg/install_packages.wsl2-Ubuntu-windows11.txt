@@ -8,7 +8,7 @@ sudo apt install -y screen mosh tmux dselect rcs \
 # emacs and some dependencies
 sudo apt install emacs27-nox
 sudo apt install -y \
-     imagemagick-6.q16 ack silversearcher-ag \
+     imagemagick-6.q16hdri ack silversearcher-ag \
      python-is-python3 python3 python3-pip python3-venv python3-virtualenv python3-wheel
 
 
