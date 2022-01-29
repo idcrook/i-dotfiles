@@ -78,3 +78,18 @@ __pycache__
 /python-argcomplete-tcsh
 /register-python-argcomplete
 /userpath
+# maestral[gui]
+watchmedo
+pyro5-nsc
+pyro5-ns
+pyro5-httpgateway
+pyro5-echoserver
+pyro5-check-config
+keyring
+stone
+pyuic5
+pyrcc5
+pylupdate5
+markdown2
+maestral_qt
+maestral
