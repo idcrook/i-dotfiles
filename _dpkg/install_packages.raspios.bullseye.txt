@@ -3,7 +3,7 @@
 # bash zsh and utils
 sudo apt install -y screen tmux mosh dselect rcs \
      vim keychain source-highlight jq shellcheck \
-     zsh colordiff
+     zsh colordiff neofetch
 
 # Option: in case want protection from remote reboots, etc.
 sudo apt install -y molly-guard
