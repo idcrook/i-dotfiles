@@ -25,8 +25,8 @@
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-	required = true
 	process = git-lfs filter-process
+	required = true
 
 # set in $(brew --prefix)/etc/gitconfig
 # [credential]
