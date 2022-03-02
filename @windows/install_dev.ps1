@@ -4,8 +4,14 @@ Write-Output "Installing Apps"
 $apps = @(
     @{name = "Microsoft.VisualStudioCode" },
     @{name = "Git.Git" }, 
-#     @{name = "Microsoft.PowerToys" }, 
-#     @{name = "Microsoft.WindowsTerminal"; source = "msstore" }, 
+    #     @{name = "Microsoft.PowerToys" }, 
+    #     @{name = "Microsoft.WindowsTerminal"; source = "msstore" }, 
+    @{name = "RealVNC.VNCViewer" },
+    @{name = "7zip.7zip" },
+    @{name = "calibre.calibre" },
+    @{name = "VideoLAN.VLC" },
+    @{name = "joncampbell123.DOSBox-X" },
+    @{name = "Docker.DockerDesktop" },
     @{name = "CodeSector.TeraCopy" },
     @{name = "GitHub.GitHubDesktop" }
 );
