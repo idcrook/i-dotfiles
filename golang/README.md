@@ -65,6 +65,16 @@ GO111MODULE=on  go get github.com/gohugoio/hugo@v0.49.2
 GO111MODULE=on  go get -v github.com/moorereason/mdfmt
 ```
 
+on go1.17
+
+```
+GO111MODULE=on  go get github.com/gohugoio/hugo@v0.49.2
+go get: installing executables with 'go get' in module mode is deprecated.
+	Use 'go install pkg@version' instead.
+	For more information, see https://golang.org/doc/go-get-install-deprecation
+	or run 'go help get' or 'go help install'.
+```    
+
 ### `mdfmt` needed a modified build flow
 
 ```
