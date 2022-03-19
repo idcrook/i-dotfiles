@@ -10,7 +10,7 @@ cmd.exe (admin)
 ---------------
 
 ```
-wsl --upgrade
+wsl --update
 wsl --shutdown
 ```
 
