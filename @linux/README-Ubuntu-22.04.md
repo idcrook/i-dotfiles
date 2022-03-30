@@ -30,12 +30,7 @@ mv -i ~/.stowrc.hard  ~/.stowrc
 cd @linux
 sudo stow -vv --target=/ @Apt
 
-# for emacs27 - https://launchpad.net/~kelleyk/+archive/ubuntu/emacs
-sudo add-apt-repository ppa:kelleyk/emacs
-# until groovy is avail., change to focal
-sudo vi /etc/apt/sources.list.d/kelleyk-ubuntu-emacs-groovy.list
-
-sudo apt update
+# for emacs27 - emacs27.1 in Ubuntu 22.04
 
 # some files will be replaced /taken over in ~
 mkdir -p ~/backup

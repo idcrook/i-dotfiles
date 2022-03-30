@@ -68,11 +68,11 @@ pipx ensurepath
 
 ```console
 > pipx install glances
-⣻ upgrading shared libraries
-# ...
+⣻ upgrading shared libraries ...
   These apps are now globally available
     - glances
 done! ✨ 🌟 ✨
+> pipx inject glances "glances[web]"
 > pipx list
 > glances
 ```

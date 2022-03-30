@@ -1,9 +1,12 @@
 # -*- sh -*-
 
 # bash zsh and utils
-sudo apt install -y screen tmux molly-guard mosh dselect rcs \
-     git-lfs keychain source-highlight jq shellcheck curl tree \
+sudo apt install -y screen tmux mosh dselect rcs \
+     keychain source-highlight jq shellcheck curl tree \
      zsh colordiff vim
+
+# some special cases
+sudo apt install molly-guard git-lfs 
 
 # some emacs dependencies
 sudo apt install -y \
@@ -15,8 +18,19 @@ sudo apt install -y \
 
 # emacs27 is version in 22.04
 sudo apt install emacs
+sudo apt install emacs-nox
 
 # npm : use nvm (see _npm)
+
+# golang - https://github.com/golang/go/wiki/Ubuntu
+sudo apt install golang-go
+
+# DESKTOP tweaks below
+
+# Snap
+
+# github hub - https://hub.github.com
+sudo snap install hub --classic
 
 # image tools
 sudo apt install trimage
@@ -34,14 +48,6 @@ sudo apt install gnome-tweaks
 
 # so that screen sharing (aka VNC) will be found in Settings > Sharing
 sudo apt install vino
-
-# golang - https://github.com/golang/go/wiki/Ubuntu
-sudo apt install golang-1.18 golang-go
-
-# Snap
-
-# github hub - https://hub.github.com
-sudo snap install hub --classic
 
 # espanso - https://espanso.org/install/linux/
 sudo snap install espanso --classic
