@@ -62,6 +62,25 @@ go install github.com/jingweno/ccat@latest
 go install -v github.com/moorereason/mdfmt@latest
 ```
 
+## `wakatime-cli`
+
+<https://github.com/wakatime/wakatime-cli/releases>
+
+```console
+$ wget https://github.com/wakatime/wakatime-cli/releases/download/v1.38.0/wakatime-cli-linux-amd64.zip
+$ unzip wakatime-cli-linux-amd64.zip
+$ mv wakatime-cli-linux-amd64 ~/.local/bin/wakatime-cli
+```
+
+
+```shell
+# DOES NOT WORK # go install -v github.com/wakatime/wakatime-cli
+```
+
+error about '`replace`' in `go.mod`
+
+
+
 #### DEPRECATED: `ccat`
 
 ```shell

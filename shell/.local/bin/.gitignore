@@ -8,6 +8,7 @@ __pycache__
 /pycodestyle
 /pyflakes
 /wakatime
+/wakatime-cli
 /yamllint
 /yapf
 # following four from grip
