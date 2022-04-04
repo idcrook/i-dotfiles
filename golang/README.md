@@ -6,6 +6,8 @@ Ubuntu
 
 See `../_dpkg/install_packages.ubuntu20.04.txt` for Ubuntu 20.04 LTS
 
+See `../_dpkg/install_packages.ubuntu22.04.txt` for Ubuntu 22.04 LTS
+
 https://github.com/golang/go/wiki/Ubuntu
 
 On 18.04 LTS or 19.10 Ubuntu, as of April 2020, it is golang 1.14
@@ -17,7 +19,7 @@ sudo apt install golang-go
 ```
 
 Debian 11 (bullseye)
----------------------
+--------------------
 
 ```shell
 sudo apt install golang-go
@@ -32,7 +34,7 @@ See https://golang.org/dl/ for latest version. There are currently ARMv6 and ARM
 $ cd ~/Downloads/
 $ wget https://golang.org/dl/go1.16.3.linux-armv6l.tar.gz
 $ sha256sum go1.16.3.linux-armv6l.tar.gz
-$ test -d /usr/local/go && sudo rm -rf /usr/local/go 
+$ test -d /usr/local/go && sudo rm -rf /usr/local/go
 $ sudo tar -C /usr/local -xzf go1.16.3.linux-armv6l.tar.gz
 ```
 
@@ -50,13 +52,23 @@ Some utilities that can be installed from source
 -------------------------
 
 ```shell
-go get -u github.com/jingweno/ccat
+go install github.com/jingweno/ccat@latest
 ```
 
 `mdfmt` - markdownfmt replacement
 ---------------------------------
 
-`mdfmt` needs to use a modules, needs a special build flow
+```shell
+go install -v github.com/moorereason/mdfmt@latest
+```
+
+#### DEPRECATED: `ccat`
+
+```shell
+go get -u github.com/jingweno/ccat
+```
+
+#### DEPRECATED: `mdfmt` needs to use a modules, needs a special build flow
 
 ```shell
 go get -d -v github.com/moorereason/mdfmt
@@ -73,7 +85,7 @@ go get: installing executables with 'go get' in module mode is deprecated.
 	Use 'go install pkg@version' instead.
 	For more information, see https://golang.org/doc/go-get-install-deprecation
 	or run 'go help get' or 'go help install'.
-```    
+```
 
 ### `mdfmt` needed a modified build flow
 
