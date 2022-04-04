@@ -3,6 +3,13 @@ Install
 
 Installation on Ubuntu 22.04 LTS (amd64)
 
+Optional pre-requisites:
+
+1.	`sudo apt install gnome-tweaks`
+	-	CapsLock remap to <kbd>Ctrl</kbd>
+2.	*Visual Studio Code* can be install using the Ubuntu Software app (which installs the snap version).
+3.	Change shell (`chsh`) to `zsh`
+
 ```shell
 sudo apt install -y stow git ssh
 
@@ -94,28 +101,6 @@ Remap <kbd>CapsLock</kbd> to <kbd>Control</kbd>
 
 Use `gnome-tweaks` to do related in Ubuntu 20.04+
 
-Via https://unix.stackexchange.com/questions/452391/execute-command-to-swap-caps-lock-and-ctrl-at-startup
-
-```
-root@debian:/home/ja# cat /etc/default/keyboard
-# KEYBOARD CONFIGURATION FILE
-
-# Consult the keyboard(5) manual page.
-
-XKBMODEL="pc105"
-XKBLAYOUT="us"
-XKBVARIANT=""
-XKBOPTIONS="ctrl:nocaps"
-
-BACKSPACE="guess"
-```
-
-Now run this command as described in man 7 keyboard:
-
-```
-sudo udevadm trigger --subsystem-match=input --action=change
-```
-
 Fix for Visual Studio Code remote editting on large Git repos
 -------------------------------------------------------------
 
@@ -132,6 +117,8 @@ $ sudo sysctl -p
 
 Hide mounted drives in Ubuntu Dock
 ----------------------------------
+
+**Note**: This is configurable under Dock Settings via the main *Settings* app in Ubuntu 22.04 beta. 03-MAR-2022
 
 ```
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false

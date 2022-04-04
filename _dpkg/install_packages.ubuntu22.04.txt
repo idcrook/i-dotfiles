@@ -6,7 +6,7 @@ sudo apt install -y screen tmux mosh dselect rcs \
      zsh colordiff vim
 
 # some special cases
-sudo apt install molly-guard git-lfs 
+sudo apt install molly-guard git-lfs
 
 # some emacs dependencies
 sudo apt install -y \
@@ -50,8 +50,10 @@ sudo apt install gnome-tweaks
 sudo apt install vino
 
 # espanso - https://espanso.org/install/linux/
-sudo snap install espanso --classic
-sudo apt install xclip
+# See wayland installation
+#  <https://espanso.org/docs/install/linux/#deb-wayland>
+#sudo snap install espanso --classic
+#sudo apt install xclip
 
 # Visual Studio code
 sudo snap install --classic code
