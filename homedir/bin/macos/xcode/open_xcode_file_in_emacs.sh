@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# https://gist.github.com/accatyyc/600427d62ff13d294923258c4041f5fe
+# https://gist.github.com/joelekstrom/600427d62ff13d294923258c4041f5fe
 
 # Use AppleScript to get the open file and selection from Xcode
 file_and_selection=$(osascript\
