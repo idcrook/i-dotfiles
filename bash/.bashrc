@@ -201,6 +201,7 @@ fi
 
 case $OSTYPE in
     darwin*)
+        # FIXME: add additional cases
         EMACSPATH=/Applications/Emacs.app/Contents/MacOS
         EMACSPATH_BIN="${EMACSPATH}/bin"
         if [[ ! -d "${EMACSPATH_BIN}" ]] ; then
