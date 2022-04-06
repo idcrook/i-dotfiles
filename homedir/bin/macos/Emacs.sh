@@ -40,12 +40,17 @@ if [ "${arch_name}" = "x86_64" ]; then
     fi
 
 elif [ "${arch_name}" = "arm64" ]; then
-    # for Homebrew d12frosted/emacs-plus builds --with-xwidgets
+    # for Homebrew
+    # - d12frosted/emacs-plus
+    # - cask emacs
 
-    # next release Emacs 28 --with-native-comp
-    if [ -d /opt/homebrew/opt/emacs-plus@28/Emacs.app/ ] ; then
+    # Emacs 29 usually built --with-native-comp --with-xwidgets
+    if [ -d /opt/homebrew/opt/emacs-plus@29/Emacs.app/ ] ; then
+        EMACSPATH=/opt/homebrew/opt/emacs-plus@29/Emacs.app/Contents/MacOS
+    # Emacs 28 usually built --with-native-comp
+    elif [ -d /opt/homebrew/opt/emacs-plus@28/Emacs.app/ ] ; then
         EMACSPATH=/opt/homebrew/opt/emacs-plus@28/Emacs.app/Contents/MacOS
-    # latest "released", currently Emacs 27
+    # "released" Emacs
     elif [ -d  /opt/homebrew/opt/emacs-plus/Emacs.app/ ] ; then
         EMACSPATH=/opt/homebrew/opt/emacs-plus/Emacs.app/Contents/MacOS
     # fall back to any (usually symlinked) Emacs 27
@@ -53,8 +58,16 @@ elif [ "${arch_name}" = "arm64" ]; then
         EMACSPATH=/Applications/Emacs.app/Contents/MacOS
     fi
 
-    EMACSPATH_BIN="${EMACSPATH}/../../../bin"
-    #EMACSPATH_BIN="/opt/homebrew/opt/emacs-plus/bin"
+    # emacs-plus bin/ path
+    if [ -d "${EMACSPATH}/../../../bin" ] ; then
+        EMACSPATH_BIN="${EMACSPATH}/../../../bin"
+    # emacs cask bin/ path
+    elif [ -d "${EMACSPATH}/bin" ] ; then
+        EMACSPATH_BIN="${EMACSPATH}/bin"
+    else
+        EMACSPATH_BIN="${EMACSPATH}/bin"
+        echo Warning: Emacs /bin directory not found. Using "$EMACSPATH_BIN"
+    fi
 
     EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
 
@@ -64,7 +77,7 @@ fi
 # echo EMACSPATH_BIN=$EMACSPATH_BIN
 # echo EMACS_WRAPPER_OR_BIN=$EMACS_WRAPPER_OR_BIN
 
-
+# ASSUMES: emacsclient available at  "${EMACSPATH_BIN}"
 if ! ("${EMACSPATH_BIN}"/emacsclient --eval "t"  2> /dev/null > /dev/null )
 then
     # There is no server available so,
@@ -91,5 +104,7 @@ else
     fi
 
     # Bring emacs to the foreground
-    #${EMACSPATH}/bin/emacsclient --eval "(x-focus-frame nil)"
+    #emacsclient --eval "(x-focus-frame nil)"
+    # Bring emacs to the foreground
+    which osascript > /dev/null 2>&1 && osascript -e 'tell application "Emacs" to activate'
 fi

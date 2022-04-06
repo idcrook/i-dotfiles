@@ -17,6 +17,7 @@
 #     user =
 #     oauth-token =
 
+# https://emacsformacosx.com/tips
 [merge]
 	tool = ediff
 [mergetool "ediff"]
