@@ -50,7 +50,7 @@ if [ "${arch_name}" = "x86_64" ]; then
             fi
         fi
         EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
-        if [[ ! -x "${EMACSPATH}"/Emacs-x86_64-10_14 ]] ; then
+        if [[ -x "${EMACSPATH}"/Emacs-x86_64-10_14 ]] ; then
             EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs-x86_64-10_14
         fi
     fi
@@ -102,16 +102,12 @@ then
     nohup "${EMACS_WRAPPER_OR_BIN}" --chdir "${PWD}" "${@}" 2>&1 > /dev/null &
 else
     # The emacs server is available so use emacsclient
-
     if [ -z "${1}" ]
     then
-        # There are no arguments, so
-        # tell emacs to open a new window
-
+        # There are no arguments, so tell emacs to open a new window
         "${EMACSPATH_BIN}"/emacsclient --eval "(dired \"${PWD}\")"
     else
-        # There are arguments, so
-        # tell emacs to open them
+        # There are arguments, so tell emacs to open them
 
         # `--no-wait` was problematic for `crontab -e` e.g., so do not use it
         # "${EMACSPATH_BIN}"/emacsclient --no-wait --create-frame "${@}"
