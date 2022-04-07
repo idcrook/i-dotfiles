@@ -5,7 +5,8 @@
 #
 # for Homebrew
 # - d12frosted/emacs-plus
-# - cask emacs
+#   --with-xwidgets --with-native-comp
+# - cask emacs ( https://emacsformacosx.com/ )
 #
 # EMACSPATH : .../Emacs.app/Contents/MacOS
 # EMACSPATH_BIN : Location (directory) of binaries like emacsclient
@@ -15,20 +16,31 @@
 # open -n -a /opt/homebrew/opt/emacs-plus/Emacs.app  --args --debug-init
 # open -n -a /opt/homebrew/opt/emacs-plus@28/Emacs.app  --args --debug-init
 
+# FIXME:     /usr/local/opt/emacs-plus@28/Emacs.app/Contents/MacOS/
+#        `-> /usr/local/opt/emacs-plus@28/bin/
+
 arch_name="$(uname -m)"
 
 # Check if an emacs server is available
 # (by checking to see if it will evaluate a lisp statement)
 
 if [ "${arch_name}" = "x86_64" ]; then
-    # for Homebrew d12frosted/emacs-plus builds --with-xwidgets
 
-    # next release Emacs 28 --with-native-comp
-    if [ -d /usr/local/opt/emacs-plus@28/Emacs.app/ ] ; then
+    # emacs-plus 28
+    if [ -d /usr/local/opt/emacs-plus@28/bin ] ; then
+        EMACSPATH=/usr/local/opt/emacs-plus@28/bin
+        EMACSPATH_BIN=/usr/local/opt/emacs-plus@28/bin
+        EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/emacs
+    # emacs-plus 28 (old way)
+    elif [ -d /usr/local/opt/emacs-plus@28/Emacs.app/ ] ; then
         EMACSPATH=/usr/local/opt/emacs-plus@28/Emacs.app/Contents/MacOS
         EMACSPATH_BIN="${EMACSPATH}/../../../bin"
         EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
-    # for Homebrew emacs cask http://emacsformacosx.com
+    elif [ -d /usr/local/opt/emacs-plus/bin ] ; then
+        EMACSPATH=/usr/local/opt/emacs-plus/bin
+        EMACSPATH_BIN=/usr/local/opt/emacs-plus/bin
+        EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/emacs
+    # cask http://emacsformacosx.com
     elif [ -d /Applications/Emacs.app/ ] ; then
         EMACSPATH=/Applications/Emacs.app/Contents/MacOS
         EMACSPATH_BIN="${EMACSPATH}/bin"
@@ -78,7 +90,7 @@ fi
 # echo EMACS_WRAPPER_OR_BIN=$EMACS_WRAPPER_OR_BIN
 
 # add to env so find-editor (magit) can locate emacsclient
-export PATH="${EMACSPATH_BIN}":"$PATH"
+#export PATH="${EMACSPATH_BIN}":"$PATH"
 
 # ASSUMES: emacsclient available at  "${EMACSPATH_BIN}"
 if ! ("${EMACSPATH_BIN}"/emacsclient --eval "t"  2> /dev/null > /dev/null )
