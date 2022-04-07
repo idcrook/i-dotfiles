@@ -3,6 +3,10 @@
 
 # Adapted from https://stackoverflow.com/a/38276432
 #
+# for Homebrew
+# - d12frosted/emacs-plus
+# - cask emacs
+#
 # EMACSPATH : .../Emacs.app/Contents/MacOS
 # EMACSPATH_BIN : Location (directory) of binaries like emacsclient
 # EMACS_WRAPPER_OR_BIN : Actual Emacs.app macOS binary
@@ -40,17 +44,13 @@ if [ "${arch_name}" = "x86_64" ]; then
     fi
 
 elif [ "${arch_name}" = "arm64" ]; then
-    # for Homebrew
-    # - d12frosted/emacs-plus
-    # - cask emacs
-
     # Emacs 29 usually built --with-native-comp --with-xwidgets
     if [ -d /opt/homebrew/opt/emacs-plus@29/Emacs.app/ ] ; then
         EMACSPATH=/opt/homebrew/opt/emacs-plus@29/Emacs.app/Contents/MacOS
-    # Emacs 28 usually built --with-native-comp
+    # emacs-plus Emacs 28
     elif [ -d /opt/homebrew/opt/emacs-plus@28/Emacs.app/ ] ; then
         EMACSPATH=/opt/homebrew/opt/emacs-plus@28/Emacs.app/Contents/MacOS
-    # "released" Emacs
+    # emacs-plus "released" Emacs
     elif [ -d  /opt/homebrew/opt/emacs-plus/Emacs.app/ ] ; then
         EMACSPATH=/opt/homebrew/opt/emacs-plus/Emacs.app/Contents/MacOS
     # fall back to any (usually symlinked) Emacs 27
@@ -76,6 +76,9 @@ fi
 # echo EMACSPATH=$EMACSPATH
 # echo EMACSPATH_BIN=$EMACSPATH_BIN
 # echo EMACS_WRAPPER_OR_BIN=$EMACS_WRAPPER_OR_BIN
+
+# add to env so find-editor (magit) can locate emacsclient
+export PATH="${EMACSPATH_BIN}":"$PATH"
 
 # ASSUMES: emacsclient available at  "${EMACSPATH_BIN}"
 if ! ("${EMACSPATH_BIN}"/emacsclient --eval "t"  2> /dev/null > /dev/null )
