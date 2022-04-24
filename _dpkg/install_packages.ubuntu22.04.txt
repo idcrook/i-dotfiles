@@ -3,7 +3,7 @@
 # bash zsh and utils
 sudo apt install -y screen tmux mosh dselect rcs \
      keychain source-highlight jq shellcheck curl tree \
-     zsh colordiff vim
+     unzip zsh colordiff vim
 
 # some special cases
 sudo apt install molly-guard git-lfs
