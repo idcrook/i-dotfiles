@@ -4,7 +4,7 @@
 matches:
   - trigger: tdate
     replace: "{{ymddate}}"
-    word: true
+    # word: true
     vars:
       - name: ymddate
         type: date
@@ -39,7 +39,7 @@ matches:
         params:
           format: "%Y-%m-%dT%H:%M:%S%:z"
   - trigger: tiso
-    replace: "{{isotime2}} "
+    replace: "{{isotime2}}"
     word: true
     vars:
       - name: isotime2
@@ -47,7 +47,7 @@ matches:
         params:
           format: "%+"
   - trigger: ttime
-    replace: "{{time12p}} "
+    replace: "{{time12p}}"
     vars:
       - name: time12p
         type: date
