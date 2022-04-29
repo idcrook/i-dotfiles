@@ -48,13 +48,28 @@ then
     # brew info nvm
     alias nvms='export NVM_DIR="$HOME/.nvm" ; [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"'
 
-else  # not Darwin/macOS
+else  # not Darwin/macOS i.e., Linux
 
     if [ -x /usr/bin/notify-send ] ; then
         # Add an "alert" alias for long running commands.  Use like so:
         #   sleep 10; alert
         alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
     fi
+
+    if [ -x /usr/bin/keychain ]; then
+        keychainpath=/usr/bin/keychain
+
+        case "$(uname -r)" in
+            *-microsoft-*)
+                alias addkc="eval \"\$($keychainpath --eval --agents ssh --ignore-missing --inherit any-once id_rsa id_ed25519)\""
+                ;;
+            * )
+                alias addkc="eval \"\$($keychainpath --eval --agents ssh --ignore-missing --inherit any-once id_rsa id_ed25519)\""
+                ;;
+        esac
+        unset keychainpath
+    fi
+
 
     alias e="emacsclient -c"
 
