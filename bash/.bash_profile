@@ -179,18 +179,28 @@ then
 
     # http://www.funtoo.org/Keychain
     # sudo apt install keychain
-    if [ -x /usr/bin/keychain ]; then
-        keychainpath=/usr/bin/keychain
-        case "$(uname -r)" in
-            *-microsoft-*)
-                eval "$($keychainpath --eval --agents ssh --inherit any-once id_rsa id_ed25519)"
-                ;;
-            * )
-                eval "$($keychainpath --eval --agents ssh --inherit any-once id_rsa id_ed25519)"
-                ;;
-        esac
-        unset keychainpath
-    fi
+    # if [ -x /usr/bin/keychain ]; then
+    #     #echo all="$@" 0=$0 1=$1 BS=${BASH_SOURCE[0]} DS=${DESKTOP_SESSION} >> /tmp/dbg-gdm3-startup
+    #     #echo GTS="$GNOME_TERMINAL_SERVICE" GSD=$GNOME_SETUP_DISPLAY GTSS=$GNOME_TERMINAL_SCREEN >>  /tmp/dbg-gdm3-startup
+    #     keychainpath=/usr/bin/keychain
+
+    #     noask="--noask"
+    #     kcaargs=""
+    #     kcaargs="${noask} "
+    #     # FIXME: TBD do not prompt if part of Xsession
+    #     # if [[ "$0" == *"session" ]] ; then
+    #     #     kcaargs="${noask} "
+    #     # fi
+    #     case "$(uname -r)" in
+    #         *-microsoft-*)
+    #             eval "$($keychainpath --eval --agents ssh --ignore-missing $kcaargs --inherit any-once id_rsa id_ed25519)"
+    #             ;;
+    #         * )
+    #             eval "$($keychainpath --eval --agents ssh --ignore-missing $kcaargs --inherit any-once id_rsa id_ed25519)"
+    #             ;;
+    #     esac
+    #     unset keychainpath noask kcaargs
+    # fi
 
     # https://github.com/pyenv/pyenv
     # git clone https://github.com/pyenv/pyenv.git ~/.pyenv
