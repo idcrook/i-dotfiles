@@ -34,8 +34,7 @@ npm list --global --parseable --depth=0
 
 #### Old macOS way
 
-<details>
-<summary>Using homebrew instead of nvm</summary>
+<details> <summary>Using homebrew instead of nvm</summary>
 
 ```shell
 # mkdir -p ~/.nvm
@@ -56,8 +55,7 @@ Using node packages
 
 ---
 
-<details>
-<summary>To create the packages list</summary>
+<details> <summary>To create the packages list</summary>
 
 ```shell
 #!/bin/bash
