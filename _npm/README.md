@@ -34,11 +34,16 @@ npm list --global --parseable --depth=0
 
 #### Old macOS way
 
+<details>
+<summary>Using homebrew instead of nvm</summary>
+
 ```shell
 # mkdir -p ~/.nvm
 # brew install nvm
 # update shell startup files to source nvm and load completions in respective shells
 ```
+
+</details>
 
 Using node packages
 ===================
@@ -51,7 +56,8 @@ Using node packages
 
 ---
 
-To create the packages list do :
+<details>
+<summary>To create the packages list</summary>
 
 ```shell
 #!/bin/bash
@@ -65,6 +71,8 @@ done
 echo "$newlist"
 echo "$newlist" > npm_global_packages.list
 ```
+
+</details>
 
 Install
 -------
