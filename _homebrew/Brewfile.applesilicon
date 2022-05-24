@@ -8,6 +8,8 @@ tap "homebrew/command-not-found"
 # untap "federico-terzi/espanso"
 tap "espanso/espanso"
 tap d12frosted/emacs-plus
+# for brew graph # https://github.com/martido/homebrew-graph
+tap martido/homebrew-graph
 # brew "archey"
 # brew "bash"
 # brew "bash-completion@2"
@@ -22,6 +24,7 @@ brew "emacs-plus@28"  args: ["with-nobu417-big-sur-icon", "with-xwidgets", "with
 brew "git"
 brew "git-lfs"
 brew "go"
+brew "graphviz"
 brew "htop"
 brew "hub"
 brew "imagemagick"

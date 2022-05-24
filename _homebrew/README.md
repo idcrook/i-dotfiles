@@ -67,3 +67,27 @@ Capturing configuration, including Homebrew taps, casks, and MAS (Mac App Store)
 brew tap homebrew/bundle
 brew bundle dump --file=- > Brewfile
 ```
+
+Dependency Exploration
+----------------------
+
+-	[Untangling Your Homebrew Dependencies | Jonathan Palardy's Blog](https://blog.jpalardy.com/posts/untangling-your-homebrew-dependencies/)
+
+`brew-graph`
+
+```
+brew  tap martido/homebrew-graph
+brew install graphviz
+brew graph --installed | dot -T png -o graph.png
+open graph.png
+```
+
+`graphviz` itself installs many dependencies...
+
+
+other tools
+
+```
+brew deps --installed
+brew leaves
+```
