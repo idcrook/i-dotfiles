@@ -101,7 +101,9 @@ then
     true
 fi
 
-
+function is_bin_in_path {
+  builtin type -P "$1" &> /dev/null
+}
 
 # Set platform-specific enVARIABLES, PATHs
 if [  "$(uname -s)" == 'Darwin' ]
@@ -121,7 +123,7 @@ then
     #     ssh key passphrases stored in your Apple MacOS Keychain. If
     #     you would prefer for this to not happen, then this option
     #     can be omitted.
-    eval "$(keychain --eval --agents ssh --inherit any id_rsa)"
+    is_bin_in_path keychain && eval "$(keychain --eval --agents ssh --inherit any id_rsa)"
 
     # from homebrew - brew info rbenv
     if [ x`which rbenv` == x/usr/local/bin/rbenv ] ; then
