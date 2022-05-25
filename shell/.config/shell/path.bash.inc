@@ -19,7 +19,9 @@ if [ -d ~/bin/linux/containers ] ; then
 fi
 
 # macOS python user libraries installed here (priority order)
-if [ -d ~/Library/Python/3.9/bin ] ; then
+if [ -d ~/Library/Python/3.10/bin ] ; then
+    pathprepend "$HOME"/Library/Python/3.10/bin
+elif [ -d ~/Library/Python/3.9/bin ] ; then
     pathprepend "$HOME"/Library/Python/3.9/bin
 elif [ -d ~/Library/Python/3.8/bin ] ; then
     pathprepend "$HOME"/Library/Python/3.8/bin

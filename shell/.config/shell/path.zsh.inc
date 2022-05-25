@@ -41,7 +41,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
 
     # pip3 --user uses this dir
     # macOS python user libraries can be installed here
-    # if [[ -d "${HOME}"/Library/Python/3.9/bin ]] ; then
+    # if [[ -d "${HOME}"/Library/Python/3.10/bin ]] ; then
+    #     path=(${HOME}/Library/Python/3.10/bin $path)
+    # elif [[ -d "${HOME}"/Library/Python/3.9/bin ]] ; then
     #     path=(${HOME}/Library/Python/3.9/bin $path)
     # elif [[ -d "${HOME}"/Library/Python/3.8/bin ]] ; then
     #     path=(${HOME}/Library/Python/3.8/bin $path)
@@ -51,17 +53,10 @@ if [[ "$OSTYPE" == darwin* ]]; then
 
     if [ -x "$(command -v brew)" ]; then
 
-        # # python@3 - Homebrew
-        # if [   -d /usr/local/opt/python@3.9/bin ] ; then
-        #     path+=/usr/local/opt/python@3.9/bin
-        # elif [ -d /usr/local/opt/python@3.8/bin ] ; then
-        #     path+=/usr/local/opt/python@3.8/bin
-        # fi
-
-        # # python3 - Homebrew
-        # if [   -d /usr/local/opt/python/libexec/bin ] ; then
-        #     path=(/usr/local/opt/python/libexec/bin $path)
-        # fi
+        # python (python3) - Homebrew
+        if [   -d $(brew --prefix)/opt/python/libexec/bin ] ; then
+            path=( $(brew --prefix)/opt/python/libexec/bin $path)
+        fi
 
         ### [Homebrew/homebrew-command-not-found](https://github.com/Homebrew/homebrew-command-not-found)
         HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
