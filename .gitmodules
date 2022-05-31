@@ -5,3 +5,6 @@
 [submodule "zsh/.zprezto"]
 	path = zsh/.zprezto
 	url = https://github.com/idcrook/prezto.git
+[submodule "zsh/.zprezto-contrib/kubernetes"]
+	path = zsh/.zprezto-contrib/kubernetes
+	url = git@github.com:idcrook/prezto-kubernetes.git
