@@ -18,8 +18,9 @@ alias val='vi ~/.zsh/aliases.zsh; sal'
 #     eval "$(hub alias -s)"
 # fi
 
-# create "global" alias
+# create "global" aliases
 alias -g L="| less"   # example: cat README.md L
+alias -g EL="|& less"   # example: cat README.md L
 
 case "$OSTYPE" in
     # macOS commands go here
