@@ -3,8 +3,9 @@
 
 matches:
   - trigger: tdate
-    replace: "{{ymddate}}"
-    # word: true
+    # place cursor explicitly so that word-end whitespace is dropped
+    replace: "{{ymddate}}$|$"
+    word: true
     vars:
       - name: ymddate
         type: date

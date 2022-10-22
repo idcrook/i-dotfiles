@@ -54,6 +54,7 @@ brew "tree"
 brew "wget"
 brew "yamllint"
 brew "youtube-dl"
+# brew yt-dlp/taps/yt-dlp
 # brew "zbar"
 brew "zsh-completions"
 brew "espanso/espanso/espanso"
