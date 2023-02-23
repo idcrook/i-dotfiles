@@ -21,21 +21,29 @@ cd .dotfiles
 stow -t ~ stow
 stow -vv @macos
 
+# some files will be replaced /taken over in ~
+mkdir -p ~/backup
+
 stow -vv git
 cp -v git/.config/git/config.secrets.example ~/.config/git/config.secrets
 $EDITOR  ~/.config/git/config.secrets
 
 stow -vv shell
 
+mv ~/{.bash_logout,.bashrc,.profile} ~/backup
+( cd ~ && mv .bash_aliases .bash_profile .inputrc .powerline-shell.json .bash_completion.d/ backup/ )
 stow -vv bash
-cp -v bash/.config/shell/local.aliases.secrets.sh.example \
-      bash/.config/shell/local.aliases.secrets.sh
-$EDITOR bash/.config/shell/local.aliases.secrets.sh
+cp -v shell/.config/shell/local.aliases.secrets.sh.example \
+      shell/.config/shell/local.aliases.secrets.sh
+$EDITOR shell/.config/shell/local.aliases.secrets.sh
 
 stow -vv zsh
 # see FIXUP below
 
+mv ~/.pystartup ~/backup/
 stow -vv python
+
+( cd ~ && mv .ansiweatherrc .editorconfig .screenrc .tmux.conf .wakatime.cfg bin/ backup/ )
 
 stow -vv homedir
 cp -v homedir/{.ansiweatherrc.secrets.example,.ansiweatherrc.secrets}
@@ -52,6 +60,7 @@ TARGET=hostname
 scp $TARGET:.config/espanso/user/personal.secrets.yml \
   ./espanso/.config/espanso/user/personal.secrets.yml
 
+( cd ~ && mv .emacs.d/ backup/ )
 stow -vv emacs
 stow -vv golang
 stow -vv rustlang
