@@ -1,0 +1,16 @@
+# checkers and wrappers for emacs
+autopep8
+black
+flake8
+jedi
+yapf
+yamllint
+virtualenvwrapper
+grip # preview GitHub README.md
+# time tracking
+# wakatime now at: https://github.com/wakatime/wakatime-cli-pip
+# other scripts may rely on these
+click
+titlecase
+# bash prompt
+powerline-shell
