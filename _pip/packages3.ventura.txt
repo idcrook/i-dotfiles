@@ -5,6 +5,8 @@ flake8
 jedi
 yapf
 yamllint
+# for emacs-lsp support
+jedi-language-server
 virtualenvwrapper
 grip # preview GitHub README.md
 # time tracking
