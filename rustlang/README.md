@@ -24,6 +24,15 @@ rustup-init --no-modify-path
 
 After installing `stable`, start a new shell- `~/.cargo/bin` should be found and added to path
 
+
+### Upgrading
+
+<https://www.rust-lang.org/tools/install>
+
+```
+rustup update
+```
+
 Ubuntu or Debian
 ----------------
 
