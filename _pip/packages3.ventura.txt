@@ -1,3 +1,4 @@
+# -*- pip-requirements -*-
 # checkers and wrappers for emacs
 autopep8
 black
@@ -6,7 +7,7 @@ jedi
 yapf
 yamllint
 # for emacs-lsp support
-jedi-language-server
+python-lsp-server[all]
 virtualenvwrapper
 grip # preview GitHub README.md
 # time tracking
