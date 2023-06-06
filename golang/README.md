@@ -64,26 +64,23 @@ go install -v github.com/moorereason/mdfmt@latest
 
 ## `wakatime-cli`
 
+Now a python wrapper: <https://pypi.org/project/wakatime/>
+
+
+```console
+$ pip3 install wakatime
+```
+
 <https://github.com/wakatime/wakatime-cli/releases>
 
 <https://wakatime.com/help/creating-plugin#plugin-init:wakatime-cli>
 
-```console
-$ cd ~/.dotfiles/golang/
-$ wget https://github.com/wakatime/wakatime-cli/releases/download/v1.42.2/wakatime-cli-linux-amd64.zip
-$ unzip wakatime-cli-linux-amd64.zip
-$ mv wakatime-cli-linux-amd64 ~/.local/bin/wakatime-cli
-$ pip3 uninstall wakatime
-$ ls -l /home/dpc/.local/bin/wakatime
-$ rm /home/dpc/.local/bin/wakatime
-```
-
+errors about '`replace`' in `go.mod`
 
 ```shell
 # DOES NOT WORK # go install -v github.com/wakatime/wakatime-cli
+# DOES NOT WORK # go install github.com/wakatime/wakatime-cli@latest
 ```
-
-error about '`replace`' in `go.mod`
 
 
 
