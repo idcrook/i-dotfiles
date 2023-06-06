@@ -1,17 +1,15 @@
 # -*- pip-requirements -*-
 # checkers and wrappers for emacs
-autopep8
-black
-flake8
-jedi
-yapf
+# autopep8 # python
+# black # python
+# flake8 # python
+# jedi # python
+# yapf # python
 yamllint
 # for emacs-lsp support
 python-lsp-server[all]
-virtualenvwrapper
+# virtualenvwrapper # python
 grip # preview GitHub README.md
-# time tracking
-# wakatime now at: https://github.com/wakatime/wakatime-cli-pip
 # other scripts may rely on these
 click
 titlecase
