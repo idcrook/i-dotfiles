@@ -1,0 +1,33 @@
+[tool.ruff]
+exclude = ["tests/*"]
+ignore = [
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D105",
+    "D200",
+    "D205",
+    "D208",
+    "D400",
+    "D401",
+    "I",
+    "N806",
+]
+line-length = 99
+select = [
+    "C9",
+    "D",
+    "E",
+    "F",
+    "N",
+    "W",
+]
+
+[tool.ruff.mccabe]
+max-complexity = 10
+
+# [tool.ruff.pep8-naming]
+
+# [tool.ruff.flake8-quotes]
+# docstring-quotes = "single"
