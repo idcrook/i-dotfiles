@@ -2,17 +2,17 @@ Typical Install (on macOS)
 --------------------------
 
 1.	First, install **Homebrew**: https://brew.sh
-	Activate: Apple Silicon: `eval "$(/opt/homebrew/bin/brew shellenv)"``
 2.	Emacs is preferred editor, config dir `emacs.d` is installed below
+	-	`brew tap homebrew/cask`
+	-	`brew info --cask emacs`
 	-	`brew install --cask emacs`
-	-   `brew install --cask visual-studio-code`
+	-	`emacs` .. [Show In Finder] .. Right-Click ... Open and Open
 3.	Assumes [`stow`](stow/README.md#install-gnu-stow) and `git` are installed
-	-	`brew install stow git`
+	-	`brew install stow git keychain`
 
 ```shell
-# For github
-ssh-keygen -t ed25519 -C "your_email@example.com"
-# Upload this SSH key to GitHub account # cat ~/.ssh/id_ed25519.pub | pbcopy
+ssh-keygen -b 4096
+# Upload this SSH key to GitHub account # cat ~/.ssh/id_rsa.pub | pbcopy
 # and test # ssh -T git@github.com
 cd
 git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git .dotfiles
@@ -26,13 +26,19 @@ mkdir -p ~/backup
 
 stow -vv git
 cp -v git/.config/git/config.secrets.example ~/.config/git/config.secrets
-# DEFER: $EDITOR  ~/.config/git/config.secrets
+$EDITOR  ~/.config/git/config.secrets
 
 stow -vv shell
 
+mv ~/{.bash_logout,.bashrc,.profile} ~/backup
+( cd ~ && mv .bash_aliases .bash_profile .inputrc .powerline-shell.json .bash_completion.d/ backup/ )
 stow -vv bash
+cp -v shell/.config/shell/local.aliases.secrets.sh.example \
+      shell/.config/shell/local.aliases.secrets.sh
+$EDITOR shell/.config/shell/local.aliases.secrets.sh
 
 stow -vv zsh
+# see FIXUP below
 
 mv ~/.pystartup ~/backup/
 stow -vv python
@@ -42,10 +48,10 @@ stow -vv python
 stow -vv homedir
 cp -v homedir/{.ansiweatherrc.secrets.example,.ansiweatherrc.secrets}
 cp -v homedir/{.wakatime.cfg.secrets.example,.wakatime.cfg.secrets}
-# cp -v ./homedir/bin/macos/homebrew/HOMEBREW_GITHUB_API_TOKEN.secrets.example \
-#      ./homedir/bin/macos/homebrew/HOMEBREW_GITHUB_API_TOKEN.secrets
+cp -v ./homedir/bin/macos/homebrew/HOMEBREW_GITHUB_API_TOKEN.secrets.example \
+      ./homedir/bin/macos/homebrew/HOMEBREW_GITHUB_API_TOKEN.secrets
 
-# <<< Edit them >>>
+# edit them
 
 stow -vv espanso
 # see espanso/README.md

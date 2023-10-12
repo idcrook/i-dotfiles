@@ -14,6 +14,8 @@ pip3 list --format=columns | sed '/Package/,/---------/d' | \
 To install :
 
 ```
+which pip3
+# (masOS) ensure it is pointing to Homebrew version
 pip3 install -r packages3.txt
 ```
 
@@ -42,6 +44,7 @@ pip3 install --user --requirement packages3.ubuntu20.10.raspi.txt
 pip3 install --user --requirement packages3.raspios.bullseye.txt
 pip3 install --user -r packages3.bigsur.txt
 pip3 install --user -r packages3.ventura.txt
+pip3 install --user -r packages3.sonoma.txt
 ```
 may get an error if not using an updated shell session about `~/.local/bin` not being in PATH. that should be a transient error and go away in a newly-sourced shell.
 

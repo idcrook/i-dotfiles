@@ -6,10 +6,10 @@ tap "homebrew/command-not-found"
 # tap "homebrew/core"
 # tap "homebrew/services"
 # untap "federico-terzi/espanso"
-tap "espanso/espanso"
-tap d12frosted/emacs-plus
+# tap "espanso/espanso"
+# tap d12frosted/emacs-plus
 # for brew graph # https://github.com/martido/homebrew-graph
-tap martido/homebrew-graph
+# tap martido/homebrew-graph
 # brew "archey"
 # brew "bash"
 # brew "bash-completion@2"
@@ -20,7 +20,6 @@ brew "cpanminus"
 brew "curl"
 brew "dos2unix"
 brew "editorconfig"
-brew "emacs-plus@28"  args: ["with-nobu417-big-sur-icon", "with-xwidgets", "with-imagemagick", "with-native-comp"]
 brew "git"
 brew "git-lfs"
 brew "go"
@@ -34,6 +33,7 @@ brew "kubernetes-cli"
 brew "mas"
 brew "mosh"
 brew "multimarkdown"
+brew "nvm"
 brew "p7zip"
 brew "pandoc"
 brew "pstree"
@@ -58,7 +58,6 @@ brew "youtube-dl"
 # brew yt-dlp/taps/yt-dlp
 # brew "zbar"
 brew "zsh-completions"
-brew "espanso/espanso/espanso"
 cask "acorn"
 cask "airfoil"
 # cask "amazon-music" # 2021-Mar-03 The current OS X version is not supported
@@ -66,7 +65,8 @@ cask "appzapper"
 cask "balenaetcher"
 cask "beardedspice"
 cask "discord"
-# cask "emacs" # use emacs-plus formula
+cask "emacs"
+cask "espanso"
 # cask "epoccam"
 # cask "firefox" # install manually
 cask "font-cascadia-mono-pl"
@@ -107,7 +107,7 @@ cask "vlc"
 cask "vnc-viewer"
 # zoom installer wants password
 cask "zoom"
-mas "1Keyboard", id: 766939888
+# mas "1Keyboard", id: 766939888
 mas "1Password 7", id: 1333542190
 # mas "Amphetamine", id: 937984704
 # mas "Byword", id: 420212497

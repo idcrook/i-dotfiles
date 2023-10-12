@@ -6,8 +6,16 @@ https://github.com/nvm-sh/nvm#readme
 On macOS
 --------
 
+
 ```shell
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+# since we are using Homebrew version now
+mkdir ~/.nvm
+```
+
+**DEPRECATED** Use Homebrew version instead, just requires the directory creation described above.
+
+```shell
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 ```
 
 On Linux
@@ -15,7 +23,7 @@ On Linux
 
 ```shell
 # $XDG_CONFIG_HOME instead with nvm v0.37+ # mkdir -p ~/.nvm
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 ```
 
 Source a new shell and install a node version
@@ -32,17 +40,6 @@ npm --version
 npm list --global --parseable --depth=0
 ```
 
-#### Old macOS way
-
-<details> <summary>Using homebrew instead of nvm</summary>
-
-```shell
-# mkdir -p ~/.nvm
-# brew install nvm
-# update shell startup files to source nvm and load completions in respective shells
-```
-
-</details>
 
 Using node packages
 ===================
