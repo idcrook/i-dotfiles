@@ -65,13 +65,18 @@ espanso start
 
 ```shell
 # open its tap
-brew tap federico-terzi/espanso
+brew untap federico-terzi/espanso
+brew tap espanso/espanso
 
 # install
 brew install espanso
 
 # To make sure that espanso was correctly installed, you can open a terminal and type:
 espanso --version
+
+# https://espanso.org/docs/get-started/
+
+
 ```
 
 On macOS, will also need to enable system accessibility access.
@@ -82,13 +87,14 @@ https://espanso.org/install/mac/#enabling-accessibility
 
 ```shell
 # initiate with
-espanso register
+espanso service register
 
 # now traverse System Preferences to enable Accessibility for espanso
 # > > >
+# may need to reboot after for change to be reflected
 
 # now after the following command, should see espanso icon appear in the status bar
-espanso start
+espanso service  start
 ```
 
 #### Windows

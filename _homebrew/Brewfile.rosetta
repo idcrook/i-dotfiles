@@ -1,2 +1,6 @@
 cask "amazon-music" # 2023-Oct-12: The current OS X version is not supported
 # brew "go" # needed as zsh startup relies upon in Rosetta 2 env
+cask "balenaetcher"
+cask "beardedspice"
+mas "Disk Diag", id: 672206759
+cask "appzapper"

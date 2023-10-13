@@ -61,9 +61,9 @@ brew "zsh-completions"
 cask "acorn"
 cask "airfoil"
 # cask "amazon-music" # 2021-Mar-03 The current OS X version is not supported
-cask "appzapper"
-cask "balenaetcher"
-cask "beardedspice"
+# cask "appzapper"
+# cask "beardedspice"
+cask "carbon-copy-cloner"
 cask "discord"
 cask "emacs"
 cask "espanso"
@@ -79,7 +79,7 @@ cask "font-intel-one-mono"
 cask "font-menlo-for-powerline"
 cask "font-meslo-for-powerline"
 cask "font-ubuntu-mono-nerd-font"
-cask "forklift"
+# version 4 # cask "forklift"
 cask "free42-decimal"
 # not using # cask "geektool"
 cask "gitup"
@@ -87,11 +87,13 @@ cask "grandperspective"
 # cask "hammerspoon"
 cask "hermes"
 cask "icanhazshortcut"
-cask "iina"
+#cask "iina"
+cask "istat-menus"
 cask "imageoptim"
 cask "iterm2"
 cask "joplin"
 cask "keycastr"
+cask "little-snitch"
 cask "mark-text"
 # cask "netnewswire"
 cask "omnidisksweeper"
@@ -112,7 +114,7 @@ mas "1Password 7", id: 1333542190
 # mas "Amphetamine", id: 937984704
 # mas "Byword", id: 420212497
 mas "Discovery", id: 1381004916
-mas "Disk Diag", id: 672206759
+# mas "Disk Diag", id: 672206759
 # mas "Disk Speed Test", id: 425264550
 # mas "Downlink", id: 1454269192
 mas "Drafts", id: 1435957248
