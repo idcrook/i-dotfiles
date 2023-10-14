@@ -85,8 +85,8 @@ cask "free42-decimal"
 cask "gitup"
 cask "grandperspective"
 # cask "hammerspoon"
-cask "hermes"
-cask "icanhazshortcut"
+# cask "hermes"
+# cask "icanhazshortcut"
 #cask "iina"
 cask "istat-menus"
 cask "imageoptim"
@@ -126,7 +126,7 @@ mas "Instapaper", id: 288545208
 mas "Jayson", id: 1468691718
 mas "Key Codes", id: 414568915
 # mas "Keynote", id: 409183694
-mas "Kindle", id: 405399194
+# mas "Kindle", id: 405399194
 # mas "LanScan", id: 472226235
 # mas "Location Helper", id: 488536386
 mas "Magnet", id: 441258766
@@ -142,12 +142,12 @@ mas "PCalc", id: 403504866
 mas "PhotoResize", id: 492236133
 mas "Prizmo", id: 546392952
 # mas "QuickSleep", id: 1121441756
-mas "Radio Paradise", id: 663334697
+# mas "Radio Paradise", id: 663334697
 # mas "ReadKit", id: 588726889
 mas "Reeder", id: 1529448980
 mas "Screens", id: 1224268771
 mas "Secrets", id: 973049011
-mas "Sip", id: 507257563
+# mas "Sip", id: 507257563
 # mas "Slack", id: 803453959
 mas "Soulver", id: 413965349
 # mas "Spark", id: 1176895641
