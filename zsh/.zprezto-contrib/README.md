@@ -4,7 +4,7 @@ My prezto zsh modules
 Collections of modules
 
 -	`kubernetes` aliases I use in bash ported to zsh
--	`tbd...` to be determined
+-	`mojo` Computer language/SDK like Python from [Modular](https://docs.modular.com/mojo/)
 
 How to load prezto modules, from README [sorin-ionescu/prezto: The configuration framework for Zsh](https://github.com/sorin-ionescu/prezto#readme):
 

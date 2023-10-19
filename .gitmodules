@@ -8,3 +8,6 @@
 [submodule "zsh/.zprezto-contrib/kubernetes"]
 	path = zsh/.zprezto-contrib/kubernetes
 	url = https://github.com/idcrook/prezto-kubernetes.git
+[submodule "zsh/.zprezto-contrib/mojo"]
+	path = zsh/.zprezto-contrib/mojo
+	url = https://github.com/idcrook/prezto-mojo.git
