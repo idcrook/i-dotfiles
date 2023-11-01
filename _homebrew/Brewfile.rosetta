@@ -9,3 +9,4 @@ cask "icanhazshortcut"
 mas "Kindle", id: 405399194
 mas "Radio Paradise", id: 663334697
 mas "Sip", id: 507257563
+cask "openscad"
