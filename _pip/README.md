@@ -42,6 +42,7 @@ pip3 install --user --requirement packages3.debian.bullseye.txt
 pip3 install --user --requirement packages3.raspios.buster.txt
 pip3 install --user --requirement packages3.ubuntu20.10.raspi.txt
 pip3 install --user --requirement packages3.raspios.bullseye.txt
+pip3 install --break-system-packages --user --requirement  packages3.raspios.bookworm.txt
 pip3 install --user -r packages3.bigsur.txt
 pip3 install --user -r packages3.ventura.txt
 pip3 install --user -r packages3.sonoma.txt
