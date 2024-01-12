@@ -25,7 +25,16 @@ Debian 11 (bullseye)
 sudo apt install golang-go
 ```
 
-Raspberry Pi OS
+Raspberry Pi OS (bookworm)
+---------------
+
+version 1.19  as of January 2024
+
+```shell
+sudo apt install -y golang-go
+```
+
+Raspberry Pi OS (manual)
 ---------------
 
 See https://golang.org/dl/ for latest version. There are currently ARMv6 and ARMv8 (64-bit) ARM versions
