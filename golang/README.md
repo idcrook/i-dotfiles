@@ -80,6 +80,12 @@ Now a python wrapper: <https://pypi.org/project/wakatime/>
 $ pip3 install wakatime
 ```
 
+Works on Raspberry Pi OS
+
+```
+python3 -c "$(wget -q -O - https://raw.githubusercontent.com/wakatime/vim-wakatime/master/scripts/install_cli.py)"
+```
+
 <https://github.com/wakatime/wakatime-cli/releases>
 
 <https://wakatime.com/help/creating-plugin#plugin-init:wakatime-cli>
