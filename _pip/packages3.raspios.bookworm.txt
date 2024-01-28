@@ -11,3 +11,4 @@ click
 titlecase
 grip # preview GitHub README.md
 virtualenvwrapper
+hatch
