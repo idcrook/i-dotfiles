@@ -15,6 +15,7 @@ rye_env="$HOME/.rye/env"
 if [ -f "${rye_env}" ] ; then
     source "${rye_env}"
 fi
+unset rye_env
 
 # Raspberry Pi Pico SDK
 # - https://github.com/raspberrypi/pico-sdk
