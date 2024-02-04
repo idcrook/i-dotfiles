@@ -1,0 +1,14 @@
+autopep8
+black
+flake8
+jedi
+powerline-shell
+wakatime
+# requests
+yapf
+yamllint
+click
+titlecase
+grip # preview GitHub README.md
+virtualenvwrapper
+hatch

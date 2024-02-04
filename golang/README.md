@@ -25,7 +25,16 @@ Debian 11 (bullseye)
 sudo apt install golang-go
 ```
 
-Raspberry Pi OS
+Raspberry Pi OS (bookworm)
+---------------
+
+version 1.19  as of January 2024
+
+```shell
+sudo apt install -y golang-go
+```
+
+Raspberry Pi OS (manual)
 ---------------
 
 See https://golang.org/dl/ for latest version. There are currently ARMv6 and ARMv8 (64-bit) ARM versions
@@ -69,6 +78,12 @@ Now a python wrapper: <https://pypi.org/project/wakatime/>
 
 ```console
 $ pip3 install wakatime
+```
+
+Works on Raspberry Pi OS
+
+```
+python3 -c "$(wget -q -O - https://raw.githubusercontent.com/wakatime/vim-wakatime/master/scripts/install_cli.py)"
 ```
 
 <https://github.com/wakatime/wakatime-cli/releases>

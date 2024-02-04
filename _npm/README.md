@@ -23,7 +23,7 @@ On Linux
 
 ```shell
 # $XDG_CONFIG_HOME instead with nvm v0.37+ # mkdir -p ~/.nvm
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
 Source a new shell and install a node version
