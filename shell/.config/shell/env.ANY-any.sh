@@ -10,6 +10,12 @@
 # stow -vv shell
 #
 
+# https://rye-up.com/guide/installation/
+rye_env="$HOME/.rye/env"
+if [ -f "${rye_env}" ] ; then
+    source "${rye_env}"
+fi
+
 # Raspberry Pi Pico SDK
 # - https://github.com/raspberrypi/pico-sdk
 # - https://datasheets.raspberrypi.org/pico/getting-started-with-pico.pdf
