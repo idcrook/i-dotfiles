@@ -15,7 +15,7 @@ mkdir ~/.nvm
 **DEPRECATED** Use Homebrew version instead, just requires the directory creation described above.
 
 ```shell
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
 On Linux
