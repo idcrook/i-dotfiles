@@ -35,6 +35,7 @@ In a newly sourced shell (to get the proper environment)
 ```shell
 cd ~/.dotfiles/_pip/
 # use matching one
+pip3 install --break-system-packages --user --requirement  packages3.ubuntu24.04.txt
 pip3 install --user --requirement packages3.ubuntu22.04.txt
 pip3 install --user --requirement packages3.ubuntu20.04.txt
 pip3 install --user --requirement packages3.ubuntu20.10.txt
@@ -42,6 +43,7 @@ pip3 install --user --requirement packages3.debian.bullseye.txt
 pip3 install --user --requirement packages3.raspios.buster.txt
 pip3 install --user --requirement packages3.ubuntu20.10.raspi.txt
 pip3 install --user --requirement packages3.raspios.bullseye.txt
+pip3 install --break-system-packages --user --requirement  packages3.raspios.bookworm.txt
 pip3 install --user -r packages3.bigsur.txt
 pip3 install --user -r packages3.ventura.txt
 pip3 install --user -r packages3.sonoma.txt
