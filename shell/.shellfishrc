@@ -445,5 +445,5 @@ EOF
     echo -ne "$var" | base64
   done)
   local base64=$(echo "$plain" | openssl enc -aes-256-cbc -base64 -K $key -iv $iv)
-  curl -sS -X POST -H "Content-Type: text/plain" --data "$base64" "https://secureshellfish.app/push/?user=$user"
+  curl -sS -X POST -H "Content-Type: text/plain" --data "$base64" "https://secureshellfish.app/push/?user=$user&mutable"
 }
