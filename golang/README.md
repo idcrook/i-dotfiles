@@ -78,6 +78,7 @@ Now a python wrapper: <https://pypi.org/project/wakatime/>
 
 ```console
 $ pip3 install wakatime
+$ pip3 install wakatime --user --break-system-packages
 ```
 
 Works on Raspberry Pi OS

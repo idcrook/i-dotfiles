@@ -1,4 +1,5 @@
-Acquire::http::proxy "http://192.168.50.6:3142/";
+#Acquire::http::proxy "http://192.168.50.6:3142/";
+Acquire::http::proxy "http://192.168.50.38:3142/";
 #Acquire::http::proxy "http://192.168.50.5:3142/";
 
 # -o Acquire::CompressionTypes::Order::="gz";
