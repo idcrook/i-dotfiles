@@ -3,11 +3,11 @@
 # brew "finestructure/tap/arena"
 # brew "kylef/formulae/swiftenv"
 # brew "vapor"
-cask "xcodes"
+# cask "xcodes"
 mas "Apple Configurator 2", id: 1037126344
 mas "Apple Developer", id: 640199958
 mas "HextEdit", id: 1557247094
 mas "Patterns", id: 429449079
-mas "Playgrounds", id: 1496833156
+# mas "Playgrounds", id: 1496833156
 mas "Transporter", id: 1450874784
 mas "Xcode", id: 497799835

@@ -74,6 +74,8 @@ elif [ "${arch_name}" = "arm64" ]; then
     if [ -d "${EMACSPATH}/../../../bin" ] ; then
         EMACSPATH_BIN="${EMACSPATH}/../../../bin"
     # emacs cask bin/ path
+    elif [ -d "${EMACSPATH}/bin-arm64-11" ] ; then
+        EMACSPATH_BIN="${EMACSPATH}/bin-arm64-11"
     elif [ -d "${EMACSPATH}/bin" ] ; then
         EMACSPATH_BIN="${EMACSPATH}/bin"
     else
