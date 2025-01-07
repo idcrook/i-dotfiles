@@ -5,6 +5,7 @@ Collections of modules
 
 -	`kubernetes` aliases I use in bash ported to zsh
 -	`mojo` Computer language/SDK like Python from [Modular](https://docs.modular.com/mojo/)
+-	`emacs-action` do things in emacs from terminal command line
 
 How to load prezto modules, from README [sorin-ionescu/prezto: The configuration framework for Zsh](https://github.com/sorin-ionescu/prezto#readme):
 
