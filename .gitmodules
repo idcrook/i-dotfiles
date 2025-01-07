@@ -11,3 +11,6 @@
 [submodule "zsh/.zprezto-contrib/mojo"]
 	path = zsh/.zprezto-contrib/mojo
 	url = https://github.com/idcrook/prezto-mojo.git
+[submodule "zsh/.zprezto-contrib/emacs-action"]
+	path = zsh/.zprezto-contrib/emacs-action
+	url = https://github.com/idcrook/prezto-emacs-action
