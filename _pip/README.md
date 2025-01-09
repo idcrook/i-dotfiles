@@ -50,6 +50,20 @@ pip3 install --user -r packages3.sonoma.txt
 ```
 may get an error if not using an updated shell session about `~/.local/bin` not being in PATH. that should be a transient error and go away in a newly-sourced shell.
 
+## uv
+
+<https://github.com/astral-sh/uv>
+
+<https://docs.astral.sh/uv/getting-started/installation/>
+
+```
+# Linux/macOS user install
+pip3 install --break-system-packages --user uv
+
+# macOS
+brew install uv
+```
+
 ## pipx
 
 <https://pypa.github.io/pipx/> - Install and Run Python Applications in Isolated Environments
@@ -63,7 +77,7 @@ python3 -m pip install --user pipx
 python3 -m pipx ensurepath
 ```
 
-macOS 
+macOS
 
 ```shell
 brew install pipx
