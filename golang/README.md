@@ -106,6 +106,13 @@ errors about '`replace`' in `go.mod`
 go get -u github.com/jingweno/ccat
 ```
 
+#### `mdfmt`
+
+
+```
+go install github.com/moorereason/mdfmt@latest
+```
+
 #### DEPRECATED: `mdfmt` needs to use a modules, needs a special build flow
 
 ```shell
