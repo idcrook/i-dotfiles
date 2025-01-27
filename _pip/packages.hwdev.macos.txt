@@ -1,6 +1,10 @@
 
-# micropython-stubs
+# micropython-stubs and emacs
 pyright
 jsonrpc
+
 # micropython CLI util
 mpremote
+
+# ESP8266, ESP32, etc.
+esptool

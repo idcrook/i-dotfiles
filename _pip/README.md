@@ -20,7 +20,7 @@ pip3 install --break-system-packages --user --requirement  packages3.raspios.boo
 # for ESP, micropython, arduino, etc.
 pip3 install --break-system-packages --user --requirement  packages.hwdev.macos.txt
 ```
-may get an error if not using an updated shell session about `~/.local/bin` not being in PATH. that should be a transient error and go away in a newly-sourced shell.
+If get an error about `~/.local/bin` not being in PATH, that should be transient and go away in a newly-sourced shell (it should be in PATH from `shell` stow module.
 
 ## uv
 
