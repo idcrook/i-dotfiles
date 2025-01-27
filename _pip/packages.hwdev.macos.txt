@@ -1,0 +1,6 @@
+
+# micropython-stubs
+pyright
+jsonrpc
+# micropython CLI util
+mpremote

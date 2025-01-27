@@ -2,3 +2,4 @@ venvs/
 logs/
 shared/
 .cache/
+py/
