@@ -5,6 +5,7 @@ jsonrpc
 
 # micropython CLI util
 mpremote
+mpr
 
 # ESP8266, ESP32, etc.
 esptool
