@@ -5,6 +5,13 @@
 # Authors:
 #   David Crook <david.crook@gmail.com>
 
+## $XDG_CONFIG_HOME: $HOME/.config
+if [[ ! -x "$XDG_CONFIG_HOME" ]]; then
+  shell_config="$HOME/.config/shell"
+else
+  shell_config="$XDG_CONFIG_HOME/shell"
+fi
+
 # meta-aliases
 alias sal='echo sourcing ~/.zsh/aliases.zsh ; source ~/.zsh/aliases.zsh'
 alias val='vi ~/.zsh/aliases.zsh; sal'
@@ -17,6 +24,7 @@ alias val='vi ~/.zsh/aliases.zsh; sal'
 # 	# `hub alias` sez...
 #     eval "$(hub alias -s)"
 # fi
+
 
 # create "global" aliases
 alias -g L="| less"   # example: cat README.md L
@@ -74,6 +82,14 @@ function ec () {
         $EMACSCLIENT -c -n "$@"
     fi
 }
+
+
+# per host environment variables
+nodename=$(uname -n)
+if [[ -f "${shell_config}"/alias.$nodename.sh ]] ; then
+  # shellcheck source=/dev/null
+  source "${shell_config}"/alias.$nodename.sh
+fi
 
 
 # Navigation -------------------------------------------------------

@@ -10,13 +10,6 @@
 # cd ~/.dotfiles
 # stow -vv shell
 #
-# EXAMPLE
-#
-# to use the shared openscad-mcad in openscad-nightly on ubuntu, need to update
-# an environment variable
-if [ -d /usr/share/openscad/libraries ] ; then
-    export OPENSCADPATH=/usr/share/openscad/libraries:"${OPENSCADPATH}"
-fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
