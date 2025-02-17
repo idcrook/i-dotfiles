@@ -1,4 +1,3 @@
-[tool.ruff]
 exclude = ["tests/*"]
 ignore = [
     "D100",
@@ -24,8 +23,8 @@ select = [
     "W",
 ]
 
-[tool.ruff.mccabe]
-max-complexity = 10
+# [mccabe]
+# max-complexity = 10
 
 # [tool.ruff.pep8-naming]
 
