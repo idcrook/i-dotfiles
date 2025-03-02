@@ -2,6 +2,7 @@ tap homebrew/cask-versions
 # tap "parera10/csshx"
 # brew "parera10/csshx/csshx"
 # brew "dfu-util"
+brew "esphome"
 # brew "libusb"
 # brew "libusb-compat"
 brew "mosquitto"

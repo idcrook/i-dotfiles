@@ -1,0 +1,12 @@
+# https://docs.zephyrproject.org/latest/develop/getting_started/index.html#install-dependencies
+brew "cmake"
+brew "ninja"
+brew "gperf"
+brew "python3"
+brew "python-tk"
+brew "ccache"
+brew "qemu"
+brew "dtc"
+brew "libmagic"
+brew "wget"
+brew "openocd"

@@ -42,6 +42,7 @@ brew bundle --verbose --file=Brewfile.cpp-dev
 brew bundle --verbose --file=Brewfile.hardware-dev
 brew bundle --verbose --file=Brewfile.media-dev
 brew bundle --verbose --file=Brewfile.web-dev
+brew bundle --verbose --file=Brewfile.zephyr
 # etc.
 ```
 
