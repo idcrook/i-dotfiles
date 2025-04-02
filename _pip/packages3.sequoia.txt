@@ -9,7 +9,7 @@ yamllint
 # for emacs-lsp support
 python-lsp-server[all]
 debugpy
-# virtualenvwrapper # python
+virtualenvwrapper # python
 grip # preview GitHub README.md
 # other scripts may rely on these
 click
