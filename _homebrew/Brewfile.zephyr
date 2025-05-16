@@ -10,3 +10,6 @@ brew "dtc"
 brew "libmagic"
 brew "wget"
 brew "openocd"
+
+# used to obtain libclang headers for emacs irony-mode
+# brew "llvm"
