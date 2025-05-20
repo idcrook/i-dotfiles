@@ -14,6 +14,20 @@ brew "openocd"
 # used to obtain libclang headers for emacs irony-mode
 # brew "llvm"
 
-# for debugger ##  pkgutil --files com.segger.pkg.JLink
-cask "segger-jlink"
-# segger-embedded-studio-for-arm
+# for debugger
+#cask "segger-jlink"
+##  pkgutil --files com.segger.pkg.JLink
+
+#cask segger-embedded-studio-for-arm
+
+# for rpi openocd build
+brew "automake"
+brew "libtool"
+brew "libusb"
+brew "pkg-config"
+brew "libusb-compat"
+brew "hidapi"
+brew "libftdi"
+
+# debugger related
+brew "telnet"
