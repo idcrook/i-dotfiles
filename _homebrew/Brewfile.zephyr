@@ -13,3 +13,7 @@ brew "openocd"
 
 # used to obtain libclang headers for emacs irony-mode
 # brew "llvm"
+
+# for debugger ##  pkgutil --files com.segger.pkg.JLink
+cask "segger-jlink"
+# segger-embedded-studio-for-arm
