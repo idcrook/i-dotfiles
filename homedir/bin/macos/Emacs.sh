@@ -65,7 +65,7 @@ elif [ "${arch_name}" = "arm64" ]; then
     # emacs-plus "released" Emacs
     elif [ -d  /opt/homebrew/opt/emacs-plus/Emacs.app/ ] ; then
         EMACSPATH=/opt/homebrew/opt/emacs-plus/Emacs.app/Contents/MacOS
-    # fall back to any (usually symlinked) Emacs 27
+    # fall back     # cask http://emacsformacosx.com
     elif [ -d /Applications/Emacs.app/ ] ; then
         EMACSPATH=/Applications/Emacs.app/Contents/MacOS
     fi
@@ -83,8 +83,11 @@ elif [ "${arch_name}" = "arm64" ]; then
         echo Warning: Emacs /bin directory not found. Using "$EMACSPATH_BIN"
     fi
 
-    EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
-
+    if [ -x "${EMACSPATH}/Emacs-arm64-11" ] ; then
+        EMACS_WRAPPER_OR_BIN="${EMACSPATH}/Emacs-arm64-11"
+    else
+        EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
+    fi
 fi
 
 # echo EMACSPATH=$EMACSPATH
