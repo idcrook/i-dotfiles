@@ -14,3 +14,6 @@
 [submodule "zsh/.zprezto-contrib/emacs-action"]
 	path = zsh/.zprezto-contrib/emacs-action
 	url = https://github.com/idcrook/prezto-emacs-action
+[submodule "zsh/.zprezto-contrib/swiftly"]
+	path = zsh/.zprezto-contrib/swiftly
+	url = https://github.com/idcrook/prezto-swiftly.git

@@ -1,0 +1,231 @@
+#compdef swiftly
+local context state state_descr line
+_swiftly_commandname=$words[1]
+typeset -A opt_args
+
+_swiftly() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'install:Install a new toolchain.'
+                'list-available:List toolchains available for install.'
+                'use:Set the in-use or default toolchain. If no toolchain is provided, print the currently in-use toolchain, if any.'
+                'uninstall:Remove an installed toolchain.'
+                'list:List installed toolchains.'
+                'update:Update an installed toolchain to a newer version.'
+                'init:Perform swiftly initialization into your user account.'
+                'self-update:Update the version of swiftly itself.'
+                'run:Run a command while proxying to the selected toolchain commands.'
+                'help:Show subcommand help information.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (install)
+                    _swiftly_install
+                    ;;
+                (list-available)
+                    _swiftly_list-available
+                    ;;
+                (use)
+                    _swiftly_use
+                    ;;
+                (uninstall)
+                    _swiftly_uninstall
+                    ;;
+                (list)
+                    _swiftly_list
+                    ;;
+                (update)
+                    _swiftly_update
+                    ;;
+                (init)
+                    _swiftly_init
+                    ;;
+                (self-update)
+                    _swiftly_self-update
+                    ;;
+                (run)
+                    _swiftly_run
+                    ;;
+                (help)
+                    _swiftly_help
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_swiftly_install() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':version:'
+        '(--use -u)'{--use,-u}'[Mark the newly installed toolchain as in-use.]'
+        '--verify[Verify the toolchain'"'"'s PGP signature before proceeding with installation.]'
+        '--no-verify[Verify the toolchain'"'"'s PGP signature before proceeding with installation.]'
+        '--post-install-file[A file path to a location for a post installation script]:post-install-file:'
+        '(-y --assume-yes)'{-y,--assume-yes}'[Disable confirmation prompts by assuming '"'"'yes'"'"']'
+        '--verbose[Enable verbose reporting from swiftly]'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_list-available() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':toolchain-selector:'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_use() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--print-location -p)'{--print-location,-p}'[Print the location of the in-use toolchain. This is valid only when there is no toolchain argument.]'
+        '(--global-default -g)'{--global-default,-g}'[Set the global default toolchain that is used when there are no .swift-version files.]'
+        '(-y --assume-yes)'{-y,--assume-yes}'[Disable confirmation prompts by assuming '"'"'yes'"'"']'
+        '--verbose[Enable verbose reporting from swiftly]'
+        ':toolchain:'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_uninstall() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':toolchain:'
+        '(-y --assume-yes)'{-y,--assume-yes}'[Disable confirmation prompts by assuming '"'"'yes'"'"']'
+        '--verbose[Enable verbose reporting from swiftly]'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_list() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':toolchain-selector:'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_update() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':toolchain:'
+        '(-y --assume-yes)'{-y,--assume-yes}'[Disable confirmation prompts by assuming '"'"'yes'"'"']'
+        '--verbose[Enable verbose reporting from swiftly]'
+        '--verify[Verify the toolchain'"'"'s PGP signature before proceeding with installation.]'
+        '--no-verify[Verify the toolchain'"'"'s PGP signature before proceeding with installation.]'
+        '--post-install-file[A file path to a location for a post installation script]:post-install-file:'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_init() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-n --no-modify-profile)'{-n,--no-modify-profile}'[Do not attempt to modify the profile file to set environment variables (e.g. PATH) on login.]'
+        '(--overwrite -o)'{--overwrite,-o}'[Overwrite the existing swiftly installation found at the configured SWIFTLY_HOME, if any. If this option is unspecified and an existing installation is found, the swiftly executable will be updated, but the rest of the installation will not be modified.]'
+        '--platform[Specify the current Linux platform for swiftly]:platform:'
+        '--skip-install[Skip installing the latest toolchain]'
+        '--quiet-shell-followup[Quiet shell follow up commands]'
+        '(-y --assume-yes)'{-y,--assume-yes}'[Disable confirmation prompts by assuming '"'"'yes'"'"']'
+        '--verbose[Enable verbose reporting from swiftly]'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_self-update() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-y --assume-yes)'{-y,--assume-yes}'[Disable confirmation prompts by assuming '"'"'yes'"'"']'
+        '--verbose[Enable verbose reporting from swiftly]'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_run() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':command:'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_help() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':subcommands:'
+        '--version[Show the version.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+
+_custom_completion() {
+    local completions=("${(@f)$($*)}")
+    _describe '' completions
+}
+
+_swiftly
