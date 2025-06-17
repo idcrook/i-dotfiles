@@ -145,16 +145,16 @@ mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Parcel", id: 639968404
 mas "PCalc", id: 403504866
 mas "PhotoResize", id: 492236133
-mas "Prizmo", id: 546392952
+# mas "Prizmo", id: 546392952
 # mas "QuickSleep", id: 1121441756
 # mas "Radio Paradise", id: 663334697
 # mas "ReadKit", id: 588726889
 mas "Reeder", id: 1529448980
 mas "Screens", id: 1224268771
-mas "Secrets", id: 973049011
+# mas "Secrets", id: 973049011
 # mas "Sip", id: 507257563
 # mas "Slack", id: 803453959
-mas "Soulver", id: 413965349
+# mas "Soulver", id: 413965349
 # mas "Spark", id: 1176895641
 mas "Stockfish", id: 801463932
 mas "TableFlip", id: 1462643128
