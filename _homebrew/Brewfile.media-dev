@@ -2,11 +2,14 @@
 # brew "libav"
 cask "acorn"
 # cask "aerial"
+cask "blender@lts"
 # cask "gimp"
 cask "imageoptim"
 cask "inkscape"
 # cask "plex" # install manually
 # cask "plex-media-player"
+cask "plexamp"
+cask "musicbrainz-picard"
 # mas "Affinity Designer", id: 824171161
 # mas "Affinity Photo", id: 824183456
 # mas "Bundle for iWork -GN Templates", id: 538727314
