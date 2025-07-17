@@ -1,5 +1,6 @@
 # brew "deno"
 # brew "doctl"
+brew "kompose"
 # brew "httpie"
 # brew "iperf3"
 brew "nmap"
