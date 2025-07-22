@@ -1,0 +1,61 @@
+# -*- sh -*-
+
+# bash zsh and utils
+sudo apt install -y screen tmux mosh dselect rcs \
+     keychain source-highlight jq shellcheck curl tree \
+     unzip zsh colordiff vim
+
+# some special cases
+sudo apt install molly-guard git-lfs
+
+# some emacs dependencies
+sudo apt install -y \
+     imagemagick-7.q16hdri ack silversearcher-ag ripgrep \
+     python-is-python3 python3-dev python3-setuptools python3-pip \
+     python3-venv python3-virtualenvwrapper python3-wheel \
+     python3-tk fonts-powerline fonts-hack fonts-inconsolata \
+     fonts-dejavu fonts-symbola fonts-anonymous-pro fonts-cascadia-code
+
+# emacs30 is version in 25.04
+sudo apt install emacs
+sudo apt install emacs-nox
+sudo snap install emacs --classic
+
+# npm : use nvm (see _npm)
+
+# golang 1.24 - https://github.com/golang/go/wiki/Ubuntu
+sudo apt install golang-go
+
+# Snap
+
+# github hub - https://hub.github.com
+sudo snap install hub --classic
+
+# DESKTOP tweaks below
+
+# image tools
+sudo apt install trimage
+
+# xdg-open
+sudo apt install xdg-utils
+
+# other desktop utils
+sudo apt install gnome-tweaks
+# gnome-tweaks: Windows -> Window Focus : [x] Secondary-Click
+# gnome-tweaks: Keyboard and Mouse -> Keyboard : Enable 'Emacs Input'
+# gnome-tweaks: Keyboard and Mouse -> Keyboard : [Additional Layout Options]
+#               Ctrl position : [x] Make Caps Lock an additional Ctrl
+# gnome-tweaks: Keyboard and Mouse -> Mouse:  Acceleration Profile [Adaptive]
+
+# so that screen sharing (aka VNC) will be found in Settings > Sharing
+# sudo apt install vino
+# Kubuntu: krfb
+
+# espanso - https://espanso.org/install/linux/
+# See wayland installation
+#  <https://espanso.org/docs/install/linux/#deb-wayland>
+#sudo snap install espanso --classic
+#sudo apt install xclip
+
+# Visual Studio code
+sudo snap install --classic code

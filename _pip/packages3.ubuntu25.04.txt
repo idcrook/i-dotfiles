@@ -1,0 +1,21 @@
+# -*- pip-requirements -*-
+# checkers and wrappers for emacs
+# autopep8 # python
+# black # python
+# flake8 # python
+# jedi # python
+# yapf # python
+yamllint
+# for emacs-lsp support
+python-lsp-server[all]
+debugpy
+powerline-shell
+wakatime
+# requests
+click
+titlecase
+grip # preview GitHub README.md
+virtualenvwrapper
+hatch
+# https://github.com/pinout-xyz/picopins
+picopins
