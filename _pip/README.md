@@ -77,6 +77,13 @@ done! ✨ 🌟 ✨
 - `asciinema` - Terminal session recorder - https://github.com/asciinema/asciinema
   - `pipx run asciinema`
 
+- `poetry`
+
+```
+pipx install poetry
+```
+
+
 # Generate list or upgrade packages
 
 To generate a packages list do something like:
