@@ -111,3 +111,4 @@ youtube-dl
 /pydocstyle
 /pylsp
 /poetry
+/trove-classifiers
