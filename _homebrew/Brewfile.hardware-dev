@@ -15,6 +15,7 @@ cask "cura-lulzbot"
 # for freecad openscad workbench: pip3 install --user ply
 cask "freecad"
 # cask "fritzing" # 0.9.4; starting at 0.9.6, a paid download
+cask "ideamaker"
 cask "kicad"
 # cask "librecad"
 # cask "meshlab"
