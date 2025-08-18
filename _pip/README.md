@@ -13,6 +13,7 @@ In a newly sourced shell (to get the proper environment)
 ```shell
 cd ~/.dotfiles/_pip/
 # use a corresponding one
+pip3 install --break-system-packages --user --requirement  packages3.debian.trixie.txt
 pip3 install --break-system-packages --user --requirement  packages3.ubuntu25.04.txt
 pip3 install --break-system-packages --user --requirement  packages3.ubuntu24.04.txt
 pip3 install --user --requirement packages3.ubuntu22.04.txt
@@ -47,6 +48,7 @@ debian / ubuntu
 
 ```shell
 python3 -m pip install --user pipx
+python3 -m pip install --break-system-packages --user pipx
 python3 -m pipx ensurepath
 ```
 

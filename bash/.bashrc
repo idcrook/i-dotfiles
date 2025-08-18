@@ -280,3 +280,6 @@ if [[ -f "${shell_config}"/env.$nodename.sh ]] ; then
     # shellcheck source=/dev/null
     source "${shell_config}"/env.$nodename.sh
 fi
+
+# Created by `pipx` on 2025-08-18 21:28:08
+export PATH="$PATH:/home/dpc/.dotfiles/shell/.local/bin"

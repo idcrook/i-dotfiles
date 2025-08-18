@@ -55,6 +55,32 @@ wget https://github.com/federico-terzi/espanso/releases/latest/download/espanso-
 sudo apt install ./espanso-debian-amd64.deb
 ```
 
+## Build X11 from source
+
+https://espanso.org/docs/install/linux/#x11-compile
+
+
+Assumes Rust/cargo installed
+
+
+```shell
+# Clone the Espanso repository
+git clone https://github.com/espanso/espanso
+
+cd espanso
+
+# Compile espanso in release mode
+# NOTE: this will take a while (~5/15 minutes)
+cargo build -p espanso --release --no-default-features --features vendored-tls,modulo
+
+# put into path
+sudo mv target/release/espanso /usr/local/bin/espanso
+
+# Register espanso as a systemd service (required only once)
+espanso service register
+espanso start
+```
+
 ### Now launch
 
 ```shell

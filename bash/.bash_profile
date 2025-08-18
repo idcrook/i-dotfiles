@@ -287,3 +287,6 @@ fi
 # placed here by rustup
 #export PATH="$HOME/.cargo/bin:$PATH"
 pathappend $HOME/.cargo/bin
+
+# Created by `pipx` on 2025-08-18 21:28:08
+export PATH="$PATH:/home/dpc/.dotfiles/shell/.local/bin"

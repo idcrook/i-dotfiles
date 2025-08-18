@@ -112,3 +112,9 @@ youtube-dl
 /pylsp
 /poetry
 /trove-classifiers
+/debugpy
+/debugpy-adapter
+/get_gprof
+/get_objgraph
+/pylint-config
+/undill

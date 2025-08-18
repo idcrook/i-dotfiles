@@ -24,6 +24,7 @@ On Linux
 ```shell
 # $XDG_CONFIG_HOME instead with nvm v0.37+ # mkdir -p ~/.nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
 ```
 
 Source a new shell and install a node version
