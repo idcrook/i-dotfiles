@@ -1,0 +1,6 @@
+# - https://www.thoughtasylum.com/2025/08/25/text-to-speech-on-macos-with-piper/
+# - https://github.com/sylumer/pan
+# MODEL="$HOME/projects/ai/piper/voices/en_US/en_US-lessac-high"
+MODEL="$HOME/projects/ai/piper/voices/en_GB/en_GB-aru-medium"
+VOICE=10
+QUALITY=2
