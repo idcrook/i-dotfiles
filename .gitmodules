@@ -17,3 +17,6 @@
 [submodule "zsh/.zprezto-contrib/swiftly"]
 	path = zsh/.zprezto-contrib/swiftly
 	url = https://github.com/idcrook/prezto-swiftly.git
+[submodule "zsh/.zprezto-contrib/brew-command-not-found"]
+	path = zsh/.zprezto-contrib/brew-command-not-found
+	url = git@github.com:idcrook/prezto-brew-command-not-found.git
