@@ -275,7 +275,7 @@ if [[ -r "$shell_config/local.sh" ]]; then
 fi
 
 # per host environment variables
-nodename=$(uname -n)
+nodename=$(hostname -s)
 if [[ -f "${shell_config}"/env.$nodename.sh ]] ; then
     # shellcheck source=/dev/null
     source "${shell_config}"/env.$nodename.sh
