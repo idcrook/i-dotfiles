@@ -1,5 +1,4 @@
 tap "homebrew/cask"
-tap "homebrew/command-not-found"
 # tap "homebrew/core"
 # tap "homebrew/services"
 # tap d12frosted/emacs-plus
