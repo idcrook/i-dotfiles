@@ -26,6 +26,8 @@ _swiftly() {
                 'init:Perform swiftly initialization into your user account.'
                 'self-update:Update the version of swiftly itself.'
                 'run:Run a command while proxying to the selected toolchain commands.'
+                'link:Link swiftly so it resumes management of the active toolchain.'
+                'unlink:Unlinks swiftly so it no longer manages the active toolchain.'
                 'help:Show subcommand help information.'
             )
             _describe "subcommand" subcommands
@@ -59,6 +61,12 @@ _swiftly() {
                 (run)
                     _swiftly_run
                     ;;
+                (link)
+                    _swiftly_link
+                    ;;
+                (unlink)
+                    _swiftly_unlink
+                    ;;
                 (help)
                     _swiftly_help
                     ;;
@@ -77,7 +85,9 @@ _swiftly_install() {
         '(--use -u)'{--use,-u}'[Mark the newly installed toolchain as in-use.]'
         '--verify[Verify the toolchain'"'"'s PGP signature before proceeding with installation.]'
         '--no-verify[Verify the toolchain'"'"'s PGP signature before proceeding with installation.]'
-        '--post-install-file[A file path to a location for a post installation script]:post-install-file:'
+        '--post-install-file[A file path to a location for a post installation script]:post-install-file:_files'
+        '--progress-file[A file path where progress information will be written in JSONL format]:progress-file:_files'
+        '--format[Output format (text, json)]:format:(text json)'
         '(-y --assume-yes)'{-y,--assume-yes}'[Disable confirmation prompts by assuming '"'"'yes'"'"']'
         '--verbose[Enable verbose reporting from swiftly]'
         '--version[Show the version.]'
@@ -93,6 +103,7 @@ _swiftly_list-available() {
     local -a args
     args+=(
         ':toolchain-selector:'
+        '--format[Output format (text, json)]:format:(text json)'
         '--version[Show the version.]'
         '(-h --help)'{-h,--help}'[Show help information.]'
     )
@@ -107,6 +118,7 @@ _swiftly_use() {
     args+=(
         '(--print-location -p)'{--print-location,-p}'[Print the location of the in-use toolchain. This is valid only when there is no toolchain argument.]'
         '(--global-default -g)'{--global-default,-g}'[Set the global default toolchain that is used when there are no .swift-version files.]'
+        '--format[Output format (text, json)]:format:(text json)'
         '(-y --assume-yes)'{-y,--assume-yes}'[Disable confirmation prompts by assuming '"'"'yes'"'"']'
         '--verbose[Enable verbose reporting from swiftly]'
         ':toolchain:'
@@ -138,6 +150,7 @@ _swiftly_list() {
     local -a args
     args+=(
         ':toolchain-selector:'
+        '--format[Output format (text, json)]:format:(text json)'
         '--version[Show the version.]'
         '(-h --help)'{-h,--help}'[Show help information.]'
     )
@@ -155,7 +168,7 @@ _swiftly_update() {
         '--verbose[Enable verbose reporting from swiftly]'
         '--verify[Verify the toolchain'"'"'s PGP signature before proceeding with installation.]'
         '--no-verify[Verify the toolchain'"'"'s PGP signature before proceeding with installation.]'
-        '--post-install-file[A file path to a location for a post installation script]:post-install-file:'
+        '--post-install-file[A file path to a location for a post installation script]:post-install-file:_files'
         '--version[Show the version.]'
         '(-h --help)'{-h,--help}'[Show help information.]'
     )
@@ -202,6 +215,36 @@ _swiftly_run() {
     local -a args
     args+=(
         ':command:'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_link() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':toolchain-selector:'
+        '(-y --assume-yes)'{-y,--assume-yes}'[Disable confirmation prompts by assuming '"'"'yes'"'"']'
+        '--verbose[Enable verbose reporting from swiftly]'
+        '--version[Show the version.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_swiftly_unlink() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':toolchain-selector:'
+        '(-y --assume-yes)'{-y,--assume-yes}'[Disable confirmation prompts by assuming '"'"'yes'"'"']'
+        '--verbose[Enable verbose reporting from swiftly]'
         '--version[Show the version.]'
         '(-h --help)'{-h,--help}'[Show help information.]'
     )
