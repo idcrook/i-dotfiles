@@ -96,3 +96,5 @@ Desktop.ini
 .vscode/*
 vs-build/*
 CMakeSettings.json
+
+**/.claude/settings.local.json

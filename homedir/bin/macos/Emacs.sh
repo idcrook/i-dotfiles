@@ -83,6 +83,12 @@ elif [ "${arch_name}" = "arm64" ]; then
         echo Warning: Emacs /bin directory not found. Using "$EMACSPATH_BIN"
     fi
 
+    if [ -x "${EMACSPATH}/Emacs" ] ; then
+        EMACS_WRAPPER_OR_BIN="${EMACSPATH}/Emacs"
+    else
+        EMACS_WRAPPER_OR_BIN="${EMACSPATH}"/Emacs
+    fi
+
     if [ -x "${EMACSPATH}/Emacs-arm64-11" ] ; then
         EMACS_WRAPPER_OR_BIN="${EMACSPATH}/Emacs-arm64-11"
     else
