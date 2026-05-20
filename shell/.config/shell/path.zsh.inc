@@ -77,4 +77,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
         # rbenv - Homebrew
         # handled in zprezto ruby pmodule
     fi
+
+    # Originally Added by Antigravity in zshrc
+    if [[ -d "${HOME}"/.antigravity/antigravity/bin ]] ; then
+        path=("${HOME}"/.antigravity/antigravity/bin $path)
+    fi
 fi
