@@ -55,8 +55,7 @@ Rust Applications
 
 Cargo can be used, but might as well use system packager where available or if rust is not installed locally.
 
-`ripgrep`
----------
+### `ripgrep`
 
 ```console
 $ cargo install ripgrep
@@ -72,4 +71,13 @@ brew install ripgrep
 
 ```shell
 sudo apt install ripgrep
+```
+
+### kdotool
+
+KDE
+
+```shell
+sudo apt install librust-libdbus-sys-dev
+cargo install kdotool
 ```
