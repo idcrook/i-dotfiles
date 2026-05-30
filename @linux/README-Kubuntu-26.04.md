@@ -5,9 +5,8 @@ Installation on Ubuntu/Kubuntu 25.04 LTS (amd64)
 
 Optional pre-requisites:
 
-1.	`sudo apt install gnome-tweaks`
-	-	CapsLock remap to <kbd>Ctrl</kbd>
-2.	*Visual Studio Code* can be install using the Ubuntu Software app (which installs the snap version).
+1.	CapsLock remap to <kbd>Ctrl</kbd>
+2.	*Visual Studio Code*
 3.	Change shell (`chsh`) to `zsh`
 
 ```shell
@@ -25,8 +24,6 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 # git clone --recurse-submodules https://github.com/idcrook/i-dotfiles.git ~/.dotfiles
 # this requires SSH key on git account
 git clone --recurse-submodules   git@github.com:idcrook/i-dotfiles.git ~/.dotfiles
-# git clone --recurse-submodules git@github.com:idcrook/i-dotfiles.git ~/.dotfiles
-
 
 cd ~/.dotfiles
 stow -t ~ stow # bootstrap stow config at top-level
@@ -79,13 +76,14 @@ stow -vv espanso
 # espanso README: Use AppImage manual install and custom settings
 
 cd ~/.dotfiles/_dpkg
-# ...  install_packages.ubuntu25.04.txt
+# ...  install_packages.ubuntu26.04.txt
 cd ~/.dotfiles/_pip
-# ...  packages3.ubuntu25.04.txt
+# ...  packages3.ubuntu26.04.txt
 cd ~/.dotfiles/_npm
 # ...
 
 # login from a new terminal
+zsh --login -i
 emacs -nw
 
 cd  ~/.dotfiles/golang
