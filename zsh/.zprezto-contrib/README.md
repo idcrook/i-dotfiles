@@ -3,8 +3,11 @@ My prezto zsh modules
 
 Collections of modules
 
--	`swiftly` [swiftly](https://www.swift.org/swiftly/documentation/swiftly/shell-autocompletion/) completions
--	`kubernetes` aliases I use in bash ported to zsh
+ -	`kubernetes` aliases I use in bash ported to zsh
+     - `brew install kubernetes-cli`
+ -   `direnv` unclutter your .profile
+     - `brew install direnv`
+ -	`swiftly` [swiftly](https://www.swift.org/swiftly/documentation/swiftly/shell-autocompletion/) completions
 -	`mojo` Computer language/SDK like Python from [Modular](https://docs.modular.com/mojo/)
 -	`emacs-action` do things in emacs from terminal command line
 -	`brew-command-not-found` command-not-found handler

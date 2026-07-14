@@ -1,6 +1,17 @@
 ZSH config
 ==========
 
+## Dependencies
+
+### zprezto macOS modules
+
+```
+brew install direnv
+brew install kubernetes-cli
+```
+
+### History
+
 macOS 10.15 Catalina makes `zsh` the default shell; figured I'd embrace it early.
 
 Using Prezto and powerlevel10k
