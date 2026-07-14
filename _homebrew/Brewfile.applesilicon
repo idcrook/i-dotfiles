@@ -14,6 +14,7 @@ brew "colordiff"
 brew "coreutils" # PATH="/opt/homebrew/opt/coreutils/libexec/gnubin" for non-g prefix
 brew "cpanminus"
 brew "curl"
+brew "direnv"
 brew "dos2unix"
 brew "editorconfig"
 brew "git"
