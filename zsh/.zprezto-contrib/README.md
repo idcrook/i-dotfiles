@@ -7,6 +7,7 @@ Collections of modules
      - `brew install kubernetes-cli`
  -   `direnv` unclutter your .profile
      - `brew install direnv`
+ -   `vterm` emacs vterm zsh integration
  -	`swiftly` [swiftly](https://www.swift.org/swiftly/documentation/swiftly/shell-autocompletion/) completions
 -	`mojo` Computer language/SDK like Python from [Modular](https://docs.modular.com/mojo/)
 -	`emacs-action` do things in emacs from terminal command line

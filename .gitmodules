@@ -23,3 +23,6 @@
 [submodule "zsh/.zprezto-contrib/direnv"]
 	path = zsh/.zprezto-contrib/direnv
 	url = https://github.com/idcrook/prezto-direnv
+[submodule "zsh/.zprezto-contrib/vterm"]
+	path = zsh/.zprezto-contrib/vterm
+	url = https://github.com/idcrook/prezto-emacs-vterm
