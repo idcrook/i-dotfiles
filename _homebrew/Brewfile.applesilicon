@@ -4,6 +4,8 @@ tap "homebrew/cask"
 # tap d12frosted/emacs-plus
 # for brew graph # https://github.com/martido/homebrew-graph
 # tap martido/homebrew-graph
+# https://github.com/adolfousier/opencrabs
+brew "adolfousier/opencrabs/opencrabs"
 # https://github.com/mattt/olleh
 tap "mattt/tap"
 # brew "archey"
