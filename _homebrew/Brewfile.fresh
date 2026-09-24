@@ -1,0 +1,9 @@
+trust d12frosted/emacs-plus
+tap d12frosted/emacs-plus
+cask emacs-plus-app 
+
+cask "firefox"
+cask "firefox"
+cask "google-chrome"
+cask "google-gemini"
+cask "geekbench"

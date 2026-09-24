@@ -14,12 +14,18 @@ install rustlang
 macOS
 -----
 
-```
+```shell
 # next line should already be done by homebrew
-brew install rustup-init
+# brew install rustup-init
+
+## Warning: rustup 1.29.1 is already installed and up-to-date.
+## To reinstall 1.29.1, run:
+##   brew reinstall rustup
 
 # Can customize installation; do not modify PATH variables
-rustup-init --no-modify-path
+# rustup-init --no-modify-path
+
+rustup toolchain install stable
 ```
 
 After installing `stable`, start a new shell- `~/.cargo/bin` should be found and added to path
@@ -62,6 +68,8 @@ $ cargo install ripgrep
 ```
 
 #### macOS
+
+Use the pre-built version
 
 ```shell
 brew install ripgrep

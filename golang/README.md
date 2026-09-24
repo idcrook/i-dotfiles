@@ -34,20 +34,6 @@ version 1.19  as of January 2024
 sudo apt install -y golang-go
 ```
 
-Raspberry Pi OS (manual)
----------------
-
-See https://golang.org/dl/ for latest version. There are currently ARMv6 and ARMv8 (64-bit) ARM versions
-
-```console
-$ cd ~/Downloads/
-$ wget https://golang.org/dl/go1.16.3.linux-armv6l.tar.gz
-$ sha256sum go1.16.3.linux-armv6l.tar.gz
-$ test -d /usr/local/go && sudo rm -rf /usr/local/go
-$ sudo tar -C /usr/local -xzf go1.16.3.linux-armv6l.tar.gz
-```
-
-The above commands will install into `/usr/local/go/bin`
 
 macOS
 -----

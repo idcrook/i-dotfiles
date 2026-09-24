@@ -19,6 +19,8 @@ pip3 install --break-system-packages --user --requirement  packages3.ubuntu24.04
 pip3 install --user --requirement packages3.ubuntu22.04.txt
 pip3 install --break-system-packages --user --requirement  packages3.raspios.bookworm.txt
 
+pip3 install --break-system-packages --user --requirement  packages3.macos.goldengate.txt
+
 # for ESP, micropython, arduino, etc.
 pip3 install --break-system-packages --user --requirement  packages.hwdev.macos.txt
 ```
