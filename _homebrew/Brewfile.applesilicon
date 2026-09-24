@@ -1,19 +1,19 @@
-tap "homebrew/cask"
+# tap "homebrew/cask"
 # tap "homebrew/core"
 # tap "homebrew/services"
 # tap d12frosted/emacs-plus
 # for brew graph # https://github.com/martido/homebrew-graph
 # tap martido/homebrew-graph
 # https://github.com/adolfousier/opencrabs
-brew "adolfousier/opencrabs/opencrabs"
+# brew "adolfousier/opencrabs/opencrabs"
 # https://github.com/mattt/olleh
-tap "mattt/tap"
+# tap "mattt/tap"
 # brew "archey"
 # brew "bash"
 # brew "bash-completion@2"
 # brew "brightness"
 brew "colordiff"
-brew "coreutils" # PATH="/opt/homebrew/opt/coreutils/libexec/gnubin" for non-g prefix
+# brew "coreutils" # PATH="/opt/homebrew/opt/coreutils/libexec/gnubin" for non-g prefix
 brew "cpanminus"
 brew "curl"
 brew "direnv"
@@ -30,10 +30,10 @@ brew "jq"
 # brew "keychain"
 brew "kubernetes-cli"
 brew "mas"
-brew "mosh"
-brew "multimarkdown"
-brew "nvm"
-brew "olleh"
+# brew "mosh"
+# brew "multimarkdown"
+# brew "nvm"
+# brew "olleh"
 brew "p7zip"
 brew "pandoc"
 brew "pstree"
@@ -48,13 +48,13 @@ brew "shellcheck"
 # brew "ssh-copy-id", link: true
 brew "stow"
 brew "the_silver_searcher"
-brew "tmux"
-brew "reattach-to-user-namespace"
-brew "ruff"
+# brew "tmux"
+# brew "reattach-to-user-namespace"
+# brew "ruff"
 brew "tree"
 brew "wget"
 brew "yamllint"
-brew "youtube-dl"
+# brew "youtube-dl"
 # brew yt-dlp/taps/yt-dlp
 # brew "zbar"
 brew "zsh-completions"
@@ -62,17 +62,17 @@ cask "acorn"
 cask "airfoil"
 # cask "amazon-music" # 2025-Jan-03 The current OS X version is not supported
 # cask "appzapper"
-cask "beardedspice"
+# cask "beardedspice"
 cask "carbon-copy-cloner"
 cask "discord"
-cask "emacs"
+# cask "emacs"
 cask "espanso"
 # cask "epoccam"
 # cask "firefox" # install manually
 cask "font-cascadia-mono-pl"
 cask "font-dejavu-sans-mono-nerd-font"
 cask "font-hack-nerd-font"
-cask "font-humor-sans"
+# rcask "font-humor-sans"
 cask "font-inconsolata-for-powerline"
 cask "font-inconsolata-nerd-font"
 cask "font-intel-one-mono"
@@ -82,13 +82,13 @@ cask "font-meslo-for-powerlevel10k"
 cask "font-meslo-lg-nerd-font"
 cask "font-ubuntu-mono-nerd-font"
 # version 4 # cask "forklift"
-cask "gitup"
+# cask "gitup"
 cask "grandperspective"
 # cask "hammerspoon"
 # FIXME # cask "hermes"
 # cask "icanhazshortcut"
 #cask "iina"
-cask "istat-menus"
+# cask "istat-menus"
 cask "imageoptim"
 cask "iterm2"
 cask "joplin"
@@ -100,21 +100,21 @@ cask "omnidisksweeper"
 cask "orion"
 cask "plex"
 cask "plus42-decimal"
-cask "rar"
+# cask "rar"
 cask "raspberry-pi-imager"
-cask "sf-symbols"
+# cask "sf-symbols"
 cask "slack"
 # cask "spyder"
-cask "swiftbar"
+# cask "swiftbar"
 cask "transmission"
 cask "transmit"
 cask "visual-studio-code"
 cask "vlc"
-cask "vnc-viewer"
+# cask "vnc-viewer"
 # zoom installer wants password
 cask "zoom"
 # mas "1Keyboard", id: 766939888
-mas "1Password 7", id: 1333542190
+# mas "1Password 7", id: 1333542190
 # mas "Amphetamine", id: 937984704
 # mas "Byword", id: 420212497
 mas "Discovery", id: 1381004916
@@ -126,22 +126,22 @@ mas "Fantastical", id: 975937182
 # mas "FSNotes", id: 1277179284
 mas "HEIC Converter", id: 1294126402
 mas "iMazing HEIC Converter", id: 1292198261
-mas "Instapaper", id: 288545208
-mas "Jayson", id: 1468691718
+# mas "Instapaper", id: 288545208
+# mas "Jayson", id: 1468691718
 mas "Key Codes", id: 414568915
 # mas "Keynote", id: 409183694
 # mas "Kindle", id: 405399194
 # mas "LanScan", id: 472226235
 # mas "Location Helper", id: 488536386
 mas "Magnet", id: 441258766
-mas "Marked 2", id: 890031187
+# mas "Marked 2", id: 890031187
 # mas "Microsoft Remote Desktop", id: 1295203466
 # mas "Mobile Mouse Server", id: 412814284
 # mas "Notability", id: 360593530
 # mas "Numbers", id: 409203825
 # mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
-mas "Parcel", id: 639968404
+# mas "Parcel", id: 639968404
 mas "PCalc", id: 403504866
 mas "PhotoResize", id: 492236133
 # mas "Prizmo", id: 546392952
@@ -149,7 +149,7 @@ mas "PhotoResize", id: 492236133
 # mas "Radio Paradise", id: 663334697
 # mas "ReadKit", id: 588726889
 mas "Reeder", id: 1529448980
-mas "Screens", id: 1224268771
+# mas "Screens", id: 1224268771
 # mas "Secrets", id: 973049011
 # mas "Sip", id: 507257563
 # mas "Slack", id: 803453959
@@ -158,4 +158,4 @@ mas "Screens", id: 1224268771
 mas "Stockfish", id: 801463932
 mas "TableFlip", id: 1462643128
 mas "Things", id: 904280696
-mas "Xcode", id: 497799835
+# mas "Xcode", id: 497799835
