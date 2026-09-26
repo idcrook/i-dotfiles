@@ -1,9 +1,30 @@
 trust d12frosted/emacs-plus
 tap d12frosted/emacs-plus
-cask emacs-plus-app 
+cask emacs-plus-app
 
 cask "firefox"
 cask "firefox"
 cask "google-chrome"
 cask "google-gemini"
 cask "geekbench"
+
+
+# brew tap jundot/omlx https://github.com/jundot/omlx
+# brew install jundot/omlx/omlx
+
+# # Upgrade to the latest version
+# brew update && brew upgrade omlx
+
+# # Run as a background service (auto-restarts on crash)
+# omlx start
+
+# # Optional: MCP (Model Context Protocol) support
+# /opt/homebrew/opt/omlx/libexec/bin/pip install mcp
+
+# To start jundot/omlx/omlx now and restart at login:
+#   brew services start jundot/omlx/omlx
+
+# brew install llama.cpp
+# /Users/dpc/.cache/huggingface/hub/
+
+#  brew services restart omlx
