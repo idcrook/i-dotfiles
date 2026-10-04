@@ -28,3 +28,6 @@ cask "geekbench"
 # /Users/dpc/.cache/huggingface/hub/
 
 #  brew services restart omlx
+
+# desktop utility / menubar toolkit
+cask "vorssaint"
