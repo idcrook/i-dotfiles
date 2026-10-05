@@ -7,6 +7,8 @@ cask "firefox"
 cask "google-chrome"
 cask "google-gemini"
 cask "geekbench"
+# desktop utility / menubar toolkit
+cask "vorssaint"
 
 
 # brew tap jundot/omlx https://github.com/jundot/omlx
@@ -23,16 +25,23 @@ cask "geekbench"
 
 # To start jundot/omlx/omlx now and restart at login:
 #   brew services start jundot/omlx/omlx
+#  brew services restart omlx
 
+# MODEL CLEANUP
+# rm -rf ~/.omlx/models/MODEL_NAME_HERE
+
+
+
+# MODEL CLEANUP - llama.cpp huggingface cache
 # brew install llama.cpp
 # /Users/dpc/.cache/huggingface/hub/
-
-#  brew services restart omlx
+# ~/bin/macos/llama-rm.zsh
 
 ## https://github.com/incoai/splash
 
 # brew install incoai/tap/splash
 # splash serve --model mlx-community/Qwen3.8-27B-4bit
 
-# desktop utility / menubar toolkit
-cask "vorssaint"
+
+#  --cache-dir  = prefix cache dir
+# HF_HUB_CACHE=/Volumes/Models/huggingface  = external model cache
