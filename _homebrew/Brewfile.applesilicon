@@ -119,7 +119,7 @@ mas "HEIC Converter", id: 1294126402
 mas "Home Assistant", id: 1099568401
 mas "iMazing HEIC Converter", id: 1292198261
 mas "Key Codes", id: 414568915
-mas "Keynote", id: 409183694
+#=== mas "Keynote", id: 409183694
 # mas "Kindle", id: 405399194
 # mas "LanScan", id: 472226235
 # mas "Location Helper", id: 488536386
@@ -127,17 +127,17 @@ mas "Magnet", id: 441258766
 mas "Marked Quick Look", id: 6787414592
 # mas "Microsoft Remote Desktop", id: 1295203466
 # mas "Mobile Mouse Server", id: 412814284
-mas "Numbers", id: 409203825
+#=== mas "Numbers", id: 409203825
 mas "OneTab", id: 1540160809
-mas "Pages", id: 409201541
+#=== mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
 # mas "Parcel", id: 639968404
 mas "Parcel", id: 375589283
 mas "PCalc", id: 403504866
 mas "PhotoResize", id: 492236133
-mas "Radio Paradise", id: 663334697
+#=== mas "Radio Paradise", id: 663334697
 mas "Reeder", id: 1529448980
-mas "Sip", id: 507257563
+#=== mas "Sip", id: 507257563
 mas "Slack", id: 803453959
 mas "Stockfish", id: 801463932
 mas "TableFlip", id: 1462643128

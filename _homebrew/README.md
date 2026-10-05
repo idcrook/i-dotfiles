@@ -1,9 +1,9 @@
 **Homebrew https://brew.sh setup on macOS**
+===========================================
 
 On Apple Silicon, it is possible to have entire Homebrew for both Apple Silicon and Intel installed side-by-side.
 
 Below assumes Homebrew has already been installed : https://docs.brew.sh/Installation
-
 
 My Typical macOS Homebrew Bring-up
 ----------------------------------
@@ -11,7 +11,7 @@ My Typical macOS Homebrew Bring-up
 Pre-reqs (`bundle` and `mas` for `Brewfile`\)
 
 ```shell
-brew tap homebrew/bundle
+# brew tap homebrew/bundle
 brew install mas
 # might also assume # brew install git stow
 ```
@@ -62,7 +62,7 @@ Capturing configuration, including Homebrew taps, casks, and MAS (Mac App Store)
 --------------------------------------------------------------------------------
 
 ```shell
-brew tap homebrew/bundle
+# brew tap homebrew/bundle
 brew bundle dump --file=- > Brewfile
 ```
 
@@ -81,7 +81,6 @@ open graph.png
 ```
 
 `graphviz` itself installs many dependencies...
-
 
 other tools
 
