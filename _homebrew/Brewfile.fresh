@@ -33,3 +33,6 @@ cask "geekbench"
 
 # brew install incoai/tap/splash
 # splash serve --model mlx-community/Qwen3.8-27B-4bit
+
+# desktop utility / menubar toolkit
+cask "vorssaint"
