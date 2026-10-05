@@ -47,6 +47,7 @@ Basics
 -	Firefox - https://www.mozilla.org/firefox/download/
 -	Marked 3
 -	AppZapper 3000
+-   No longer have license - Sip (v4) https://sipapp.io/updates/#sip-4
 
 Utilities
 ---------
