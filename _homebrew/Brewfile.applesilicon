@@ -34,22 +34,19 @@ brew "kubernetes-cli"
 brew "libtool"
 brew "libvterm"
 brew "mas"
-# brew "mosh"
 # brew "multimarkdown"
 # brew "nvm"
-# brew "olleh"
 brew "p7zip"
 brew "pandoc"
 brew "pstree"
 brew "pv"
-brew "python" # currently python@3.9
+brew "python" # currently python@3.14
 brew "qrencode"
 brew "rcs"
 brew "ripgrep"
 brew "rsync"
 brew "rustup-init"
 brew "shellcheck"
-# brew "ssh-copy-id", link: true
 brew "stow"
 brew "the_silver_searcher"
 # brew "tmux"
@@ -60,23 +57,21 @@ brew "wget"
 brew "yamllint"
 # brew "youtube-dl"
 # brew yt-dlp/taps/yt-dlp
-# brew "zbar"
 brew "zsh-completions"
 cask "acorn"
 cask "airfoil"
 # cask "amazon-music" # 2025-Jan-03 The current OS X version is not supported
-# cask "appzapper"
+# cask "appzapper" # - replaced by appzapper 3000
 # cask "beardedspice"
 cask "carbon-copy-cloner"
 cask "discord"
 # cask "emacs"
 cask "espanso"
-# cask "epoccam"
 # cask "firefox" # install manually
 cask "font-cascadia-mono-pl"
 cask "font-dejavu-sans-mono-nerd-font"
 cask "font-hack-nerd-font"
-# rcask "font-humor-sans"
+# cask "font-humor-sans"
 cask "font-inconsolata-for-powerline"
 cask "font-inconsolata-nerd-font"
 cask "font-intel-one-mono"
@@ -89,9 +84,6 @@ cask "font-ubuntu-mono-nerd-font"
 # cask "gitup"
 cask "grandperspective"
 # cask "hammerspoon"
-# FIXME # cask "hermes"
-# cask "icanhazshortcut"
-#cask "iina"
 # cask "istat-menus"
 cask "imageoptim"
 cask "iterm2"
@@ -100,7 +92,6 @@ cask "keycastr"
 cask "little-snitch"
 # cask "netnewswire"
 cask "omnidisksweeper"
-# cask "onyx"
 # cask "orion"
 cask "plex"
 cask "plus42-decimal"
@@ -108,58 +99,48 @@ cask "plus42-decimal"
 cask "raspberry-pi-imager"
 # cask "sf-symbols"
 cask "slack"
-# cask "spyder"
-# cask "swiftbar"
 cask "transmission"
 cask "transmit"
 cask "visual-studio-code"
 cask "vlc"
-# cask "vnc-viewer"
 # zoom installer wants password
 cask "zoom"
-# mas "1Keyboard", id: 766939888
-# mas "1Password 7", id: 1333542190
 # mas "Amphetamine", id: 937984704
-# mas "Byword", id: 420212497
+mas "Clipboard Normalizer", id: 6809465278
+mas "Developer", id: 640199958
 mas "Discovery", id: 1381004916
 # mas "Disk Diag", id: 672206759
-# mas "Disk Speed Test", id: 425264550
+mas "Disk Speed Test", id: 425264550
 # mas "Downlink", id: 1454269192
 mas "Drafts", id: 1435957248
 mas "Fantastical", id: 975937182
-# mas "FSNotes", id: 1277179284
+mas "FileRouter", id: 6792562438
 mas "HEIC Converter", id: 1294126402
+mas "Home Assistant", id: 1099568401
 mas "iMazing HEIC Converter", id: 1292198261
-# mas "Instapaper", id: 288545208
-# mas "Jayson", id: 1468691718
 mas "Key Codes", id: 414568915
-# mas "Keynote", id: 409183694
+mas "Keynote", id: 409183694
 # mas "Kindle", id: 405399194
 # mas "LanScan", id: 472226235
 # mas "Location Helper", id: 488536386
 mas "Magnet", id: 441258766
-# mas "Marked 2", id: 890031187
+mas "Marked Quick Look", id: 6787414592
 # mas "Microsoft Remote Desktop", id: 1295203466
 # mas "Mobile Mouse Server", id: 412814284
-# mas "Notability", id: 360593530
-# mas "Numbers", id: 409203825
-# mas "Pages", id: 409201541
+mas "Numbers", id: 409203825
+mas "OneTab", id: 1540160809
+mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
 # mas "Parcel", id: 639968404
+mas "Parcel", id: 375589283
 mas "PCalc", id: 403504866
 mas "PhotoResize", id: 492236133
-# mas "Prizmo", id: 546392952
-# mas "QuickSleep", id: 1121441756
-# mas "Radio Paradise", id: 663334697
-# mas "ReadKit", id: 588726889
+mas "Radio Paradise", id: 663334697
 mas "Reeder", id: 1529448980
-# mas "Screens", id: 1224268771
-# mas "Secrets", id: 973049011
-# mas "Sip", id: 507257563
-# mas "Slack", id: 803453959
-# mas "Soulver", id: 413965349
-# mas "Spark", id: 1176895641
+mas "Sip", id: 507257563
+mas "Slack", id: 803453959
 mas "Stockfish", id: 801463932
 mas "TableFlip", id: 1462643128
+mas "TerminalWidget", id: 6764288419
 mas "Things", id: 904280696
 # mas "Xcode", id: 497799835
