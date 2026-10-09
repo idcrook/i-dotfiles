@@ -6,7 +6,8 @@ sudo apt install -y screen tmux mosh dselect rcs \
      unzip zsh colordiff vim libcurl4-openssl-dev
 
 # some special cases
-sudo apt install molly-guard git-lfs
+sudo apt install molly-guard
+sudo apt install git-lfs
 
 # some emacs dependencies
 sudo apt install -y \
@@ -15,7 +16,7 @@ sudo apt install -y \
      python3-venv python3-virtualenvwrapper python3-wheel \
      python3-tk fonts-powerline fonts-hack fonts-inconsolata \
      fonts-dejavu fonts-symbola fonts-anonymous-pro fonts-cascadia-code \
-     libvterm-dev
+     libvterm-dev cmake
 
 # emacs30- (emacs-gtk) is version in trixie
 sudo apt install emacs
