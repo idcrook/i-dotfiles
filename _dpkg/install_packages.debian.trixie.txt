@@ -6,8 +6,8 @@ sudo apt install -y screen tmux mosh dselect rcs \
      unzip zsh colordiff vim libcurl4-openssl-dev
 
 # some special cases
-sudo apt install molly-guard
-sudo apt install git-lfs
+sudo apt install -y molly-guard
+sudo apt install -y git-lfs
 
 # some emacs dependencies
 sudo apt install -y \
@@ -40,7 +40,5 @@ sudo apt install hub
 # Kubuntu: krfb
 
 # espanso - https://espanso.org/install/linux/
-# => build from source
 
-# Visual Studio code
-# see https://code.visualstudio.com/docs/setup/linux#_install-vs-code-on-linux
+
