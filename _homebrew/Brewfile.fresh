@@ -45,3 +45,8 @@ cask "vorssaint"
 
 #  --cache-dir  = prefix cache dir
 # HF_HUB_CACHE=/Volumes/Models/huggingface  = external model cache
+
+# termix - https://termix.site/install/apps/macos
+# brew tap Termix-SSH/Termix https://github.com/Termix-SSH/Termix.git
+# brew trust --cask termix-ssh/termix/termix
+# brew install --cask termix
