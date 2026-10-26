@@ -116,8 +116,8 @@ cask "vorssaint"
 # zoom installer wants password
 cask "zoom"
 
-# https://github.com/lab421/forel
-cask "lab421/tap/forel"
+# # https://github.com/lab421/forel
+# cask "lab421/tap/forel"
 
 # mas "Amphetamine", id: 937984704
 mas "Clipboard Normalizer", id: 6809465278
